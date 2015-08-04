@@ -1,0 +1,463 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <title>无标题文档</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/tour.css">
+    <script type="text/javascript" src="../scripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../scripts/CommonJs.js"></script>
+    <script type="text/javascript" src="../scripts/iscroll-probe.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.scrollTo.js"></script>
+    <script type="text/javascript" src="../scripts/TourJs.js"></script>
+    <script type="text/javascript" src="../scripts/tour_detail.js"></script>
+</head>
+
+<body>
+<div class="HeaderView">
+    <h1>产品详情</h1>
+    <i class="ReturnIco"></i>
+    <i class="ButtonIco ShareIco"></i>
+    <i class="ButtonIco FavoriteIco"></i>
+</div>
+<article>
+    <div class="tourDetail">
+        <div class="db pdName">
+            <div id="image-node" class="img_node">
+                <img src="http://img.gzl.com.cn:9999/upload/2015/3/8/41a01ec7-46e4-471c-bc35-d74fac783b51_480X320.jpg"
+                     alt=""/>
+
+                <div class="detail_supplier_info"><p class="start">广州出发</p>
+
+
+                    <p class="no">路线编号：1678487</p></div>
+            </div>
+            <div id="js_product_info" class="detail_product_intro">
+                <div id="js_bargain_intro_tour" class="detail_intro_box detail_bargain_intro">
+                    <!--<div class="detail_bargain js_bargain_tour"><span>想便宜?</span>
+
+                        <p>砍价购买</p></div>-->
+                    <h2>华东5市+绍兴+乌镇+西塘6日跟团游(3钻)·宿乌镇内 2晚4钻+1晚5钻 上海成团</h2>
+
+                    <div id="js_price_box" class="price_box"><p class="price"><dfn>¥</dfn>899<em>/人起</em></p></div>
+                </div>
+                <div class="detail_favorable detail_arrow" id="js_promotion"><p class="onsale_text">约惠春天:早订优惠、多订优惠</p>
+                </div>
+                <div class="detail_characteristic">
+                    <div class="characteristic_icon"><i class="hui">惠</i> <i class="green">铁定成团</i> <i
+                            class="green">夜宿乌镇</i> <i class="green">无购物</i> <i class="green">18个景点</i> <i class="green">行车时长短</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="db mt10 detail_mod_box js_to_comment detail_mod_comment detail_arrow">
+            <h3 class="mod_hd arrows_icon"> 点评：<span class="comment_tips">841人出游，153条点评</span><!--<strong>4.7</strong>分-->
+            </h3>
+
+            <div class="mod_bd"><p class="comment_con">行程安排合理，该去的都去了，吃的也还不错</p></div>
+        </div>
+
+        <div data-href="tour_calendar.html" id="ctm_tour_detail_schedule" class="db mt10 js_schedule detail_mod_box detail_mod_schedule"><h3
+                class="mod_hd arrows_icon detail_arrow">出发班期与价格日历</h3>
+
+            <div class="schedule_list"><span>03/19</span><span>03/21</span><span>03/23</span><span>03/26</span><span>03/28</span><span>03/30</span><span>04/02</span><span>04/04</span><span>04/06</span><span>...</span>
+            </div>
+        </div>
+
+        <div id="js_detail_tab_wrap" class="mt10 detail_tab_wrap">
+            <div id="js_detail_tab" class="db detail_slide_tab"><p id="ctm_tour_detail_summary" class="current">产品特色</p>
+
+                <p id="ctm_tour_detail_route" class="">6日行程</p>
+
+                <p class="">须知</p><b class="slide_border"></b></div>
+
+            <div style="display: none;" class="tab_loading">
+                <!--<div style="" class="cui-breaking-load">
+                    <div class="cui-i cui-m-logo"></div>
+                    <div class="cui-i cui-w-loading"></div>
+                </div>-->
+            </div>
+
+            <div id="js_tab_showbox_0" class="profile_box js_tab_showbox" style="/*display: none;*/">
+                <div id="js_pm_recommend" class="detail_mod_box detail_mod_pm"><h3 class="mod_hd"><img class="pm_photo"
+                                                                                                       src="http://dimg04.c-ctrip.com/images/t1/vacations/180000/179784/9e2fd13351b04790ae2441417a05029e.jpg"
+                                                                                                       alt="">产品经理推荐
+                </h3>
+
+                    <div class="mod_bd">
+                        <ul class="detail_text_list">
+                            <li>润江南热销产品升级啦：为了让游客体验更佳，住宿酒店有惊喜哦~~</li>
+                            <li>免费接送：陌生的城市，温馨的服务，我们承诺接送一站式贴心服务！</li>
+                            <li>品质保证：全程0购物，保证不进店，我们赚的只是咱老百姓的口碑！</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="js_description_placeholder">
+                    <div class="detail_mod_box detail_mod_feature"><h3 class="mod_hd">产品特色</h3>
+
+                        <div class="mod_bd"><p>
+                            <span style="color:#E53333;line-height:1.5;"> </span>
+                        </p>
+
+                            <p>
+                                <span style="color:#E53333;"> </span>
+                            </p>
+
+                            <p>
+                                <span style="color:#E53333;line-height:1.5;">春天来了，快和春天来次亲密的约“惠”吧！约“惠”有效期（出发日期4月1日至6月30日）</span>
+                            </p>
+
+                            <p>
+                                <span style="color:#E53333;">约“惠”要赶早：提前15天预订每单立减100元（2人起），提前25天预定每单再减100元（2人起）。</span>
+                            </p>
+
+                            <p>
+                                <span style="color:#E53333;">约“惠”要人多：6人及以上预定每单立减200元。</span>
+                            </p>
+
+                            <p>
+                                <span style="color:#E53333;">约“惠”要分享：点评后返现40元/人。（具体返现规则以网站公布为准，线下预订不享受此优惠）</span>
+                            </p>
+
+                            <p>
+                                <span style="line-height:1.5;color:#CC33E5;"><strong>★本产品为润江南经典产品，我们的追求，让您花最少的钱，玩转华东，华东旅行请选择</strong></span><strong><a
+                                    href="http://vacations.ctrip.com/whole-1B126PB21861Z1400-P-2_2c15_2c16_2c17-beijing-huadong/?searchText=%bb%aa%b6%ab#ctm_ref=va_lst_0_flt_p1_9_12_txt"
+                                    target="_blank"><strong><span
+                                    style="color:#E53333;"><u>【润江南】</u></span></strong></a></strong><span
+                                    style="line-height:1.5;color:#CC33E5;"><strong>主题品牌。</strong></span>
+                            </p>
+
+                            <p>
+                                <span style="line-height:1.5;color:#E53333;"> </span>
+                            </p>
+
+                            <p>
+                                <span style="color:#CC33E5;">★【独家升级住宿】-羊年大赠：</span><span><span style="color:#EE33EE;">为了让游客体验更佳，我们在住宿方面做了<strong><span
+                                    style="color:#E53333;">较大的提升</span></strong>，</span></span><span><span
+                                    style="color:#EE33EE;">特</span></span><span><span
+                                    style="color:#EE33EE;">别安</span></span><span
+                                    style="color:#EE33EE;">排一晚</span><strong><span
+                                    style="color:#E53333;">夜宿乌镇内</span></strong><span style="color:#EE33EE;">，详细情况请看行程内容！</span>
+                            </p>
+
+                            <p>
+                                <span style="color:#CC33E5;line-height:1.5;">★【独家升级用餐】-全程餐标30元/人/正餐，正规团队餐厅，西栅内升级40元/人，让您在外吃的放心。</span>
+                            </p>
+
+                            <p>
+                                <span style="color:#CC33E5;">★【精华景点全含】-精选景区或世遗景点：中山陵、夫子庙、灵山大佛、船游西湖<strong><span
+                                        style="color:#E53333;">（</span></strong><strong><span style="color:#E53333;">VIP包船）</span></strong>、乌镇西栅、西塘、留园等。</span>
+                            </p>
+
+                            <p>
+	<span style="color:#CC33E5;">★【独家免费接送】-我们承诺接送一站式贴心服务，无论几点，无论哪个火车站或机场，我们都将免费提供。<br>
+</span>
+                            </p>
+
+                            <p>
+                                <span style="color:#CC33E5;">★【独家品质保证】-全程0购物，保证不进店，我们赚的只是咱老百姓的口碑。</span>
+                            </p>
+
+                            <p>
+                                <span style="color:#CC33E5;">★【实惠好礼相送】-每成人赠送遮阳伞一把，每人每天一瓶纯净水。</span>
+                            </p></div>
+                    </div>
+                </div>
+                <div id="js_tourshow_placeholder"></div>
+                <div id="js_moreline_placeholder">
+                    <div id="ctm_tour_detail_moreline" class="js_more_detail detail_mod_box detail_mod_more"><h3
+                            class="mod_hd">更多线路</h3>
+                        <ul class="more_list">
+                            <li data-pid="1707431" data-sid="2" data-did="2"><p>宿乌镇外 2晚4钻+1晚5钻 上海成团</p>
+                                <span>                                                                                                                            <strong
+                                        class="more_price"><dfn>¥</dfn>789</strong>起                                                                                                                    </span>
+                            </li>
+                            <li data-pid="1707431" data-sid="2" data-did="2"><p>宿乌镇外 2晚4钻+1晚5钻 上海成团</p>
+                                <span>                                                                                                                            <strong
+                                        class="more_price"><dfn>¥</dfn>789</strong>起                                                                                                                    </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="js_promotion_detail" class="detail_pop" style="/*display:none*/"><h2>优惠<a class="close"
+                                                                                               href="javascript:;">×</a>
+                </h2>
+                    <ul class="pop_list">
+                        <li><p class="sale_txt">约惠春天:早订优惠、多订优惠</p>
+
+                            <p>约“惠”要赶早：提前15天预订每单立减100元（2人起），提前25天预定每单再减100元（2人起）。
+                                约“惠”要人多：6人及以上预定每单立减200元。
+                                约“惠”要分享：点评后返现40元/人。（具体返现规则以网站公布为准）</p></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="js_route_box" class="tab_route_wrap js_tab_showbox" style="/*display: none;*/">
+                <!--<div id="js_cruiseinfo_placeholder"></div>-->
+                <div id="js_route_box_inner">
+                    <div class="route_arrange"><h2 id="route_anchor_0" class="route_arrange_title"><strong>第1天</strong>
+                        <span>各地—上海</span></h2>
+                        <ul class="route_arrange_list">
+                            <li class="time_icon_02"><p>上海快捷连锁酒店</p></li>
+                        </ul>
+                    </div>
+                    <div class="route_arrange"><h2 id="route_anchor_1" class="route_arrange_title"><strong>第2天</strong>
+                        <span>上海—南京</span></h2>
+                        <ul class="route_arrange_list">
+                            <li class="time_icon_03"><p>早餐：酒店自助早（如出发时间较早，早餐可能安排打包便餐）</p>
+
+                                <p>午餐：餐标30元/人<br> <font color="#ff0000">参考餐厅：中山陵大酒店 <br>参考菜单：金陵盐水鸭、盐水大虾、蚝汁炒鸭心、全家福锅仔、酱汁闷鸡仔、豆瓣大鱼头、芹菜干子炒里脊丝、手撕卷心菜、香菇青菜、西红柿蛋汤
+                                    （参考菜单，以当地时令为准）</font></p>
+
+                                <p>晚餐：景区晚餐，为方便安排，敬请自理<br> <font color="#ff0000">推荐小吃：鸭血粉丝、如意回卤干、盐水鸭、糕团小点、什锦豆腐涝等<br>
+                                    推荐店家：夫子庙小吃城、南京大排档、尹氏鸡汁汤包、狮子楼等。</font></p></li>
+                            <li class="time_icon_07"><p><a class="js_scenic_name js_scenic_name_simple"
+                                                           href="javascript:;" data-poiid="75697"
+                                                           data-images="|http://dimg02.c-ctrip.com/images/tg/792/135/155/2c39c218acb04281995021d008a4ff10_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/967/130/845/52c7b653be7b44f19b94f60ac232cdad_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/262/878/134/0b86fd365d5449089afa6d2374039332_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/434/746/890/1a7a94ff65784b6ab41b7ae15008d53b_C_360_202.jpg">中山陵</a>
+                            </p>
+
+                                <p><a class="js_scenic_name js_scenic_name_simple" href="javascript:;"
+                                      data-poiid="10558596"
+                                      data-images="|http://dimg02.c-ctrip.com/images/tg/028/381/201/56e826d88b7945c9bb2830ad1e4391e6_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/340/546/784/62d70cf0e6b84a1bb801ed3fd6d8e8a1_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/205/784/652/fe91268c1af0483e9e1e423a90d83594_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/486/593/338/db3a4ce9a8e24c24a975d4ab500a5742_C_360_202.jpg">玄武湖</a>
+                                </p>
+
+                                <p><a class="js_scenic_name js_scenic_name_simple" href="javascript:;"
+                                      data-poiid="100975"
+                                      data-images="|http://dimg02.c-ctrip.com/images/tg/377/055/906/693b6edeffaf4aa19c93dc6ad4937b02_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/232/586/699/6b0cc4a92889489f95761c6a138f5e53_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/730/753/638/bad760bfc5e741a786e6d8d91722b076_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/673/390/258/5c9c50d142c040dca35ba7ec266c8e34_C_360_202.jpg">夫子庙休闲购物商圈</a>
+                                </p></li>
+                            <li class="time_icon_02"><p>南京水晶蓝湾公寓酒店</p>
+
+                                <p></p>
+
+                                <p>或 南京方源金陵国际酒店</p>
+
+                                <p></p>
+
+                                <p>或 南京世茂滨江希尔顿酒店</p></li>
+                        </ul>
+                    </div>
+                    <div class="route_arrange"><h2 id="route_anchor_2" class="route_arrange_title"><strong>第3天</strong>
+                        <span>南京—无锡—杭州</span></h2>
+                        <ul class="route_arrange_list">
+                            <li class="time_icon_03"><p>早餐：酒店自助早</p>
+
+                                <p>午餐：餐标30元/人<br> <font color="#ff0000">参考餐厅：湖鲜知味馆<br>参考菜单：清蒸白玉、太湖白虾、银鱼炒蛋、无锡排骨、无锡面筋、三鲜鸡块、雪菜肉丝、马山老豆腐、香菇青菜、青椒土豆丝、紫菜蛋汤
+                                    （参考菜单，以当地时令为准）</font></p>
+
+                                <p>晚餐：餐标30元/人<br> <font color="#ff0000">参考餐厅：苏家记<br>参考菜单：冷菜（美味四碟）、盐水明虾、西湖醋鱼、水煮肉片、东坡肉、叫花鸡、海鲜水波蛋、萝卜仔排煲、时蔬三道、汤
+                                    （参考菜单，以当地时令为准）</font></p></li>
+                            <li class="time_icon_07"><p><a class="js_scenic_name js_scenic_name_simple"
+                                                           href="javascript:;" data-poiid="75721"
+                                                           data-images="|http://dimg02.c-ctrip.com/images/tg/558/142/670/0ea075f64eb54d2299033387764e4b63_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/206/044/392/fed078ecf63d483f8a020e97771c2a4a_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/088/729/680/fff0873f559f469d9d8849a2cf1547b9_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/903/898/521/86abd12c0adc440e9dd0045af69c6e7c_C_360_202.jpg">灵山大佛</a>
+                            </p>
+
+                                <p><a class="js_scenic_name js_scenic_name_simple" href="javascript:;"
+                                      data-poiid="82922"
+                                      data-images="|http://dimg02.c-ctrip.com/images/tg/625/015/282/63c314aa7a134e108b85135c9471411f_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/722/451/867/66975120e4734f68b58826f076b6657c_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/001/854/494/4b9c96fea215456abfc1580ad198a39a_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/465/150/238/a8d676db2f2e4bd99af6fd1f15a72891_C_360_202.jpg">西湖</a>
+                                </p>
+
+                                <p><a class="js_scenic_name js_scenic_name_simple" href="javascript:;"
+                                      data-poiid="10558619"
+                                      data-images="|http://dimg02.c-ctrip.com/images/tg/159/529/294/cdf6646cc0bc4798a0c06e8e08f733c3_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/333/649/226/526dee2c88864a039dd774860dfe50c5_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/132/198/722/bf69343ce23847399439f6500194da35_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/702/134/609/d4611dcb92aa4f2286bbd7fa0dc0a036_C_360_202.jpg">宋城</a>
+                                </p></li>
+                            <li class="time_icon_02"><p>宋城千古情主题酒店4星楼</p>
+
+                                <p></p>
+
+                                <p>或 简爱精品酒店（杭州永汇店）</p></li>
+                        </ul>
+                    </div>
+                    <div class="route_arrange"><h2 id="route_anchor_3" class="route_arrange_title"><strong>第4天</strong>
+                        <span>杭州—绍兴—乌镇</span></h2>
+                        <ul class="route_arrange_list">
+                            <li class="time_icon_03"><p>早餐：酒店自助早</p>
+
+                                <p>午餐：餐标30元/人<br> <font color="#ff0000">参考餐厅：知青酒楼、百顺餐厅<br>参考菜单：葱油白水鱼、红烧羊肉、东坡肉、阿婆蛋饺、排骨冬瓜煲、千张包肉、手撕包肉、香菇青菜、肉末粉丝煲、野菜油豆腐
+                                    （参考菜单，以当地时令为准）</font></p>
+
+                                <p>晚餐：餐标40元/人<br> <font
+                                        color="#ff0000">羊年大赠：春节期间班期赠送乌镇西栅内长街宴，天南地北，有缘人共聚乌镇西栅，一起过大年</font></p></li>
+                            <li class="time_icon_07"><p><a class="js_scenic_name js_scenic_name_simple"
+                                                           href="javascript:;" data-poiid="75805"
+                                                           data-images="|http://dimg02.c-ctrip.com/images/fd/tg/g2/M00/27/26/CghzgFTcRWGAK4e6ACgMYnXyKnA838_C_360_202.jpg|http://dimg02.c-ctrip.com/images/fd/tg/g1/M00/27/DB/CghzfFTcRWOAP7P4ACrgBCwZ_vE452_C_360_202.jpg|http://dimg02.c-ctrip.com/images/fd/tg/g1/M01/27/14/CghzfVTcRWCAfJmJACmyF9QAB8c716_C_360_202.jpg|http://dimg02.c-ctrip.com/images/fd/tg/g1/M0A/27/DB/CghzfFTcRV-AZsV5AC9FSfbTcrA119_C_360_202.jpg">鲁迅故里景区</a>
+                            </p>
+
+                                <p><a class="js_scenic_name js_scenic_name_simple" href="javascript:;"
+                                      data-poiid="100724"
+                                      data-images="|http://dimg02.c-ctrip.com/images/fd/tg/g1/M03/94/13/CghzfFS1AYqAO8NXABDraYPvSgg155_C_360_202.jpg|http://dimg02.c-ctrip.com/images/fd/tg/g2/M0B/6A/1E/CghzgFTAwG6Af-REAAyJX3tTbl4003_C_360_202.jpg|http://dimg02.c-ctrip.com/images/fd/tg/g2/M0A/99/E2/Cghzf1S1AT2AS3YMAAysc5G6ggc912_C_360_202.jpg|http://dimg02.c-ctrip.com/images/fd/tg/g1/M09/94/05/CghzflS1AVWAf2fqAAqJqR19MQQ345_C_360_202.jpg">西栅</a>
+                                </p>
+
+                                <p><a class="js_scenic_name js_scenic_name_simple" href="javascript:;"
+                                      data-poiid="97589"
+                                      data-images="|http://dimg02.c-ctrip.com/images/tg/302/551/563/e5a819319017499795055e558c85f6b5_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/448/279/312/aa0ad12af7144b9d84ba203956eec620_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/822/868/266/6bdf1eb38f9d42edba49e121e1119e98_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/127/941/228/9ea5bc201b114729b5c189c0e45d1c1a_C_360_202.jpg">西栅夜游</a>
+                                </p></li>
+                            <li class="time_icon_02"><p>桐乡乌镇民宿</p>
+
+                                <p></p>
+
+                                <p>或 乌镇水市客舍</p>
+
+                                <p></p>
+
+                                <p>或 乌镇通安客栈</p>
+
+                                <p></p>
+
+                                <p>或 乌镇昭明书舍</p></li>
+                        </ul>
+                    </div>
+                    <div class="route_arrange"><h2 id="route_anchor_4" class="route_arrange_title"><strong>第5天</strong>
+                        <span>乌镇—苏州—上海</span></h2>
+                        <ul class="route_arrange_list">
+                            <li class="time_icon_03"><p>早餐：酒店自助早</p>
+
+                                <p>午餐：餐标30元/人<br> <font color="#ff0000">参考餐厅：巴蜀诱惑<br>参考菜单：冷菜（二道）、凉拌海带丝、老粗花生、特色酸菜鱼、四川回锅肉、宫爆鸡丁、青椒炒鸡蛋、地三鲜、肉末酸豇豆、清炒时蔬
+                                    （参考菜单，以当地时令为准）</font></p>
+
+                                <p>晚餐：为方便安排，敬请自理<br> <font
+                                        color="#ff0000">小吃推荐：生煎、油爆虾、撒尿牛丸、盐酥鸡、水果色拉、牛肉汤、鲜肉汤包、黄鱼馄饨、肉松面包</font></p></li>
+                            <li class="time_icon_07"><p><a class="js_scenic_name js_scenic_name_simple"
+                                                           href="javascript:;" data-poiid="79986"
+                                                           data-images="|http://dimg02.c-ctrip.com/images/tg/066/846/528/116521ddb791464ebd7482fd6caf3fa9_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/632/609/043/28d83c7b540940499f2336289de684e2_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/479/558/295/9363484b707d4c0aba37c07c9b56ba48_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/510/683/299/817b5ebaa3794c7a888ba4b0778fd543_C_360_202.jpg">西塘风景区</a>
+                            </p>
+
+                                <p><a class="js_scenic_name js_scenic_name_simple" href="javascript:;"
+                                      data-poiid="10558598"
+                                      data-images="|http://dimg02.c-ctrip.com/images/fd/tg/g1/M0A/0E/24/CghzflTLFtqARovZAA4x7A8A_KY182_C_360_202.jpg|http://dimg02.c-ctrip.com/images/fd/tg/g2/M0A/15/EB/Cghzf1TLF12Abs4VAA2WhDifY_Q914_C_360_202.jpg|http://dimg02.c-ctrip.com/images/fd/tg/g1/M06/0D/97/CghzfVTLFy6AeNBjAAxUq_TYorg220_C_360_202.jpg|http://dimg02.c-ctrip.com/images/fd/tg/g1/M06/0E/0A/CghzfFTLFwWAR-VQAAnZKxo5jpU497_C_360_202.jpg">留园</a>
+                                </p>
+
+                                <p><a class="js_scenic_name js_scenic_name_simple" href="javascript:;"
+                                      data-poiid="76161"
+                                      data-images="|http://dimg02.c-ctrip.com/images/tg/042/578/626/1f6be3cc714245f994829ebfbbf14eb2_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/356/187/383/7cda459871464a5588f34dfbec4ec3d5_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/657/258/865/2741fffadfde40a3a3dd4d3b3a692e75_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/069/807/595/752612eb16f0465991a477d16f856e85_C_360_202.jpg">寒山寺</a>
+                                </p>
+
+                                <p><a class="js_scenic_name js_scenic_name_simple" href="javascript:;"
+                                      data-poiid="10524092"
+                                      data-images="|http://dimg02.c-ctrip.com/images/fd/tg/g2/M06/C1/95/Cghzf1S2InuAKc1hAB5pgTPHFLE014_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/922/587/853/902735bab5e74451ba08bc5b19eecc27_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/544/971/668/da7e1d8ebc5a4cf1a8599d49084a1584_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/926/303/504/bb10ea25f513445d964b84bf47c3da64_C_360_202.jpg">新天地</a>
+                                </p>
+
+                                <p><a class="js_scenic_name js_scenic_name_simple" href="javascript:;"
+                                      data-poiid="10758168"
+                                      data-images="|http://dimg02.c-ctrip.com/images/tg/371/287/700/93028f88e0fb4a8a94a10ee026cecd63_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/739/957/309/a7d110ff42af4fa7818b82bab64db25f_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/891/248/401/8d33000cafcc43e0b436f7c1c7619d12_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/352/160/089/35e53269047a4a47a4077ec5554652e0_C_360_202.jpg">浦江游览</a>
+                                </p>
+
+                                <p><a class="js_scenic_name js_scenic_name_simple" href="javascript:;"
+                                      data-poiid="75627"
+                                      data-images="|http://dimg02.c-ctrip.com/images/tg/610/338/342/2fede12d026f4dddbb142d8450ad0452_C_360_202.jpg|http://dimg02.c-ctrip.com/images/fd/tg/g1/M06/75/0E/CghzflSqUOWARVSzAAf6aBFPkU8575_C_360_202.jpg|http://dimg02.c-ctrip.com/images/fd/tg/g2/M05/77/FF/CghzgVSqUN6AQCW8AAmxDUIG0QA349_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/847/637/532/5f4d1b7ad675434589b731a2bf8a064c_C_360_202.jpg">东方明珠</a>
+                                </p>
+
+                                <p><a class="js_scenic_name js_scenic_name_simple" href="javascript:;"
+                                      data-poiid="75614"
+                                      data-images="|http://dimg02.c-ctrip.com/images/tg/484/277/037/76a88194a7a44c1c981ac77fa8743b8d_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/293/796/697/bd403567a5fb497499e395dc41fd7116_C_360_202.jpg|http://dimg02.c-ctrip.com/images/fd/tg/g1/M0B/F3/01/CghzfVSrexKAT_S2AB4FeqOgcJ4135_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/675/471/175/dbdca57d85004ec299c5e9a4a1e44036_C_360_202.jpg">金茂大厦</a>
+                                </p></li>
+                            <li class="time_icon_02"><p>全季酒店（上海安亭店）</p>
+
+                                <p></p>
+
+                                <p>或 上海世博金尚精品酒店</p>
+
+                                <p></p>
+
+                                <p>或 上海芭堤雅假日酒店</p>
+
+                                <p></p>
+
+                                <p>或 上海知青时代精品酒店</p></li>
+                        </ul>
+                    </div>
+                    <div class="route_arrange"><h2 id="route_anchor_5" class="route_arrange_title"><strong>第6天</strong>
+                        <span>上海—各地</span></h2>
+                        <ul class="route_arrange_list">
+                            <li class="time_icon_03"><p>早餐：酒店自助早</p></li>
+                            <li class="time_icon_07"><p><a class="js_scenic_name js_scenic_name_simple"
+                                                           href="javascript:;" data-poiid="80268"
+                                                           data-images="|http://dimg02.c-ctrip.com/images/tg/456/747/144/39f7333683ec4bb9a7c1d27fd9e2a108_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/002/493/849/59a3ed1dacf5456db9fd61636b9be8c6_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/672/100/148/c69aba86b36b4eb8b70cc185425fc415_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/140/132/690/67abe174b0484757b6217ced41b37cc3_C_360_202.jpg">中华艺术宫</a>
+                            </p>
+
+                                <p><a class="js_scenic_name js_scenic_name_simple" href="javascript:;"
+                                      data-poiid="10524119"
+                                      data-images="|http://dimg02.c-ctrip.com/images/tg/543/908/866/626b1c1826894cedba412cff2f01a749_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/575/073/308/d8abfb1857314d5fbe05b423c84cebca_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/421/140/529/f25cdd3b563d4b3b8cc8c8db4ec6a302_C_360_202.jpg|http://dimg02.c-ctrip.com/images/tg/252/394/848/f78e9c8d9b6948e48bae0e058eef5139_C_360_202.jpg">南京路步行街</a>
+                                </p></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--<div id="js_short_route_btn" class="simple_fixed_btn">图文详情</div>-->
+                <div id="ctm_tour_detail_route_mask" class="abc_fixed_btn js_route_mask_btn"></div>
+                <div id="js_route_bg" class="transparent_mask"></div>
+                <div class="js_route_mask mask_line_route hide" style="height: 592px;">
+                    <div class="mask_line_scroll"
+                         style="height: 332px; transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); -webkit-transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0.001s; -webkit-transition-duration: 0.001s; transform: translate(0px, 0px) translateZ(0px);">
+                        <h2>行程概要</h2>
+
+                        <div class="mask_detail_line single_line">
+                            <ul>
+                                <li data-anchor="0"><h4>第1天</h4>
+                                    <p>各地—上海</p></li>
+                                <li data-anchor="1"><h4>第2天</h4>
+                                    <p>上海—南京</p></li>
+                                <li data-anchor="2"><h4>第3天</h4>
+                                    <p>南京—无锡—杭州</p></li>
+                                <li data-anchor="3"><h4>第4天</h4>
+                                    <p>杭州—绍兴—乌镇</p></li>
+                                <li data-anchor="4"><h4>第5天</h4>
+                                    <p>乌镇—苏州—上海</p></li>
+                                <li data-anchor="5"><h4>第6天</h4>
+                                    <p>上海—各地</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="js_notice_box" class="notice_box js_tab_showbox" style="/*display: none;*/">
+                <div id="js_cost_info">
+                    <dl class="profile_info">
+                        <dd><h3 class="pm_title">费用包含</h3>
+                            <ul class="pm_list">
+                                <li>行程所列酒店住宿费用。</li>
+                                <li>酒店无法保证有三人间或者加床，如有需要我们将尽力安排，但是无法保证。</li>
+                                <li>行程内所列餐食(具体请参考行程推荐，自理除外)。</li>
+                                <li>当地中文导游服务。</li>
+                                <li>跟团游期间用车费用。</li>
+                                <li>行程中所列景点首道大门票，自费项目除外。</li>
+                                <li>儿童价格只含当地正餐半餐、车位以及导游服务费，其他均需要自理。</li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl class="profile_info">
+                        <dd><h3 class="pm_title">自理费用</h3>
+                            <ul class="pm_list">
+                                <li>因交通延阻、罢工、天气、飞机、机器故障、航班取消或更改时间等不可抗力原因所导致的额外费用。</li>
+                                <li>酒店内洗衣、理发、电话、传真、收费电视、饮品、烟酒等个人消费。</li>
+                                <li>当地参加的自费以及以上“费用包含”中不包含的其它项目。</li>
+                            </ul>
+                        </dd>
+                    </dl>
+                </div>
+                <ul class="db detail_cost_more more_info detail_arrow">
+                    <li class="js_to_cost_more" id="ctm_tour_detail_recommend"><a href="javascript:;">推荐活动参考(需自费)</a>
+                    </li>
+                </ul>
+                <ul class="db mt10 detail_new_more more_info detail_arrow">
+                    <li id="js_to_return_cash"><a href="javascript:;">返现说明</a></li>
+                </ul>
+                <ul class=" db mt10 detail_new_more more_info">
+                    <li class="js_to_booking_note" id="ctm_tour_detail_booking_note"><a class="detail_arrow"
+                                                                                        href="javascript:;">预订须知</a>
+                    </li>
+                    <li class="js_to_question" id="ctm_tour_detail_qa"><a class="detail_arrow"
+                                                                                       href="javascript:;">咨询问答(111)</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</article>
+<footer class="detail_bottom  detail_bottom_double"><span class="detail_collect js_collect_icon"></span> <span
+        class="detail_contrast js_compare"
+        data-compare="{'pId':'1678487','scId':'2','dcId':'2','name':'华东5市+绍兴+乌镇+西塘6日跟团游(3钻)·宿乌镇内 2晚4钻+1晚5钻 上海成团','price':899}">对比</span>
+    <!--<span class="detail_btn_blue js_telphone_btn" id="ctm_tour_detail_phone">电话咨询</span>--><span data-href="tour_calendar.html" class="js_in_Footer detail_btn_orange" id="ctm_tour_detail_book">开始预订</span></footer>
+</body>
+</html>

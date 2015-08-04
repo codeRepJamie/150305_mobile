@@ -1,0 +1,397 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <title>无标题文档</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/hotel.css">
+    <script type="text/javascript" src="../scripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../scripts/custom.modernizr.js"></script>
+    <script type="text/javascript" src="../scripts/iscroll-probe.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.scrollTo.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.event.special.fastclick.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.plugins.js"></script>
+    <script type="text/javascript" src="../scripts/CommonJs.js"></script>
+    <script type="text/javascript" src="../scripts/HotelJs.js"></script>
+</head>
+
+<body>
+<div id="header" class="HeaderView">
+    <h1>酒店详情</h1>
+    <i class="ReturnIco"></i>
+    <i class="ButtonIco ShareIco"></i>
+    <i class="ButtonIco FavoriteIco"></i>
+</div>
+<article id="mainContent" class="mainContent">
+    <div class="HotelDetail">
+        <div class="db HotelName p10">
+            <h1>香港JW万豪酒店(JW Marriott Hotel Hong Kong)</h1>
+
+            <div data-rel="detail_photo" id="hotelPhoto" class="HotelPhoto">
+                <img src="http://www.gzl.com.cn/Administrator/UploadFile/Product/Image/2014/11/20141114120051871.jpg"/>
+                <span class="ImgInfo">16张</span>
+            </div>
+        </div>
+        <div id="hotelMap" class="db HotelInfo mt10 InputArrow" data-rel="detail_map">
+            <i class="ico_address"></i>
+        <span>
+          <p>中环 金钟道88号太古广场</p>
+          <p class="f4">中环,金钟</p>
+        </span>
+            <em class="ClickTag">地图</em>
+        </div>
+        <div id="hotelDetail" data-rel="detail_hotel" class="db HotelInfo  mtm1 InputArrow">
+            <i class="ico_house"></i>
+        <span>
+          <p> 1990年开业 2010年装修 </p>
+          <dd class="ico_wifi"></dd>
+          <dd class="ico_park_money"></dd>
+          <dd class="ico_food"></dd>
+          <dd class="ico_swim"></dd>
+          <dd class="ico_fitness"></dd>
+          <dd class="ico_meeting"></dd>
+          <dd class="ico_browser"></dd>
+        </span>
+            <em class="ClickTag">详情</em>
+        </div>
+        <div class="db RoomFilter mt10">
+            <dl class="RoomHead">
+                <dt id="datePicker" data-rel="datePicker" class="select InputArrow">
+                    <span>今天&nbsp;入住1晚</span>
+                    <em class="ClickTag">修改</em>
+                    <input id="startDate" type="hidden" value=""/>
+                    <input id="departDate" type="hidden" value=""/>
+                </dt>
+
+                <dd data-rel="filter" id="js_room_filter" class="HeadButton fitrate">筛选房型</dd>
+                <dd class="HeadButton price">返前价</dd>
+            </dl>
+            <div class="RoomList">
+                <ul class="t HotelList02" id="MoreRoom">
+                    <div class="search-g-bd search-hot" id="js_search_search_noresults" style="">
+                        <div class="search-noresults-tips">没有找到符合条件的结果，<br>请修改条件重新查询。
+                            <div class="search-ordtail-btn"><a href="tel:400-863-8888" class="__hreftel__">
+                                <button>联系客服</button>
+                            </a></div>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div id="priceDeclare" data-rel="detail_declare" class="db HotelExplain mt35 InputArrow">
+            <div class="ExplainTitle">起价说明</div>
+            <p>入住时间：14:00以后 离店时间：12:00以前<br>酒店提示：<br>未满18周岁的小孩需有成人陪同才可入住。</p>
+        </div>
+        <div class="HotelDetailSpace"></div>
+
+    </div>
+</article>
+
+<div data-rel="detail_hotel" class="hotel_detail_policy detail_pop_wrap">
+    <article class="hotel-info-mod js_root">
+        <dl class="info-bd hotel-b-border js_facility_box">
+            <dt>酒店设施</dt>
+            <dd>有线上网， 公共区域Wifi， 收费停车场， 餐厅， 游泳池， 健身房， 会议室</dd>
+        </dl>
+        <dl class="info-bd hotel-b-border js_service_box" rel="附加选择">
+            <dt>早餐</dt>
+            <dd class="hotel-append">自助式早餐<dfn class="hotel-marginlr">RMB</dfn><span>108</span></dd>
+        </dl>
+        <div class="hotel-infobox hotel-b-border">
+            <div class="word-break js_tab_panel js_brief_box">
+                <div id="phone_Hotel" class="p10 hotel-b-border js_tel_pop"><span class="fr hotel-font-color">联系方式</span><i
+                        class="hotel-icon-tel"></i>&nbsp;&nbsp;010-68492001
+                </div>
+                <p class="p10">北京新世纪日航饭店毗邻西外大街，交通便利，北倚首都体育馆、中关村高科技园区，南邻中国科学院、经贸委等国家部委聚集地，地理位置优越，是商旅客人理想的下榻之地。<br>北京新世纪日航饭店拥有客房、套间和公寓，设有小酒吧、冰箱、国际直拨电话、宽带上网、保险箱、可调空调、音响、闭路电视、卫星接收CNN、HBO、NHK等海外电视节目。<br>饭店内设有7个风格各异的中西餐厅和酒吧，让您尽享名师主理的经典菜肴；750平方米的“世纪厅”备有同声传译系统和伸缩活动舞台；1600平米的中华厅是京城少有的阳光多功能厅。大厅装潢高雅大方并且具有各种会议设备，是举办各种大型国际会议、宴会、展览和演出的理想场地。<br>酒店同时设有10个中小型会议厅，远程电话视频和背投设备，为您提供良好的会议条件。为方便商务客人通联商洽，酒店还特设行政楼层；饭店一层的商务中心备有传真、文字处理、复印、出租电脑、会议室服务，带给您便捷的生活服务，给您一种回家的感觉。
+                </p></div>
+        </div>
+        <script>
+            $('#phone_Hotel').bind('fastclick',function(){
+                $.dialogAlert('酒店电话010-68492001');
+            });
+        </script>
+    </article>
+</div>
+
+<div data-rel="detail_photo" class="hotel_detail_declare detail_pop_wrap">
+    <article class="p10 word-break">
+        <ul id="js_listWrap" class="hotel-imglist">
+            <li><span rel="gallery" data-href="http://www.gzl.com.cn/Administrator/UploadFile/HotelAttachments/20090706093640.jpg" class="swipebox"><img data-idx="1" src="http://www.gzl.com.cn/Administrator/UploadFile/HotelAttachments/20090706093640.jpg"></span></li>
+            <li><span rel="gallery" data-href="http://www.gzl.com.cn/Administrator/UploadFile/HotelAttachments/20090706095524.jpg" class="swipebox"><img data-idx="2" src="http://www.gzl.com.cn/Administrator/UploadFile/HotelAttachments/20090706095524.jpg"></span></li>
+            <li><span rel="gallery" data-href="http://www.gzl.com.cn/Administrator/UploadFile/HotelAttachments/20090706095217.jpg" class="swipebox"><img data-idx="3" src="http://www.gzl.com.cn/Administrator/UploadFile/HotelAttachments/20090706095217.jpg"></span></li>
+            <li><span rel="gallery" data-href="http://www.gzl.com.cn/Administrator/UploadFile/Editor/Files/2011/05/1476_big_more20110520093757485.jpg" class="swipebox"><img data-idx="4" src="http://www.gzl.com.cn/Administrator/UploadFile/Editor/Files/2011/05/1476_big_more20110520093757485.jpg"></span></li>
+            <li><span rel="gallery" data-href="http://www.gzl.com.cn/Administrator/UploadFile/Editor/Files/2011/05/1476_big_more20110520093758313.jpg" class="swipebox"><img data-idx="5" src="http://www.gzl.com.cn/Administrator/UploadFile/Editor/Files/2011/05/1476_big_more20110520093758313.jpg"></span></li>
+        </ul>
+    </article>
+</div>
+
+<div data-rel="detail_declare" class="hotel_detail_declare detail_pop_wrap">
+    <article class="p10 word-break">
+        <p>起价说明</p>
+        <p>入住时间：12:00以后      离店时间：14:00以前如退房时间在14：00-18：00之间需要按照所住房型的基础价格收取半天房费</p>
+    </article>
+</div>
+
+
+<div data-rel="detail_map" class="hotel_detail_map detail_pop_wrap">
+    <script src="http://api.map.baidu.com/api?type=quick&ak=AsL5X7qyhZxLNZtC5ytR3k9u&v=1.0" type="text/javascript"></script>
+    <article class="word-break">
+        <div id="hotelMapCont" class="hotelMapCont"></div>
+    </article>
+</div>
+
+<div id="BoxContent" data-rel="filter" class="room_filter_hotel filter_pop_wrap">
+    <ul class="header">
+        <li class="btn_cancel"><a href="javascript:;">取消</a></li>
+        <li class="btn_reset"><a id="btn_reset" class="disable" href="javascript:;">清空筛选</a></li>
+        <li class="btn_confirm"><a class="" href="javascript:;">确定</a></li>
+    </ul>
+    <div class="wrapper">
+        <div class="BoxContent pop_star has-mask-image">
+            <div class="scroll">
+                <dl class="layout selectCont triSelect">
+                    <dt>床型</dt>
+                    <dd data-key="not-set" data-index="0" class="CurrentSelect notSet">不限</dd>
+                    <dd data-key="1" data-index="1">大床</dd>
+                    <dd data-key="2" data-index="2">双床</dd>
+                    <input id="bedSize" type="hidden" value="not-set"/>
+                </dl>
+                <dl class="layout selectCont triSelect">
+                    <dt>等级</dt>
+                    <dd data-key="not-set" data-index="0" class="CurrentSelect notSet">不限</dd>
+                    <dd data-key="1" data-index="1">经济</dd>
+                    <dd data-key="2" data-index="2">三星级</dd>
+                    <dd data-key="3" data-index="3">四星级</dd>
+                    <dd data-key="4" data-index="4">五星级</dd>
+                    <dd data-key="5" data-index="5">白金五星级</dd>
+                    <dd data-key="6" data-index="6">豪华</dd>
+                    <input id="classify" type="hidden" value="not-set"/>
+                </dl>
+                <dl class="layout selectCont triSelect">
+                    <dt>早餐</dt>
+                    <dd data-key="not-set" data-index="0" class="CurrentSelect notSet">不限</dd>
+                    <dd data-key="1" data-index="1">含早餐</dd>
+                    <dd data-key="2" data-index="2">不含早餐</dd>
+                    <input id="breakfast" type="hidden" value="not-set"/>
+                </dl>
+                <dl class="layout selectCont douSelect">
+                    <dt>宽带</dt>
+                    <dd data-key="not-set" data-index="0" class="CurrentSelect notSet">不限</dd>
+                    <dd data-key="1" data-index="1">免费WIFI上网</dd>
+                    <input id="wifi" type="hidden" value="not-set"/>
+                </dl>
+                <dl class="layout selectCont triSelect">
+                    <dt>设施</dt>
+                    <dd data-key="not-set" data-index="0" class="CurrentSelect notSet">不限</dd>
+                    <dd data-key="1" data-index="1">多功能厅</dd>
+                    <dd data-key="2" data-index="2">商务中心</dd>
+                    <input id="facilities" type="hidden" value="not-set"/>
+                </dl>
+                <dl class="layout selectCont triSelect">
+                    <dt>价格范围</dt>
+                    <dd data-key="not-set" data-index="0" class="CurrentSelect notSet">不限</dd>
+                    <dd data-key="1" data-index="1">&yen;500元以下</dd>
+                    <dd data-key="2" data-index="2">&yen;151-&yen;1000元</dd>
+                    <dd data-key="3" data-index="3">&yen;1001-&yen;3000元</dd>
+                    <dd data-key="4" data-index="4">&yen;3001-&yen;5000元</dd>
+                    <dd data-key="5" data-index="5">&yen;5001-&yen;10000元</dd>
+                    <dd data-key="6" data-index="6">&yen;10000元以上</dd>
+                    <input id="priceRange" type="hidden" value="not-set"/>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="datePickerCont" data-rel="datePicker" class="datePicker_hotel filter_pop_wrap">
+    <div class="wrapper">
+        <div class="hotel-lc-items hotel-b-border"><!--入住日期-->
+            <div class="hotel-lc-mod">
+                <div class="lc-itme hotel-lc-checked hotel-arr hotel-b-border js_inday_btn"><span
+                        class="lc-txt js_inday_main_title">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="fr fn12"><time
+                        class="js_inday_sub_title">&nbsp;&nbsp;&nbsp;&nbsp;
+                </time><strong>&nbsp;入住</strong></span></div>
+
+                <!--前一天、后一天控件-->
+                <div class=" js_index_pre_next_box">
+                    <div class="cui-view" id="cui-1427184493629">
+                        <ul class="hotel-numitmes">
+                            <li data-id="pre" data-index="0" class="js-hui-tab-btn  disabled">
+                                前一天
+                            </li>
+                            <li data-id="next" data-index="1" class="js-hui-tab-btn">
+                                后一天
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--住几晚-->
+            <div class="lc-itme hotel-search-page"><span class="lc-txt js_outday_main_title">住1晚</span><span
+                    class="lc-nightnum fn12"><time class="js_outday_sub_title">&nbsp;&nbsp;&nbsp;&nbsp;</time><strong>
+                &nbsp;离店</strong></span><!--晚数控件-->
+                <div class="lc-num js_outday_contr">
+                    <div class="cui-view" id="cui-1427184493631"><span data-min="1" data-bind="js_room_num_1"
+                                                                       class="hotel-day NumberInput">
+            <i class="add"></i>
+            <input type="tel" class="inputText" value="1" disabled="disabled">
+            <i class="minus"></i>
+          </span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--确定-->
+        <div class="hotel-lc-date-btn">
+            <button id="confirm" class="g_btn_s js_submit">确定</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        (function() {
+            var js_room_filter = $('#js_room_filter');
+            $('#BoxContent').boxContentInital({
+                //指定触发器
+                trigger: js_room_filter,
+                //确认按钮回调函数
+                confirmCallback: function (elem, aValus) {
+
+                }
+            });
+            js_room_filter.displayWrap({
+                callback: function (state, wrap) {
+                    wrap && $(wrap).refresh();
+                }
+            });
+        })();
+
+        (function() {
+            var datePicker = $('#datePicker');
+            $('#datePickerCont').datePickerInital({
+                trigger: datePicker,
+                startDate: new Date(),
+                maxDate: 7,
+                confirmCallback: function (elem, trigger, time) {
+                    trigger.find('span').text(time.printDate(time.startDate) + ' 入住' + time.inDay + '晚');
+                }
+            });
+            datePicker.displayWrap({
+                callback: function (state, wrap) {
+                    wrap && $(wrap).refresh();
+                }
+            });
+
+
+
+        })();
+
+
+        (function(){
+
+
+            //酒店图片浏览框
+            $('#hotelPhoto').detailPop({
+                title: '共5张',
+                //首次点解打开
+                firstOpenCallback:function(wrap,head,trigger){
+                    //使用ajax加载图片
+                    /*$.ajax({*/
+                        var picHref=[];
+                        $('body').append('<link rel="stylesheet" href="../css/swipebox.min.css">').append('<script src="../scripts/jquery.swipebox.min.js"><\/script>');
+                        /*$('#js_listWrap').find('.swipebox').swipebox({
+                            useSVG : true
+                        });*/
+                        var swipeBox=$('#js_listWrap').find('.swipebox');
+                        iniArr();
+                        swipeBox.bind('fastclick',function() {
+                            var index=swipeBox.index($(this));
+                            if(index && swipeBox.length>1){
+                                picHref=picHref.concat(picHref.splice(0,index));
+                            }
+                            $.swipebox(picHref,{
+                                useSVG : false
+                            });
+                            iniArr();
+                        });
+
+                        function iniArr() {
+                            picHref=[];
+                            swipeBox.each(function () {
+                                picHref.push({href: $(this).attr('data-href')});
+                            });
+                        }
+                    /*});*/
+                },
+                openCallback:function(){
+
+                }
+            });
+
+            $('#hotelDetail').detailPop({
+                title: '酒店信息'
+            });
+
+            $('#priceDeclare').detailPop({
+                title: '起价说明'
+            });
+
+            $('#hotelMap').detailPop({
+                title: '酒店位置',
+                openCallback:function(){
+                    $('#hotelMapCont').height($(window).height()-48);
+                    var pointHotel=new BMap.Point(114.17776,22.28049);
+                    var map = new BMap.Map("hotelMapCont");
+                    map.centerAndZoom(pointHotel,18);
+                    map.addControl(new BMap.ZoomControl());
+                    var marker1 = new BMap.Marker(pointHotel);  //创建标注
+                    map.addOverlay(marker1);
+                    //创建标注
+                    var marker = new BMap.Marker(pointHotel);
+                    map.addOverlay(marker);    // 将标注添加到地图中
+                    var opts = {
+                        width : 200,    // 信息窗口宽度
+                        height: 60,     // 信息窗口高度
+                        title : "香港JW万豪酒店", // 信息窗口标题
+                        enableAutoPan : true //自动平移
+                    };
+                    var infoWindow = new BMap.InfoWindow("地址中环金钟道88号太古广场", opts);  // 创建信息窗口对象
+                    map.openInfoWindow(infoWindow,pointHotel); //开启信息窗口
+                    /*marker.addEventListener("click", function(){
+
+                    });*/
+                }
+            });
+        })();
+        (function(){
+            /*hotel detail 更多房间*/
+            var moreRoom = $('#MoreRoom');
+            j=1;
+            moreRoom.find('li:gt(3)').css({display:'none'});
+            moreRoom.find('.MoreRoom').bind('fastclick',function(e){
+                if(j==1){
+                    moreRoom.find('li').css({display:'block'});
+                    $(this).find('span').addClass('ArrowUp').removeClass('ArrowDown');
+                    $(this).find('em').html('收起');
+                    j=0;
+
+                }else{
+                    moreRoom.find('li:gt(3)').css({display:'none'});
+                    $(this).find('span').addClass('ArrowDown').removeClass('ArrowUp');
+                    $(this).find('em').html('显示全部');
+                    j=1;
+                };
+                e.stopPropagation();
+                return false;
+            });
+            $('#MoreRoom').bind('fastclick',function(){
+                //console.log(this);
+            });
+            $('#MoreRoom li').tapToHref();
+        })();
+    });
+</script>
+</body>
+</html>

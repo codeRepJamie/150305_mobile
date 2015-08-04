@@ -1,0 +1,51 @@
+{
+    "ResponseStatus": {
+        "Timestamp": "\/Date(1425917829542+0800)\/",
+        "Ack": "Success",
+        "Errors": [],
+        "Page": 3,
+        "PageCount": 3,
+        "Version": "v1.0",
+        "Extension": [{"Id": "CLOGGING_TRACE_ID", "Version": null, "ContentType": null, "Value": "429892818242522689"}]
+    },
+    "Data": {
+        "ProductInfoList": [{
+            "ProductId": 61879,
+            "ProductInfo": {
+                "Name": "[21]心之旅-清迈、曼谷、芭堤雅沙美岛四星7天",
+                "MinPrice": 1000,
+                "DepartCityName": "广州出发",
+                "ScheduleDesc": "每周二、四、六",
+                "ProductPatternName": "跟团游",
+                "Img": "http://b2b.gzl.com.cn/Administrator/UploadFile/Channel/Image/2015/01/20150107145441466.jpg",
+                "PlayDays": 2,
+                "PromotionTag": [
+                    {"TagName": "惠", "type": "discount"},
+                    {"TagName": "奖金抵扣", "type": "tag"},
+                    {"TagName": "积分抵用", "type": "tag"},
+                    {"TagName": "铁定成团", "type": "tag"}
+                ],
+                "link": "productId=2421322&saleCityId=2&departCityId=2&from=grouptravel"
+            }
+        },
+            {
+                "ProductId": 61880,
+                "ProductInfo": {
+                    "Name": "[22]港澳联线+香港海洋公",
+                    "MinPrice": 1000,
+                    "DepartCityName": "深圳出发",
+                    "ScheduleDesc": "每周二、四",
+                    "ProductPatternName": "跟团游",
+                    "Img": "http://b2b.gzl.com.cn/Administrator/UploadFile/Channel/Image/2015/01/20150107145441466.jpg",
+                    "PlayDays": 3,
+                    "PromotionTag": [
+                        {"TagName": "惠", "type": "discount"},
+                        {"TagName": "奖金抵扣", "type": "tag"},
+                        {"TagName": "积分抵用", "type": "tag"}
+                    ],
+                    "link": "productId=2421322&saleCityId=2&departCityId=2&from=grouptravel"
+                }
+            }
+        ]
+    }
+}

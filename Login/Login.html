@@ -1,0 +1,79 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+<title>无标题文档</title>
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/login.css">
+<script type="text/javascript" src="../scripts/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="../scripts/CommonJs.js"></script>
+</head>
+
+<body>
+  <div class="HeaderView">
+    <h1>会员登录</h1>
+    <i class="ReturnIco"></i>
+    <i class="RIghtText">注册</i>
+  </div>
+  <article>
+    <ul class="t LoginList">
+      <li class="border_b">
+        <em>登录名1</em>
+        <p class="InputBox">
+          <input class="inputText" autofocus maxlength="30" tabindex="1" id="username" type="text" required="" autocomplete="off" value="" placeholder="用户名/手机/邮箱">
+          <a class="clear-input"><span></span></a>
+        </p>
+      </li>
+      <li class="border_b">
+        <em>密码</em>
+        <p class="InputBox">
+          <input class="inputText" autofocus maxlength="30" tabindex="1" id="password" type="password" required="" autocomplete="off" value="" placeholder="6-20位字母、数字和符号">
+           <a class="clear-input"><span></span></a>
+        </p>
+      </li>
+      <li>
+        <button id="submit" class="submit01">登录</button>
+      </li>
+    </ul>
+    <div class="ForgetPassword">
+      <a href="javascript:void(0);">忘记密码？</a>
+    </div>
+  </article>
+  <!--<div class="alert">用户名错误</div>--><!--错误提示框-->
+<script>
+    $(function(){
+        $('#submit').bind('fastclick',function(){
+            //简单警告框插件
+            /*
+             * 参数
+             * @param text 警告文本
+             * Type:{String}
+             *
+             * @param during 持续时间
+             * Type:{Number}
+             *
+             * @param animateTime 动画时间
+             * Type:{Number}
+             *
+             * @param startPos 起始位置,中间向上多数像素
+             * Type:{Number}
+             *
+             */
+            //$.simpleAlert('密码错误');
+            /*$.dialogAlert('12344',function(){
+                console.log('ok');
+            });*/
+            $.simpleAlert('密码错误');
+        });
+        /*$.dialogAlert('123',function(){
+            *//**按下确定按钮时**//*
+        });*/
+        $('#submit').click(function(){
+            $.simpleAlert('密码错误');
+        });
+        $.simpleAlert('密码错误');
+    });
+</script>
+</body>
+</html>

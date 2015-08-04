@@ -1,0 +1,90 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <title>无标题文档</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/hotel.css">
+    <script type="text/javascript" src="../scripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../scripts/custom.modernizr.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.event.special.fastclick.js"></script>
+    <script type="text/javascript" src="../scripts/iscroll-probe.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.plugins.js"></script>
+    <script type="text/javascript" src="../scripts/CommonJs.js"></script>
+    <script type="text/javascript" src="../scripts/HotelJs.js"></script>
+</head>
+
+<body>
+<div id="header" class="HeaderView">
+    <div class="TitleSwitch" id="TitleSwitch">
+        <span class="current" data-sort="all">全部0</span>
+        <span data-sort="favorite">收藏</span>
+    </div>
+    <i class="ReturnIco"></i>
+</div>
+<article id="mainContent" class="page_switch_wrap mainContent" data-sort="all">
+    <div class="search-g-bd search-hot" id="js_search_search_noresults" style="">
+        <div class="search-noresults-tips">没有找到符合条件的结果，<br>请修改条件重新查询。
+            <div class="search-ordtail-btn"><a href="tel:400-863-8888" class="__hreftel__">
+                <button>联系客服</button>
+            </a></div>
+        </div>
+    </div>
+</article>
+<article class="SwitchBox page_switch_wrap mainContent" data-sort="favorite">
+    <!--登录前-->
+    <!--<div class="NotLogin">
+        <p>登录后会看到收藏的酒店。</p>
+        <button class="LoginButton">立即登录</button>
+    </div>-->
+    <!--登录后-->
+    <ul class="t HotelList02">
+      <li>
+        <div class="TourImage">
+          <img src="http://www.gzl.com.cn/Administrator/UploadFile/Channel/Image/2015/01/20150107145441466.jpg"/>
+          <span class="tag">房满</span>
+        </div>
+        <div class="TourContent">
+          <h3>香港旺角朗豪酒店(Langham Place Mongkok Hong Kong)</h3>
+          <div class="discount">
+            <i class="hui">促</i>
+            <i class="tag">APP专享</i>
+            <i class="tag">反现1%</i>
+          </div>
+          <p class="rank">豪华型酒店</p>
+          <p class="rank">旺角、油麻地</p>
+          <div class="price"><dfn>￥</dfn><strong>999999</strong>起</div>
+        </div>
+      </li>
+      <li>
+        <div class="TourImage">
+          <img src="http://www.gzl.com.cn/Administrator/UploadFile/Channel/Image/2015/01/20150107145441466.jpg"/>
+          <span class="tag available">房满</span>
+        </div>
+        <div class="TourContent">
+          <h3>香港旺角朗豪酒店(Langham Place Mongkok Hong Kong)</h3>
+          <div class="discount">
+            <i class="hui">促</i>
+            <i class="tag">APP专享</i>
+            <i class="tag">反现1%</i>
+          </div>
+          <p class="rank">豪华型酒店</p>
+          <p class="rank">旺角、油麻地</p>
+          <div class="price"><dfn>￥</dfn><strong>999999</strong>起</div>
+        </div>
+      </li>
+    </ul>
+</article>
+<script>
+    $(function () {
+        $('#TitleSwitch').titleSwitch({
+            switchChangCallback: function (elem, sort) {
+                //console.log(elem,sort);
+            }
+        });
+    })
+</script>
+</body>
+</html>

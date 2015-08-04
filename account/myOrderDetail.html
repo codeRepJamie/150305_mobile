@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <title>订单详情-广州广之旅官方网站移动版</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/account.css">
+    <script type="text/javascript" src="../scripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../scripts/CommonJs.js"></script>
+    <script type="text/javascript" src="../scripts/myOrderDetail.js"></script>
+</head>
+
+<body>
+<div class="HeaderView">
+    <h1>订单详情</h1>
+    <i id="ReturnIco" class="ReturnIco"></i>
+</div>
+<article>
+    <div class="account order-bg sub-viewport">
+        <section id="tour_info_box">
+            <div class="hyb_detail_pub">
+                <div class="hd hyb_detail_lines">
+                    <span class="l_tit">订单总额<span class="r_tit"><dfn>¥</dfn>4597</span></span>订单信息
+                </div>
+
+                <dl class="mod hyb_detail_lines">
+                    <dt>产品名称</dt>
+                    <dd>翠江华南测试线路（可用，排期：2016-01-01）</dd>
+                    <dt>订单状态</dt>
+                    <dd>已提交</dd>
+                    <dt>订单编号</dt>
+                    <dd>1090003903</dd>
+                    <dt>下单时间</dt>
+                    <dd>2015-03-18&nbsp;16:26:03</dd>
+                </dl>
+                <dl class="mod">
+                    <dt>支付方式</dt>
+                    <dd>信用卡</dd>
+                </dl>
+            </div>
+        </section>
+
+        <section id="flight_passengers_box">
+            <div class="hyb_detail_pub mt10">
+                <div class="hd hyb_detail_lines">游客信息</div>
+                <dl class="mod hyb_detail_lines">
+                    <dt>游客姓名</dt>
+                    <dd>曾曾曾曾</dd>
+                    <dt>证件类型</dt>
+                    <dd>身份证</dd>
+                    <dt>证件号码</dt>
+                    <dd>4401041999999999</dd>
+                    <dt>手机</dt>
+                    <dd>15018408040</dd>
+                </dl>
+                <dl class="mod hyb_detail_lines">
+                    <dt>游客姓名</dt>
+                    <dd>曾曾曾曾</dd>
+                    <dt>证件类型</dt>
+                    <dd>身份证</dd>
+                    <dt>证件号码</dt>
+                    <dd>4401041999999999</dd>
+                    <dt>手机</dt>
+                    <dd>15018408040</dd>
+                </dl>
+                <dl class="mod ">
+                    <dt>游客姓名</dt>
+                    <dd>曾曾曾曾</dd>
+                    <dt>证件类型</dt>
+                    <dd>身份证</dd>
+                    <dt>证件号码</dt>
+                    <dd>4401041999999999</dd>
+                    <dt>手机</dt>
+                    <dd>15018408040</dd>
+                </dl>
+            </div>
+        </section>
+
+    </div>
+</article>
+
+<script>
+    $(function () {
+        $('#order-all').tapToHref();
+        $('#ReturnIco').bind('fastclick',function(){
+            window.history.go(-1);
+        });
+    });
+</script>
+</body>
+</html>

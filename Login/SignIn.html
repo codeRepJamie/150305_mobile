@@ -1,0 +1,51 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+<title>无标题文档</title>
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/login.css">
+<script type="text/javascript" src="../scripts/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="../scripts/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="../scripts/CommonJs.js"></script>
+</head>
+
+<body>
+  <div class="HeaderView">
+    <h1>用户注册</h1>
+    <i class="ReturnIco"></i>
+  </div>
+  <article>
+    <ul class="t LoginList">
+      <li class="border_b">
+        <em>手机号码</em>
+        <p class="InputBox">
+          <input class="inputText" autofocus maxlength="11" tabindex="1" id="MobileNumber" type="text" required="" autocomplete="off" value="" placeholder="手机号码">
+          <a class="clear-input"><span></span></a>
+        </p>
+      </li>
+      <li class="border_b">
+        <em>密码</em>
+        <p class="InputBox">
+          <input class="inputText" autofocus maxlength="30" tabindex="1" id="password" type="password" required="" autocomplete="off" value="" placeholder="6-20位字母、数字和符号">
+           <a class="clear-input"><span></span></a>
+        </p>
+      </li>
+      <li class="border_b">
+        <em>验证码</em>
+        <p class="InputBox VerificationCode">
+          <input class="inputText" autofocus maxlength="6" tabindex="1" id="VerificationCode" type="text" required="" autocomplete="off" value="" placeholder="6位数字">
+           <a class="clear-input"><span></span></a>
+        </p>
+        <button class="SendCode disabled">60s&nbsp;后重发</button>
+        <!--<button class="SendCode">重发验证码</button>-->
+      </li>
+      <li>
+        <button class="submit01">注册</button>
+      </li>
+    </ul>
+  </article>
+  <div class="alert">短信验证码错误</div><!--错误提示框-->
+</body>
+</html>

@@ -1,0 +1,497 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <title>无标题文档</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/hotel.css">
+    <script type="text/javascript" src="../scripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../scripts/custom.modernizr.js"></script>
+    <script type="text/javascript" src="../scripts/iscroll-probe.js"></script>
+    <script src="../scripts/jquery.event.special.fastclick.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.scrollTo.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.plugins.js"></script>
+    <script type="text/javascript" src="../scripts/CommonJs.js"></script>
+    <script type="text/javascript" src="../scripts/HotelJs.js"></script>
+</head>
+
+<body>
+<div id="header" class="HeaderView">
+    <h1>订单填写</h1>
+    <i class="ReturnIco"></i>
+    <i class="ButtonIco HomeIco"></i>
+    <a class="ButtonIco CallIco" href="tel:4008638888"></a>
+</div>
+<article id="mainContent" class="mainContent">
+    <div class="HotelOrderForm">
+        <div class="NotLogin">
+            <p>请先登录才能提交订单。</p>
+            <button class="LoginButton">立即登录</button>
+        </div>
+        <div class="FormHead">
+            <h3>香港港丽酒店(Conrad Hong Kong)</h3>
+
+            <p>此为向代理商申请的特殊价格，提交订单后会操作扣款，并在3小时内回复您预订结果，请您耐心等待。</p>
+        </div>
+        <ul class="booking_modify">
+            <li id="datePicker" data-rel="datePicker" class="db InputArrow">
+                <span class="BookingTxt js-dayIn-txt"><small></small></span>
+                <span class="BookingTxt js-dayOut-txt"><small></small></span>
+                <input id="startDate" type="hidden" value=""/>
+                <input id="departDate" type="hidden" value=""/>
+                <em class="ClickTag">修改</em>
+            </li>
+            <li class="db">
+                <span class="BookingTxt">高级房（内宾）</span>
+          <span data-min="1" data-max="10" data-bind="js_room_num_1" id="NumberInput01" class="NumberInput">
+            <i class="add"></i>
+            <input type="tel" class="inputText" value="1" disabled="disabled">
+            <i class="minus invalid"></i>
+          </span>
+                <input id="js_room_num_1" type="hidden" value="1"/>
+            </li>
+            <li class="db">
+                <label id="quzBookLabel" class="BookingLabel help">入住人</label>
+                <ul id="js-person-in-items" class="person-in-items">
+                    <li>
+                        <div class="BookingInput InputBox InputResult">
+                            <input class="person-name" type="text" placeholder="英文姓名，每间只需填写1人">
+                            <a class="clearInput"><span></span></a>
+                        </div>
+                    </li>
+                </ul>
+
+            </li>
+            <li class="db">
+                <label class="BookingLabel help">手机号</label>
+
+                <div class="BookingInput InputBox box-flex InputResult">
+                    <input type="tel" maxlength="11" placeholder="用于接收通知">
+                    <a class="clearInput"><span></span></a>
+                </div>
+            </li>
+        </ul>
+        <ul class="booking_modify mt10">
+            <li id="remarkInfo" data-rel="detail_remark" class="db InputArrow">
+                <label class="BookingLabel help">备注信息</label>
+
+                <p class="booking-g-txt BookingContent box-flex">无</p>
+            </li>
+            <li class="db InputArrow" id="orderInovic" data-rel="detail_invoice">
+                <label class="BookingLabel help">发票</label>
+
+                <p class="booking-g-txt BookingContent box-flex">不需要发票</p>
+            </li>
+        </ul>
+        <p class="HotelOrderTips mt10">订单提交后我们会立即操作扣款，如订单不确认将全额退款至您的付款账户。该订单确认后不可被取消修改，若未入住或取消修改，我们将收取您全额房费RMB 3930。</p>
+
+        <p class="HotelOrderTips">未满18周岁的小孩需有成人陪同才可入住。</p>
+
+        <p class="HotelOrderTips">成功预订香港酒店即可获得全球购返礼码Ctrip
+            Code，凭此码及有效香港酒店预订单于当地DFS旗下T广场或香港周大福旗舰店消费，即可享受2.5%购物返礼，详情请见预订后短信或邮件。</p>
+    </div>
+    <div class="HotelDetailSpace"></div>
+    <div id="PayTxtField" class="PayTxtField">
+        <em class="total_price">总额：
+            <small>￥</small>
+            <b>99999999</b></em>
+        <button id="payButton" data-href="../payment/success.html" class="pay_button">支付</button>
+        <em id="js-cost-detail" class="detail_button">明细</em>
+    </div>
+</article>
+
+
+<div data-rel="detail_remark" class="hotel_detail_remark detail_pop_wrap">
+    <article class="p10 word-break">
+        <div class="info_input_field scrollfix">
+            <textarea id="remarkTextArea" class="ta_message_content" row="50" style="" placeholder="请填写备注信息，最多500个字..."
+                      maxlength="500"></textarea>
+        </div>
+    </article>
+</div>
+
+<div data-rel="detail_invoice" class="hotel_detail_invoice detail_pop_wrap">
+    <article class="mt10 HotelOrderForm" id="js_box_discount">
+        <ul class="invoice-comlist js_switcher_h">
+            <li>配送发票
+                <div id="invoiceSwitcher" class="invoiceSwitcher cui-view hotel-listright js_switcher js_specialType_bed" data-groupby="invoice">
+                    <div class="cui-switch">
+                        <div class="cui-switch-bg "></div>
+                        <div class="cui-switch-scroll"></div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ul id="invoiceDetail" class="invoiceDetail invoice-comlist js_switcher_h mt10">
+            <li>送达方式</li>
+            <li class="sub-comlist">自取<div class="deliverSwitcher cui-view hotel-listright js_switcher js_specialType_bed" data-groupby="deliverBy">
+                <div class="cui-switch">
+                    <div class="cui-switch-bg "></div>
+                    <div class="cui-switch-scroll"></div>
+                </div>
+            </div></li>
+            <li class="sub-comlist">快递到付<div class="deliverSwitcher cui-view hotel-listright js_switcher js_specialType_bed" data-groupby="deliverBy" data-default-state="selected">
+                <div class="cui-switch">
+                    <div class="cui-switch-bg "></div>
+                    <div class="cui-switch-scroll"></div>
+                </div>
+            </div></li>
+            <li class="sub-comlist">导游送达
+                <small>（部分团队不送达，请与客服确认）</small><div class="deliverSwitcher cui-view hotel-listright js_switcher js_specialType_bed" data-groupby="deliverBy">
+                    <div class="cui-switch">
+                        <div class="cui-switch-bg "></div>
+                        <div class="cui-switch-scroll"></div>
+                    </div>
+                </div></li>
+            <li>
+                <label>发票抬头</label><div class="BookingInput InputBox InputResult">
+                <input class="invoiceText" type="text" placeholder="填写报销机构或个人名称">
+                <a class="clearInput"><span></span></a>
+            </div></li>
+            <li id="invoiceType" data-rel="filter" class="InputArrow">
+                <label>发票内容</label><p class="booking-g-txt ellips"></p>
+                <input id="js-invoice-content-hidden" type="hidden" value=""/>
+            </li>
+            <li>
+                <label>配送地址</label><div class="BookingInput InputBox InputResult">
+                <input class="invoiceText" type="text" placeholder="填写配送地址">
+                <a class="clearInput"><span></span></a>
+            </div></li>
+            <li>
+                <label>邮政编码</label><div class="BookingInput InputBox InputResult">
+                <input class="invoiceText" type="tel" placeholder="填写邮政编码">
+                <a class="clearInput"><span></span></a>
+            </div></li>
+        </ul>
+        <div class="HotelOrderTips mt10">
+        <h2>相关说明：</h2>
+        <ul class="normal-tips">
+
+            <li>广之旅机场路总部地址：广州市白云区机场西乐嘉路1号。</li>
+            <li>我司一般采用顺丰快递邮寄。</li>
+            <li>不适用导游配送的团队，我司客服在与您联系的时候将对此进行说明，届时请您与客服确认采用其它配送方式。</li>
+        </ul>
+        </div>
+    </article>
+</div>
+
+<div id="datePickerCont" data-rel="datePicker" class="datePicker_hotel filter_pop_wrap">
+    <div class="wrapper">
+        <div class="hotel-lc-items hotel-b-border"><!--入住日期-->
+            <div class="hotel-lc-mod">
+                <div class="lc-itme hotel-lc-checked hotel-arr hotel-b-border js_inday_btn"><span
+                        class="lc-txt js_inday_main_title">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="fr fn12"><time
+                        class="js_inday_sub_title">&nbsp;&nbsp;&nbsp;&nbsp;
+                </time><strong>&nbsp;入住</strong></span></div>
+
+                <!--前一天、后一天控件-->
+                <div class=" js_index_pre_next_box">
+                    <div class="cui-view" id="cui-1427184493629">
+                        <ul class="hotel-numitmes">
+                            <li data-id="pre" data-index="0" class="js-hui-tab-btn  disabled">
+                                前一天
+                            </li>
+                            <li data-id="next" data-index="1" class="js-hui-tab-btn">
+                                后一天
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--住几晚-->
+            <div class="lc-itme hotel-search-page"><span class="lc-txt js_outday_main_title">住1晚</span><span
+                    class="lc-nightnum fn12"><time class="js_outday_sub_title">&nbsp;&nbsp;&nbsp;&nbsp;</time><strong>
+                &nbsp;离店</strong></span><!--晚数控件-->
+                <div class="lc-num js_outday_contr">
+                    <div class="cui-view" id="cui-1427184493631"><span data-min="1" data-bind="js_room_num_1"
+                                                                       class="hotel-day NumberInput">
+            <i class="add"></i>
+            <input type="tel" class="inputText" value="1" disabled="disabled">
+            <i class="minus"></i>
+          </span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--确定-->
+        <div class="hotel-lc-date-btn">
+            <button id="confirm" class="g_btn_s js_submit">确定</button>
+        </div>
+    </div>
+</div>
+
+<div id="cost-detail" class="hotel-cost-detail-cotent">
+    <div class="js-hotel-opacity-layout hotel-cost-detail hotel-opacity2">
+        <div class="hotel-cost-layer">
+            <div class="vh-middle">
+                <h2>费用明细</h2>
+                <dl class="cost-list">
+                    <dt>
+                        <span class="fr g-price"><small>¥</small>800</span>
+                        <span class="hotel-font-color">房费</span>
+                    </dt>
+                    <dd>
+                        <span class="hotel-start-day"></span>
+                        <span>高级房（内宾）</span>
+                        <span><small>¥</small>800 × 1</span>
+                    </dd>
+                </dl>
+                <div class="cost-txt">
+                    <p>
+                        总额：
+                        <strong class="g-price">¥ 800</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="BoxContent" data-rel="filter" class="js_filter_invoice filter_pop_wrap">
+    <ul class="header">
+        <li class="btn_cancel"><a href="javascript:;">取消</a></li>
+        <li class="btn_reset"><a id="btn_reset" class="disable" href="javascript:;">清空筛选</a></li>
+        <li class="btn_confirm"><a class="" href="javascript:;">确定</a></li>
+    </ul>
+    <div class="wrapper">
+        <div class="BoxContent pop_star has-mask-image">
+            <div class="scroll">
+                <dl id="js-option-block" class="layout selectCont triSelect">
+                    <dt>发票内容</dt>
+                    <!--<dd data-key="not-set" data-index="0" class="CurrentSelect notSet">不限</dd>-->
+                    <dd data-key="参观交流费" data-index="1">参观交流费</dd>
+                    <dd data-key="代办签证费" data-index="2">代办签证费</dd>
+                    <dd data-key="代订房" data-index="3">代订房</dd>
+                    <dd data-key="代订房及机票" data-index="4">代订房及机票</dd>
+                    <dd data-key="代订飞机票" data-index="5">代订飞机票</dd>
+                    <dd data-key="代订火车票" data-index="6">代订火车票</dd>
+                    <dd data-key="代订机票和酒店" data-index="7">代订机票和酒店</dd>
+                    <dd data-key="代订交通费" data-index="8">代订交通费</dd>
+                    <dd data-key="代订款" data-index="9">代订款</dd>
+                    <dd data-key="代订门票" data-index="10">代订门票</dd>
+                    <dd data-key="代订住房费" data-index="11">代订住房费</dd>
+                    <dd data-key="代租车辆" data-index="12">代租车辆</dd>
+                    <dd data-key="房费佣金" data-index="13">房费佣金</dd>
+                    <dd data-key="活动费" data-index="14">活动费</dd>
+                    <dd data-key="酒店服务费" data-index="15">酒店服务费</dd>
+                    <dd data-key="考察费" data-index="16">考察费</dd>
+                    <dd data-key="旅游费" data-select="checked" data-index="17">旅游费</dd>
+                    <dd data-key="培训考察费" data-index="18">培训考察费</dd>
+                    <dd data-key="团费" data-index="19">团费</dd>
+                    <dd data-key="学习参观费" data-index="20">学习参观费</dd>
+                    <dd data-key="学习考察费" data-index="21">学习考察费</dd>
+                    <input id="invoiceTypeHidden" type="hidden" value="not-set"/>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        //所有文字输入框
+        (function () {
+            $('.BookingInput').inputText({
+                onfocusCallback: function () {
+                    $('#PayTxtField').css('display','none');
+                },
+                onBlurCallback:function(){
+                    $('#PayTxtField').css('display','block');
+                }
+            });
+        })();
+        //$('#quzBookLabel').questionPop();
+
+        (function(){
+            $('#payButton').tapToHref();
+        })();
+
+        //日期控件
+        (function () {
+            var datePicker = $('#datePicker');
+            var costDetail = $('#cost-detail');
+            $('#datePickerCont').datePickerInital({
+                trigger: datePicker,
+                startDate: new Date(),
+                maxDate: 7,
+                initialCallback: function (trigger, time) {
+                    trigger.find('.js-dayIn-txt').html('<small>入住</small>' + time.printDate(time.startDate, true));
+                    trigger.find('.js-dayOut-txt').html('<small>离店</small>' + time.printDate(time.departDate, true));
+                    costDetail.find('.hotel-start-day').text(time.printFormat(time.startDate));
+                },
+                confirmCallback: function (elem, trigger, time) {
+
+                    trigger.find('.js-dayIn-txt').html('<small>入住</small>' + time.printDate(time.startDate, true));
+                    trigger.find('.js-dayOut-txt').html('<small>离店</small>' + time.printDate(time.departDate, true));
+                    costDetail.find('.hotel-start-day').text(time.printFormat(time.startDate));
+                }
+
+            });
+
+            datePicker.displayWrap({
+                callback: function (state, wrap) {
+                    wrap && $(wrap).refresh();
+                }
+            });
+        })();
+
+        //登记住客人数控件
+        (function () {
+            var personInItem = $('#js-person-in-items');
+            var personInItemList = personInItem.find('li:eq(0)');
+            //数字框点击
+            $('#NumberInput01').inputNumber({
+                plusCallback: function (val, max, min) {
+                    var num = personInItem.find('li').length;
+                    if (max && num == max) {
+                        return false;
+                    }
+                    personInItem.append('<li>' + personInItemList.html() + '</li>');
+                    personInItem.find('li .BookingInput').inputText({
+                        onfocusCallback: function () {
+                            $('#PayTxtField').css('display','none');
+                        },
+                        onBlurCallback:function(){
+                            $('#PayTxtField').css('display','block');
+                        }
+                    });
+                },
+                minusCallback: function (val, max, min) {
+                    var num = personInItem.find('li').length;
+                    if (min && num == min) {
+                        return false;
+                    }
+                    personInItem.find('li:last').remove();
+                }
+            });
+        })();
+
+        //填写备注控件
+        (function () {
+            var areaText = '';
+            var textArea = $('#remarkTextArea');
+            $('#remarkInfo').detailPop({
+                title: '填写备注信息',
+                isButton: true,
+                buttonText: '提交',
+                buttonCallback: function (_wrap, _detailHead, trigger) {
+                    if (textArea.val() === '') {
+                        $.simpleAlert('内容不能为空');
+                        return false;
+                    } else {
+                        areaText = textArea.val();
+                        trigger.find('.BookingContent').text(areaText.length > 13 ? areaText.slice(0, 13) + '...' : areaText);
+                    }
+                },
+                closeCallback: function (_wrap, _detailHead, trigger,handler) {
+                    $.dialogAlert({
+                        text:'您要放弃本次编辑吗？',
+                        confirmText:'放弃',
+                        onConfirm:function(){
+                            handler.hiddenWrap(_wrap);
+                            textArea.val('');
+                            trigger.find('.BookingContent').text('无');
+                        }
+                    });
+                    return false;
+                }
+            });
+        })();
+
+
+
+        //查看明细
+        (function () {
+            var coastDetail = $('#js-cost-detail');
+            coastDetail.costDetailInitial({
+                content: $('#cost-detail')
+            });
+        })();
+        //发票弹出框
+        (function () {
+            var orderInovic = $('#orderInovic');
+            var invoiceList=$('#invoiceDetail');
+            var invoiceSwitcher=$('#invoiceSwitcher');
+
+            orderInovic.detailPop({
+                title: '填写配送信息',
+                buttonText: '提交',
+                isButton: true,
+                buttonCallback:function(_wrap,head,btn){
+                    var state=$('#invoiceSwitcher')[0].state;
+                    orderInovic.find('.BookingContent').text((state!==undefined && state)?'需要发票':'不需要发票');
+                },
+                closeCallback:function(_wrap,head,btn,handler){
+                    $.dialogAlert({
+                        text:'您要放弃本次编辑吗？',
+                        confirmText:'放弃',
+                        onConfirm:function(){
+                            handler.hiddenWrap(_wrap);
+                            orderInovic.find('.BookingContent').text('不需要发票');
+                            invoiceSwitcher[0].handler && invoiceSwitcher[0].handler.change(invoiceSwitcher,false);
+                            _wrap.find('.invoiceText').val('');
+                        }
+                    });
+                    return false;
+                }
+            });
+        //发票开关控件
+            invoiceSwitcher.switcher({
+                changeCallback:function(state,handler){
+                    var deliverBy= handler.group('deliverBy');
+                    invoiceSwitcher[0].state=state;
+                    if(!state){
+                        handler.change(deliverBy,false);
+                        invoiceList.css('display','none');
+                    }else{
+                        handler.change(deliverBy.eq(1),true);
+                        invoiceList.css('display','block');
+                    }
+                }
+            });
+            $('.deliverSwitcher').switcher({
+                changeCallback:function(state,handler){
+
+                }
+            });
+        })();
+
+        //发票内容筛选
+        (function(){
+            var js_invoiceType=$('#invoiceType');
+
+            $('#BoxContent').boxContentInital({
+                //指定触发器
+                trigger: js_invoiceType,
+                //确认按钮回调函数
+                initialCallback:function(handler){
+                    var val;
+                    $(this).find('#btn_reset').remove();
+                    handler.selectSingleItemAndConfirm($('#js-option-block').find('dd[data-select=checked]'));
+                    val=handler.values[0].valueText;
+                    js_invoiceType.find('.booking-g-txt').text(val);
+                    $('#js-invoice-content-hidden').val(val);
+                },
+                confirmCallback: function (elem, aValus) {
+                    js_invoiceType.find('.booking-g-txt').text(aValus[0].valueText);
+                    $('#js-invoice-content-hidden').val(aValus[0].valueText);
+                },
+                onItemsTap:function(elem,index,val){
+                    //console.log(elem,index,val);
+                }
+            });
+            js_invoiceType.displayWrap({
+                callback: function (state, wrap) {
+                    wrap && $(wrap).refresh();
+                }
+            });
+
+        })();
+
+    });
+</script>
+</body>
+</html>

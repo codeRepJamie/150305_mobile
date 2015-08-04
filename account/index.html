@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <title>会员中心-广州广之旅官方网站移动版</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/account.css">
+    <script type="text/javascript" src="../scripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../scripts/CommonJs.js"></script>
+    <script type="text/javascript" src="../scripts/cheack_visa.js"></script>
+</head>
+
+<body>
+<div class="HeaderView">
+    <h1>会员中心</h1>
+    <i class="ReturnIco"></i>
+</div>
+<article>
+    <div class="account">
+        <div class="member-box">
+            <div class="member-infoBar" data-href="/webapp/h5myinfo/accounts">
+                <div class="member-pic"><img width="60" height="60" alt=""
+                                             src="../images/account/123.jpg">
+                </div>
+                <div class="member-info"><i class="i-user" data-g="0"></i> jamie曾</div>
+                <!--<i class="home-arrow"></i>--></div>
+
+        </div>
+        <ul class="home-order-status">
+            <li id="order-all" class="order-all" data-href="myOrderList.html"><i class="i-order"></i> 我的订单</li>
+            <li class="order-awaitpay" data-href=""><i class="i-pay"></i> 待付款</li>
+            <!--<li class="order-nottravel" data-href="/webapp/myctrip/orders/unuseorderlist"><i class="i-date"></i> 未出行
+            </li>
+            <li class="order-awaitreview" data-href="/webapp/myctrip/orders/uncommentorderlist"><i
+                    class="i-comment"></i> 待评价
+            </li>-->
+        </ul>
+        <ul class="home-list">
+           <!-- <li id="promocodeUrl"><strong class="promocode">0张</strong> 优惠券 <i class="i-coupon"></i> <i
+                    class="home-arrow"></i></li>-->
+            <li class="_mypoints" data-href="/webapp/cpage/mypoints"><strong class="point">1225</strong> 我的积分 <i
+                    class="i-gift"></i> <i class="home-arrow"></i></li>
+            <li class="favorite" data-href="/webapp/favorite/index.html">我的收藏 <i class="i-favorite"></i> <i
+                    class="home-arrow"></i></li>
+            <li class="comments" data-href="/webapp/favorite/index.html">我的点评 <i class="i-comments"></i> <i
+                    class="home-arrow"></i></li>
+            <li class="favorite" data-href="/webapp/favorite/index.html">自游通卡<i class="i-ziyoutong"></i> <i
+                class="home-arrow"></i></li>
+            <li data-href="/webapp/myctrip/common/setting"><em>设置个人信息</em> 设置 <i class="i-setting"></i> <i
+                    class="home-arrow"></i></li>
+            <li class="aboutctrip" data-href="/webapp/myctrip/common/about">投诉建议 <i class="i-tip"></i> <i
+                    class="home-arrow"></i></li>
+        </ul>
+    </div>
+</article>
+<script>
+    $(function () {
+        $('#order-all').tapToHref();
+    });
+</script>
+</body>
+</html>
