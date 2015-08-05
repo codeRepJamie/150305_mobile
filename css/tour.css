@@ -16,7 +16,7 @@
 }
 
 .HeaderView .SearchIco:before {
-    background-size: 282px 271px;
+    background-size: 110px auto;
 }
 
 article {
@@ -68,7 +68,11 @@ article .TourList li .TourImage {
     height: 100px;
     position: relative;
 }
-
+article .TourList li .TourImageCont{
+    width: 80px;
+    height: 80px;
+    background: rgb(238, 243, 245) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAxQTFRFqKioxsjJ7vP13eHin2tJMAAAAJVJREFUeNqsklEKwzAMQ6Xo/neu4rRzFpvBoCbkw682klKMH4UXIAlIANlAzOK8KvRMDPqDHnq3Oz3kkOgDVUEw8K1cnHANLcEH5HTifawwVIZcL0+nN+RyGdPUodZ91+AewQfqUby5PINnrvz3ySIiNfCWjHwYNCTSqCG0cO9Pw1iqv2Ga1J5Q7qpWjmhe/G+bugQYACzWBRVlSB+xAAAAAElFTkSuQmCC) no-repeat center center;
+}
 article .TourList li .TourImage .type {
     position: absolute;
     left: 0;
@@ -271,7 +275,7 @@ article .TourList li .TourContent .price strong {
 }
 
 .pullDown.loading .cont, .pullUp.loading .cont {
-    width: 100px;
+    width: 140px;
 }
 
 .pullDown.loading .cont.noResult, .pullUp.loading .cont.noResult {
@@ -324,11 +328,10 @@ article .TourList li .TourContent .price strong {
 /*产品详情*/
 .route_day span, .route_day i, .route_day i:after, .route_loading i, .base_loading i, .wireless_failure .no_wifi .wifi_ico, .wireless_failure .no_wifi:before, .wireless_failure .dial_service .dial_btn:before, .fee_txt h3:after, /*.more_info li a:after,*/
 .banner_box .img_wrap .pic_loading:after, .banner_box .pic_fail:after, .banner_box .pic_none:after, .score_ico li, .no_comment:before, .visa_list li a:after, .man_box:before, .child_box:before, .icon_date, .box_hidden h4:after, .plan_list:before, .train_list:before, .ship_list:before, .bus_list:before, /*.arrows_icon:after,*/
-.btn_cur:before, .base_list .take_site dt i.cur:after, .item_select li.cur:after, .passenger_tips:after, .passenger_select .passenger_datail.cur i:after, .passenger_select .edit_icon:after, .coupon_list .cur i:after, .finsh_title:before, .hotel_icon:before, .hotel_address:before, .wifi_icon, .park_icon, .date_ico:before, .room_area:before, .room_peo:before, .room_balance:before, .room_floor:before, .room_bed:before, .room_smok:before, .room_web:before, .book_limit:after, .book_intro:after, .htl_list:before, .htl_list .address:before, .htl_list .tel_num:before, .add_icon:after, .more_text a:after, .query_myorder li:after, .child_box .child_notice:before, .loading_ico, .hotel_list li:before, .sort_item:after, .list_filter_item dd:after, .list_filter_checkbox p i:after, .no_collection_notice:before, .v_guest .edit_icon:after, .v_passenger_tips:after, .list_filter_radio .checkbox_ico:after, .detail_features:after, .banner_box .collect_ico, .price_box .discount, .time_icon_01::before, .time_icon_02::before, .time_icon_03::before, .time_icon_04::before, .time_icon_05::before, .time_icon_06::before, .time_icon_07::before, .time_icon_08::before, .time_icon_09::before, .time_icon_10::before, .time_icon_11::before, .abc_fixed_btn::before, .leader_detail .leader_score i, .score_giving i.mobile::before, .my_consult h3::before, .score_fliter li.current::after, .detail_characteristic dd:after, .detail_mod_leader .leader_score i, .consult_city_choose li.current::after, .detail_characteristic .wifi:before, .detail_characteristic .dv:before, /*.detail_favorable:after, */
-.detail_characteristic:after, .detail_more_down .more_back, .detail_dr_share dd:after, .daren_share_pop .share_close:after, .detail_collect:before, .detail_contrast:before, .content_list .other .wifi:before, .content_list .other .dv:before, .detail_mod_dealer .dealer_icon, .detail_mod_dealer .dealer_call:before, .detail_mod_feature .detail_feature_down:after, .detail_mod_feature .detail_feature_up:after {
+.btn_cur:before, .base_list .take_site dt i.cur:after, .item_select li.cur:after, .passenger_tips:after, .passenger_select .passenger_datail.cur i:after, .passenger_select .edit_icon:after, .coupon_list .cur i:after, .finsh_title:before, .hotel_icon:before, .hotel_address:before, .wifi_icon, .park_icon, .date_ico:before, .room_area:before, .room_peo:before, .room_balance:before, .room_floor:before, .room_bed:before, .room_smok:before, .room_web:before, .book_limit:after, .book_intro:after, .htl_list:before, .htl_list .address:before, .htl_list .tel_num:before, .add_icon:after, .more_text a:after, .query_myorder li:after, .child_box .child_notice:before, .loading_ico, .hotel_list li:before, .sort_item:after, .list_filter_item dd:after, .list_filter_checkbox p i:after, .no_collection_notice:before, .v_guest .edit_icon:after, .v_passenger_tips:after, .list_filter_radio .checkbox_ico:after, .detail_features:after, .banner_box .collect_ico, .price_box .discount, .time_icon_01::before, .time_icon_02::before, .time_icon_03::before, .time_icon_04::before, .time_icon_05::before, .time_icon_06::before, .time_icon_07::before, .time_icon_08::before, .time_icon_09::before, .time_icon_10::before, .time_icon_11::before,  .leader_detail .leader_score i, .score_giving i.mobile::before, .my_consult h3::before, .score_fliter li.current::after, .detail_characteristic dd:after, .detail_mod_leader .leader_score i, .consult_city_choose li.current::after, .detail_characteristic .wifi:before, .detail_characteristic .dv:before, /*.detail_favorable:after, */
+.detail_characteristic:after, .detail_more_down .more_back, .detail_dr_share dd:after, .daren_share_pop .share_close:after, .detail_collect:before, .detail_contrast:before, .content_list .other .wifi:before, .content_list .other .dv:before, .detail_mod_dealer .dealer_icon, .detail_mod_dealer .dealer_call:before {
     background-image: url(../images/tour_ico.png);
-    background-repeat: no-repeat;
-    background-size: 104px auto;
+    background-repeat: no-repeat;    /*background-size: 104px auto;*/
 }
 
 .detail_mod_box:after, .detail_product_intro:after, .detail_slide_tab:after, .route_arrange .route_arrange_title:after, .detail_pop .pop_list li:after, .more_info li:after, .detail_bottom:after, .js_to_booking_note:after, .route_arrange_list li:after, .pop_list li:after, .more_info li:before {
@@ -556,7 +559,7 @@ article .TourList li .TourContent .price strong {
 
 .detail_mod_box {
     margin-bottom: 10px;
-    padding: 4px 0 0 15px;
+    padding: 4px 15px 0 15px;
     background: #fff;
     position: relative;
 }
@@ -580,7 +583,7 @@ article .TourList li .TourContent .price strong {
 }
 
 .detail_mod_box .mod_bd {
-    padding: 0 15px 12px 0;
+    padding: 0 0 12px 0;
     position: relative;
     color: #666;
 }
@@ -613,12 +616,15 @@ article .TourList li .TourContent .price strong {
     -ms-box-sizing: border-box;
     box-sizing: border-box;
 }
-
+.detail_tab_fixed_wrap{
+    height: 42px;
+}
 .detail_slide_tab {
     background-color: #fff;
-    height: 42px;
+    height: inherit;
     position: relative;
     overflow: hidden;
+    padding: 0;
 }
 
 .detail_slide_tab p {
@@ -666,16 +672,10 @@ article .TourList li .TourContent .price strong {
 }
 
 .profile_box, .tab_route_wrap, .notice_box {
-    min-height: 540px;
+    min-height: 380px;
 
 }
 
-.detail_mod_box {
-    margin-bottom: 10px;
-    padding: 4px 0 0 15px;
-    background: #fff;
-    position: relative;
-}
 
 .detail_mod_pm .pm_photo {
     display: inline-block;
@@ -684,12 +684,6 @@ article .TourList li .TourContent .price strong {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-}
-
-.detail_mod_box .mod_bd {
-    padding: 0 15px 12px 0;
-    position: relative;
-    color: #666;
 }
 
 .detail_text_list li {
@@ -815,20 +809,20 @@ article .TourList li .TourContent .price strong {
     position: fixed;
     bottom: 0;
     left: 0;
-    z-index: 89;
     height: 58px;
-    padding: 9px 6px 9px 132px;
+    padding: 9px 6px 9px 70px;
     background: #f9f9f9;
     width: 100%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
     box-sizing: border-box;
+    z-index: 11;
 }
 
 .detail_collect {
     width: 50px;
-    margin-left: -122px;
+    margin-left: -60px;
 }
 
 .detail_bottom .detail_collect, .detail_bottom .detail_contrast {
@@ -849,6 +843,7 @@ article .TourList li .TourContent .price strong {
     height: 21px;
     background-position: 0 -28px;
     vertical-align: middle;
+    background-size: 104px auto;
 }
 
 .detail_contrast {
@@ -924,6 +919,7 @@ article .TourList li .TourContent .price strong {
     background-color: #fff;
     left: -24px;
     top: 16px;
+    background-size: 104px auto;
 }
 
 .time_icon_01::before {
@@ -1221,10 +1217,7 @@ element.style {
 }
 
 /*出行人数*/
-.db {
-    padding: 10px 15px;
-    background-color: #fff;
-}
+
 
 .basefix:after {
     clear: both;
@@ -1807,4 +1800,90 @@ element.style {
 }
 .v_ashy {
     color: #666;
+}
+/*线路详情*/
+.mask_line_route {
+    margin: 0 0 0 68px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 100%;
+    z-index: 99;
+    padding: 10px 78px 70px 10px;
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    -webkit-transition: all .5s ease 0;
+    -ms-transition: all .5s ease 0;
+    -o-transition: all .5s ease 0;
+    transition: all .5s ease 0;
+    color: rgb(255, 255, 255);
+}
+.mask_line_scroll {
+    overflow-y: auto;
+    height: 100%;
+    position: relative;
+    padding-left: 14px;
+    padding-top: 10px;
+}
+.mask_line_route h2 {
+    font: bold 16px Arial, "Lucida Grande", Verdana, "Microsoft YaHei", hei;
+    margin-bottom: 12px;
+    margin-left: -8px;
+}
+.mask_detail_line ul {
+    border-left: 1px solid rgb(255, 255, 255);
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.mask_detail_line.single_line ul {
+    padding-top: 0;
+}
+.mask_detail_line li {
+    margin-bottom: 20px;
+    position: relative;
+    top: 10px;
+}
+.mask_detail_line.single_line li {
+    top: -4px;
+}
+.mask_detail_line li::before {
+    content: "";
+    height: 7px;
+    width: 7px;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 6px;
+    position: absolute;
+    left: -16px;
+    background-color: rgba(36, 45, 58, 0.9);
+    top: 4px;
+}
+.mask_detail_line li h4 {
+    display: table-cell;
+    white-space: nowrap;
+    color: rgb(160, 165, 171);
+    padding-right: 10px;
+    width: 48px;
+}
+.mask_detail_line li p {
+    display: table-cell;
+}
+/*行程摘要按钮*/
+.abc_fixed_btn {
+    background: rgba(68, 68, 68, 0.7);
+    width: 36px;
+    height: 37px;
+    position: fixed;
+    right: 8px;
+    bottom: 120px;
+    border-radius: 3px;
+    z-index: 89;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    line-height: 1.2;
+    padding: 3px 2px 0;
 }

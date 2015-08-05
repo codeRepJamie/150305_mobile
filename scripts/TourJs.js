@@ -4,15 +4,12 @@
         initialTourList: function (url) {
             var list = $('.page article .TourList');
             var myScroll={};
-            /*var myScroll = new IScroll($('#pageScrollWrapper')[0], {
-                probeType: 1,
-                mouseWheel: true,
-                useTransition: false
-            });*/
             var pullUpEl = $('#pullUp'), pullUpOffset = pullUpEl.height();
             var label = pullUpEl.find('.pullUpLabel');
             var page = 1;
             var isBind = 0;//记录初始事件绑定
+            var body=$('body');
+            var blankPic='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjExR/NCNwAAAA1JREFUGFdj+P//PwMACPwC/ohfBuAAAAAASUVORK5CYII=';
             //数据初始化弹出提示清空页面
             list.html('');
             $('#loading').css({'display': 'block', 'opacity': 1});
@@ -28,6 +25,7 @@
                     url: '../ajax/' + url + page + '.txt?t=' + new Date().getTime(),
                     beforeSend: function (e) {
                     },
+                    timeout:10000,
                     success: function (e) {
                         //初始加载数据成功后隐藏提示
                         if (!isBind) {
@@ -40,6 +38,8 @@
                         if (dataJSON.ResponseStatus.Ack == "Success") {
                             //添加数据
                             list.append(addList(dataJSON.Data, dataJSON.ResponseStatus).join(''));
+                            //lazyload
+                            $('#TourList').find('.TourImageCont img').lazyload();
                             //更新页数信息
                             myScroll.responsePage = dataJSON.ResponseStatus.Page;
                             myScroll.responseCount = dataJSON.ResponseStatus.PageCount;
@@ -69,26 +69,38 @@
                     error: function (e) {
                         //数据初始化失败
                         if (!isBind) {
-                            $('#loading span').text('数据加载错误');
+                            $('#loading span').text('数据加载错误，请刷新页面');
+                        }else{
+                            label.text('数据加载错误，请刷新页面');
+                            pullUpEl.removeClass('loading').removeClass('flip').addClass('noResult');
+                            pullUpEl.find('.pullUpIcon').css('display', 'none');
                         }
                     }
                 });
             }
 
             function bindDrawUp(url) {
+                var _this=this;
+                //console.log($('body').scrollTop(),list.outerHeight()-$(window).height());
                 list[0].addEventListener('touchmove',function(e){
                     var et=e||event;
-                    var scrollTop=$('body').scrollTop();
-                    if(scrollTop>=$(this).height()-$(window).height()){
-
+                    var scrollTop=body.scrollTop();
+                    //console.log(scrollTop,$('body').outerHeight()-$(window).height());
+                    if(scrollTop>body.outerHeight()-pullUpEl.outerHeight()-$(window).height()&& myScroll.responsePage !== myScroll.responseCount){
+                        if(!/loading/.test(pullUpEl.attr('class'))&&!/noResult/.test(pullUpEl.attr('class'))){
+                            label.text('页面加载中...');
+                        }
+                        pullUpEl.addClass('loading');
+                        page++;//添加一页
+                        getAajxData(url);
                     }
                 },false);
-                        if (this.responsePage !== this.responseCount) {
+                        /*if (this.responsePage !== this.responseCount) {
                             pullUpEl.addClass('loading');
                             label.text('加载中...');
                             page++;//添加一页
                             getAajxData(url);
-                        }
+                        }*/
             }
 
             function addList(data, response) {
@@ -101,7 +113,7 @@
                         //数据模板
                         str = '<li data-info="' + pd.link + '">\
                         <div class="TourImage">\
-                        <img src="' + pd.Img + '"/>\
+                        <div class="TourImageCont"><img data-original="' + pd.Img + '" src="' + blankPic + '" /></div>\
                         <span class="type type01">' + pd.ProductPatternName + '</span>\
                         <span class="start">' + pd.DepartCityName + '</span>\
                         </div>\

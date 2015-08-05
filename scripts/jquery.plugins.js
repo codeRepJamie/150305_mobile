@@ -1368,6 +1368,7 @@
             _titleCont.css('display', 'block');
         };
         this.each(function () {
+
             var e = this;
             var _wrap = $('.detail_pop_wrap[data-rel=' + rel + ']');
             _wrap[0].default = _default;
@@ -1696,5 +1697,139 @@
             })
         });
     };
+    //详情页缩略插件
+    /*
+     /*
+     * 参数
+     * @param switchChangCallback --> $(this)控件本身 显示/隐藏时的回调函数
+     * Type:{Function}
+     ** @param trigger 触发器
+     ** Type:{string/jQuerySelector}
+     **
+     * @param openCallback --> $(this)控件本身 显示时的回调函数
+     * Type:{Function}
+     ** @param trigger 触发器
+     ** Type:{string/jQuerySelector}
+     *
+     * @param closeCallback --> $(this)控件本身 隐藏时的回调函数
+     * Type:{Function}
+     ** @param trigger 触发器
+     ** Type:{string/jQuerySelector}
+     *
+     * */
+    $.fn.toggleSwitch = function (opts) {
+        var _default = {
+            trigger:'',
+            closeHeight:70,
+            switchChangCallback: null,
+            'initialCallback': null,
+            'openCallback': null,
+            'closeCallback': null
+        };
+        _default = $.extend(_default, opts);
+
+        $(this).each(function (i, e) {
+            var _this = $(e);
+            var trigger= $(e).find(_default.trigger.toString());
+            var mod=$(e).find('.mod_bd').eq(0);
+            if(_default.closeHeight>mod.children().eq(0).height()){
+                trigger.css('display','none');
+            }else{
+                _this.addClass('detail_toggle_close').removeClass('detail_toggle_open');
+                mod.css('max-height',_default.closeHeight);
+                trigger.bind('fastclick', function () {
+                    arguments.callee.isSpread == undefined && (arguments.callee.isSpread=false);
+                    if(arguments.callee.isSpread){
+                        $(this).addClass('detail_feature_up').removeClass('detail_feature_down');
+                        _this.addClass('detail_toggle_open').removeClass('detail_toggle_close');
+                        mod.css('max-height','none');
+                        _default.openCallback && _default.openCallback.call(_this,$(this));
+                    }else{
+                        $(this).addClass('detail_feature_down').removeClass('detail_feature_up');
+                        _this.addClass('detail_toggle_close').removeClass('detail_toggle_open');
+                        mod.css('max-height',_default.closeHeight);
+                        _default.closeCallback && _default.closeCallback.call(_this,$(this));
+                    }
+                    arguments.callee.isSpread=!arguments.callee.isSpread;
+                    _default.switchChangCallback && _default.switchChangCallback.call(_this,$(this));
+                    return false;
+                })
+            }
+            _default.initialCallback && _default.initialCallback.call(_this,trigger);
+        });
+    };
+
+
+    $.fn.anchorMap = function (opts) {
+        var _default = {
+            offsetTop:0,
+            fixedMenu:'.detail_slide_tab',
+            groupClass:'.js_tab_showbox',
+            'tabChangCallback': null,
+            'initialCallback': null
+        };
+        _default = $.extend(_default, opts);
+        $(this).each(function (i, e) {
+            var _this = $(e);
+            var _thisMaxium;
+            var fixedMenu=_this.find(_default.fixedMenu);
+            var headHeight=$('#header').outerHeight();
+            var showBox=_this.find(_default.groupClass);
+            var handler={
+                index:0,
+                positionArr:new Array(showBox.length)
+            };
+            reDefindPostion();
+            $(document).bind('fastclick',function(){
+                reDefindPostion();
+            });
+            if(_this.outerHeight()>$(window).height()){
+                var scrollTop, scrollTopFix;
+
+                $(window).bind('scroll',function(){
+                    scrollTop=$(this).scrollTop();
+                    //scrollTopFix=scrollTop;
+                    //console.log(_default.offsetTop+headHeight);
+                    reDefindPostion();
+                    if(_this.offset().top<scrollTop){
+                        fixedMenu.addClass('fixed_top');
+                        for(var i=1;i<handler.positionArr.length;i++){
+                            if(handler.positionArr[i-1]<=scrollTop && handler.positionArr[i]>scrollTop){
+
+                                /*setBorder(i-1);*/
+                                handler.index=i-1;
+                                _default.tabChangCallback && _default.tabChangCallback.call(_this,handler);
+                                break;
+                            }
+                            else if(handler.positionArr[handler.positionArr.length-1]<=scrollTop){
+                                /*setBorder(arr.length-1);*/
+                                handler.index=handler.positionArr.length-1;
+                                _default.tabChangCallback && _default.tabChangCallback.call(_this,handler);
+                                break;
+                            }
+
+
+                        }
+
+                        if(_thisMaxium<scrollTopFix){
+                            fixedMenu.removeClass('fixed_top');
+                        }
+                    }else{
+                        fixedMenu.removeClass('fixed_top');
+                    }
+                });
+            }
+
+            _default.initialCallback && _default.initialCallback.call(_this,handler);
+
+            function reDefindPostion(){
+                _thisMaxium=_this.offset().top+_this.outerHeight();
+                showBox.each(function(i,e){
+                    handler.positionArr[i]=Math.floor($(e).offset().top-headHeight-_default.offsetTop);
+                });
+            }
+
+        });
+    }
 
 })(jQuery);

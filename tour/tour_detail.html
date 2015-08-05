@@ -8,21 +8,24 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/tour.css">
     <script type="text/javascript" src="../scripts/jquery-1.11.2.min.js"></script>
-    <script type="text/javascript" src="../scripts/CommonJs.js"></script>
+    <script type="text/javascript" src="../scripts/custom.modernizr.js"></script>
     <script type="text/javascript" src="../scripts/iscroll-probe.js"></script>
     <script type="text/javascript" src="../scripts/jquery.scrollTo.js"></script>
-    <script type="text/javascript" src="../scripts/TourJs.js"></script>
-    <script type="text/javascript" src="../scripts/tour_detail.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.event.special.fastclick.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.plugins.js"></script>
+    <script type="text/javascript" src="../scripts/CommonJs.js"></script>
+    <!--<script type="text/javascript" src="../scripts/TourJs.js"></script>-->
+<!--    <script type="text/javascript" src="../scripts/tour_detail.js"></script>-->
 </head>
 
 <body>
-<div class="HeaderView">
+<div id="header" class="HeaderView">
     <h1>产品详情</h1>
     <i class="ReturnIco"></i>
     <i class="ButtonIco ShareIco"></i>
     <i class="ButtonIco FavoriteIco"></i>
 </div>
-<article>
+<article id="mainContent" class="mainContent">
     <div class="tourDetail">
         <div class="db pdName">
             <div id="image-node" class="img_node">
@@ -41,9 +44,10 @@
                         <p>砍价购买</p></div>-->
                     <h2>华东5市+绍兴+乌镇+西塘6日跟团游(3钻)·宿乌镇内 2晚4钻+1晚5钻 上海成团</h2>
 
-                    <div id="js_price_box" class="price_box"><p class="price"><dfn>¥</dfn>899<em>/人起</em></p></div>
+                    <div id="js_price_box" class="price_box"><p class="price"><dfn>¥</dfn>899<em>/人起</em></p><p class="rebate_box"> <span class="rebate">全民放暑假</span> </p></div>
+
                 </div>
-                <div class="detail_favorable detail_arrow" id="js_promotion"><p class="onsale_text">约惠春天:早订优惠、多订优惠</p>
+                <div class="detail_favorable detail_arrow" id="js_promotion" data-rel="detail_promotion"><p class="onsale_text">约惠春天:早订优惠、多订优惠</p>
                 </div>
                 <div class="detail_characteristic">
                     <div class="characteristic_icon"><i class="hui">惠</i> <i class="green">铁定成团</i> <i
@@ -52,26 +56,47 @@
                 </div>
             </div>
         </div>
-        <div class="db mt10 detail_mod_box js_to_comment detail_mod_comment detail_arrow">
-            <h3 class="mod_hd arrows_icon"> 点评：<span class="comment_tips">841人出游，153条点评</span><!--<strong>4.7</strong>分-->
+        <!--<div class="db mt10 detail_mod_box js_to_comment detail_mod_comment detail_arrow">&lt;!&ndash;TODO 点评 &ndash;&gt;
+            <h3 class="mod_hd arrows_icon"> 点评：<span class="comment_tips">841人出游，153条点评</span>&lt;!&ndash;<strong>4.7</strong>分&ndash;&gt;
             </h3>
 
             <div class="mod_bd"><p class="comment_con">行程安排合理，该去的都去了，吃的也还不错</p></div>
-        </div>
+        </div>-->
 
-        <div data-href="tour_calendar.html" id="ctm_tour_detail_schedule" class="db mt10 js_schedule detail_mod_box detail_mod_schedule"><h3
-                class="mod_hd arrows_icon detail_arrow">出发班期与价格日历</h3>
+        <div data-href="tour_calendar.html" id="ctm_tour_detail_schedule" class="db mt10 js_schedule detail_mod_box detail_mod_schedule">
+            <h3 class="mod_hd arrows_icon detail_arrow">出发班期与价格日历</h3>
 
             <div class="schedule_list"><span>03/19</span><span>03/21</span><span>03/23</span><span>03/26</span><span>03/28</span><span>03/30</span><span>04/02</span><span>04/04</span><span>04/06</span><span>...</span>
             </div>
         </div>
 
+
+        <div id="js_pm_recommend" class="detail_mod_box detail_mod_pm detail_toggle"><h3 class="mod_hd"><img class="pm_photo"
+                                                                                               src="http://dimg04.c-ctrip.com/images/t1/vacations/180000/179784/9e2fd13351b04790ae2441417a05029e.jpg"
+                                                                                               alt="">产品经理推荐
+        </h3>
+
+            <div class="mod_bd">
+                <ul class="detail_text_list">
+                    <li>润江南热销产品升级啦：为了让游客体验更佳，住宿酒店有惊喜哦~~</li>
+                    <li>免费接送：陌生的城市，温馨的服务，我们承诺接送一站式贴心服务！</li>
+                    <li>品质保证：全程0购物，保证不进店，我们赚的只是咱老百姓的口碑！</li>
+                </ul>
+            </div>
+
+            <div id="js_description_show" class="detail_feature_down">点击加载全部</div>
+        </div>
+
         <div id="js_detail_tab_wrap" class="mt10 detail_tab_wrap">
-            <div id="js_detail_tab" class="db detail_slide_tab"><p id="ctm_tour_detail_summary" class="current">产品特色</p>
+            <div id="js_detail_tab" class="detail_tab_fixed_wrap"><!--TODO Tab-->
+                <div class="detail_tab_content db detail_slide_tab">
+                    <p id="ctm_tour_detail_summary">行程介绍</p>
 
-                <p id="ctm_tour_detail_route" class="">6日行程</p>
+                    <p id="ctm_tour_detail_route" class="">费用说明</p>
 
-                <p class="">须知</p><b class="slide_border"></b></div>
+                    <p class="">预订须知</p><b class="slide_border"></b>
+                </div>
+            </div>
 
             <div style="display: none;" class="tab_loading">
                 <!--<div style="" class="cui-breaking-load">
@@ -80,121 +105,8 @@
                 </div>-->
             </div>
 
-            <div id="js_tab_showbox_0" class="profile_box js_tab_showbox" style="/*display: none;*/">
-                <div id="js_pm_recommend" class="detail_mod_box detail_mod_pm"><h3 class="mod_hd"><img class="pm_photo"
-                                                                                                       src="http://dimg04.c-ctrip.com/images/t1/vacations/180000/179784/9e2fd13351b04790ae2441417a05029e.jpg"
-                                                                                                       alt="">产品经理推荐
-                </h3>
-
-                    <div class="mod_bd">
-                        <ul class="detail_text_list">
-                            <li>润江南热销产品升级啦：为了让游客体验更佳，住宿酒店有惊喜哦~~</li>
-                            <li>免费接送：陌生的城市，温馨的服务，我们承诺接送一站式贴心服务！</li>
-                            <li>品质保证：全程0购物，保证不进店，我们赚的只是咱老百姓的口碑！</li>
-                        </ul>
-                    </div>
-                </div>
-                <div id="js_description_placeholder">
-                    <div class="detail_mod_box detail_mod_feature"><h3 class="mod_hd">产品特色</h3>
-
-                        <div class="mod_bd"><p>
-                            <span style="color:#E53333;line-height:1.5;"> </span>
-                        </p>
-
-                            <p>
-                                <span style="color:#E53333;"> </span>
-                            </p>
-
-                            <p>
-                                <span style="color:#E53333;line-height:1.5;">春天来了，快和春天来次亲密的约“惠”吧！约“惠”有效期（出发日期4月1日至6月30日）</span>
-                            </p>
-
-                            <p>
-                                <span style="color:#E53333;">约“惠”要赶早：提前15天预订每单立减100元（2人起），提前25天预定每单再减100元（2人起）。</span>
-                            </p>
-
-                            <p>
-                                <span style="color:#E53333;">约“惠”要人多：6人及以上预定每单立减200元。</span>
-                            </p>
-
-                            <p>
-                                <span style="color:#E53333;">约“惠”要分享：点评后返现40元/人。（具体返现规则以网站公布为准，线下预订不享受此优惠）</span>
-                            </p>
-
-                            <p>
-                                <span style="line-height:1.5;color:#CC33E5;"><strong>★本产品为润江南经典产品，我们的追求，让您花最少的钱，玩转华东，华东旅行请选择</strong></span><strong><a
-                                    href="http://vacations.ctrip.com/whole-1B126PB21861Z1400-P-2_2c15_2c16_2c17-beijing-huadong/?searchText=%bb%aa%b6%ab#ctm_ref=va_lst_0_flt_p1_9_12_txt"
-                                    target="_blank"><strong><span
-                                    style="color:#E53333;"><u>【润江南】</u></span></strong></a></strong><span
-                                    style="line-height:1.5;color:#CC33E5;"><strong>主题品牌。</strong></span>
-                            </p>
-
-                            <p>
-                                <span style="line-height:1.5;color:#E53333;"> </span>
-                            </p>
-
-                            <p>
-                                <span style="color:#CC33E5;">★【独家升级住宿】-羊年大赠：</span><span><span style="color:#EE33EE;">为了让游客体验更佳，我们在住宿方面做了<strong><span
-                                    style="color:#E53333;">较大的提升</span></strong>，</span></span><span><span
-                                    style="color:#EE33EE;">特</span></span><span><span
-                                    style="color:#EE33EE;">别安</span></span><span
-                                    style="color:#EE33EE;">排一晚</span><strong><span
-                                    style="color:#E53333;">夜宿乌镇内</span></strong><span style="color:#EE33EE;">，详细情况请看行程内容！</span>
-                            </p>
-
-                            <p>
-                                <span style="color:#CC33E5;line-height:1.5;">★【独家升级用餐】-全程餐标30元/人/正餐，正规团队餐厅，西栅内升级40元/人，让您在外吃的放心。</span>
-                            </p>
-
-                            <p>
-                                <span style="color:#CC33E5;">★【精华景点全含】-精选景区或世遗景点：中山陵、夫子庙、灵山大佛、船游西湖<strong><span
-                                        style="color:#E53333;">（</span></strong><strong><span style="color:#E53333;">VIP包船）</span></strong>、乌镇西栅、西塘、留园等。</span>
-                            </p>
-
-                            <p>
-	<span style="color:#CC33E5;">★【独家免费接送】-我们承诺接送一站式贴心服务，无论几点，无论哪个火车站或机场，我们都将免费提供。<br>
-</span>
-                            </p>
-
-                            <p>
-                                <span style="color:#CC33E5;">★【独家品质保证】-全程0购物，保证不进店，我们赚的只是咱老百姓的口碑。</span>
-                            </p>
-
-                            <p>
-                                <span style="color:#CC33E5;">★【实惠好礼相送】-每成人赠送遮阳伞一把，每人每天一瓶纯净水。</span>
-                            </p></div>
-                    </div>
-                </div>
-                <div id="js_tourshow_placeholder"></div>
-                <div id="js_moreline_placeholder">
-                    <div id="ctm_tour_detail_moreline" class="js_more_detail detail_mod_box detail_mod_more"><h3
-                            class="mod_hd">更多线路</h3>
-                        <ul class="more_list">
-                            <li data-pid="1707431" data-sid="2" data-did="2"><p>宿乌镇外 2晚4钻+1晚5钻 上海成团</p>
-                                <span>                                                                                                                            <strong
-                                        class="more_price"><dfn>¥</dfn>789</strong>起                                                                                                                    </span>
-                            </li>
-                            <li data-pid="1707431" data-sid="2" data-did="2"><p>宿乌镇外 2晚4钻+1晚5钻 上海成团</p>
-                                <span>                                                                                                                            <strong
-                                        class="more_price"><dfn>¥</dfn>789</strong>起                                                                                                                    </span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div id="js_promotion_detail" class="detail_pop" style="/*display:none*/"><h2>优惠<a class="close"
-                                                                                               href="javascript:;">×</a>
-                </h2>
-                    <ul class="pop_list">
-                        <li><p class="sale_txt">约惠春天:早订优惠、多订优惠</p>
-
-                            <p>约“惠”要赶早：提前15天预订每单立减100元（2人起），提前25天预定每单再减100元（2人起）。
-                                约“惠”要人多：6人及以上预定每单立减200元。
-                                约“惠”要分享：点评后返现40元/人。（具体返现规则以网站公布为准）</p></li>
-                    </ul>
-                </div>
-            </div>
-            <div id="js_route_box" class="tab_route_wrap js_tab_showbox" style="/*display: none;*/">
-                <!--<div id="js_cruiseinfo_placeholder"></div>-->
+            <div id="js_route_box" class="tab_route_wrap js_tab_showbox">
+                <div class="route_arrange_hd"><span>行程介绍</span></div>
                 <div id="js_route_box_inner">
                     <div class="route_arrange"><h2 id="route_anchor_0" class="route_arrange_title"><strong>第1天</strong>
                         <span>各地—上海</span></h2>
@@ -383,11 +295,10 @@
                     </div>
                 </div>
                 <!--<div id="js_short_route_btn" class="simple_fixed_btn">图文详情</div>-->
-                <div id="ctm_tour_detail_route_mask" class="abc_fixed_btn js_route_mask_btn"></div>
+                <!--<div id="ctm_tour_detail_route_mask" class="abc_fixed_btn js_route_mask_btn"></div>-->
                 <div id="js_route_bg" class="transparent_mask"></div>
-                <div class="js_route_mask mask_line_route hide" style="height: 592px;">
-                    <div class="mask_line_scroll"
-                         style="height: 332px; transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); -webkit-transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0.001s; -webkit-transition-duration: 0.001s; transform: translate(0px, 0px) translateZ(0px);">
+                <div id="line_route" class="js_route_mask mask_line_route hidden">
+                    <div class="mask_line_scroll">
                         <h2>行程概要</h2>
 
                         <div class="mask_detail_line single_line">
@@ -409,10 +320,12 @@
                     </div>
                 </div>
             </div>
-            <div id="js_notice_box" class="notice_box js_tab_showbox" style="/*display: none;*/">
+
+            <div id="js_notice_box" class="notice_box js_tab_showbox">
+                <div class="route_arrange_hd"><span>费用说明</span></div>
                 <div id="js_cost_info">
                     <dl class="profile_info">
-                        <dd><h3 class="pm_title">费用包含</h3>
+                        <dd><h3 class="pm_title">费用说明</h3>
                             <ul class="pm_list">
                                 <li>行程所列酒店住宿费用。</li>
                                 <li>酒店无法保证有三人间或者加床，如有需要我们将尽力安排，但是无法保证。</li>
@@ -438,26 +351,190 @@
                     <li class="js_to_cost_more" id="ctm_tour_detail_recommend"><a href="javascript:;">推荐活动参考(需自费)</a>
                     </li>
                 </ul>
-                <ul class="db mt10 detail_new_more more_info detail_arrow">
-                    <li id="js_to_return_cash"><a href="javascript:;">返现说明</a></li>
-                </ul>
-                <ul class=" db mt10 detail_new_more more_info">
-                    <li class="js_to_booking_note" id="ctm_tour_detail_booking_note"><a class="detail_arrow"
-                                                                                        href="javascript:;">预订须知</a>
-                    </li>
-                    <li class="js_to_question" id="ctm_tour_detail_qa"><a class="detail_arrow"
-                                                                                       href="javascript:;">咨询问答(111)</a>
-                    </li>
 
-                </ul>
+
+                <div id="js_tips_box" class="notice_box js_tab_showbox">
+                    <div class="route_arrange_hd"><span>预订须知</span></div>
+                    <div id="js_tips_info">
+                        <dl class="profile_info">
+                            <dd><h3 class="pm_title">友情提示</h3>
+                                <ul class="pm_list">
+                                    <li>行程所列酒店住宿费用。</li>
+                                    <li>酒店无法保证有三人间或者加床，如有需要我们将尽力安排，但是无法保证。</li>
+                                    <li>行程内所列餐食(具体请参考行程推荐，自理除外)。</li>
+                                    <li>当地中文导游服务。</li>
+                                    <li>跟团游期间用车费用。</li>
+                                    <li>行程中所列景点首道大门票，自费项目除外。</li>
+                                    <li>儿童价格只含当地正餐半餐、车位以及导游服务费，其他均需要自理。</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl class="profile_info">
+                            <dd><h3 class="pm_title">特别约定</h3>
+                                <ul class="pm_list">
+                                    <li>行程所列酒店住宿费用。</li>
+                                    <li>酒店无法保证有三人间或者加床，如有需要我们将尽力安排，但是无法保证。</li>
+                                    <li>行程内所列餐食(具体请参考行程推荐，自理除外)。</li>
+                                    <li>当地中文导游服务。</li>
+                                    <li>跟团游期间用车费用。</li>
+                                    <li>行程中所列景点首道大门票，自费项目除外。</li>
+                                    <li>儿童价格只含当地正餐半餐、车位以及导游服务费，其他均需要自理。</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+
+
+                </div>
             </div>
+
         </div>
 
+        <div class="db mt10 detail_mod_box js_to_comment detail_mod_comment detail_arrow"><!--TODO 点评 -->
+            <h3 class="mod_hd arrows_icon"> 点评：<span class="comment_tips">841人出游，153条点评</span><!--<strong>4.7</strong>分-->
+            </h3>
+
+            <div class="mod_bd"><p class="comment_con">行程安排合理，该去的都去了，吃的也还不错</p></div>
+        </div>
+
+        <ul class=" db mt10 detail_new_more more_info">
+            <li class="js_to_booking_note" id="ctm_tour_detail_booking_note"><a class="detail_arrow" href="javascript:;">签证说明</a>
+            </li>
+
+        </ul>
+
     </div>
-</article>
-<footer class="detail_bottom  detail_bottom_double"><span class="detail_collect js_collect_icon"></span> <span
+    <footer class="detail_bottom  detail_bottom_double"><span class="detail_collect js_collect_icon"></span> <!--<span
         class="detail_contrast js_compare"
-        data-compare="{'pId':'1678487','scId':'2','dcId':'2','name':'华东5市+绍兴+乌镇+西塘6日跟团游(3钻)·宿乌镇内 2晚4钻+1晚5钻 上海成团','price':899}">对比</span>
-    <!--<span class="detail_btn_blue js_telphone_btn" id="ctm_tour_detail_phone">电话咨询</span>--><span data-href="tour_calendar.html" class="js_in_Footer detail_btn_orange" id="ctm_tour_detail_book">开始预订</span></footer>
+        data-compare="{'pId':'1678487','scId':'2','dcId':'2','name':'华东5市+绍兴+乌镇+西塘6日跟团游(3钻)·宿乌镇内 2晚4钻+1晚5钻 上海成团','price':899}">对比</span>-->
+        <!--<span class="detail_btn_blue js_telphone_btn" id="ctm_tour_detail_phone">电话咨询</span>--><span data-href="tour_calendar.html" class="js_in_Footer detail_btn_orange" id="ctm_tour_detail_book">开始预订</span></footer>
+
+    <div id="ctm_tour_detail_route_trigger" class="abc_fixed_btn js_route_mask_btn" style="">行程概要</div>
+
+</article>
+
+<div data-rel="detail_promotion" class="hotel_detail_policy detail_pop_wrap">
+    <article class="hotel-info-mod js_root">
+        <div class="hotel-infobox hotel-b-border">
+            <div class="word-break js_tab_panel js_brief_box">
+                <div class="tipsList mt10">
+                    <h2>优惠说明：</h2>
+                    <ul class="normal-tips">
+
+                        <li>单笔订单金额满100元，优惠 1%</li>
+                        <li>单笔订单金额满500元，优惠 2%</li>
+                        <li>单笔订单金额满10000元，优惠1.2%</li>
+                        <li>单笔订单金额满20000元，优惠 0.75%</li>
+                        <li>单笔订单金额满30000元，优惠 0.5%</li>
+                    </ul>
+                </div>
+
+                <div class="tipsList"><strong>
+                    注：该优惠会在提交订单时自动扣减，支付时的金额就是优惠后应付的费用
+                </strong></div>
+            </div>
+        </div>
+        <script>
+            $('#phone_Hotel').bind('fastclick',function(){
+                $.dialogAlert('酒店电话010-68492001');
+            });
+        </script>
+    </article>
+</div>
+<script>
+    $(function(){
+
+        (function() {
+            $(window).resize(function () {
+                justifyImg();
+            });
+            var justifyImg = function () {
+                var width = $(window).width();
+                var height = width * 0.56;
+                $('#image-node img').css({'width': width, 'height': height});
+                $('#image-node').css({'width': width, 'height': height});
+            };
+            justifyImg();
+        })();
+
+        $('#ctm_tour_detail_book').tapToHref();
+        $('#ctm_tour_detail_schedule').tapToHref();
+
+        (function() {
+            $('#js_promotion').detailPop({
+                title: '优惠活动说明'
+            });
+        })();
+
+        (function() {
+            $('.detail_toggle').toggleSwitch({
+                trigger:'.detail_feature_down',
+                openCallback:function(trigger){
+                    trigger.text('点击收起全部');
+                },
+                closeCallback:function(trigger){
+                    trigger.text('点击加载全部');
+                }
+            });
+        })();
+
+        (function() {
+            var _this=$('.detail_tab_wrap');
+            var fixedMenu=_this.find('.detail_slide_tab');
+            var fixedMenuBorder=fixedMenu.find('.slide_border').eq(0);
+            var fixedMenuItems=fixedMenu.find('p');
+            var fixedMenuBorderWidth=fixedMenuBorder.outerWidth();
+            var posArr=[];
+            fixedMenuItems.eq(0).addClass('current');
+
+            _this.anchorMap({
+                offsetTop:fixedMenu.outerHeight(),
+                initialCallback:function(handler){
+                    fixedMenuItems.bind('fastclick',function(){
+                        var index=$(this).index();
+                        $('body').animate({scrollTop:handler.positionArr[index]},800);
+                    });
+                },
+                tabChangCallback:function(handler){
+                    fixedMenuItems.eq(handler.index).addClass('current').siblings('p').removeClass('current');
+                    setBorder(handler.index)
+                }
+            });
+            function setBorder(index){
+                fixedMenuBorder.css({transform:'translateX('+fixedMenuBorderWidth*index+'px)'});
+            }
+        })();
+
+        //行程概要
+        (function() {
+            var routeCont=$('#line_route');
+            var list=routeCont.find('li');
+            $('#ctm_tour_detail_route_trigger').bind('fastclick',function(e){
+                routeCont.removeClass('hidden');
+                e.stopPropagation();
+            });
+            routeCont.bind('fastclick',function(e){
+                e.stopPropagation();
+            });
+
+            $('#js_route_box').anchorMap({
+                groupClass:'.route_arrange',
+                offsetTop:$('.detail_slide_tab').outerHeight(),
+                initialCallback:function(handler){
+                    list.each(function(i,e){
+                        $(e).bind('fastclick',function(){
+                            routeCont.addClass('hidden');
+                            var index=$(this).index();
+                            $('body').animate({scrollTop:handler.positionArr[index]},800);
+                        });
+                    });
+                }
+            });
+            $(document).bind('fastclick',function(e){
+                routeCont.addClass('hidden');
+            });
+        })();
+    });
+</script>
 </body>
 </html>

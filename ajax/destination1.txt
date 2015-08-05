@@ -17,7 +17,7 @@
                 "DepartCityName": "广州出发",
                 "ScheduleDesc": "每周二、四、六",
                 "ProductPatternName": "跟团游",
-                "Img": "http://b2b.gzl.com.cn/Administrator/UploadFile/Channel/Image/2015/01/20150107145441466.jpg",
+                "Img": "http://b2b.gzl.com.cn/Administrator/UploadFile/Product/Image/2015/04/20150422115943927.jpg",
                 "PlayDays": 2,
                 "PromotionTag": [
                     {"TagName": "惠", "type": "discount"},
@@ -36,7 +36,7 @@
                     "DepartCityName": "深圳出发",
                     "ScheduleDesc": "每周二、四",
                     "ProductPatternName": "跟团游",
-                    "Img": "http://b2b.gzl.com.cn/Administrator/UploadFile/Channel/Image/2015/01/20150107145441466.jpg",
+                    "Img": "http://b2b.gzl.com.cn/Administrator/UploadFile/Product/Image/2015/05/20150505155525302.jpg",
                     "PlayDays": 3,
                     "PromotionTag": [
                         {"TagName": "惠", "type": "discount"},
@@ -54,7 +54,7 @@
                     "DepartCityName": "深圳出发",
                     "ScheduleDesc": "每周二、四",
                     "ProductPatternName": "跟团游",
-                    "Img": "http://b2b.gzl.com.cn/Administrator/UploadFile/Channel/Image/2015/01/20150107145441466.jpg",
+                    "Img": "http://b2b.gzl.com.cn/Administrator/UploadFile/Product/Image/2014/01/20140108100051027.jpg",
                     "PlayDays": 3,
                     "PromotionTag": [
                         {"TagName": "惠", "type": "discount"},
@@ -72,7 +72,7 @@
                     "DepartCityName": "深圳出发",
                     "ScheduleDesc": "每周二、四",
                     "ProductPatternName": "跟团游",
-                    "Img": "http://b2b.gzl.com.cn/Administrator/UploadFile/Channel/Image/2015/01/20150107145441466.jpg",
+                    "Img": "http://b2b.gzl.com.cn/Administrator/UploadFile/Product/Image/2015/06/20150629163835581.jpg",
                     "PlayDays": 3,
                     "PromotionTag": [
                         {"TagName": "惠", "type": "discount"},
@@ -89,7 +89,7 @@
                     "DepartCityName": "深圳出发",
                     "ScheduleDesc": "每周二、四",
                     "ProductPatternName": "跟团游",
-                    "Img": "http://b2b.gzl.com.cn/Administrator/UploadFile/Channel/Image/2015/01/20150107145441466.jpg",
+                    "Img": "http://b2b.gzl.com.cn/Administrator/UploadFile/News/Image/2013/12/20131212181025637.jpg",
                     "PlayDays": 3,
                     "PromotionTag": [
                         {"TagName": "惠", "type": "discount"},
@@ -107,7 +107,7 @@
                     "DepartCityName": "深圳出发",
                     "ScheduleDesc": "每周二、四",
                     "ProductPatternName": "跟团游",
-                    "Img": "http://b2b.gzl.com.cn/Administrator/UploadFile/Channel/Image/2015/01/20150107145441466.jpg",
+                    "Img": "http://b2b.gzl.com.cn/Administrator/UploadFile/Product/Image/2015/02/20150206150211809.jpg",
                     "PlayDays": 3,
                     "PromotionTag": [
                         {"TagName": "惠", "type": "discount"},
@@ -125,7 +125,7 @@
                     "DepartCityName": "深圳出发",
                     "ScheduleDesc": "每周二、四",
                     "ProductPatternName": "跟团游",
-                    "Img": "http://b2b.gzl.com.cn/Administrator/UploadFile/Channel/Image/2015/01/20150107145441466.jpg",
+                    "Img": "http://b2b.gzl.com.cn/Administrator/UploadFile/Product/Image/2015/03/20150305093944323.jpg",
                     "PlayDays": 3,
                     "PromotionTag": [
                         {"TagName": "惠", "type": "discount"},
@@ -142,7 +142,7 @@
                     "DepartCityName": "深圳出发",
                     "ScheduleDesc": "每周二、四",
                     "ProductPatternName": "跟团游",
-                    "Img": "http://b2b.gzl.com.cn/Administrator/UploadFile/Channel/Image/2015/01/20150107145441466.jpg",
+                    "Img": "http://b2b.gzl.com.cn/Administrator/UploadFile/Product/Image/2015/02/20150206150715028.jpg",
                     "PlayDays": 3,
                     "PromotionTag": [
                         {"TagName": "惠", "type": "discount"},
@@ -159,7 +159,7 @@
                     "DepartCityName": "深圳出发",
                     "ScheduleDesc": "每周二、四",
                     "ProductPatternName": "跟团游",
-                    "Img": "http://b2b.gzl.com.cn/Administrator/UploadFile/Channel/Image/2015/01/20150107145441466.jpg",
+                    "Img": "http://b2b.gzl.com.cn/Administrator/UploadFile/Product/Image/2015/03/20150305093944323.jpg",
                     "PlayDays": 3,
                     "PromotionTag": [
                         {"TagName": "惠", "type": "discount"},
@@ -176,7 +176,7 @@
                     "DepartCityName": "深圳出发",
                     "ScheduleDesc": "每周二、四",
                     "ProductPatternName": "跟团游",
-                    "Img": "http://b2b.gzl.com.cn/Administrator/UploadFile/Channel/Image/2015/01/20150107145441466.jpg",
+                    "Img": "http://b2b.gzl.com.cn/Administrator/UploadFile/Product/Image/2014/11/20141120112311808.jpg",
                     "PlayDays": 3,
                     "PromotionTag": [
                         {"TagName": "惠", "type": "discount"},

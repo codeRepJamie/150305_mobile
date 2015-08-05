@@ -150,6 +150,7 @@ body {
 }
 
 .mainContent {
+    z-index: 1;
     padding: 48px 0 0 0;
 }
 
@@ -161,7 +162,7 @@ body {
 .HeaderView .ButtonIco:before,
 .TourFooter ul li:before,
 article .HotelList01 li .GetLocation:before,
-.HotelDetail .RoomFilter .RoomHead .HeadButton:before {
+.HotelDetail .RoomFilter .RoomHead .HeadButton:before,.detail_feature_down:after,.detail_feature_up:after{
     background: url(../images/common_ico.png) no-repeat;
 }
 
@@ -171,6 +172,21 @@ article .HotelList01 li .GetLocation:before,
     border-color: rgb(221, 221, 221);
     border-image: url(data:image/gif;base64,R0lGODlhBQAFAIABAN3d3f///yH5BAEAAAEALAAAAAAFAAUAAAIHhB9pGatnCgA7) 2 stretch;
     -webkit-border-image: url(data:image/gif;base64,R0lGODlhBQAFAIABAN3d3f///yH5BAEAAAEALAAAAAAFAAUAAAIHhB9pGatnCgA7) 2 stretch;
+}
+.detail_feature_down:before,.detail_feature_up:before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgb(226, 226, 226);
+    width: 100%;
+    height: 1px;
+    -webkit-transform: scaleY(0.5);
+    -ms-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    -webkit-transform-origin: 0 top;
+    -ms-transform-origin: 0 top;
+    transform-origin: 0 top;
 }
 
 .cui-city-t {
@@ -687,7 +703,7 @@ article .HotelList01 li .GetLocation:before,
 }
 
 /*返回上一级*/
-.HeaderView .ReturnIco:before {
+.HeaderView .ReturnIco:before{
     width: 12px;
     height: 12px;
     content: "";
@@ -751,8 +767,8 @@ article .HotelList01 li .GetLocation:before,
     content: "";
     width: 20px;
     height: 20px;
-    background-size: 285px auto;
-    background-position: 0px -21px;
+    background-size: 112px auto;
+    background-position: 0px 0px;
 }
 
 .HeaderView .FavoriteIco:before {
@@ -1301,7 +1317,7 @@ article .HotelList01 li .GetLocation:before,
     width: 20px;
     height: 20px;
     content: "";
-    background-size: 263px auto;
+    background-size: 102px auto;
 }
 
 .TourFooter .BottomNav li.destination:before {
@@ -1483,7 +1499,21 @@ article .HotelList01 li .GetLocation:before,
     display: none;
     padding-top: 48px;
 }
-
+.detail_pop_wrap article{
+    padding-top: 10px;
+}
+.detail_pop_wrap .tipsList{
+    background: #FFF;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    clear: both;
+    color: #666;
+    font-size: 12px;
+}
 .headerDetail {
     display: none;
 }
@@ -2186,4 +2216,78 @@ article .HotelList01 li .GetLocation:before,
     -webkit-flex: 1;
     -ms-flex: 1;
     display: table-cell\0/;
+}
+/*活动图标*/
+.rebate_box{
+    display: inline-block;
+    height: 26px;
+    white-space: nowrap;
+    margin-left: 5px;
+}
+.price_box .rebate {
+    line-height: 15px;
+    border-radius: 2px;
+    padding: 0 4px;
+    background: rgb(255, 129, 0);
+    color: rgb(255, 255, 255);
+    font-size: 10px;
+    height: 15px;
+    display: inline-block;
+    margin-right: 3px;
+    position: relative;
+}
+/*向下图标*/
+.detail_feature_down:after,.detail_feature_up:after{
+    background-position: -70px -44px;
+    background-size: 103px auto;
+    vertical-align: -3px;
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+}
+.detail_toggle .detail_feature_up:after{
+    transform: rotate(-180deg);
+}
+/*详情页缩略页面*/
+.detail_toggle .detail_feature_down, .detail_toggle .detail_feature_up {
+    text-align: center;
+    line-height: 43px;
+    color: rgb(102, 102, 102);
+    position: relative;
+    margin-top: 8px;
+}
+
+.detail_toggle .mod_bd,.detail_toggle_close .mod_bd{
+    overflow: hidden;
+    max-height: 70px;
+}
+.detail_toggle_open .mod_bd{
+    max-height: none;
+}
+/*详情页分隔符*/
+.route_arrange_hd {
+    margin: 10px;
+    text-align: center;
+    color: rgb(102, 102, 102);
+    position: relative;
+}
+.route_arrange_hd span {
+    position: relative;
+    z-index: 1;
+    padding: 0 14px;
+    background: #EEEEEE;
+}
+.route_arrange_hd:before {
+    content: "";
+    height: 1px;
+    background: rgb(212, 212, 212);
+    position: absolute;
+    width: 100%;
+    top: 49%;
+    left: 0;
+    -webkit-transform: scaleY(0.5);
+    -ms-transform: scaleY(0.5);
+    transform: scaleY(0.5);
 }

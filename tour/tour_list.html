@@ -13,6 +13,7 @@
     <script type="text/javascript" src="../scripts/jquery.event.special.fastclick.js"></script>
     <script type="text/javascript" src="../scripts/iscroll-probe.js"></script>
     <script type="text/javascript" src="../scripts/jquery.plugins.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.lazyload.min.js"></script>
     <script type="text/javascript" src="../scripts/CommonJs.js"></script>
     <script type="text/javascript" src="../scripts/TourJs.js"></script>
     <script src="../scripts/tourList.js"></script>
@@ -28,7 +29,7 @@
     <article>
         <div id="pageScrollWrapper" class="wrapper">
         <div id="pageScroll" class="pageScroll">
-        <ul id="TourList" class="t TourList">
+        <ul id="TourList" class="t TourList"><!--
             <li>
                 <div class="TourImage">
                     <img src="http://www.gzl.com.cn/Administrator/UploadFile/Channel/Image/2015/01/20150107145441466.jpg"/>
@@ -249,7 +250,7 @@
                     <div class="price"><dfn>￥</dfn><strong>999999</strong>起</div>
                 </div>
             </li>
-        </ul><div id="pullUp" class="pullUp"><div class="cont"> <span class="pullUpIcon"></span>
+        --></ul><div id="pullUp" class="pullUp"><div class="cont"> <span class="pullUpIcon"></span>
             <span class="pullUpLabel">没有更多结果了</span>
         </div></div></div></div>
 
@@ -352,7 +353,7 @@
         </div>
     </div>
     <!--<div id="PopMask" class="PopMask"></div>-->
-    <div style="display: none" id="loading" class="loadingCont"><span>页面加载中...</span></div>
+    <div id="loading" class="loadingCont"><span>页面加载中...</span></div>
 </div>
 
 <div id="rgWrapper" class="rightContentWrapper">
