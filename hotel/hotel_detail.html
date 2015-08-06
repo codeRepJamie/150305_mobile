@@ -31,7 +31,7 @@
 
             <div data-rel="detail_photo" id="hotelPhoto" class="HotelPhoto">
                 <img src="http://www.gzl.com.cn/Administrator/UploadFile/Product/Image/2014/11/20141114120051871.jpg"/>
-                <span class="ImgInfo">16张</span>
+                <span id="hotelCountTag" class="ImgInfo"></span>
             </div>
         </div>
         <div id="hotelMap" class="db HotelInfo mt10 InputArrow" data-rel="detail_map">
@@ -334,7 +334,7 @@
 
 <div data-rel="detail_photo" class="hotel_detail_declare detail_pop_wrap">
     <article class="p10 word-break">
-        <ul id="js_listWrap" class="hotel-imglist">
+        <ul id="js_listWrap" class="gallery-imglist">
             <li><span rel="gallery" data-href="http://www.gzl.com.cn/Administrator/UploadFile/HotelAttachments/20090706093640.jpg" class="swipebox"><img data-idx="1" src="http://www.gzl.com.cn/Administrator/UploadFile/HotelAttachments/20090706093640.jpg"></span></li>
             <li><span rel="gallery" data-href="http://www.gzl.com.cn/Administrator/UploadFile/HotelAttachments/20090706095524.jpg" class="swipebox"><img data-idx="2" src="http://www.gzl.com.cn/Administrator/UploadFile/HotelAttachments/20090706095524.jpg"></span></li>
             <li><span rel="gallery" data-href="http://www.gzl.com.cn/Administrator/UploadFile/HotelAttachments/20090706095217.jpg" class="swipebox"><img data-idx="3" src="http://www.gzl.com.cn/Administrator/UploadFile/HotelAttachments/20090706095217.jpg"></span></li>
@@ -510,8 +510,10 @@
 
 
             //酒店图片浏览框
+            var swipeBox=$('#js_listWrap').find('.swipebox');
+            $('#hotelCountTag').text(swipeBox.length+'张');
             $('#hotelPhoto').detailPop({
-                title: '共5张',
+                title: '共'+swipeBox.length+'张',
                 //首次点解打开
                 firstOpenCallback:function(wrap,head,trigger){
                     //使用ajax加载图片
@@ -521,7 +523,7 @@
                         /*$('#js_listWrap').find('.swipebox').swipebox({
                             useSVG : true
                         });*/
-                        var swipeBox=$('#js_listWrap').find('.swipebox');
+
                         iniArr();
                         swipeBox.bind('fastclick',function() {
                             var index=swipeBox.index($(this));

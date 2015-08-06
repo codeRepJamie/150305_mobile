@@ -11,7 +11,9 @@
     <script type="text/javascript" src="../scripts/custom.modernizr.js"></script>
     <script type="text/javascript" src="../scripts/iscroll-probe.js"></script>
     <script type="text/javascript" src="../scripts/jquery.scrollTo.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.lazyload.min.js"></script>
     <script type="text/javascript" src="../scripts/jquery.event.special.fastclick.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.swipeshow.min.js"></script>
     <script type="text/javascript" src="../scripts/jquery.plugins.js"></script>
     <script type="text/javascript" src="../scripts/CommonJs.js"></script>
     <!--<script type="text/javascript" src="../scripts/TourJs.js"></script>-->
@@ -28,13 +30,27 @@
 <article id="mainContent" class="mainContent">
     <div class="tourDetail">
         <div class="db pdName">
-            <div id="image-node" class="img_node">
-                <img src="http://img.gzl.com.cn:9999/upload/2015/3/8/41a01ec7-46e4-471c-bc35-d74fac783b51_480X320.jpg"
-                     alt=""/>
-
+            <div id="ctm_tour_detail_pics" class="img_wrap js_detail_pic_slide">
+                <div class="cui-sliderContainer slides">
+                    <div class="img_node slider-imageContainerNode slide">
+                        <img data-original="http://file.gzl.com.cn/tour/2014102909202217853.jpg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjExR/NCNwAAAA1JREFUGFdj+P//PwMACPwC/ohfBuAAAAAASUVORK5CYII="
+                         alt=""/>
+                    </div>
+                    <div class="img_node slider-imageContainerNode slide">
+                        <img data-original="http://file.gzl.com.cn/tour/2014102909201417853.jpg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjExR/NCNwAAAA1JREFUGFdj+P//PwMACPwC/ohfBuAAAAAASUVORK5CYII="
+                             alt=""/>
+                    </div>
+                    <div class="img_node slider-imageContainerNode slide">
+                        <img data-original="http://file.gzl.com.cn/tour/2014102909203917853.jpg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjExR/NCNwAAAA1JREFUGFdj+P//PwMACPwC/ohfBuAAAAAASUVORK5CYII="
+                             alt=""/>
+                    </div>
+                    <div class="img_node slider-imageContainerNode slide">
+                        <img data-original="http://file.gzl.com.cn/tour/2014102909203117853.jpg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjExR/NCNwAAAA1JREFUGFdj+P//PwMACPwC/ohfBuAAAAAASUVORK5CYII="
+                             alt=""/>
+                    </div>
+                </div>
+                <span id="banner-tips-js" data-rel="detail_photo" class="banner_tips"></span>
                 <div class="detail_supplier_info"><p class="start">广州出发</p>
-
-
                     <p class="no">路线编号：1678487</p></div>
             </div>
             <div id="js_product_info" class="detail_product_intro">
@@ -441,20 +457,75 @@
         </script>
     </article>
 </div>
+
+<div data-rel="detail_photo" class="route_detail_declare detail_pop_wrap">
+    <article class="p10 word-break">
+        <ul id="js_listWrap" class="gallery-imglist">
+            <li><span rel="gallery" data-href="http://file.gzl.com.cn/tour/2014102909202217853.jpg" class="swipebox"><img data-idx="1" src="http://file.gzl.com.cn/tour/2014102909202217853.jpg"></span></li>
+            <li><span rel="gallery" data-href="http://file.gzl.com.cn/tour/2014102909201417853.jpg" class="swipebox"><img data-idx="2" src="http://file.gzl.com.cn/tour/2014102909201417853.jpg"></span></li>
+            <li><span rel="gallery" data-href="http://file.gzl.com.cn/tour/2014102909203917853.jpg" class="swipebox"><img data-idx="3" src="http://file.gzl.com.cn/tour/2014102909203917853.jpg"></span></li>
+            <li><span rel="gallery" data-href="http://file.gzl.com.cn/tour/2014102909203117853.jpg" class="swipebox"><img data-idx="4" src="http://file.gzl.com.cn/tour/2014102909203117853.jpg"></span></li>
+        </ul>
+    </article>
+</div>
+
 <script>
     $(function(){
 
         (function() {
+            var imgSize={
+                width:0,
+                height:0
+            };
+            var container=$('#ctm_tour_detail_pics');
+            var node=container.find('.img_node');
+            var img = node.find('img');
             $(window).resize(function () {
                 justifyImg();
             });
             var justifyImg = function () {
-                var width = $(window).width();
-                var height = width * 0.56;
-                $('#image-node img').css({'width': width, 'height': height});
-                $('#image-node').css({'width': width, 'height': height});
+                imgSize.width = $(window).width();
+                imgSize.height = Math.floor(imgSize.width * 0.56);
+                img.css(imgSize);
+                node.css(imgSize);
+                container.css(imgSize)
             };
             justifyImg();
+            container.swipeshow({
+                interval: 6000,
+                onactivate: function(current,i,prev,j){
+                    $(current).find(img).attr('src',$(current).find(img).attr('data-original'));
+                }
+            });
+
+            var swipeBox=$('#js_listWrap').find('.swipebox');
+            $('#banner-tips-js').detailPop({
+                title: '共5张',
+                firstOpenCallback:function(wrap,head,trigger){
+                    var picHref=[];
+
+                    $('body').append('<link rel="stylesheet" href="../css/swipebox.min.css">').append('<script src="../scripts/jquery.swipebox.min.js"><\/script>');
+
+                    iniArr();
+                    swipeBox.bind('fastclick',function() {
+                        var index=swipeBox.index($(this));
+                        if(index && swipeBox.length>1){
+                            picHref=picHref.concat(picHref.splice(0,index));
+                        }
+                        $.swipebox(picHref,{
+                            useSVG : false
+                        });
+                        iniArr();
+                    });
+
+                    function iniArr() {
+                        picHref=[];
+                        swipeBox.each(function () {
+                            picHref.push({href: $(this).attr('data-href')});
+                        });
+                    }
+                }
+            })
         })();
 
         $('#ctm_tour_detail_book').tapToHref();
@@ -534,6 +605,11 @@
                 routeCont.addClass('hidden');
             });
         })();
+
+        (function(){
+
+        })()
+
     });
 </script>
 </body>

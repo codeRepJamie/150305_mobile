@@ -329,7 +329,7 @@ article .TourList li .TourContent .price strong {
 .route_day span, .route_day i, .route_day i:after, .route_loading i, .base_loading i, .wireless_failure .no_wifi .wifi_ico, .wireless_failure .no_wifi:before, .wireless_failure .dial_service .dial_btn:before, .fee_txt h3:after, /*.more_info li a:after,*/
 .banner_box .img_wrap .pic_loading:after, .banner_box .pic_fail:after, .banner_box .pic_none:after, .score_ico li, .no_comment:before, .visa_list li a:after, .man_box:before, .child_box:before, .icon_date, .box_hidden h4:after, .plan_list:before, .train_list:before, .ship_list:before, .bus_list:before, /*.arrows_icon:after,*/
 .btn_cur:before, .base_list .take_site dt i.cur:after, .item_select li.cur:after, .passenger_tips:after, .passenger_select .passenger_datail.cur i:after, .passenger_select .edit_icon:after, .coupon_list .cur i:after, .finsh_title:before, .hotel_icon:before, .hotel_address:before, .wifi_icon, .park_icon, .date_ico:before, .room_area:before, .room_peo:before, .room_balance:before, .room_floor:before, .room_bed:before, .room_smok:before, .room_web:before, .book_limit:after, .book_intro:after, .htl_list:before, .htl_list .address:before, .htl_list .tel_num:before, .add_icon:after, .more_text a:after, .query_myorder li:after, .child_box .child_notice:before, .loading_ico, .hotel_list li:before, .sort_item:after, .list_filter_item dd:after, .list_filter_checkbox p i:after, .no_collection_notice:before, .v_guest .edit_icon:after, .v_passenger_tips:after, .list_filter_radio .checkbox_ico:after, .detail_features:after, .banner_box .collect_ico, .price_box .discount, .time_icon_01::before, .time_icon_02::before, .time_icon_03::before, .time_icon_04::before, .time_icon_05::before, .time_icon_06::before, .time_icon_07::before, .time_icon_08::before, .time_icon_09::before, .time_icon_10::before, .time_icon_11::before,  .leader_detail .leader_score i, .score_giving i.mobile::before, .my_consult h3::before, .score_fliter li.current::after, .detail_characteristic dd:after, .detail_mod_leader .leader_score i, .consult_city_choose li.current::after, .detail_characteristic .wifi:before, .detail_characteristic .dv:before, /*.detail_favorable:after, */
-.detail_characteristic:after, .detail_more_down .more_back, .detail_dr_share dd:after, .daren_share_pop .share_close:after, .detail_collect:before, .detail_contrast:before, .content_list .other .wifi:before, .content_list .other .dv:before, .detail_mod_dealer .dealer_icon, .detail_mod_dealer .dealer_call:before {
+.detail_characteristic:after, .detail_more_down .more_back, .detail_dr_share dd:after, .daren_share_pop .share_close:after, .detail_collect:before, .detail_contrast:before, .content_list .other .wifi:before, .content_list .other .dv:before, .detail_mod_dealer .dealer_icon, .detail_mod_dealer .dealer_call:before,.tourDetail .img_wrap .banner_tips:before,.tourDetail .img_node:before  {
     background-image: url(../images/tour_ico.png);
     background-repeat: no-repeat;    /*background-size: 104px auto;*/
 }
@@ -339,7 +339,7 @@ article .TourList li .TourContent .price strong {
     bottom: 0;
     -webkit-transform-origin: 0 bottom;
     -ms-transform-origin: 0 bottom;
-    transform-origin: 0 bottom;
+    transform-origin: 0 bottom;background-size: 104px auto;
 }
 
 .detail_favorable:before, .detail_characteristic:before, .detail_bottom:after, .js_to_booking_note:after, .more_list li:before, .route_arrange_list li:after, .more_info li:before {
@@ -371,7 +371,69 @@ article .TourList li .TourContent .price strong {
 }
 
 .tourDetail .img_node {
+    position: absolute;
+    background: rgb(238, 243, 245);
+    text-align: center;
+    top:0;
+}
+.tourDetail .img_node:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin:auto;
+    width: 25px;
+    height: 25px;
+    background-position: -74px -27px;
+    background-size: 104px auto;
+    animation: 2s loadingDetailImg linear infinite;
+}
+@keyframes loadingDetailImg {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.tourDetail .img_node img{
+    vertical-align:bottom;
+    position: absolute;
+    left: 0;
+    top:0;
+}
+.tourDetail .img_wrap{
     position: relative;
+    overflow: hidden;
+    background: #333;
+}
+.tourDetail .img_wrap .banner_tips{
+    position: absolute;
+    bottom: 34px;
+    right: 5px;
+    padding: 0 5px;
+    height: 17px;
+    line-height: 17px;
+    background: rgba(0, 0, 0, 0.6);
+    color: rgb(255, 255, 255);
+    font-size: 10px;
+    z-index: 9;
+    border-radius: 2px;
+
+}
+
+.tourDetail .img_wrap .banner_tips:before{
+    content: "";
+    vertical-align: -1px;
+    display: inline-block;
+    width: 14px;
+    height: 11px;
+    background-position: 0 -50px;
+    margin-right: 2px;
+    background-size: 104px auto;
 }
 
 .tourDetail .pdName {
@@ -379,7 +441,7 @@ article .TourList li .TourContent .price strong {
     padding: 0 0 10px 0;
 }
 
-.img_node .detail_supplier_info {
+.detail_supplier_info {
     height: 24px;
     line-height: 24px;
     background-color: rgba(0, 0, 0, 0.5);
@@ -395,21 +457,21 @@ article .TourList li .TourContent .price strong {
     padding: 0 20px;
 }
 
-.img_node .detail_supplier_info p:first-child {
+.detail_supplier_info p:first-child {
     text-align: left;
 }
 
-.img_node .detail_supplier_info p {
+.detail_supplier_info p {
     display: table-cell;
 
 }
 
-.img_node .detail_supplier_info p.start {
+.detail_supplier_info p.start {
     width: 30%;
     text-align: left;
 }
 
-.img_node .detail_supplier_info p.no {
+.detail_supplier_info p.no {
     width: 70%;
     text-align: right;
 }
@@ -1271,6 +1333,7 @@ element.style {
     margin-top: 10px;
     padding-top: 10px;
     border-top: 1px solid #e2e2e2;
+    clear: both;
 }
 
 .mod_foot_acitons {
@@ -1324,6 +1387,7 @@ element.style {
     width: 25px;
     height: 25px;
     background-position: -74px -27px;
+    background-size: 104px auto;
 }
 
 @-webkit-keyframes forward_loading {

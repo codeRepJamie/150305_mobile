@@ -118,6 +118,8 @@
         return !$.cookie(key);
     };
 
+
+
 }));
 (function ($) {
     $.extend({
@@ -137,7 +139,10 @@
             });
             $('.filter_pop_wrap').css({'visibility': 'hidden'});
             _default.callback && _default.callback.call(this);
-            $('body').unIScroll();
+            if($.iScroll){
+                $('body').unIScroll();
+            }
+
         },
         //简单警告框插件
         /*
@@ -519,7 +524,7 @@
         this[0].style.overflow = 'hidden';
         this[0].style.maxHeight = _default.listHeight + 'px';
         _default.wrapper[0].style.maxHeight = _default.listHeight + 'px';
-        if (_default.listHeight < _default.scrollCont.height()) {
+        if (_default.listHeight < _default.scrollCont.height() && window.IScroll) {
             this[0].iScroll = new IScroll(this[0], {mouseWheel: 1, scrollbars: 0});
         }
         return this;
@@ -1015,6 +1020,7 @@
             minusCallback: null,
             callback: null
         };
+
         _default = $.extend(_default, opts);
         var _thisValInput = $(this).parent().find('.inputText');
         var _thisMinus = $(this).parent().find('.minus');
@@ -1830,6 +1836,30 @@
             }
 
         });
+    };
+
+    $.fn.gallery = function (opts) {
+        var _default = {
+            cellName:0,
+            animateTime:600,
+            autoChange:true,
+            'changCallback': null,
+            'swiepCallback': null,
+            'initialCallback': null
+        };
+        _default = $.extend(_default, opts);
+        try{
+            /*$(this).each(function (i, e) {
+                var _this = $(e);
+                _this.swipeshow({
+                    autostart: _default.autoChange,
+                    interval: _default.animateTime
+                }).next();
+
+            })*/
+        }catch (e){
+            throw new Error('gallery插件需要jquery.swipeshow.min.js插件支持!')
+        }
     }
 
 })(jQuery);

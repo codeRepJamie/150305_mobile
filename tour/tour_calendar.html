@@ -9,22 +9,20 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/tour.css">
     <script type="text/javascript" src="../scripts/jquery-1.11.2.min.js"></script>
-    <!--<script type="text/javascript" src="../scripts/jquery.mobile-1.4.5.min.js"></script>-->
-    <!--<script src="../scripts/jquery.touchSwipe.js"></script>-->
-
-
+    <script type="text/javascript" src="../scripts/custom.modernizr.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.event.special.fastclick.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.plugins.js"></script>
     <script type="text/javascript" src="../scripts/CommonJs.js"></script>
-    <script type="text/javascript" src="../scripts/TourJs.js"></script>
     <script src="../scripts/calendar.js"></script>
 </head>
 
 <body>
-<div data-role="page" class="page">
+<div id="header" class="HeaderView">
     <header class="HeaderView">
         <h1>选择日期和人数</h1>
         <i class="ReturnIco"></i>
     </header>
-    <article id="setp1">
+    <article id="mainContent" class="mainContent">
         <div class="calendarCont" data-view-name="booking_step1">
             <div class="db calendar_db">
                 <div class="calendarContent" id="calendar">
@@ -45,37 +43,40 @@
             </div>
             <input id="selectDateNum" type="hidden" value="0"/>
 
-            <div id="js_activity" class="db mt10 activity_mod hidden">
-                <p class="status">此出发日期参与&nbsp;&nbsp;<img src="##" class="active_ico"/></p>
+            <div id="js_activity" class="db mt10 activity_mod detail_mod_box">
+                <div class="status mod_hd">此出发日期参与<p class="rebate_box"> <span class="rebate">全民放暑假</span> </p></div>
+                <div ></div>
             </div>
 
-            <div class="db mt10 traveller_select_mod"><h2>选择出行人数</h2>
+            <div class="db mt10 traveller_select_mod detail_mod_box"><h2 class="mod_hd">选择出行人数</h2>
 
-                <div class="actions basefix">
+                <div class="actions basefix mod_bd">
                     <div class="adult_box">
-                        <div data-bind="adualt_num" data-min="1" class="NumberInput">
-                            <i class="add"></i>
-                            <input type="tel" class="inputText" value="1" disabled="disabled">
-                            <i class="minus invalid"></i>
-                        </div>
-                        <input id="adualt_num" type="hidden" value="1"/>
+                        <span data-min="1" data-bind="adult_num" id="adult-num-count" class="NumberInput">
+            <i class="add"></i>
+            <input type="tel" class="inputText" value="1" disabled="disabled">
+            <i class="minus invalid"></i>
+          </span>
+
+                        <input id="adult_num" type="hidden" value="1"/>
                         成人
                         <p class="p_v_webtxt">成人价¥199/人</p>
                     </div>
                     <div class="children_box">
-                        <div data-bind="children_num" class="NumberInput">
-                            <i class="add"></i>
-                            <input type="tel" class="inputText" value="0" disabled="disabled">
-                            <i class="minus invalid"></i>
-                        </div>
+                        <span data-min="0" data-bind="children_num" id="children-num-count" class="NumberInput">
+            <i class="add"></i>
+            <input type="tel" class="inputText" value="0" disabled="disabled">
+            <i class="minus invalid"></i>
+          </span>
                         <input id="children_num" type="hidden" value="0"/>
                         小孩
                         <p class="p_v_webtxt">小孩价¥199/人</p>
                     </div>
-                </div>
-                <div class="tips"><p>最少1人起订</p>
+                    <div class="tips passenger_tips"><p>最少1人起订</p>
 
-                    <p>儿童价标准：2-12岁</p></div>
+                        <p>儿童价标准：2-12岁</p></div>
+                </div>
+
             </div>
 
         </div>
@@ -119,8 +120,11 @@
                             <p><span class="v_price"><dfn>¥</dfn><strong>0</strong></span>/人</p>
 
                             <div class="hanle_area ">
-                                <div class="NumberInput"><i class="add"></i><span
-                                        class="inputText">0</span><i class="minus invalid"></i></div>
+                                <span data-min="0" data-bind="abc_num" id="children-num-count" class="NumberInput">
+            <i class="add"></i>
+            <input type="tel" class="inputText" value="0" disabled="disabled">
+            <i class="minus invalid"></i>
+          </span>
                             </div>
                         </li>
 
@@ -136,10 +140,11 @@
 
                             <p><span class="v_price"><dfn>¥</dfn><strong>120</strong></span>/人</p>
 
-                            <div class="hanle_area ">
-                                <div class="NumberInput"><i class="add"></i><span
-                                        class="inputText">0</span><i class="minus invalid"></i></div>
-                            </div>
+                            <span data-min="0" data-bind="abc_num" id="children-num-count" class="NumberInput">
+            <i class="add"></i>
+            <input type="tel" class="inputText" value="0" disabled="disabled">
+            <i class="minus invalid"></i>
+          </span>
                         </li>
                         <li class="js_default_resource" data-resourceid="1707541" data-key="用车"><p
                                 class="v_font_s clamp2">补房差</p>
@@ -147,8 +152,11 @@
                             <p><span class="v_price"><dfn>¥</dfn><strong>110</strong></span>/人</p>
 
                             <div class="hanle_area ">
-                                <div class="NumberInput"><i class="add"></i><span
-                                        class="inputText">0</span><i class="minus invalid"></i></div>
+                                <span data-min="0" data-bind="abc_num" id="children-num-count" class="NumberInput">
+            <i class="add"></i>
+            <input type="tel" class="inputText" value="0" disabled="disabled">
+            <i class="minus invalid"></i>
+          </span>
                             </div>
                         </li>
                     </ul>
@@ -175,8 +183,11 @@
                                 </div>
                             </div>
                             <div class="hanle_area ">
-                                <div class="NumberInput"><i class="add"></i><span
-                                        class="inputText">0</span><i class="minus invalid"></i></div>
+                                <span data-min="0" data-bind="abc_num" id="children-num-count" class="NumberInput">
+            <i class="add"></i>
+            <input type="tel" class="inputText" value="0" disabled="disabled">
+            <i class="minus invalid"></i>
+          </span>
                             </div>
                         </li>
                     </ul>
@@ -397,117 +408,138 @@
 
 <script>
     $(function () {
-        var date = new Date();
-        var mapping = [];
-        var events = [];
-        $.ajax({
-            'url': "../ajax/getSchedule.txt?" + new Date().getTime(),
-            'data': "",
-            'dataType': 'text',
-            'type': 'GET',
-            'error': function (data) {
-                alert("获取日期数据失败");
-                return false;
-            },
-            'beforeSend': function () {
-                $("#calendarloading").show();
-            },
-            'success': function (dateArray) {
-                events = JSON.parse(dateArray).schedule;
-                for (var i = 0; i < events.length; i++) {
-                    mapping.push(new DateLinkMapping(events[i].start, "###", "<span class='cld_price'>" + events[i].price + (events[i].picture == '0' ? "" : "</span><i class='dot'></i>")));
-                }
 
-                Calendar.settings.firstDayOfWeek = 7;
-                Calendar.settings.dateSelectCallback = pqSelected;
-                Calendar.Init(null, mapping);
-                if (events.length > 0) {
-                    var mydate = events[0].start.split("-");
-                    if (mydate.length == 3) {
-                        Calendar.RenderCalendar("calendar", parseInt(mydate[1]), parseInt(mydate[0]));
-                    } else {
+        (function(){
+            //数字框点击
+            $('.NumberInput').inputNumber({
+                plusCallback: function (val, max, min) {
+
+                },
+                minusCallback: function (val, max, min) {
+
+                }
+            });
+
+
+
+        })();
+
+
+        (function(){
+            var date = new Date();
+            var mapping = [];
+            var events = [];
+            $.ajax({
+                'url': "../ajax/getSchedule.txt?" + new Date().getTime(),
+                'data': "",
+                'dataType': 'text',
+                'type': 'GET',
+                'error': function (data) {
+                    alert("获取日期数据失败");
+                    return false;
+                },
+                'beforeSend': function () {
+                    $("#calendarloading").show();
+                },
+                'success': function (dateArray) {
+                    events = JSON.parse(dateArray).schedule;
+                    for (var i = 0; i < events.length; i++) {
+                        mapping.push(new DateLinkMapping(events[i].start, "###", "<span class='cld_price'>" + events[i].price + (events[i].picture == '0' ? "" : "</span><i class='dot'></i>")));
+                    }
+
+                    Calendar.settings.firstDayOfWeek = 7;
+                    Calendar.settings.dateSelectCallback = pqSelected;
+                    Calendar.Init(null, mapping);
+                    if (events.length > 0) {
+                        var mydate = events[0].start.split("-");
+                        if (mydate.length == 3) {
+                            Calendar.RenderCalendar("calendar", parseInt(mydate[1]), parseInt(mydate[0]));
+                        } else {
+                            Calendar.RenderCalendar("calendar", date.getMonth() + 1, date.getFullYear());
+                        }
+
+                    }
+                    else {
                         Calendar.RenderCalendar("calendar", date.getMonth() + 1, date.getFullYear());
                     }
 
-                }
-                else {
-                    Calendar.RenderCalendar("calendar", date.getMonth() + 1, date.getFullYear());
-                }
-
-                //渲染日历时执行
-                function pqSelected() {
-                    checkSelect();
-                    $('#calendar').find('.pq').each(function (i, e) {
-                        $(e).bind('fastclick', function () {
-                            var i = $(this).find('.sp').attr('data-num');
-                            if ($('.cld_price', $(this)).length == 0) {
-                                return;
-                            }
-                            $('#selectDateNum').val(i);
-                            $(e).addClass('selected').siblings().removeClass('selected').parent().siblings().children().removeClass('selected');
-                            checkSelect();
+                    //渲染日历时执行
+                    function pqSelected() {
+                        checkSelect();
+                        $('#calendar').find('.pq').each(function (i, e) {
+                            $(e).bind('fastclick', function () {
+                                var i = $(this).find('.sp').attr('data-num');
+                                if ($('.cld_price', $(this)).length == 0) {
+                                    return;
+                                }
+                                $('#selectDateNum').val(i);
+                                $(e).addClass('selected').siblings().removeClass('selected').parent().siblings().children().removeClass('selected');
+                                checkSelect();
+                            });
                         });
-                    });
-                }
+                    }
 
-                function checkSelect() {
-                    var i = $('#selectDateNum').val();
-                    var activity = $('#js_activity');
-                    var e = $('#calendar').find('.sp[data-num=' + i + ']').parents('.pq');
-                    //var i=e.find('.sp').attr('data-num');
-                    $(e).addClass('selected').siblings().removeClass('selected').parent().siblings().children().removeClass('selected');
-                    if (i) {
-                        $('#js_notice .date_selected').text('可报人数：' + events[i].left);
-                        if ($('i.dot', e).length) {
-                            activity.removeClass('hidden');
-                            activity.find('.active_ico').attr('src', 'http://www.gzl.com.cn/subject/images/' + events[i].activity + '.png');
-                        } else {
-                            activity.addClass('hidden');
+                    function checkSelect() {
+                        var i = $('#selectDateNum').val();
+                        var activity = $('#js_activity');
+                        var e = $('#calendar').find('.sp[data-num=' + i + ']').parents('.pq');
+                        //var i=e.find('.sp').attr('data-num');
+                        $(e).addClass('selected').siblings().removeClass('selected').parent().siblings().children().removeClass('selected');
+                        if (i) {
+                            $('#js_notice .date_selected').text('可报人数：' + events[i].left);
+                            if ($('i.dot', e).length) {
+                                activity.removeClass('hidden');
+                                activity.find('.active_ico').attr('src', 'http://www.gzl.com.cn/subject/images/' + events[i].activity + '.png');
+                            } else {
+                                activity.addClass('hidden');
+                            }
                         }
                     }
+                },
+                'complete': function () {
+                    $("#calendarloading").hide();
                 }
-            },
-            'complete': function () {
-                $("#calendarloading").hide();
-            }
-        });
+            });
 
-        $('#js_submit_1').bind('fastclick', function () {
+            $('#js_submit_1').bind('fastclick', function () {
 
-        });
-        var oCui,oCuiBd;
-        var popupWidth=320;
-        var contentMaxHeight=$(window).height()*0.8;
-        var oCuiHTML=[];
-        var title=$('#price_detail').attr('data-title');
-        $('#price_detail').bind('fastclick', function () {
-            var role=$(this).attr('data-role');
-            var popup=$('.popup[data-role='+role+']');
-            var cuiPopup=$('.cui-layer[data-role='+role+']');
+            });
+            var oCui,oCuiBd;
+            var popupWidth=320;
+            var contentMaxHeight=$(window).height()*0.8;
+            var oCuiHTML=[];
+            var title=$('#price_detail').attr('data-title');
+            $('#price_detail').bind('fastclick', function () {
+                var role=$(this).attr('data-role');
+                var popup=$('.popup[data-role='+role+']');
+                var cuiPopup=$('.cui-layer[data-role='+role+']');
 
-            if(!cuiPopup.length){
-                oCui=document.createElement('div');
-                oCui.className='cui-layer';
-                oCui.setAttribute('data-role',role);
-                oCuiBd=document.createElement('div');
-                $(oCuiBd).css({
-                    overflow: 'hidden',
-                    position: 'relative',
-                    backgroundColor: '#fafafa',
-                    width: '100%'
-                });
-                oCuiBd.innerHTML=popup.html();
+                if(!cuiPopup.length){
+                    oCui=document.createElement('div');
+                    oCui.className='cui-layer';
+                    oCui.setAttribute('data-role',role);
+                    oCuiBd=document.createElement('div');
+                    $(oCuiBd).css({
+                        overflow: 'hidden',
+                        position: 'relative',
+                        backgroundColor: '#fafafa',
+                        width: '100%'
+                    });
+                    oCuiBd.innerHTML=popup.html();
 
-                oCuiHTML.push('<div class="cui-layer-padding">','<div class="cui-layer-content">','<div class="cui-pop-box cui-pop-box-tour" style="'+popupWidth+'px">');
-                oCuiHTML.push('<div class="cui-hd">'+title+'<div class="lab-close-area"><span class="cui-top-close">×</span></div></div>');
-                //console.log(oCuiBd.innerHTML);
-                oCuiHTML.push(oCuiBd.innerHTML);
-                oCuiHTML.push('</div></div></div>');
-                oCui.innerHTML=oCuiHTML.join('');
-                $('body')[0].appendChild(oCui);
-                $(oCui).find('.cui-pop-box').append(oCuiBd);
-            }
-        });
+                    oCuiHTML.push('<div class="cui-layer-padding">','<div class="cui-layer-content">','<div class="cui-pop-box cui-pop-box-tour" style="'+popupWidth+'px">');
+                    oCuiHTML.push('<div class="cui-hd">'+title+'<div class="lab-close-area"><span class="cui-top-close">×</span></div></div>');
+                    //console.log(oCuiBd.innerHTML);
+                    oCuiHTML.push(oCuiBd.innerHTML);
+                    oCuiHTML.push('</div></div></div>');
+                    oCui.innerHTML=oCuiHTML.join('');
+                    $('body')[0].appendChild(oCui);
+                    $(oCui).find('.cui-pop-box').append(oCuiBd);
+                }
+            });
+        })();
+
+
     });
 </script>
 </body>
