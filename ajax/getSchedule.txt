@@ -1,4 +1,9 @@
 {
+    "info":{
+        "monthStar":"3",
+        "monthEnd":"4"
+    },
+
     "schedule"
 :
     [{"picture": "1", "activity": "22", "left": "剩余 1位", "price": " ￥1,319", "start": "2015-3-18"}, {

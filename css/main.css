@@ -90,6 +90,7 @@ input {
 
 body {
     min-width: 320px;
+    height: 100%;
     background: #f5f5f5;
     /* overflow: hidden;*/
     -webkit-text-size-adjust: none;
@@ -1669,11 +1670,11 @@ article .HotelList01 li .GetLocation:before,
 }
 
 .hotel-cost-detail .cost-list dd span:nth-of-type(1) {
-    width: 90px;
+   /* width: 90px;*/
 }
 
 .hotel-cost-detail .cost-list dd span:nth-of-type(2) {
-    width: 130px;
+    /*width: 130px;*/
 }
 
 .hotel-cost-detail .cost-list dd span:nth-of-type(3) {

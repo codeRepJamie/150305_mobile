@@ -1123,7 +1123,7 @@ element.style {
     left: 21px;
     border-width: 8px 8px 8px 0;
     border-style: dashed solid dashed dashed;
-    border-color: transparent #009ee4 transparent transparent;
+    border-color: transparent #690 transparent transparent;
 }
 
 .calendar_hd .date_prev.disabled::before {

@@ -809,7 +809,7 @@
      ** Type:{Date}
      **
      */
-/*    $.fn.datePickerInital = function (opts) {
+    $.fn.datePickerInital = function (opts) {
         var _default = {
             trigger: $(),
             startDate: new Date(),
@@ -985,7 +985,7 @@
         }
 
         return this;
-    }*/;
+    };
 
     /*数量选选项框事件插件
      *参数

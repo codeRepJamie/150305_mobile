@@ -58,7 +58,7 @@ var Calendar = {
         var ht = '';
         //日期
         ht='<div class="calendar_hd">' +
-        '<span id="'+this.containerId+'_prevMonth" class="date_prev js_change_calendar disabled"></span>' +
+        '<span id="'+this.containerId+'_prevMonth" class="date_prev js_change_calendar"></span>' +
         ' <span class="date_cur js_only_calendar js_select_calendar">' +
             year+'年'+month+'月' +
         '</span> ' +

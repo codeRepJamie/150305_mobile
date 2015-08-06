@@ -17,11 +17,15 @@
 </head>
 
 <body>
-<div id="header" class="HeaderView">
+<!--<div id="header" class="HeaderView">
     <header class="HeaderView">
         <h1>选择日期和人数</h1>
         <i class="ReturnIco"></i>
-    </header>
+    </header>-->
+    <div id="header" class="HeaderView">
+        <h1>选择日期和人数</h1>
+        <i class="ReturnIco"></i>
+    </div>
     <article id="mainContent" class="mainContent">
         <div class="calendarCont" data-view-name="booking_step1">
             <div class="db calendar_db">
@@ -43,7 +47,7 @@
             </div>
             <input id="selectDateNum" type="hidden" value="0"/>
 
-            <div id="js_activity" class="db mt10 activity_mod detail_mod_box">
+            <div id="js_activity" class="db mt10 activity_mod detail_mod_box hidden">
                 <div class="status mod_hd">此出发日期参与<p class="rebate_box"> <span class="rebate">全民放暑假</span> </p></div>
                 <div ></div>
             </div>
@@ -79,20 +83,35 @@
 
             </div>
 
+            <div class="db mt10 traveller_select_mod detail_mod_box"><h2 class="mod_hd">优惠活动:</h2>
+
+                <div class="actions basefix mod_bd">
+                    <ul class="normal-tips">
+                        <li>单笔订单金额满100元，优惠 1%</li>
+                        <li>单笔订单金额满500元，优惠 2%</li>
+                        <li>单笔订单金额满10000元，优惠1.2%</li>
+                        <li>单笔订单金额满20000元，优惠 0.75%</li>
+                        <li>单笔订单金额满30000元，优惠 0.5%</li>
+                    </ul>
+                </div>
+
+            </div>
+
         </div>
 
+        <footer class="mod_foot_acitons">
+            <div class="js_submit_box foot_order_info "><span class="item item_col1"><i
+                    class="loading_ico js-loading-step1"></i> <span
+                    class="js-price-step1"><span class="ft_sum_name">总额：</span><span
+                    class="price"><dfn>¥</dfn><span>398</span></span><a id="js-cost-detail" data-title="费用明细" data-role="price_step_1" class="price_detail">明细</a></span> <span
+                    class="js-not-enough" style="display: none;"><span class="ft_sum_name">总额：待确认</span></span></span> <span
+                    id="js_submit_1"
+                    class="item item_col3 js_btn_next js_submit_1 js_submit_5"><a href="###"
+                                                                                  class="btn_link3">下一步<span>填写旅客信息</span></a></span>
+            </div>
+        </footer>
     </article>
-    <footer class="mod_foot_acitons">
-        <div class="js_submit_box foot_order_info "><span class="item item_col1"><i
-                class="loading_ico js-loading-step1"></i> <span
-                class="js-price-step1"><span class="ft_sum_name">总额：</span><span
-                class="price"><dfn>¥</dfn><span>398</span></span><a id="price_detail" data-title="费用明细" data-role="price_step_1" class="price_detail">明细</a></span> <span
-                class="js-not-enough" style="display: none;"><span class="ft_sum_name">总额：待确认</span></span></span> <span
-                id="js_submit_1"
-                class="item item_col3 js_btn_next js_submit_1 js_submit_5"><a href="###"
-                                                                              class="btn_link3">下一步<span>选择资源</span></a></span>
-        </div>
-    </footer>
+
     <div id="setp2" data-view-name="booking_step2" style="display: none">
         <div class="body confim_mod">
             <div class="mod_order_info_fixed">
@@ -381,9 +400,8 @@
         </footer>
 
     </div>
-</div>
 
-<div class="popup popup_costs js-pop-price-detail" data-role="price_step_1">
+<!--<div class="popup popup_costs js-pop-price-detail" data-role="price_step_1">
     <div>
         <ul class="popup_costs_list">
             <li><h3><span>基本团费</span></h3>
@@ -396,7 +414,62 @@
         </ul>
     </div>
 
-</div>
+</div>-->
+
+<div id="cost-detail" class="hotel-cost-detail-cotent">
+    <div class="js-hotel-opacity-layout hotel-cost-detail hotel-opacity2">
+        <div class="hotel-cost-layer">
+            <div class="vh-middle">
+                <h2>费用明细</h2>
+                <dl class="cost-list">
+                    <dt>
+                        <span class="fr g-price"><small>¥</small>1600</span>
+                        <span class="hotel-font-color">基本团费</span>
+                    </dt>
+                    <dd>
+                        <span class="hotel-start-adult">成人</span>
+                        <span>1名</span>
+                        <span><small>¥</small>800 × 1</span>
+                    </dd>
+                    <dd>
+                        <span class="hotel-start-children">小孩</span>
+                        <span>1名</span>
+                        <span><small>¥</small>800 × 1</span>
+                    </dd>
+                </dl>
+                <dl class="cost-list">
+                    <dt>
+                        <span class="fr g-price"><small>¥</small>1600</span>
+                        <span class="hotel-font-color">保险</span>
+                    </dt>
+                    <dd>
+                        <span class="hotel-start-adult">平安境内长线保险 经典型6-8天</span>
+                        <span></span>
+                        <span><small>¥</small>800 × 1</span>
+                    </dd>
+                </dl>
+                <dl class="cost-list">
+                    <dt>
+                        <span class="fr g-price"><small>¥</small>1600</span>
+                        <span class="hotel-font-color">签证费</span>
+                    </dt>
+                    <dd>
+                        <span class="hotel-start-adult">台湾签注费</span>
+                        <span></span>
+                        <span><small>¥</small>800 × 1</span>
+                    </dd>
+                </dl>
+                <div class="cost-txt">
+                    <p>
+                        总额：
+                        <strong class="g-price">¥ 800</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 <br/>
 <br/>
 <br/>
@@ -424,6 +497,12 @@
 
         })();
 
+        (function(){
+            var coastDetail = $('#js-cost-detail');
+            coastDetail.costDetailInitial({
+                content: $('#cost-detail')
+            });
+        })();
 
         (function(){
             var date = new Date();
@@ -443,8 +522,9 @@
                 },
                 'success': function (dateArray) {
                     events = JSON.parse(dateArray).schedule;
+                    info = JSON.parse(dateArray).info;
                     for (var i = 0; i < events.length; i++) {
-                        mapping.push(new DateLinkMapping(events[i].start, "###", "<span class='cld_price'>" + events[i].price + (events[i].picture == '0' ? "" : "</span><i class='dot'></i>")));
+                        mapping.push(new DateLinkMapping(events[i].start, "javascript:;", "<span class='cld_price'>" + events[i].price + (events[i].picture == '0' ? "" : "</span><i class='dot'></i>")));
                     }
 
                     Calendar.settings.firstDayOfWeek = 7;
@@ -453,14 +533,14 @@
                     if (events.length > 0) {
                         var mydate = events[0].start.split("-");
                         if (mydate.length == 3) {
-                            Calendar.RenderCalendar("calendar", parseInt(mydate[1]), parseInt(mydate[0]));
+                            Calendar.RenderCalendar("calendar", parseInt(mydate[1]), parseInt(mydate[0]),info);
                         } else {
-                            Calendar.RenderCalendar("calendar", date.getMonth() + 1, date.getFullYear());
+                            Calendar.RenderCalendar("calendar", date.getMonth() + 1, date.getFullYear(),info);
                         }
 
                     }
                     else {
-                        Calendar.RenderCalendar("calendar", date.getMonth() + 1, date.getFullYear());
+                        Calendar.RenderCalendar("calendar", date.getMonth() + 1, date.getFullYear(),info);
                     }
 
                     //渲染日历时执行
@@ -501,10 +581,8 @@
                 }
             });
 
-            $('#js_submit_1').bind('fastclick', function () {
 
-            });
-            var oCui,oCuiBd;
+            /*var oCui,oCuiBd;
             var popupWidth=320;
             var contentMaxHeight=$(window).height()*0.8;
             var oCuiHTML=[];
@@ -536,7 +614,7 @@
                     $('body')[0].appendChild(oCui);
                     $(oCui).find('.cui-pop-box').append(oCuiBd);
                 }
-            });
+            });*/
         })();
 
 
