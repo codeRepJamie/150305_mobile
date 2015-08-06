@@ -809,7 +809,7 @@
      ** Type:{Date}
      **
      */
-    $.fn.datePickerInital = function (opts) {
+/*    $.fn.datePickerInital = function (opts) {
         var _default = {
             trigger: $(),
             startDate: new Date(),
@@ -820,6 +820,7 @@
             confirmCallback: null,
             initialCallback: null
         };
+
         _default = $.extend(_default, opts);
         var _this = $(this);
         var _curDate = new Date();
@@ -830,6 +831,7 @@
         time.startDate = _default.startDate;
         var _startNext = _default.startDateSelect.find('[data-id=next]');
         var _startPre = _default.startDateSelect.find('[data-id=pre]');
+
         //设置离店日期
         time.departDate = new Date();
         setZeroTime(_default.startDate);
@@ -837,6 +839,7 @@
         var _dayMill = 86400000;
         time.inDay = 1;
         time.departDate.setTime(_default.startDate.getTime() + _dayMill * time.inDay);
+
         //智能日期输出
         time.printDate = function (date, isFormat) {
             isFormat = isFormat || false;
@@ -866,6 +869,7 @@
 
         //更新日期
         _this[0].refreshDate = function (_num) {
+            //console.log(time.departDate);
             if (!checkdayRange() && /disable/.test(_startNext.attr('class'))) {
                 $.simpleAlert('查询日期不可超过' + time.maxDate + '日');
             }
@@ -879,6 +883,7 @@
             if (time.maxDate) {
                 _default.rangeDateSelect[0].maxVal = time.maxDate - _starDateRange;
                 _default.rangeDateSelect[0].refresh();
+
             }
         };
 
@@ -889,7 +894,8 @@
         _default.rangeDateSelect.inputNumber({
             isShowVal: false,
             callback: function (num, maxVal, minVal) {
-                _dayMill = num * 86400000;
+
+                _dayMill = num * 86400000;//TODO mark callback
                 time.departDate.setTime(_default.startDate.getTime() + _dayMill);
                 _this[0].refreshDate(num);
             }
@@ -907,6 +913,7 @@
 
         //确定按钮
         _default.confirm.bind('fastclick', function () {
+
             $.hideBottomLayout({
                 callback: deActive
             });
@@ -978,7 +985,7 @@
         }
 
         return this;
-    };
+    }*/;
 
     /*数量选选项框事件插件
      *参数
@@ -1020,55 +1027,64 @@
             minusCallback: null,
             callback: null
         };
-
         _default = $.extend(_default, opts);
-        var _thisValInput = $(this).parent().find('.inputText');
-        var _thisMinus = $(this).parent().find('.minus');
-        var _thisAdd = $(this).parent().find('.add');
-        var _thisVal = parseInt(_thisValInput.val());
-        var _this = $(this);
-        var _add = $(this).find('.add:eq(0)');
-        var _minus = $(this).find('.minus:eq(0)');
-        var _value = $(this).find('.inputText:eq(0)');
-        var bindName = $(this).attr('data-bind');
-        this[0].minVal = parseInt($(this).attr('data-min')) || 0;
-        this[0].maxVal = parseInt($(this).attr('data-max')) || null;
+        var _this=$(this);
+        _this.each(function(i,e){
+            var __this = $(e);
+            var handler={
+                target:__this,
+                _thisValInput : $(e).parent().find('.inputText'),
+                _thisMinus : $(e).parent().find('.minus'),
+                _thisAdd : $(e).parent().find('.add'),
+                _thisVal : parseInt($(e).parent().find('.inputText').val()),
+                _add : $(e).find('.add:eq(0)'),
+                _minus : $(e).find('.minus:eq(0)'),
+                _value : $(e).find('.inputText:eq(0)'),
+                bindName : $(e).attr('data-bind'),
+                minVal:parseInt($(this).attr('data-min')) || 0,
+                maxVal:parseInt($(this).attr('data-max')) || null,
+                refresh: function () {
+                    handler._thisVal > handler.minVal ? handler._thisMinus.removeClass('invalid') :handler._thisMinus.addClass('invalid');
+                    handler.maxVal && (handler.maxVal > handler._thisVal ? handler._thisAdd.removeClass('invalid') : handler._thisAdd.addClass('invalid'));
+                }
+            };
+            $(e)[0].minVal=handler.minVal;
+            $(e)[0].maxVal=handler.maxVal;
+            $(e)[0].refresh=handler.refresh;
+            $(e)[0].value=handler._thisVal;
+            handler._value.val(handler.minVal);
 
-        this[0].minVal && _value.val(this[0].minVal);
-        this[0].refresh = function () {
-            _thisVal > _this[0].minVal ? _thisMinus.removeClass('invalid') : _thisMinus.addClass('invalid');
-            _this[0].maxVal && (_this[0].maxVal > _thisVal ? _thisAdd.removeClass('invalid') : _thisAdd.addClass('invalid'));
-        };
-        if (!_default.isShowVal) {
-            this.addClass('hiddenVal');
-        }
-        if (parseInt(_value.val()) > 0) {
-            _value.addClass('');
-        }
-        bindInputTap.call($(this), 0);
-        _add.bind('fastclick', function () {
-            bindInputTap.call($(this), 1);
-            _default.plusCallback && _default.plusCallback.call($(_this), _thisVal, _this[0].maxVal, _this[0].minVal);
+            if (!_default.isShowVal) {
+                __this.addClass('hiddenVal');
+            }
+            if (parseInt(handler._value.val()) > 0) {
+                handler._value.addClass('');
+            }
+            bindInputTap.call(__this,handler, 0);
+            handler._add.bind('fastclick', function () {
+                bindInputTap.call(__this,handler, 1);
+                _default.plusCallback && _default.plusCallback.call($(_this), handler._thisVal, handler.maxVal, handler.minVal);
+            });
+            handler._minus.bind('fastclick', function () {
+                bindInputTap.call(__this,handler, 0);
+                _default.minusCallback && _default.minusCallback.call($(_this), handler._thisVal, handler.maxVal, handler.minVal);
+            });
         });
-        _minus.bind('fastclick', function () {
-            bindInputTap.call($(this), 0);
-            _default.minusCallback && _default.minusCallback.call($(_this), _thisVal, _this[0].maxVal, _this[0].minVal);
-        });
-        function bindInputTap(_type) {
-            if (_this[0].maxVal) {
-                if (_this[0].maxVal > _thisVal) {
-                    _type && _thisVal++;
+        function bindInputTap(handler,_type) {
+            if (handler.maxVal) {
+                if (handler.maxVal > handler._thisVal) {
+                    _type && handler._thisVal++;
                 }
             } else {
-                _type && _thisVal++;
+                _type && handler._thisVal++;
             }
-            if (_thisVal > _this[0].minVal) {
-                _type || _thisVal--;
+            if (handler._thisVal > handler.minVal) {
+                _type || handler._thisVal--;
             }
-            _thisValInput.val(_thisVal);
-            _this[0].refresh();
-            $('#' + bindName).val(_thisVal);
-            _default.callback && _default.callback.call($(_this), _thisVal, _this[0].maxVal, _this[0].minVal);
+            handler._thisValInput.val(handler._thisVal);
+            handler.refresh();
+            $('#' + handler.bindName).val(handler._thisVal);
+            _default.callback && _default.callback.call(handler.target, handler._thisVal, handler.maxVal, handler.minVal);
         }
 
         return this;
@@ -1115,6 +1131,7 @@
         this.each(function () {
 
             $(this).bind('fastclick', function (e) {
+
                 $(this)[0].activeSate = $(this)[0].activeSate || false;
                 var rel = $(this).attr('data-rel');
                 var wrap = $(this)[0].activeWrap = $('.filter_pop_wrap[data-rel=' + rel + ']');

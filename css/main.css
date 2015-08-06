@@ -779,7 +779,7 @@ article .HotelList01 li .GetLocation:before,
     width: 20px;
     height: 20px;
     background-size: 285px auto;
-    background-position: 0px -42px;
+    background-position: 0 -42px;
 }
 
 .HeaderView .HomeIco:before {
@@ -789,8 +789,8 @@ article .HotelList01 li .GetLocation:before,
     content: "";
     width: 20px;
     height: 20px;
-    background-size: 285px auto;
-    background-position: 0px -63px;
+    background-size: 112px auto;
+    background-position: 0 -64px;
 }
 
 .HeaderView .CallIco:before {
@@ -800,8 +800,8 @@ article .HotelList01 li .GetLocation:before,
     content: "";
     width: 20px;
     height: 20px;
-    background-size: 285px auto;
-    background-position: 0px -84px;
+    background-size: 112px auto;
+    background-position: 0px -85px;
 }
 
 /*酒店筛选栏*/
