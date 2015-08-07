@@ -106,13 +106,13 @@
                     class="price"><dfn>¥</dfn><span>398</span></span><a id="js-cost-detail" data-title="费用明细" data-role="price_step_1" class="price_detail">明细</a></span> <span
                     class="js-not-enough" style="display: none;"><span class="ft_sum_name">总额：待确认</span></span></span> <span
                     id="js_submit_1"
-                    class="item item_col3 js_btn_next js_submit_1 js_submit_5"><a href="###"
+                    class="item item_col3 js_btn_next js_submit_1 js_submit_5"><a id="js-next-step2" data-href="tour_OrderForm.html" href="javascript:void(0);"
                                                                                   class="btn_link3">下一步<span>填写旅客信息</span></a></span>
             </div>
         </footer>
     </article>
 
-    <div id="setp2" data-view-name="booking_step2" style="display: none">
+    <!--<div id="setp2" data-view-name="booking_step2" style="display: none">
         <div class="body confim_mod">
             <div class="mod_order_info_fixed">
                 <div class="mod_order_info border_gray_btm fixed_top" style="">
@@ -399,7 +399,7 @@
                                             class="btn_link js_btn_next js_order_next">下一步，<span>填写订单</span></a>
         </footer>
 
-    </div>
+    </div>-->
 
 <!--<div class="popup popup_costs js-pop-price-detail" data-role="price_step_1">
     <div>
@@ -581,6 +581,9 @@
                 }
             });
 
+            (function(){
+                $('#js-next-step2').tapToHref();
+            })();
 
             /*var oCui,oCuiBd;
             var popupWidth=320;

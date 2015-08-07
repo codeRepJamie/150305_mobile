@@ -1464,7 +1464,9 @@
 
         this.each(function () {
             $(this).bind('fastclick', function () {
-                _layout.removeClass('hotel-opacity2').addClass('hotel-opacity');
+                $('.mainContent').addClass('blur');
+                //_layout.removeClass('hotel-opacity2').addClass('hotel-opacity');
+                _layout.css('display','block');
                 _wrap.css('display', 'block');
                 _default.openCallback && _default.openCallback.call(_this);
             });
@@ -1472,13 +1474,16 @@
 
         document.addEventListener("webkitAnimationEnd", function () { //动画结束时事件
             if (/hotel-opacity2/.test(_layout.attr('class'))) {
+
                 _wrap.css('display', 'none');
                 _default.closeCallback && _default.closeCallback.call(_this);
             }
         }, false);
 
         _wrap.bind('fastclick', function () {
-            _layout.removeClass('hotel-opacity').addClass('hotel-opacity2');
+            $('.mainContent').removeClass('blur');
+            //_layout.removeClass('hotel-opacity').addClass('hotel-opacity2');
+            _layout.css('display','none');
         });
 
         return this;
