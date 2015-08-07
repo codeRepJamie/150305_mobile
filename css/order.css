@@ -112,6 +112,12 @@ article .NotLogin .LoginButton:active {
     text-align: left;
 }
 
+.HotelOrderForm .booking_modify .db .BookingLabel small{
+    display: block;
+    line-height: 18px;
+    color: #999;
+}
+
 .HotelOrderForm .booking_modify .db .BookingInput input {
     font-size: 16px;
     font-weight: 700;
@@ -269,12 +275,15 @@ article .NotLogin .LoginButton:active {
     width: 100%;
 }
 
-.person-in-items li:last-of-type {
+.person-in-items li:last-of-type ,.person-in-items li.mod_hd {
     border-bottom: 0;
 }
 
 .person-in-items .cui-switch {
 
+}
+.person-in-items .contactList{
+    display: none;
 }
 
 .order_mod_box {

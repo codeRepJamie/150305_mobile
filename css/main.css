@@ -1508,7 +1508,7 @@ article .HotelList01 li .GetLocation:before,
     padding-top: 48px;
 }
 .detail_pop_wrap article{
-    padding-top: 10px;
+    /*padding-top: 10px;*/
 }
 .detail_pop_wrap .tipsList{
     background: #FFF;

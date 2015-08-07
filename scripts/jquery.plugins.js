@@ -1368,6 +1368,7 @@
             'initialCallback': null,
             'firstOpenCallback': null,
             'openCallback': null,
+            'beforeOpenCallback': null,
             'closeCallback': null,
             'buttonCallback': null
         };
@@ -1379,6 +1380,7 @@
         rel = _this.attr('data-rel');
         var _relHead = $('.headerDetail[data-rel=' + rel + ']');
         var handler = {};
+        var bodyScroll=0;
         if (!_relHead.length) {
             var detailHead = document.createElement('div');
             detailHead.setAttribute('data-rel', rel);
@@ -1393,19 +1395,29 @@
             _article.css('display', 'block');
             $('.headerDetail').css('display', 'none');
             _titleCont.css('display', 'block');
+            $('body').scrollTop(bodyScroll);
         };
         this.each(function () {
 
             var e = this;
             var _wrap = $('.detail_pop_wrap[data-rel=' + rel + ']');
             _wrap[0].default = _default;
-            $(this).bind('fastclick', function () {
+            $(e).bind('fastclick', function () {
+                //console.log(arguments.callee.times);
+                if(arguments.callee.times!==undefined){
+                    arguments.callee.times++;
+                }else{
+                    arguments.callee.times=1;
+                    _default.firstOpenCallback && _default.firstOpenCallback.call(_this, _wrap, _relHead, $(e), handler);
+                }
+                //console.log(arguments.callee.times);
                 var _rel = _this.attr('data-rel');
-                openWindowFn(this, _rel, _wrap);
+                openWindowFn(e, _rel, _wrap);
             });
-            $(this).one('fastclick', function () {
+            /*$(this).one('fastclick', function () {
+
                 _default.firstOpenCallback && _default.firstOpenCallback.call(_this, _wrap, _relHead, $(e), handler);
-            });
+            });*/
             _relHead.find('.ReturnIco').bind('fastclick', function () {
                 var result;
                 _default.closeCallback && (result = _default.closeCallback.call(_this, _wrap, _relHead, $(e), handler));
@@ -1424,6 +1436,8 @@
             _default.initialCallback && _default.initialCallback.call(_this, _wrap, _relHead, $(this), handler);
         });
         function openWindowFn(e, rel, _wrap) {
+            bodyScroll=$('body').scrollTop();
+            _default.beforeOpenCallback && _default.beforeOpenCallback.call(_this, _wrap, _detailHead, $(e));
             _article.css('display', 'none');
             var _detailHead = $('.headerDetail[data-rel=' + rel + ']');
             _wrap.css('display', 'block');
@@ -1546,6 +1560,7 @@
                 _siblings.find('.cui-switch').removeClass('current');
                 _siblings.each(function () {
                     $(this)[0].state = false;
+                    $(this)[0].changeCallback && $(this)[0].changeCallback.call($(this), $(this)[0].state, handler);
                 });
                 cuiSwitch = $(this).find('.cui-switch');
                 if (state) {
@@ -1561,7 +1576,7 @@
         this[0].handler = handler;
         this.each(function () {
             $(this)[0].changeCallback = _default.changeCallback;
-            $(this)[0].state = ($(this).attr('data-default-state') === 'selected') ? true : false;
+            $(this)[0].state = $(this).attr('data-default-state') === 'selected';
             $(this)[0].state ? $(this).find('.cui-switch').addClass('current') : $(this).find('.cui-switch').removeClass('current');
             $(this).bind('fastclick', function () {
                 handler.change($(this), !$(this)[0].state);

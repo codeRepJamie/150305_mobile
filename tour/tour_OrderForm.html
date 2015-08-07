@@ -48,18 +48,19 @@
                 </span>
             </div>
         </div>
+
         <ul class="booking_modify">
             <li class="db order_mod_box">
                 <h2 class="mod_hd">联系人信息<span class="small">请您准确填写联系人信息</span></h2>
             </li>
             <li class="db">
                 <label class="BookingLabel help">常用联系人</label>
-                <ul class="person-in-items">
-                    <li>
+                <ul id="js-contact-list" class="person-in-items">
+                    <li class="mod_hd">
                         <div class="BookingInput InputBox InputResult inputText cui-switch-input">
-                            <label class="BookingLabel help">Jamie</label>
+                            <label class="js-contact-switcher-lable BookingLabel help"></label>
 
-                            <div class="cui-switch-cont">
+                            <div class="js-contact-switcher cui-switch-cont">
                                 <div class="cui-switch">
                                     <div class="cui-switch-bg "></div>
                                     <div class="cui-switch-scroll"></div>
@@ -67,11 +68,22 @@
                             </div>
                         </div>
                     </li>
-                    <li>
+                    <li class="contactList js-contact-list">
+                        <div class="BookingInput InputBox InputResult inputText cui-switch-input">
+                            <label class="BookingLabel help">Jamie</label>
+
+                            <div data-groupby="contact-list" class="cui-switch-cont"><!-- TODO groupBy -->
+                                <div class="cui-switch">
+                                    <div class="cui-switch-bg "></div>
+                                    <div class="cui-switch-scroll"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="contactList js-contact-list">
                         <div class="BookingInput InputBox InputResult inputText cui-switch-input">
                             <label class="BookingLabel help">曾俊明</label>
-
-                            <div class="cui-switch-cont">
+                            <div data-groupby="contact-list" class="cui-switch-cont">
                                 <div class="cui-switch">
                                     <div class="cui-switch-bg "></div>
                                     <div class="cui-switch-scroll"></div>
@@ -129,64 +141,118 @@
                     </li>
                 </ul>
             </li>
-
         </ul>
+
         <ul class="booking_modify mt10">
-            <li id="datePicker" data-rel="datePicker" class="db InputArrow">
-                <span class="BookingTxt js-dayIn-txt"><small></small></span>
-                <span class="BookingTxt js-dayOut-txt"><small></small></span>
-                <input id="startDate" type="hidden" value=""/>
-                <input id="departDate" type="hidden" value=""/>
-                <em class="ClickTag">修改</em>
+            <li class="db order_mod_box">
+                <h2 class="mod_hd">游客信息<span class="small">请您正确填写游客信息</span></h2>
             </li>
             <li class="db">
-                <span class="BookingTxt">高级房（内宾）</span>
-          <span data-min="1" data-max="10" data-bind="js_room_num_1" id="NumberInput01" class="NumberInput">
-            <i class="add"></i>
-            <input type="tel" class="inputText" value="" disabled="disabled">
-            <i class="minus invalid"></i>
-          </span>
-                <input id="js_room_num_1" type="hidden" value="1"/>
-            </li>
-            <li class="db">
-                <label id="quzBookLabel" class="BookingLabel help">入住人</label>
-                <ul id="js-person-in-items" class="person-in-items">
-                    <li>
-                        <div class="BookingInput InputBox InputResult">
-                            <input class="person-name" type="text" placeholder="英文姓名，每间只需填写1人">
-                            <a class="clearInput"><span></span></a>
+                <label class="BookingLabel help">常用联系人</label>
+                <ul id="js-tour-list" class="person-in-items">
+                    <li class="mod_hd">
+                        <div class="BookingInput InputBox InputResult inputText cui-switch-input">
+                            <label class="js-contact-switcher-lable BookingLabel help"></label>
+
+                            <div class="js-contact-switcher cui-switch-cont">
+                                <div class="cui-switch">
+                                    <div class="cui-switch-bg "></div>
+                                    <div class="cui-switch-scroll"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="contactList js-contact-list">
+                        <div class="BookingInput InputBox InputResult inputText cui-switch-input">
+                            <label class="BookingLabel help">Jamie</label>
+
+                            <div class="cui-switch-cont">
+                                <div class="cui-switch">
+                                    <div class="cui-switch-bg "></div>
+                                    <div class="cui-switch-scroll"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="contactList js-contact-list">
+                        <div class="BookingInput InputBox InputResult inputText cui-switch-input">
+                            <label class="BookingLabel help">曾俊明</label>
+
+                            <div class="cui-switch-cont">
+                                <div class="cui-switch">
+                                    <div class="cui-switch-bg "></div>
+                                    <div class="cui-switch-scroll"></div>
+                                </div>
+                            </div>
                         </div>
                     </li>
                 </ul>
 
             </li>
             <li class="db">
-                <label class="BookingLabel help">手机号</label>
+                <label class="BookingLabel help">游客1<small>成人</small></label>
+                <ul class="person-in-items">
+                    <li>
+                        <div class="BookingInput InputBox InputResult inputText">
+                            <input class="person-name" type="text" placeholder="必填，填写游客姓名">
+                            <a class="clearInput"><span></span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div data-rel="detail_identity" class="js-detail_identity BookingInput InputBox InputResult inputText InputArrow">
+                            <label class="js-identity-tag BookingLabel help">填写证件信息</label><!-- TODO identity -->
+                            <input class="js-identity-type" type="hidden">
+                            <input class="js-identity-number" type="hidden">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="BookingInput InputBox InputResult inputText">
+                            <input class="person-name" type="text" placeholder="必填，填写游客电话">
+                            <a class="clearInput"><span></span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="BookingInput InputBox InputResult inputText InputArrow">
+                            <label class="BookingLabel help">查看已选保险信息</label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="BookingInput InputBox InputResult inputText cui-switch-input">
+                            <label class="BookingLabel help">保存到常用旅客信息</label>
 
-                <div class="BookingInput InputBox box-flex InputResult">
-                    <input type="tel" maxlength="11" placeholder="用于接收通知">
-                    <a class="clearInput"><span></span></a>
-                </div>
+                            <div class="js-add-contact-switch cui-switch-cont">
+                                <div class="cui-switch">
+                                    <div class="cui-switch-bg "></div>
+                                    <div class="cui-switch-scroll"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
             </li>
         </ul>
-        <ul class="booking_modify mt10">
-            <li id="remarkInfo" data-rel="detail_remark" class="db InputArrow">
-                <label class="BookingLabel help">备注信息</label>
 
-                <p class="booking-g-txt BookingContent box-flex">无</p>
-            </li>
+        <ul class="booking_modify mt10">
             <li class="db InputArrow" id="orderInovic" data-rel="detail_invoice">
                 <label class="BookingLabel help">发票</label>
 
                 <p class="booking-g-txt BookingContent box-flex">不需要发票</p>
             </li>
+            <li id="remarkInfo" data-rel="detail_remark" class="db InputArrow">
+                <label class="BookingLabel help">备注信息</label>
+
+                <p class="booking-g-txt BookingContent box-flex">无</p>
+            </li>
         </ul>
-        <p class="HotelOrderTips mt10">订单提交后我们会立即操作扣款，如订单不确认将全额退款至您的付款账户。该订单确认后不可被取消修改，若未入住或取消修改，我们将收取您全额房费RMB 3930。</p>
-
-        <p class="HotelOrderTips">未满18周岁的小孩需有成人陪同才可入住。</p>
-
-        <p class="HotelOrderTips">成功预订香港酒店即可获得全球购返礼码Ctrip
-            Code，凭此码及有效香港酒店预订单于当地DFS旗下T广场或香港周大福旗舰店消费，即可享受2.5%购物返礼，详情请见预订后短信或邮件。</p>
+        <div class="HotelOrderTips mt10">
+            <h3>温馨提示：</h3>
+            <p>成功预订香港酒店即可获得全球购返礼码CtripCode，凭此码及有效香港酒店预订单于当地DFS旗下T广场或香港周大福旗舰店消费，即可享受2.5%购物返礼，详情请见预订后短信或邮件。</p>
+        </div>
+        <div class="HotelOrderTips mt10">
+            <h3>温馨提示：</h3>
+            <p>成功预订香港酒店即可获得全球购返礼码CtripCode，凭此码及有效香港酒店预订单于当地DFS旗下T广场或香港周大福旗舰店消费，即可享受2.5%购物返礼，详情请见预订后短信或邮件。</p>
+        </div>
     </div>
     <div class="HotelDetailSpace"></div>
     <div id="PayTxtField" class="PayTxtField">
@@ -326,12 +392,39 @@
                 <h2>费用明细</h2>
                 <dl class="cost-list">
                     <dt>
-                        <span class="fr g-price"><small>¥</small>800</span>
-                        <span class="hotel-font-color">房费</span>
+                        <span class="fr g-price"><small>¥</small>1600</span>
+                        <span class="hotel-font-color">基本团费</span>
                     </dt>
                     <dd>
-                        <span class="hotel-start-day"></span>
-                        <span>高级房（内宾）</span>
+                        <span class="hotel-start-adult">成人</span>
+                        <span>1名</span>
+                        <span><small>¥</small>800 × 1</span>
+                    </dd>
+                    <dd>
+                        <span class="hotel-start-children">小孩</span>
+                        <span>1名</span>
+                        <span><small>¥</small>800 × 1</span>
+                    </dd>
+                </dl>
+                <dl class="cost-list">
+                    <dt>
+                        <span class="fr g-price"><small>¥</small>1600</span>
+                        <span class="hotel-font-color">保险</span>
+                    </dt>
+                    <dd>
+                        <span class="hotel-start-adult">平安境内长线保险 经典型6-8天</span>
+                        <span></span>
+                        <span><small>¥</small>800 × 1</span>
+                    </dd>
+                </dl>
+                <dl class="cost-list">
+                    <dt>
+                        <span class="fr g-price"><small>¥</small>1600</span>
+                        <span class="hotel-font-color">签证费</span>
+                    </dt>
+                    <dd>
+                        <span class="hotel-start-adult">台湾签注费</span>
+                        <span></span>
                         <span><small>¥</small>800 × 1</span>
                     </dd>
                 </dl>
@@ -380,6 +473,59 @@
                     <dd data-key="学习参观费" data-index="20">学习参观费</dd>
                     <dd data-key="学习考察费" data-index="21">学习考察费</dd>
                     <input id="invoiceTypeHidden" type="hidden" value="not-set"/>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="js-detail-identity" data-rel="detail_identity" class="ordder_detail_identity detail_pop_wrap"><!-- TODO identity Body -->
+    <article class="mt10 HotelOrderForm">
+        <ul class="booking_modify mt10">
+            <li id="js-identity-type" data-rel="detail_remark" class="db InputArrow">
+                <label class="BookingLabel help">证件类型</label>
+                <p class="js-identity-trigger-tag booking-g-txt BookingContent box-flex"></p>
+            </li>
+            <li class="db" data-rel="detail_invoice">
+                <label class="BookingLabel help">证件号码</label>
+               <div class="BookingInput InputBox InputResult inputText">
+                    <input class="identity-number" type="text" placeholder="必填，填写有效证件号码">
+                    <a class="clearInput"><span></span></a>
+                </div>
+            </li>
+        </ul>
+        <!--<div class="HotelOrderTips mt10">
+            <h2>相关说明：</h2>
+            <ul class="normal-tips">
+
+                <li>广之旅机场路总部地址：广州市白云区机场西乐嘉路1号。</li>
+                <li>我司一般采用顺丰快递邮寄。</li>
+                <li>不适用导游配送的团队，我司客服在与您联系的时候将对此进行说明，届时请您与客服确认采用其它配送方式。</li>
+            </ul>
+        </div>-->
+    </article>
+</div>
+
+<div id="js-identity-type-content" data-rel="detail_remark" class="js_filter_invoice filter_pop_wrap"><!-- TODO 证件类型选择BODY -->
+    <ul class="header">
+        <li class="btn_cancel"><a href="javascript:;">取消</a></li>
+        <li class="btn_reset"><a class="js-btn_reset disable" href="javascript:;">清空筛选</a></li>
+        <li class="btn_confirm"><a class="" href="javascript:;">确定</a></li>
+    </ul>
+    <div class="wrapper">
+        <div class="BoxContent pop_star has-mask-image">
+            <div class="scroll">
+                <dl id="js-identity-type-block" class="layout selectCont quaSelect">
+                    <dt>证件类型</dt>
+                    <dd data-key="身份证" data-index="0">身份证</dd>
+                    <dd data-key="入台证" data-index="1">入台证</dd>
+                    <dd data-key="通行证" data-index="2">通行证</dd>
+                    <dd data-key="回乡证" data-index="3">回乡证</dd>
+                    <dd data-key="军官证" data-index="4">军官证</dd>
+                    <dd data-key="户口本" data-index="5">户口本</dd>
+                    <dd data-key="出生证" data-index="6">出生证</dd>
+                    <dd data-key="台胞证" data-index="7">台胞证</dd>
+                    <input id="identityTypeHidden" type="hidden" value="not-set"/>
                 </dl>
             </div>
         </div>
@@ -585,6 +731,116 @@
                 }
             });
 
+        })();
+
+        //常用联系人开关
+        (function(){
+            setSwitchGroup($('#js-tour-list'));
+            setSwitchGroup($('#js-contact-list'));
+            function setSwitchGroup(obj) {
+                var lists = obj.find('.js-contact-list');
+                var tag = obj.find('.js-contact-switcher-lable');
+
+                obj.find('.js-contact-switcher').switcher({
+                    initialCallback: function () {
+                        tag.text('展开常用联系人');
+                        lists.find('.cui-switch-cont').switcher({
+                            changeCallback: function (state, handler) {
+                                if (state) {
+                                    /*加载常用联系人信息到下面  $(this) --> 开关本身*/
+                                } else {
+
+                                }
+                            }
+                        });
+
+                    },
+                    changeCallback: function (state, handler) {
+
+                        if (state) {
+                            lists.css({display: 'block'});
+                            tag.text('收起常用联系人');
+                        } else {
+                            lists.css({display: 'none'});
+                            tag.text('展开常用联系人');
+                        }
+                    }
+                });
+
+            }
+            var addContact = $('.js-add-contact-switch');
+            addContact.switcher({
+                changeCallback: function (state, handler) {
+
+                }
+            });
+        })();
+
+        //填写证件信息
+        (function(){
+            //var bodyScroll;
+            var wrap=$('#js-detail-identity');
+            var idNumberText=wrap.find('.identity-number');
+            $('.js-detail_identity').detailPop({
+                title: '填写旅客证件信息',
+                buttonText: '提交',
+                isButton: true,
+                initialCallback:function(){
+
+                },
+                buttonCallback:function(_wrap,head,btn){
+                    if (idNumberText.val() === '') {
+                        $.simpleAlert('证件号码不能为空');
+                        return false;
+                    }/*else if(){
+                        各种正则检查
+                        return false; 不能提交
+                    }*/
+                    else{
+                        $('.js-identity-tag').text('已填写证件信息');
+                    }
+                },
+                closeCallback:function(_wrap,head,btn,handler){
+                    $.dialogAlert({
+                        text:'您要放弃本次编辑吗？',
+                        confirmText:'放弃',
+                        onConfirm:function(){
+                            handler.hiddenWrap(_wrap);
+                            idNumberText.val('');
+                            $('.js-identity-tag').text('未填写证件信息');
+                            //$('body').scrollTo(bodyScroll);
+                            /*orderInovic.find('.BookingContent').text('不需要发票');
+                            invoiceSwitcher[0].handler && invoiceSwitcher[0].handler.change(invoiceSwitcher,false);
+                            _wrap.find('.invoiceText').val('');*/
+                        }
+                    });
+                    return false;
+                }
+            });
+            var typeSelect=$('#js-identity-type');
+            var content=$('#js-identity-type-content');
+            content.boxContentInital({
+                //指定触发器
+                trigger: typeSelect,//TODO 证件类型选择js
+                resetBtn: content.find('.js-btn_reset').eq(0),
+                //确认按钮回调函数
+                initialCallback:function(handler){
+
+                    handler.selectSingleItemAndConfirm($('#js-identity-type-block dd').eq(0));
+                    typeSelect.find('.js-identity-trigger-tag').text(handler.values[0]['valueText']);
+                },
+                confirmCallback: function (elem, aValus) {
+                    typeSelect.find('.js-identity-trigger-tag').text(aValus[0]['valueText']);
+                },
+                onItemsTap:function(elem,index,val){
+
+                }
+            });
+            typeSelect.displayWrap({
+                callback: function (state, wrap) {
+                    wrap && $(wrap).refresh();
+                }
+            });
         })();
 
     });
