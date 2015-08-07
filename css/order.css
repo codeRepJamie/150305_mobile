@@ -1,58 +1,265 @@
 ﻿/*订单样式表*/
-article .NotLogin {width:100%; border-color:#ddd; border-width:1px 0 1px 0; border-style:solid; margin:10px 0 0 0; background:#fff; position:relative;}
-article .NotLogin p {font-size:16px; padding:10px 0 10px 10px;}
-article .NotLogin .LoginButton {position:absolute; right:10px; top:50%; display:block; float:left; height:30px; margin-top:-15px; padding:0 10px; background-color:#ff9a14; font-size:16px; line-height:30px; color:#fff; border-radius:3px; -webkit-border-radius:3px;}
-article .NotLogin .LoginButton:active {background:#e37911;}
+article .NotLogin {
+    width: 100%;
+    border-color: #ddd;
+    border-width: 1px 0 1px 0;
+    border-style: solid;
+    margin: 10px 0 0 0;
+    background: #fff;
+    position: relative;
+}
+
+article .NotLogin p {
+    font-size: 16px;
+    padding: 10px 0 10px 10px;
+}
+
+article .NotLogin .LoginButton {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    display: block;
+    float: left;
+    height: 30px;
+    margin-top: -15px;
+    padding: 0 10px;
+    background-color: #ff9a14;
+    font-size: 16px;
+    line-height: 30px;
+    color: #fff;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+article .NotLogin .LoginButton:active {
+    background: #e37911;
+}
 
 /*hotel order form*/
-.HotelOrderForm {width:100%;}
-.HotelOrderForm .FormHead {margin:10px;}
-.HotelOrderForm .FormHead h3 {font-size:15px; font-weight:800; word-break:break-all; color:#333;}
-.HotelOrderForm .FormHead p {font-size:14px; color:#999;}
-.HotelOrderForm .booking_modify {padding:1px 0 0 0;}
-.HotelOrderForm .booking_modify .db {width:100%; /*display:box; */display:-webkit-box; display:-moz-box; display:-ms-box; padding:0 10px; min-height:40px; box-sizing:border-box; margin-top:-1px; position:relative;  -webkit-box-align: center;
+.HotelOrderForm {
+    width: 100%;
+}
+
+.HotelOrderForm .FormHead {
+    margin: 10px;
+}
+
+.HotelOrderForm .FormHead h3 {
+    font-size: 15px;
+    font-weight: 800;
+    word-break: break-all;
+    color: #333;
+}
+
+.HotelOrderForm .FormHead p {
+    font-size: 14px;
+    color: #999;
+}
+
+.HotelOrderForm .FormHead .info {
+    display: table;
+    margin-top: 5px;
+}
+
+.HotelOrderForm .FormHead .info .cell {
+    color: #999;
+    display: table-cell;
+    padding-right: 10px;
+}
+
+.HotelOrderForm .FormHead strong {
+    color: #7a7a7a;
+}
+
+;
+.HotelOrderForm .booking_modify {
+    padding: 1px 0 0 0;
+}
+
+.HotelOrderForm .booking_modify .db {
+    width: 100%; /*display:box; */
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    padding: 0 10px;
+    min-height: 40px;
+    box-sizing: border-box; /*margin-top:-1px; */
+    position: relative;
+    -webkit-box-align: center;
     -moz-box-align: center;
     -ms-flex-align: center;
-    -webkit-align-items: center;}
-.HotelOrderForm .booking_modify .db .BookingTxt {display:inline-block; font-size:16px; line-height:40px; color:#333; padding:0 10px 0 0;}
-.HotelOrderForm .booking_modify .db .BookingTxt small {font-size:12px; padding:0 5px 0 0;}
-.HotelOrderForm .booking_modify .db .BookingLabel {display:inline-block; min-width:80px; font-size:16px; line-height:40px;}
-.HotelOrderForm .booking_modify .db .BookingInput input {font-size:16px; font-weight:700; color:#000;height: 43px;}
+    -webkit-align-items: center;
+}
+
+.HotelOrderForm .booking_modify .db .BookingTxt {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 40px;
+    color: #333;
+    padding: 0 10px 0 0;
+}
+
+.HotelOrderForm .booking_modify .db .BookingTxt small {
+    font-size: 12px;
+    padding: 0 5px 0 0;
+}
+
+.HotelOrderForm .booking_modify .db .BookingLabel {
+    display: inline-block;
+    min-width: 80px;
+    font-size: 15px;
+    line-height: 40px;
+    text-align: left;
+}
+
+.HotelOrderForm .booking_modify .db .BookingInput input {
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+    height: 43px;
+}
+
 /*.HotelOrderForm .booking_modify .db .BookingContent {padding:12px 15px 8px 0; font-size:15px; line-height:20px; font-weight:800; color:#000; box-sizing:border-box; -webkit-box-sizing:border-box;}*/
-.HotelOrderForm .booking_modify .db .InputResult.nonEmpty{
+.HotelOrderForm .booking_modify .db .InputResult.nonEmpty {
     margin-right: 28px;
 }
-.HotelOrderForm .HotelOrderTips {background:#fff; border-radius:5px; padding:10px; margin-left:10px; margin-right:10px; margin-bottom:5px; box-sizing:border-box; clear:both; color:#666; font-size:12px;}
+
+.HotelOrderForm .HotelOrderTips {
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    clear: both;
+    color: #666;
+    font-size: 12px;
+}
 
 /*hotel verify order form*/
-.HotelOrderForm .booking_verify {padding:1px 0 0 0;}
-.HotelOrderForm .booking_verify li {padding:8px 10px; margin-top:-1px; min-height:24px;}
-.HotelOrderForm .booking_verify li dt {float:left; display:block; font-size:15px; line-height:24px; color:#555;}
-.HotelOrderForm .booking_verify li dd {display:block; padding:0 0 0 100px; font-size:15px; line-height:24px; color:#000;}
-.HotelOrderForm .booking_verify li dd.price {font-size:18px; font-weight:800; color:#FF8600;}
-.HotelOrderForm .ButtonField {display:flex; display:-webkit-flex; padding:10px 10px 10px 0;}
-.HotelOrderForm .ButtonField button {width:100%; background:#fff; box-sizing:border-box; flex:1; -webkit-flex:1; margin-left:10px; padding:10px 0; border:1px #ddd solid; text-align:center; color:#75AD06;}
-.HotelOrderForm .ButtonField button:active {background:#f5f5f5;}
+.HotelOrderForm .booking_verify {
+    padding: 1px 0 0 0;
+}
 
-.PayTxtField {position:fixed; left:0; bottom:0; width:100%; height:50px; background:#FF8E00; font-size:16px; color:#fff;}
-.PayTxtField .total_price {display:inline-block; padding:17px 0 0 10px; line-height:20px}
-.PayTxtField .total_price small {vertical-align:bottom;}
-.PayTxtField .total_price b {font-size:20px; vertical-align:bottom;}
-.PayTxtField .pay_button {float:right; display:block; width:80px; height:50px; line-height:50px; text-align:center; background:#FFB30F; color:#fff;}
-.PayTxtField .pay_button:active {background:#FFA10F;}
-.PayTxtField .detail_button {float:right; display:block; width:80px; line-height:50px; text-align:center;}
-.PayTxtField .detail_button:active {background:#FF9B00;}
+.HotelOrderForm .booking_verify li {
+    padding: 8px 10px;
+    margin-top: -1px;
+    min-height: 24px;
+}
 
-.HotelDetailSpace {width:100%; height:60px;}
+.HotelOrderForm .booking_verify li dt {
+    float: left;
+    display: block;
+    font-size: 15px;
+    line-height: 24px;
+    color: #555;
+}
+
+.HotelOrderForm .booking_verify li dd {
+    display: block;
+    padding: 0 0 0 100px;
+    font-size: 15px;
+    line-height: 24px;
+    color: #000;
+}
+
+.HotelOrderForm .booking_verify li dd.price {
+    font-size: 18px;
+    font-weight: 800;
+    color: #FF8600;
+}
+
+.HotelOrderForm .ButtonField {
+    display: flex;
+    display: -webkit-flex;
+    padding: 10px 10px 10px 0;
+}
+
+.HotelOrderForm .ButtonField button {
+    width: 100%;
+    background: #fff;
+    box-sizing: border-box;
+    flex: 1;
+    -webkit-flex: 1;
+    margin-left: 10px;
+    padding: 10px 0;
+    border: 1px #ddd solid;
+    text-align: center;
+    color: #75AD06;
+}
+
+.HotelOrderForm .ButtonField button:active {
+    background: #f5f5f5;
+}
+
+.PayTxtField {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background: #FF8E00;
+    font-size: 16px;
+    color: #fff;
+}
+
+.PayTxtField .total_price {
+    display: inline-block;
+    padding: 17px 0 0 10px;
+    line-height: 20px
+}
+
+.PayTxtField .total_price small {
+    vertical-align: bottom;
+}
+
+.PayTxtField .total_price b {
+    font-size: 20px;
+    vertical-align: bottom;
+}
+
+.PayTxtField .pay_button {
+    float: right;
+    display: block;
+    width: 80px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: #FFB30F;
+    color: #fff;
+}
+
+.PayTxtField .pay_button:active {
+    background: #FFA10F;
+}
+
+.PayTxtField .detail_button {
+    float: right;
+    display: block;
+    width: 80px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.PayTxtField .detail_button:active {
+    background: #FF9B00;
+}
+
+.HotelDetailSpace {
+    width: 100%;
+    height: 60px;
+}
 
 /*入住人列表*/
-.person-in-items{
+.person-in-items {
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     -webkit-flex: 1;
     -ms-flex: 1;
 }
-.person-in-items li{
+
+.person-in-items li {
     min-height: 44px;
     padding: 0 10px;
     position: relative;
@@ -61,6 +268,52 @@ article .NotLogin .LoginButton:active {background:#e37911;}
     align-items: center;
     width: 100%;
 }
+
 .person-in-items li:last-of-type {
     border-bottom: 0;
+}
+
+.person-in-items .cui-switch {
+
+}
+
+.order_mod_box {
+
+}
+
+.order_mod_box .mod_hd {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 40px;
+    position: relative;
+    overflow: hidden;
+    padding-right: 30px;
+}
+
+.order_mod_box .mod_hd .small {
+    font-size: 12px;
+    color: #8A8A8A;;
+    margin-left: 10px;
+}
+
+.booking_modify .db {
+    border-width: 0 0 1px 0;
+}
+
+.booking_modify .db:last-child {
+    border-width: 0;
+}
+
+.InputResult.cui-switch-input {
+    display: table;
+    width: 100%;
+}
+
+.InputResult.cui-switch-input .BookingLabel {
+    display: table-cell;
+}
+
+.InputResult.cui-switch-input .cui-switch-cont {
+    display: table-cell;
+    text-align: right;
 }

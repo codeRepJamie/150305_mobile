@@ -836,7 +836,8 @@
         time.departDate = new Date();
         setZeroTime(_default.startDate);
         //设置住宿日期
-        var _dayMill = 86400000;
+        var _dayMillStatic = 86400000;
+        var _dayMill = _dayMillStatic;
         time.inDay = 1;
         time.departDate.setTime(_default.startDate.getTime() + _dayMill * time.inDay);
 
@@ -869,7 +870,6 @@
 
         //更新日期
         _this[0].refreshDate = function (_num) {
-            //console.log(time.departDate);
             if (!checkdayRange() && /disable/.test(_startNext.attr('class'))) {
                 $.simpleAlert('查询日期不可超过' + time.maxDate + '日');
             }
@@ -882,8 +882,8 @@
 
             if (time.maxDate) {
                 _default.rangeDateSelect[0].maxVal = time.maxDate - _starDateRange;
+                _default.rangeDateSelect[0].minVal = 1;
                 _default.rangeDateSelect[0].refresh();
-
             }
         };
 
@@ -894,8 +894,7 @@
         _default.rangeDateSelect.inputNumber({
             isShowVal: false,
             callback: function (num, maxVal, minVal) {
-
-                _dayMill = num * 86400000;//TODO mark callback
+                _dayMill = num * _dayMillStatic;//TODO mark callback
                 time.departDate.setTime(_default.startDate.getTime() + _dayMill);
                 _this[0].refreshDate(num);
             }
@@ -907,8 +906,8 @@
         _default.initialCallback && _default.initialCallback.call(_this, _default.trigger, time);
 
         //设置隐藏域值
-        setTimeResultHiddenInputStart(_default.trigger.find('#startDate'));
-        setTimeResultHiddenInputDepart(_default.trigger.find('#departDate'));
+        setTimeResultHiddenInput(_default.trigger.find('#startDate'),_default.startDate);
+        setTimeResultHiddenInput(_default.trigger.find('#departDate'),time.departDate);
 
 
         //确定按钮
@@ -917,8 +916,8 @@
             $.hideBottomLayout({
                 callback: deActive
             });
-            setTimeResultHiddenInputStart(_default.trigger.find('#startDate'));
-            setTimeResultHiddenInputDepart(_default.trigger.find('#departDate'));
+            setTimeResultHiddenInput(_default.trigger.find('#startDate'),_default.startDate);
+            setTimeResultHiddenInput(_default.trigger.find('#departDate'),time.departDate);
             //setTriggerTag();
             _default.confirmCallback && _default.confirmCallback.call(_this, $(this)[0], _default.trigger, time);
             return 0;
@@ -936,21 +935,21 @@
                 if (checkdayRange()) {
                     if (_type) {
                         _starDateRange++;
-                        _default.startDate.setTime(_default.startDate.getTime() + 86400000);
+                        _default.startDate.setTime(_default.startDate.getTime() + _dayMillStatic);
                         time.departDate.setTime(_default.startDate.getTime() + _dayMill);
                     }
                 }
             } else {
                 if (_type) {
                     _starDateRange++;
-                    _default.startDate.setTime(_default.startDate.getTime() + 86400000);
+                    _default.startDate.setTime(_default.startDate.getTime() + _dayMillStatic);
                     time.departDate.setTime(_default.startDate.getTime() + _dayMill);
                 }
             }
             if (_starDateRange > 0) {
                 if (!_type) {
                     _starDateRange--;
-                    _default.startDate.setTime(_default.startDate.getTime() - 86400000);
+                    _default.startDate.setTime(_default.startDate.getTime() - _dayMillStatic);
                     time.departDate.setTime(_default.startDate.getTime() + _dayMill);
                 }
             }
@@ -959,19 +958,16 @@
 
         function checkstartDateBtn() {
             _starDateRange > 0 ? _startPre.removeClass('disabled') : _startPre.addClass('disabled');
+            //console.log(checkdayRange());
             time.maxDate && (checkdayRange() ? _startNext.removeClass('disabled') : _startNext.addClass('disabled'));
         }
 
         function checkdayRange() {
-            return _curDate.getTime() + time.maxDate * 86400000 - time.departDate.getTime() > 0 ? true : false;
+            return _curDate.getTime() + time.maxDate * _dayMillStatic - time.departDate.getTime() > 0;
         }
 
-        function setTimeResultHiddenInputStart(e) {
-            e.val(_default.startDate.getFullYear() + '-' + (_default.startDate.getMonth() + 1) + '-' + _default.startDate.getDate());
-        }
-
-        function setTimeResultHiddenInputDepart(e) {
-            e.val(time.departDate.getFullYear() + '-' + (time.departDate.getMonth() + 1) + '-' + time.departDate.getDate());
+        function setTimeResultHiddenInput(e,date) {
+            e.val(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate());
         }
 
         //移除激活状态
@@ -1033,10 +1029,10 @@
             var __this = $(e);
             var handler={
                 target:__this,
-                _thisValInput : $(e).parent().find('.inputText'),
+                //_thisValInput : $(e).parent().find('.inputText'),
                 _thisMinus : $(e).parent().find('.minus'),
                 _thisAdd : $(e).parent().find('.add'),
-                _thisVal : parseInt($(e).parent().find('.inputText').val()),
+                _thisVal : 0,//parseInt($(e).parent().find('.inputText').val()),
                 _add : $(e).find('.add:eq(0)'),
                 _minus : $(e).find('.minus:eq(0)'),
                 _value : $(e).find('.inputText:eq(0)'),
@@ -1044,15 +1040,18 @@
                 minVal:parseInt($(this).attr('data-min')) || 0,
                 maxVal:parseInt($(this).attr('data-max')) || null,
                 refresh: function () {
+                    handler.minVal=$(e)[0].minVal;
+                    handler.maxVal=$(e)[0].maxVal;
+                    handler._thisVal=$(e)[0].value;
+
+                    handler._value.val(handler._thisVal);
                     handler._thisVal > handler.minVal ? handler._thisMinus.removeClass('invalid') :handler._thisMinus.addClass('invalid');
                     handler.maxVal && (handler.maxVal > handler._thisVal ? handler._thisAdd.removeClass('invalid') : handler._thisAdd.addClass('invalid'));
                 }
             };
-            $(e)[0].minVal=handler.minVal;
-            $(e)[0].maxVal=handler.maxVal;
-            $(e)[0].refresh=handler.refresh;
-            $(e)[0].value=handler._thisVal;
-            handler._value.val(handler.minVal);
+            $(e)[0].refresh = handler.refresh;
+            $(e)[0].value = handler._thisVal = handler.minVal;
+            handler._value.val(handler._thisVal);
 
             if (!_default.isShowVal) {
                 __this.addClass('hiddenVal');
@@ -1060,28 +1059,33 @@
             if (parseInt(handler._value.val()) > 0) {
                 handler._value.addClass('');
             }
-            bindInputTap.call(__this,handler, 0);
+            bindInputTap.call(e,__this,handler, 0);
             handler._add.bind('fastclick', function () {
-                bindInputTap.call(__this,handler, 1);
+                bindInputTap.call(e,__this,handler, 1);
                 _default.plusCallback && _default.plusCallback.call($(_this), handler._thisVal, handler.maxVal, handler.minVal);
             });
             handler._minus.bind('fastclick', function () {
-                bindInputTap.call(__this,handler, 0);
+                bindInputTap.call(e,__this,handler, 0);
                 _default.minusCallback && _default.minusCallback.call($(_this), handler._thisVal, handler.maxVal, handler.minVal);
             });
         });
-        function bindInputTap(handler,_type) {
+        function bindInputTap(e,handler,_type) {
+            $(e)[0].minVal=handler.minVal;
+            $(e)[0].maxVal=handler.maxVal;
+            $(e)[0].refresh=handler.refresh;
+            $(e)[0].value=handler._thisVal;
             if (handler.maxVal) {
                 if (handler.maxVal > handler._thisVal) {
-                    _type && handler._thisVal++;
+                    _type && $(e)[0].value++;
                 }
             } else {
-                _type && handler._thisVal++;
+                _type && $(e)[0].value++;
             }
             if (handler._thisVal > handler.minVal) {
-                _type || handler._thisVal--;
+                _type || $(e)[0].value--;
             }
-            handler._thisValInput.val(handler._thisVal);
+            //handler._thisValInput.val(handler._thisVal);
+
             handler.refresh();
             $('#' + handler.bindName).val(handler._thisVal);
             _default.callback && _default.callback.call(handler.target, handler._thisVal, handler.maxVal, handler.minVal);

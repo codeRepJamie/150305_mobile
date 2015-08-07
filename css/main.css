@@ -2541,7 +2541,7 @@ article .HotelList01 li .GetLocation:before,
     border-bottom-right-radius: 3px;
 }
 .hotel-lc-mod, .hotel-lc-items{
-    border-bottom: 1px solid rgb(221, 221, 221);
+    /*border-bottom: 1px solid rgb(221, 221, 221);*/
 }
 .hotel-lc-date-btn {
     padding: 20px 15px;
