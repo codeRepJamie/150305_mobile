@@ -126,6 +126,13 @@
         /*追加对象属性*/
         /*是否正在显示警告栏*/
         isShowAlert: false,
+        detailPopInfo:{
+            isOpen:false,
+            trigger:null,
+            wrap:null,
+            dataRel:undefined,
+            head:null
+        },
         /*jquery 静态方法*/
         /*隐藏黑色图层*/
         hideBottomLayout: function (opts) {
@@ -134,15 +141,22 @@
                 callback: null
             };
             _default = $.extend(_default, opts);
-            _default.shadow.css({
+            /*_default.shadow.css({
                 'display': 'none'
+            });*/
+            var filter=$('.filter_pop_wrap:visible');
+            var visibleFilterTrigger=filter.each(function(i,e){
+                if($(e)[0].trigger){
+                    $($(e)[0].trigger).removeActive();//TODO hideBottom
+                }
             });
-            $('.filter_pop_wrap').css({'visibility': 'hidden'});
-            _default.callback && _default.callback.call(this);
+            //console.log(visibleFilter);
+            filter.css({'visibility': 'hidden'});
+            _default.shadow.remove();
             if($.iScroll){
                 $('body').unIScroll();
             }
-
+            _default.callback && _default.callback.call(this);
         },
         //简单警告框插件
         /*
@@ -646,7 +660,7 @@
         for (var i = 0; i < selectNum; i++) {
             this[0].boxContObject.push({key: 0, value: 'no-set'});
         }
-        handler.selectSingleItemAndConfirm = function (target) {
+        this[0].selectSingleItemAndConfirm=handler.selectSingleItemAndConfirm = function (target) {
             selectSingleItem(target);
             itemsConfirm();
         };
@@ -1140,6 +1154,7 @@
                 var rel = $(this).attr('data-rel');
                 var wrap = $(this)[0].activeWrap = $('.filter_pop_wrap[data-rel=' + rel + ']');
                 var trigger = $(this);
+                wrap[0].trigger=trigger[0];
                 var wrapPos = parseInt(wrap.css('bottom'));
 
                 if (!$(this)[0].activeSate) {
@@ -1167,14 +1182,14 @@
                     layoutHidden();
                 }
                 function layoutHidden() {
-                    $('body').unIScroll();
+                    //$('body').unIScroll();
                     $.hideBottomLayout({
                         callback: function () {
                             trigger.removeActive();
                             _default.hiddenCallback && _default.hiddenCallback.call(window);
                         }
                     });
-                    $('#PopMaskWrap').remove();
+                    //$('#PopMaskWrap').remove();
                 }
             });
         });
@@ -1373,54 +1388,81 @@
             'buttonCallback': null
         };
         _default = $.extend(_default, opts);
-        var _this = $(this);
+        //var _this = $(this);
         var _article = $('#mainContent');
         var _titleCont = $('#header');
-        var rel, _button;
-        rel = _this.attr('data-rel');
-        var _relHead = $('.headerDetail[data-rel=' + rel + ']');
+        var _button,relHead,rel;
         var handler = {};
         var bodyScroll=0;
-        if (!_relHead.length) {
-            var detailHead = document.createElement('div');
-            detailHead.setAttribute('data-rel', rel);
-            detailHead.className = 'HeaderView headerDetail';
-            detailHead.innerHTML = '<h1>' + _default.title + '</h1><i class="ReturnIco"></i><i class="RIghtText">' + _default.buttonText + '</i>';
-            _titleCont.after(detailHead);
-            _relHead = $(detailHead);
-        }
-        _default.isButton && (_button = $(_relHead).find('.RIghtText'));
+        //var relHead=$('.headerDetail');
+
         handler.hiddenWrap = function (_wrap) {
             _wrap.css('display', 'none');
             _article.css('display', 'block');
-            $('.headerDetail').css('display', 'none');
+            relHead.css('display', 'none');
             _titleCont.css('display', 'block');
             $('body').scrollTop(bodyScroll);
         };
-        this.each(function () {
-
-            var e = this;
-            var _wrap = $('.detail_pop_wrap[data-rel=' + rel + ']');
-            _wrap[0].default = _default;
+        this.each(function (i,e) {
+            //rel = $(e).attr('data-rel');
+            var _this=$(e);
+            rel=$(e).attr('data-rel');
+            relHead = $('.headerDetail[data-rel=' + rel + ']').eq(0);
+            if (!relHead.length) {
+                var detailHead = document.createElement('div');
+                detailHead.setAttribute('data-rel', rel);
+                detailHead.className = 'HeaderView headerDetail';
+                detailHead.innerHTML = '<h1>' + _default.title + '</h1><i class="ReturnIco"></i><i class="RIghtText">' + _default.buttonText + '</i>';
+                _titleCont.after(detailHead);
+                relHead=$(detailHead);
+            }
             $(e).bind('fastclick', function () {
-                //console.log(arguments.callee.times);
+                var _rel=$(this).attr('data-rel');
+                var _wrap = $('.detail_pop_wrap[data-rel=' + _rel + ']');
+                var _relHead = $('.headerDetail[data-rel=' + _rel + ']');
+
+
+                _default.isButton && (_button = $(_relHead).find('.RIghtText'));
+
+                _wrap[0].default = _default;
+
                 if(arguments.callee.times!==undefined){
                     arguments.callee.times++;
                 }else{
                     arguments.callee.times=1;
-                    _default.firstOpenCallback && _default.firstOpenCallback.call(_this, _wrap, _relHead, $(e), handler);
+                    _default.firstOpenCallback && _default.firstOpenCallback.call($(e), _wrap, _relHead, $(this), handler);
                 }
-                //console.log(arguments.callee.times);
-                var _rel = _this.attr('data-rel');
-                openWindowFn(e, _rel, _wrap);
+                openWindowFn(_this, _rel, _wrap);
+                _relHead.find('.ReturnIco').bind('fastclick', function () {
+                    if($.detailPopInfo.isOpen){
+                        var result;
+                        $.hideBottomLayout();
+                        _default.closeCallback && (result = _default.closeCallback.call($(this), $.detailPopInfo.wrap, $.detailPopInfo.head,$.detailPopInfo.trigger, handler));
+                        if (!result && result !== undefined) {
+                            return false;
+                        }
+                        handler.hiddenWrap($.detailPopInfo.wrap);
+                        $.detailPopInfo.isOpen=false;
+                    }
+                });
+                _default.isButton && _button.bind('fastclick', function () {
+                    //console.log($.detailPopInfo);
+                    if($.detailPopInfo.isOpen) {
+                        var result;
+                        _default.buttonCallback && (result = _default.buttonCallback.call($(this), $.detailPopInfo.wrap, $.detailPopInfo.head,$.detailPopInfo.trigger, handler));
+                        if (_default.isButton && !result && result !== undefined)
+                            return false;
+                        handler.hiddenWrap($.detailPopInfo.wrap);
+                        $.detailPopInfo.isOpen = false;
+                    }
+                });
             });
-            /*$(this).one('fastclick', function () {
 
-                _default.firstOpenCallback && _default.firstOpenCallback.call(_this, _wrap, _relHead, $(e), handler);
-            });*/
+            /*
             _relHead.find('.ReturnIco').bind('fastclick', function () {
                 var result;
-                _default.closeCallback && (result = _default.closeCallback.call(_this, _wrap, _relHead, $(e), handler));
+                $.hideBottomLayout();
+                _default.closeCallback && (result = _default.closeCallback.call(_this, _wrap, _relHead, $(this), handler));
                 if (!result && result !== undefined) {
                     return false;
                 }
@@ -1428,23 +1470,41 @@
             });
             _default.isButton && _button.bind('fastclick', function () {
                 var result;
-                _default.buttonCallback && (result = _default.buttonCallback.call(_this, _wrap, _relHead, $(e), handler));
+                console.log(_wrap[0].trigger);
+                _default.buttonCallback && (result = _default.buttonCallback.call(_this, _wrap, _relHead, $(this), handler));
                 if (_default.isButton && !result && result !== undefined)
                     return false;
                 handler.hiddenWrap(_wrap);
-            });
+            });*/
             _default.initialCallback && _default.initialCallback.call(_this, _wrap, _relHead, $(this), handler);
         });
+
+        /*
+
+        _default.isButton && _button.bind('fastclick', function () {
+            var result;
+            console.log(_wrap[0].trigger);
+            _default.buttonCallback && (result = _default.buttonCallback.call(_this, _wrap, _relHead, $(this), handler));
+            if (_default.isButton && !result && result !== undefined)
+                return false;
+            handler.hiddenWrap(_wrap);
+        });*/
         function openWindowFn(e, rel, _wrap) {
+            //_wrap[0].trigger=e;
             bodyScroll=$('body').scrollTop();
-            _default.beforeOpenCallback && _default.beforeOpenCallback.call(_this, _wrap, _detailHead, $(e));
+            _default.beforeOpenCallback && _default.beforeOpenCallback.call(e, _wrap, _detailHead, e);
             _article.css('display', 'none');
             var _detailHead = $('.headerDetail[data-rel=' + rel + ']');
+            $.detailPopInfo.isOpen=true;
+            $.detailPopInfo.trigger=e;
+            $.detailPopInfo.wrap=_wrap;
+            $.detailPopInfo.dataRel=rel;
+            $.detailPopInfo.head=_detailHead;
             _wrap.css('display', 'block');
             _detailHead.css('display', 'block');
             _titleCont.css('display', 'none');
             _detailHead.find('.RIghtText').css('display', _default.isButton ? 'block' : 'none');
-            _default.openCallback && _default.openCallback.call(_this, _wrap, _detailHead, $(e));
+            _default.openCallback && _default.openCallback.call(e, _wrap, _detailHead, e);
         }
 
         return this;

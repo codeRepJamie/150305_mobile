@@ -199,10 +199,11 @@
                         </div>
                     </li>
                     <li>
-                        <div data-rel="detail_identity" class="js-detail_identity BookingInput InputBox InputResult inputText InputArrow">
+                        <div data-rel="detail_identity" class="js-detail-identity BookingInput InputBox InputResult inputText InputArrow">
                             <label class="js-identity-tag BookingLabel help">填写证件信息</label><!-- TODO identity -->
                             <input class="js-identity-type" type="hidden">
                             <input class="js-identity-number" type="hidden">
+                            <input class="js-identity-type-number" type="hidden">
                         </div>
                     </li>
                     <li>
@@ -212,7 +213,50 @@
                         </div>
                     </li>
                     <li>
-                        <div class="BookingInput InputBox InputResult inputText InputArrow">
+                        <div data-rel="detail_insurance" class="BookingInput InputBox InputResult inputText InputArrow">
+                            <label class="BookingLabel help">查看已选保险信息</label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="BookingInput InputBox InputResult inputText cui-switch-input">
+                            <label class="BookingLabel help">保存到常用旅客信息</label>
+
+                            <div class="js-add-contact-switch cui-switch-cont">
+                                <div class="cui-switch">
+                                    <div class="cui-switch-bg "></div>
+                                    <div class="cui-switch-scroll"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </li>
+            <li class="db">
+                <label class="BookingLabel help">游客2<small>成人</small></label>
+                <ul class="person-in-items">
+                    <li>
+                        <div class="BookingInput InputBox InputResult inputText">
+                            <input class="person-name" type="text" placeholder="必填，填写游客姓名">
+                            <a class="clearInput"><span></span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div data-rel="detail_identity" class="js-detail-identity BookingInput InputBox InputResult inputText InputArrow">
+                            <label class="js-identity-tag BookingLabel help">填写证件信息</label><!-- TODO identity -->
+                            <input class="js-identity-type" type="hidden">
+                            <input class="js-identity-number" type="hidden">
+                            <input class="js-identity-type-number" type="hidden">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="BookingInput InputBox InputResult inputText">
+                            <input class="person-name" type="text" placeholder="必填，填写游客电话">
+                            <a class="clearInput"><span></span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div data-rel="detail_insurance" class="BookingInput InputBox InputResult inputText InputArrow">
                             <label class="BookingLabel help">查看已选保险信息</label>
                         </div>
                     </li>
@@ -506,6 +550,33 @@
     </article>
 </div>
 
+<div id="js-detail-insurance" data-rel="detail_insurance" class="ordder_detail_insurance detail_pop_wrap"><!-- TODO insurance Body -->
+    <article class="mt10 HotelOrderForm">
+        <ul class="booking_modify mt10">
+            <li data-rel="detail_remark" class="db InputArrow">
+                <label class="BookingLabel help">证件类型</label>
+                <p class="js-identity-trigger-tag booking-g-txt BookingContent box-flex"></p>
+            </li>
+            <li class="db" data-rel="detail_invoice">
+                <label class="BookingLabel help">证件号码</label>
+                <div class="BookingInput InputBox InputResult inputText">
+                    <input class="identity-number" type="text" placeholder="必填，填写有效证件号码">
+                    <a class="clearInput"><span></span></a>
+                </div>
+            </li>
+        </ul>
+        <!--<div class="HotelOrderTips mt10">
+            <h2>相关说明：</h2>
+            <ul class="normal-tips">
+
+                <li>广之旅机场路总部地址：广州市白云区机场西乐嘉路1号。</li>
+                <li>我司一般采用顺丰快递邮寄。</li>
+                <li>不适用导游配送的团队，我司客服在与您联系的时候将对此进行说明，届时请您与客服确认采用其它配送方式。</li>
+            </ul>
+        </div>-->
+    </article>
+</div>
+
 <div id="js-identity-type-content" data-rel="detail_remark" class="js_filter_invoice filter_pop_wrap"><!-- TODO 证件类型选择BODY -->
     <ul class="header">
         <li class="btn_cancel"><a href="javascript:;">取消</a></li>
@@ -781,14 +852,32 @@
             //var bodyScroll;
             var wrap=$('#js-detail-identity');
             var idNumberText=wrap.find('.identity-number');
-            $('.js-detail_identity').detailPop({
+            var typeSelect=$('#js-identity-type');
+            var content=$('#js-identity-type-content');
+            var typeTag=typeSelect.find('.js-identity-trigger-tag');
+            var idTypePannel=$('#js-identity-type-block');
+            var hiddenIdType,hiddenIdNumber,hiddenIdTypeNumber;
+
+            $('.js-detail-identity').detailPop({
                 title: '填写旅客证件信息',
                 buttonText: '提交',
                 isButton: true,
-                initialCallback:function(){
+                beforeOpenCallback:function(_wrap,head,trigger){
+                    hiddenIdType=$(trigger).find('.js-identity-type').val();
+                    hiddenIdNumber=$(trigger).find('.js-identity-number').val();
+                    hiddenIdTypeNumber=parseInt($(trigger).find('.js-identity-type-number').val());
 
+                    if(hiddenIdType&&hiddenIdNumber){
+                        //console.log(hiddenIdType,hiddenIdNumber,hiddenIdTypeNumber);
+                        typeTag.text(hiddenIdType);
+                        idNumberText.val(hiddenIdNumber);
+                        content[0].selectSingleItemAndConfirm(idTypePannel.find('dd').eq(hiddenIdTypeNumber))
+                    }
                 },
-                buttonCallback:function(_wrap,head,btn){
+                buttonCallback:function(_wrap,head,trigger){
+                    hiddenIdType=$(trigger).find('.js-identity-type');
+                    hiddenIdNumber=$(trigger).find('.js-identity-number');
+                    hiddenIdTypeNumber=$(trigger).find('.js-identity-type-number');
                     if (idNumberText.val() === '') {
                         $.simpleAlert('证件号码不能为空');
                         return false;
@@ -797,28 +886,32 @@
                         return false; 不能提交
                     }*/
                     else{
-                        $('.js-identity-tag').text('已填写证件信息');
+                        //console.log();
+                        $(trigger).find('.js-identity-tag').text(content[0].boxContObject[0].valueText);
+                        hiddenIdType.val(content[0].boxContObject[0].value);
+                        hiddenIdNumber.val(idNumberText.val());
+                        hiddenIdTypeNumber.val(content[0].boxContObject[0].key);
                     }
                 },
-                closeCallback:function(_wrap,head,btn,handler){
+                closeCallback:function(_wrap,head,trigger,handler){
+                    //var _this=trigger;
+                    hiddenIdNumber=$(trigger).find('.js-identity-number');
                     $.dialogAlert({
                         text:'您要放弃本次编辑吗？',
                         confirmText:'放弃',
                         onConfirm:function(){
                             handler.hiddenWrap(_wrap);
-                            idNumberText.val('');
-                            $('.js-identity-tag').text('未填写证件信息');
-                            //$('body').scrollTo(bodyScroll);
-                            /*orderInovic.find('.BookingContent').text('不需要发票');
-                            invoiceSwitcher[0].handler && invoiceSwitcher[0].handler.change(invoiceSwitcher,false);
-                            _wrap.find('.invoiceText').val('');*/
+                            if(!hiddenIdNumber.val()){
+                                trigger.find('.js-identity-tag').text('未填写证件信息');
+                            }else{
+                                idNumberText.val('');
+                            }
                         }
                     });
                     return false;
                 }
             });
-            var typeSelect=$('#js-identity-type');
-            var content=$('#js-identity-type-content');
+
             content.boxContentInital({
                 //指定触发器
                 trigger: typeSelect,//TODO 证件类型选择js
@@ -827,18 +920,55 @@
                 initialCallback:function(handler){
 
                     handler.selectSingleItemAndConfirm($('#js-identity-type-block dd').eq(0));
-                    typeSelect.find('.js-identity-trigger-tag').text(handler.values[0]['valueText']);
+                    typeTag.text(handler.values[0]['valueText']);
                 },
                 confirmCallback: function (elem, aValus) {
-                    typeSelect.find('.js-identity-trigger-tag').text(aValus[0]['valueText']);
+                    typeTag.text(aValus[0]['valueText']);
                 },
                 onItemsTap:function(elem,index,val){
 
                 }
             });
+
             typeSelect.displayWrap({
                 callback: function (state, wrap) {
                     wrap && $(wrap).refresh();
+                }
+            });
+        })();
+
+        //填写保险信息
+        (function(){
+            $('.js-detail-insurance').detailPop({
+                title: '查看已选保险信息',
+                buttonText: '提交',
+                isButton: true,
+                initialCallback:function(){
+
+                },
+                buttonCallback:function(_wrap,head,btn){
+                    /*if (idNumberText.val() === '') {
+                        $.simpleAlert('证件号码不能为空');
+                        return false;
+                    }/!*else if(){
+                     各种正则检查
+                     return false; 不能提交
+                     }*!/
+                    else{
+                        $(this).find('.js-identity-tag').text(typeTag.text());
+                    }*/
+                },
+                closeCallback:function(_wrap,head,btn,handler){
+                    $.dialogAlert({
+                        text:'您要放弃本次编辑吗？',
+                        confirmText:'放弃',
+                        onConfirm:function(){
+                            /*handler.hiddenWrap(_wrap);
+                            idNumberText.val('');
+                            $('.js-identity-tag').text('未填写证件信息');*/
+                        }
+                    });
+                    return false;
                 }
             });
         })();
