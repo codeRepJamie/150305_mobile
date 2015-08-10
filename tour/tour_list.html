@@ -21,12 +21,12 @@
 
 <body>
 <div data-role="page" class="page">
-    <header class="HeaderView">
+    <div id="header" class="HeaderView">
         <h1 class="list">出境游 - 东南亚<span>共60条</span></h1>
         <i class="ReturnIco"></i>
         <i id="search" class="ButtonIco SearchIco"></i>
-    </header>
-    <article>
+    </div>
+    <article id="mainContent" class="mainContent">
         <div id="pageScrollWrapper" class="wrapper">
         <div id="pageScroll" class="pageScroll">
         <ul id="TourList" class="t TourList"><!--
@@ -366,7 +366,7 @@
                 <p class="InputBox">
                     <input class="inputText" autofocus maxlength="30" tabindex="1" id="searchInput" type="search"
                            required="" autocomplete="off" value="" placeholder="请输入目的地">
-                    <a id="searchBotton" style="display: none;width: 30px;height: 30px;background-color: red">搜索</a>
+                    <!--<a id="searchBotton" style="display: none;width: 30px;height: 30px;background-color: red">搜索</a>-->
                     <a class="clear-input"><span></span></a>
                 </p>
             </li>

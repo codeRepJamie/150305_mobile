@@ -108,7 +108,7 @@ article .NotLogin .LoginButton:active {
     display: inline-block;
     min-width: 80px;
     font-size: 15px;
-    line-height: 40px;
+    line-height: 44px;
     text-align: left;
 }
 
@@ -118,7 +118,7 @@ article .NotLogin .LoginButton:active {
     color: #999;
 }
 
-.HotelOrderForm .booking_modify .db .BookingInput input {
+.HotelOrderForm .booking_modify .db .BookingInput>input {
     font-size: 16px;
     font-weight: 700;
     color: #000;
@@ -325,4 +325,7 @@ article .NotLogin .LoginButton:active {
 .InputResult.cui-switch-input .cui-switch-cont {
     display: table-cell;
     text-align: right;
+}
+.InputResult.cui-switch-input .cui-switch-cont .g-price{
+    font-size: 20px;
 }

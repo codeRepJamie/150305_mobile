@@ -1076,11 +1076,11 @@
             bindInputTap.call(e,__this,handler, 0);
             handler._add.bind('fastclick', function () {
                 bindInputTap.call(e,__this,handler, 1);
-                _default.plusCallback && _default.plusCallback.call($(_this), handler._thisVal, handler.maxVal, handler.minVal);
+                _default.plusCallback && _default.plusCallback.call($(__this), handler._thisVal, handler.maxVal, handler.minVal);
             });
             handler._minus.bind('fastclick', function () {
                 bindInputTap.call(e,__this,handler, 0);
-                _default.minusCallback && _default.minusCallback.call($(_this), handler._thisVal, handler.maxVal, handler.minVal);
+                _default.minusCallback && _default.minusCallback.call($(__this), handler._thisVal, handler.maxVal, handler.minVal);
             });
         });
         function bindInputTap(e,handler,_type) {
@@ -1430,6 +1430,7 @@
                     arguments.callee.times++;
                 }else{
                     arguments.callee.times=1;
+                    //$('.inputText').inputText();
                     _default.firstOpenCallback && _default.firstOpenCallback.call($(e), _wrap, _relHead, $(this), handler);
                 }
                 openWindowFn(_this, _rel, _wrap);
@@ -1449,6 +1450,7 @@
                     //console.log($.detailPopInfo);
                     if($.detailPopInfo.isOpen) {
                         var result;
+                        $.hideBottomLayout();
                         _default.buttonCallback && (result = _default.buttonCallback.call($(this), $.detailPopInfo.wrap, $.detailPopInfo.head,$.detailPopInfo.trigger, handler));
                         if (_default.isButton && !result && result !== undefined)
                             return false;
@@ -1456,27 +1458,9 @@
                         $.detailPopInfo.isOpen = false;
                     }
                 });
+                _default.initialCallback && _default.initialCallback.call($(this), _wrap, _relHead, $(this), handler);
             });
 
-            /*
-            _relHead.find('.ReturnIco').bind('fastclick', function () {
-                var result;
-                $.hideBottomLayout();
-                _default.closeCallback && (result = _default.closeCallback.call(_this, _wrap, _relHead, $(this), handler));
-                if (!result && result !== undefined) {
-                    return false;
-                }
-                handler.hiddenWrap(_wrap);
-            });
-            _default.isButton && _button.bind('fastclick', function () {
-                var result;
-                console.log(_wrap[0].trigger);
-                _default.buttonCallback && (result = _default.buttonCallback.call(_this, _wrap, _relHead, $(this), handler));
-                if (_default.isButton && !result && result !== undefined)
-                    return false;
-                handler.hiddenWrap(_wrap);
-            });*/
-            _default.initialCallback && _default.initialCallback.call(_this, _wrap, _relHead, $(this), handler);
         });
 
         /*
