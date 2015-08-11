@@ -21,7 +21,7 @@
 
 article {
     width: 100%;
-    padding: 48px 0 0 0;
+/*    padding: 48px 0 0 0;*/
 }
 
 article .TourList {
@@ -244,14 +244,7 @@ article .TourList li .TourContent .price strong {
     background-color: #3f3f3f;
 }
 
-.simpleListRoll {
-    background-color: rgb(100, 100, 100);
-}
 
-.simpleListRoll .animate_select {
-    right: 20px;
-    top: 14px;
-}
 
 /**
  *

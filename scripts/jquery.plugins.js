@@ -1109,10 +1109,22 @@
     };
 
     //点击跳转
-    $.fn.tapToHref = function () {
+    $.fn.switcherHref = $.fn.tapToHref = function (opts) {
+        var _default = {
+            beforeRedirect:null
+        };
+        _default = $.extend(_default, opts);
+        var result;
         $(this).bind('fastclick', function () {
-            if ($(this).attr('data-href'))
+            if ($(this).attr('data-href')){
+                _default.beforeRedirect && (result = _default.beforeRedirect.call($(this)));
+                if (!result && result !== undefined) {
+                    return false;
+                }
                 document.location.href = $(this).attr('data-href');
+            }
+
+
         });
         return this;
     };
@@ -1224,16 +1236,29 @@
         var _default = {
             trigger: $(),
             maxHeight: Math.floor($(window).height() * 0.5),
-            onListsTap: null
+            onListsTap: null,
+            initialCallback:null
         };
         _default = $.extend(_default, opts);
         var _this = this;
+        var handle={
+            trigger:_default.trigger,
+            elem:null,
+            key:0,
+            val:undefined,
+            selectTap:function(index){
+                //$(this).find('.simpleListRoll').find('li')
+                selectItem(_this,index)
+            }
+        };
+        _this[0].handle=handle;
         this.each(function () {
             var roll = $(this).find('.simpleListRoll');
             roll.iScroll({
                 listHeight: _default.maxHeight
             });
             $(this).find('.simpleListRoll').find('li').each(function () {
+
                 $(this).bind('fastclick', function () {
                     $(this).append('<i class="animate_select"></i>').siblings('li').find('i.animate_select').remove();
                     $.hideBottomLayout({
@@ -1243,11 +1268,24 @@
                     });
                     if (_default.trigger)
                         $(this).index() ? _default.trigger.addClass('new') : _default.trigger.removeClass('new');
-
+                    handle.elem=$(this);
+                    handle.key=$(this).index();
+                    handle.val=$(this).attr('data-key');
                     _default.onListsTap && _default.onListsTap.call(_this, $(this)[0], $(this).index(), $(this).attr('data-key'));
                 })
             });
+            handle.selectTap(0);
+            _default.initialCallback && _default.initialCallback.call($(this),handle)
         });
+        function selectItem(e,index){
+            var item=$(e).find('.simpleListRoll').find('li:eq('+index+')');
+               /* $(this).bind('fastclick', function () {*/
+            item.append('<i class="animate_select"></i>').siblings('li').find('i.animate_select').remove();
+            handle.elem=item;
+            handle.key=index;
+            handle.val=item.attr('data-key');
+            _default.onListsTap && _default.onListsTap.call(_this, e, index, item.attr('data-key'));
+        }
         return this;
     };
     //显示清空按钮的文本框插件
@@ -1407,6 +1445,7 @@
             //rel = $(e).attr('data-rel');
             var _this=$(e);
             rel=$(e).attr('data-rel');
+            var wrap = $('.detail_pop_wrap[data-rel=' + rel + ']');
             relHead = $('.headerDetail[data-rel=' + rel + ']').eq(0);
             if (!relHead.length) {
                 var detailHead = document.createElement('div');
@@ -1458,9 +1497,9 @@
                         $.detailPopInfo.isOpen = false;
                     }
                 });
-                _default.initialCallback && _default.initialCallback.call($(this), _wrap, _relHead, $(this), handler);
-            });
 
+            });
+            _default.initialCallback && _default.initialCallback.call($(this), wrap, relHead, $(this), handler);
         });
 
         /*
@@ -1817,8 +1856,8 @@
             'openCallback': null,
             'closeCallback': null
         };
-        _default = $.extend(_default, opts);
 
+        _default = $.extend(_default, opts);
         $(this).each(function (i, e) {
             var _this = $(e);
             var trigger= $(e).find(_default.trigger.toString());

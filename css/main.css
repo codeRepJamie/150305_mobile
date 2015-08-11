@@ -105,7 +105,20 @@ body {
 .fr {
     float: right;
 }
-
+.w100 {
+    width: 100%;
+}
+.mt20 {
+    margin-top: 20px;
+}
+*:not(input) {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
 .blur{
     -webkit-filter: blur(5px); /* Chrome, Opera */
     -moz-filter: blur(5px);
@@ -654,7 +667,14 @@ article .HotelList01 li .GetLocation:before,
     -ms-transform: rotate(-135deg);
     transform: rotate(-135deg);
 }
+.simpleListRoll {
+    background-color: rgb(100, 100, 100);
+}
 
+.simpleListRoll .animate_select {
+    right: 20px;
+    top: 14px;
+}
 /*头部绿色栏*/
 .HeaderView {
     position: fixed;

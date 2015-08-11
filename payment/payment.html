@@ -1,0 +1,364 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <title>预订成功</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/order.css">
+    <script type="text/javascript" src="../scripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../scripts/custom.modernizr.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.event.special.fastclick.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.plugins.js"></script>
+    <script type="text/javascript" src="../scripts/CommonJs.js"></script>
+</head>
+
+<body>
+<div id="header" class="HeaderView">
+    <h1>预订成功</h1>
+    <i class="ReturnIco"></i>
+</div>
+    <article id="mainContent" class="mainContent">
+        <div class="mb10 HotelOrderForm">
+            <div class="payment_succeed_bg border-item mb10">
+                <div class="payment_succeed_box"><span class="f-radiobox"></span>
+
+                    <p class="payment_succeed_txt">您的订单已经成功提交！<br>请您尽快付款！</p>
+
+                    <p class="payment_succeed_txt">
+                        <small class="payment_succeed_hint payment_sub">订单号：201508110000004</small>
+                        <small class="payment_succeed_hint payment_sub">订单金额：<span class="g-price"><small>¥</small>1600<small>
+                            元
+                        </small></span></small>
+                    </p>
+                    <p>请您在提交订单后六小时内完成支付，否则订单会自动取消。</p>
+
+                </div>
+                <ul class="booking_modify">
+
+                    <li class="db">
+                        <label class="BookingLabel help">还需要支付</label>
+                        <ul class="person-in-items">
+                            <li class="mod_hd">
+                                <div class="BookingInput InputBox InputResult inputText cui-switch-input">
+                                    <label class="js-contact-switcher-lable BookingLabel help">2000 元</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="db">
+                        <label class="BookingLabel help">多次支付</label>
+                        <ul class="person-in-items">
+                            <li class="mod_hd">
+                                <div class="BookingInput InputBox InputResult inputText cui-switch-input">
+                                    <label id="js-payment-switcher-lable" class="BookingLabel help">需要多次支付</label>
+
+                                    <div class="js-payment-switcher cui-switch-cont">
+                                        <div class="cui-switch">
+                                            <div class="cui-switch-bg "></div>
+                                            <div class="cui-switch-scroll"></div>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" id="js-multi-payment-hidden"/>
+                                </div>
+                            </li>
+                            <li id="multi-payment" class="contactList js-contact-list">
+                                <div class="BookingInput InputBox InputResult">
+                                    <input id="js-multi-payment-number-input" class="person-name" type="text" placeholder="填入您本次支付金额(元)">
+                                    <a class="clearInput"><span></span></a>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </li>
+
+                    <li class="db">
+                        <label class="BookingLabel help">优惠券</label>
+                        <ul class="person-in-items">
+                            <li class="mod_hd">
+                                <div id="js-coupon-trigger" data-rel="detail_coupon" class="BookingInput InputBox InputResult inputText InputArrow">
+                                    <label class="BookingLabel help">使用优惠券</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="db">
+                        <label class="BookingLabel help">支付平台</label>
+                        <ul class="person-in-items">
+                            <li class="mod_hd">
+                                <div id="js-payment-select-trigger" data-rel="payment-select" class="BookingInput InputBox InputResult inputText InputArrow">
+                                    <label id="js-payment-select-tag" class="BookingLabel help"></label>
+                                    <input type="hidden" id="js-payment-select-hidden"/>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="payment_content_box">
+                            <button class="credit_btn w100" data-href="success.html" id="c_payment_index_payBtn">支付</button>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </article>
+
+<div id="js-payment-select-content" data-rel="payment-select" class="filter_pop_wrap">
+    <div class="wrapper">
+        <div class="destination simpleListRoll">
+            <ul id="scroll" class="scroll">
+                <li data-key="支付宝">支付宝<i class="animate_select"></i></li>
+                <li data-key="快钱">快钱</li>
+                <li data-key="中国工商银行">中国工商银行</li>
+                <li data-key="自由通卡">自由通卡</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="js-detail-coupon" data-rel="detail_coupon" class="ordder_detail_coupon detail_pop_wrap"><!-- TODO insurance Body -->
+    <article class="mt10 HotelOrderForm">
+        <ul class="booking_modify mt10">
+            <li class="db">
+                <label class="BookingLabel help">使用优惠券支付</label>
+            </li>
+            <li class="db">
+                <label class="BookingLabel help">优惠券(1)<small></small></label>
+                <ul data-coupon-id="10D72319A8585064E0531E29030A3666" class="person-in-items">
+                    <li>
+                        <div class="BookingInput InputBox InputResult inputText cui-switch-input"><label class="BookingLabel help">券号：</label>
+
+                            <div class="cui-switch-cont">00510D72319A8585064</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="BookingInput InputBox InputResult inputText cui-switch-input">
+                            <label class="BookingLabel help">可用余额</label>
+                            <div class="cui-switch-cont">
+                                <span class="g-price"><small>¥</small>800</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="BookingInput InputBox InputResult inputText cui-switch-input">
+                            <label class="BookingLabel help">使用该优惠券</label>
+
+                            <div class="js-add-coupon-switch cui-switch-cont">
+                                <div class="cui-switch">
+                                    <div class="cui-switch-bg "></div>
+                                    <div class="cui-switch-scroll"></div>
+                                </div>
+                                <input type="hidden" class="js-add-custom-info"/>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </li>
+            <li class="db">
+                <label class="BookingLabel help">优惠券(2)<small></small></label>
+                <ul data-coupon-id="10D72319A8585064E0531E29030A3666" class="person-in-items">
+                    <li>
+                        <div class="BookingInput InputBox InputResult inputText cui-switch-input"><label class="BookingLabel help">券号：</label>
+
+                            <div class="cui-switch-cont">00510D72319A8585064</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="BookingInput InputBox InputResult inputText cui-switch-input">
+                            <label class="BookingLabel help">可用余额</label>
+                            <div class="cui-switch-cont">
+                                <span class="g-price"><small>¥</small>800</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="BookingInput InputBox InputResult inputText cui-switch-input">
+                            <label class="BookingLabel help">使用该优惠券</label>
+
+                            <div class="js-add-coupon-switch cui-switch-cont">
+                                <div class="cui-switch">
+                                    <div class="cui-switch-bg "></div>
+                                    <div class="cui-switch-scroll"></div>
+                                </div>
+                                <input type="hidden" class="js-add-custom-info"/>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </li>
+        </ul>
+
+        <ul class="booking_modify mt10">
+            <li class="db">
+                <label class="BookingLabel help">使用优惠券支付</label>
+            </li>
+            <li class="db">
+                <label class="BookingLabel help">该账户未找到任何优惠券<small></small></label>
+
+
+            </li>
+
+        </ul>
+
+        <ul class="booking_modify mt10">
+            <li class="db">
+                <label class="BookingLabel help">添加优惠券</label>
+            </li>
+            <li class="db">
+                <label class="BookingLabel help">优惠券卡号</label>
+                <ul class="person-in-items">
+                    <li>
+                        <div class="BookingInput InputBox InputResult">
+                            <input class="person-name" type="text" placeholder="必填，填写优惠券卡号">
+                            <a class="clearInput"><span></span></a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="db">
+                <label class="BookingLabel help">优惠券密码</label>
+                <ul class="person-in-items">
+                    <li>
+                        <div class="BookingInput InputBox InputResult">
+                            <input class="person-name" type="password" placeholder="必填，填写优惠券密码">
+                            <a class="clearInput"><span></span></a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="payment_content_box">
+                    <button class="credit_btn w100">确认添加</button>
+                </div>
+            </li>
+        </ul>
+
+        <!--<div class="HotelOrderTips mt10">
+            <h2>相关说明：</h2>
+            <ul class="normal-tips">
+
+                <li>广之旅机场路总部地址：广州市白云区机场西乐嘉路1号。</li>
+                <li>我司一般采用顺丰快递邮寄。</li>
+                <li>不适用导游配送的团队，我司客服在与您联系的时候将对此进行说明，届时请您与客服确认采用其它配送方式。</li>
+            </ul>
+        </div>-->
+    </article>
+</div>
+
+<script>
+    $(function () {
+        $('.BookingInput').inputText();
+        (function(){
+            var lists=$('#multi-payment');
+            var tag=$('#js-payment-switcher-lable');
+            var input=$('#js-multi-payment-number-input');
+            var hidden=$('#js-multi-payment-hidden');
+            hidden.val('false');
+            $('.js-payment-switcher').switcher({
+                initialCallback:function(){
+                    hidden.val('');
+                },
+                changeCallback: function (state, handler) {
+
+                    if (state) {
+                        lists.css({display: 'block'});
+                        tag.text('不需要多次支付');
+                        input.focus();
+                        hidden.val(state);
+                    } else {
+                        lists.css({display: 'none'});
+                        tag.text('需要多次支付');
+                        input.val('');
+                        hidden.val(state);
+                    }
+                }
+            });
+        })();
+
+        //使用优惠券
+        (function(){
+            var content=$('#js-detail-coupon');
+            var trigger=$('#js-coupon-trigger');
+            trigger.detailPop({
+                title: '填写优惠券信息',
+                buttonText: '确认',
+                isButton: true,
+                closeCallback:function(_wrap,head,trigger,handler){
+                    hiddenIdNumber=$(trigger).find('.js-identity-number');
+                    $.dialogAlert({
+                        text:'您要放弃本次编辑吗？',
+                        confirmText:'放弃',
+                        onConfirm:function(){
+                            handler.hiddenWrap(_wrap);
+                            /*if(!hiddenIdNumber.val()){
+                                trigger.find('.js-identity-tag').addClass('alertText').text('未填写证件信息');
+                            }else{
+                                idNumberText.val('');
+                            }*/
+                        }
+                    });
+                    return false;
+                },
+                initialCallback:function(){
+                    var couponSelct = $('.js-add-coupon-switch');
+                    couponSelct.switcher({
+                        initialCallback: function () {
+
+                        },
+                        changeCallback: function (state, handler) {
+
+                        }
+                    });
+                }
+            });
+        })();
+
+        //选择支付平台
+        (function(){
+            var content=$('#js-payment-select-content');
+            var paymentSelect=$('#js-payment-select-trigger');
+            var paymentTag=$('#js-payment-select-tag');
+            var paymentHidden=$('#js-payment-select-hidden');
+
+            content.simpleListInital({
+                trigger:$('#js-payment-select-trigger'),
+                onListsTap:function(elem,key,val){
+                    paymentTag.text(val);
+                    paymentHidden.val(val);
+                },
+                initialCallback:function(handle){
+                    //console.log(handle);
+                }
+            });
+            paymentSelect.displayWrap({
+                callback: function (state, wrap) {
+                    wrap && $(wrap).refresh();
+                }
+            });
+        })();
+
+        //支付按钮
+        (function(){
+            var btn=$('#c_payment_index_payBtn');
+            btn.switcherHref({
+                beforeRedirect:function(){
+                    console.log($('#js-multi-payment-hidden').val()&&!$('#js-multi-payment-number-input').val().length)
+                    if($('#js-multi-payment-hidden').val()==='true'&&!$('#js-multi-payment-number-input').val().length){
+                        $.simpleAlert('金额不能为空');
+                        return false
+                    }
+
+                }
+            });
+        })();
+    });
+</script>
+</body>
+</html>

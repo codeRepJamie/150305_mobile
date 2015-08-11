@@ -24,8 +24,8 @@
 <div id="header" class="HeaderView">
     <h1>产品详情</h1>
     <i class="ReturnIco"></i>
-    <i class="ButtonIco ShareIco"></i>
-    <i class="ButtonIco FavoriteIco"></i>
+<!--    <i class="ButtonIco ShareIco"></i>-->
+    <i id="js-favor-btn" class="ButtonIco FavoriteIco"></i>
 </div>
 <article id="mainContent" class="mainContent">
     <div class="tourDetail">
@@ -420,7 +420,7 @@
         </ul>
 
     </div>
-    <footer class="detail_bottom  detail_bottom_double"><span class="detail_collect js_collect_icon"></span> <!--<span
+    <footer class="detail_bottom  detail_bottom_double"><span id="js-favor-bot-btn" class="detail_collect js_collect_icon"></span> <!--<span
         class="detail_contrast js_compare"
         data-compare="{'pId':'1678487','scId':'2','dcId':'2','name':'华东5市+绍兴+乌镇+西塘6日跟团游(3钻)·宿乌镇内 2晚4钻+1晚5钻 上海成团','price':899}">对比</span>-->
         <!--<span class="detail_btn_blue js_telphone_btn" id="ctm_tour_detail_phone">电话咨询</span>--><span data-href="tour_calendar.html" class="js_in_Footer detail_btn_orange" id="ctm_tour_detail_book">开始预订</span></footer>
@@ -500,7 +500,7 @@
 
             var swipeBox=$('#js_listWrap').find('.swipebox');
             $('#banner-tips-js').detailPop({
-                title: '共5张',
+                title: '共'+swipeBox.lenght+'张',
                 firstOpenCallback:function(wrap,head,trigger){
                     var picHref=[];
 
@@ -607,7 +607,15 @@
         })();
 
         (function(){
-
+            $('#js-favor-btn,#js-favor-bot-btn').bind('fastclick',function(){
+                arguments.callee.count= arguments.callee.count || 0;
+                if(arguments.callee.count%2){
+                    $.simpleAlert('收藏成功')
+                }else{
+                    $.simpleAlert('请先登录')
+                }
+                arguments.callee.count++;
+            })
         })()
 
     });
