@@ -319,8 +319,7 @@
 <div data-rel="detail_remark" class="hotel_detail_remark detail_pop_wrap">
     <article class="p10 word-break">
         <div class="info_input_field scrollfix">
-            <textarea id="remarkTextArea" class="ta_message_content" row="50" style="" placeholder="请填写备注信息，最多500个字..."
-                      maxlength="500"></textarea>
+            <textarea id="remarkTextArea" class="ta_message_content" row="50"  placeholder="请填写备注信息，最多500个字..." maxlength="500"></textarea>
         </div>
     </article>
 </div>
@@ -662,7 +661,7 @@
         //所有文字输入框
         (function () {
             //$('.inputText').inputText();
-            $('.inputText').inputText({
+            $('.BookingInput').inputText({
                 onfocusCallback: function () {
                     $('#PayTxtField').css('display','none');
                 },

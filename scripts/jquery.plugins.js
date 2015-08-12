@@ -153,9 +153,12 @@
             //console.log(visibleFilter);
             filter.css({'visibility': 'hidden'});
             _default.shadow.remove();
-            if($.iScroll){
+            //console.log($.iScroll);
+            $('body').unIScroll();
+            /*if($.iScroll){
+
                 $('body').unIScroll();
-            }
+            }*/
             _default.callback && _default.callback.call(this);
         },
         //简单警告框插件
@@ -555,6 +558,7 @@
     $.fn.unIScroll = function () {
         this[0].iScroll && this[0].iScroll.destroy();
         if (this[0]._unableIScroll) {
+            console.log(this[0]._unableIScroll);
             this[0].removeEventListener('touchmove', this[0]._unableIScroll, false);
             this[0]._unableIScroll = null;
         }
@@ -1502,19 +1506,10 @@
             _default.initialCallback && _default.initialCallback.call($(this), wrap, relHead, $(this), handler);
         });
 
-        /*
-
-        _default.isButton && _button.bind('fastclick', function () {
-            var result;
-            console.log(_wrap[0].trigger);
-            _default.buttonCallback && (result = _default.buttonCallback.call(_this, _wrap, _relHead, $(this), handler));
-            if (_default.isButton && !result && result !== undefined)
-                return false;
-            handler.hiddenWrap(_wrap);
-        });*/
         function openWindowFn(e, rel, _wrap) {
             //_wrap[0].trigger=e;
             bodyScroll=$('body').scrollTop();
+            //$.simpleAlert(bodyScroll.toString());
             _default.beforeOpenCallback && _default.beforeOpenCallback.call(e, _wrap, _detailHead, e);
             _article.css('display', 'none');
             var _detailHead = $('.headerDetail[data-rel=' + rel + ']');
