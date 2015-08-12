@@ -499,7 +499,7 @@
                 }
             });*/
 
-            var mySwiper = new Swiper ('.swiper-container', {
+            window.mySwiper = new Swiper ('.swiper-container', {
                 direction: 'horizontal',
                 loop: true,
                 height:imgSize.height,
@@ -509,7 +509,6 @@
                 lazyLoading: true,
                 autoplay: 5000
             })
-
 
             var swipeBox=$('#js_listWrap').find('.swipebox');
             $('#banner-tips-js').detailPop({

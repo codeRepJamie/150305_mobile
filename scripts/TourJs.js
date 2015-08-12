@@ -9,6 +9,7 @@
             var page = 1;
             var isBind = 0;//记录初始事件绑定
             var body=$('body');
+            var isLoading=false;
             var blankPic='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjExR/NCNwAAAA1JREFUGFdj+P//PwMACPwC/ohfBuAAAAAASUVORK5CYII=';
             //数据初始化弹出提示清空页面
             list.html('');
@@ -24,6 +25,7 @@
                     async: 1,
                     url: '../ajax/' + url + page + '.txt?t=' + new Date().getTime(),
                     beforeSend: function (e) {
+                        isLoading=true;
                     },
                     timeout:10000,
                     success: function (e) {
@@ -43,6 +45,7 @@
                             //更新页数信息
                             myScroll.responsePage = dataJSON.ResponseStatus.Page;
                             myScroll.responseCount = dataJSON.ResponseStatus.PageCount;
+                            isLoading=false;
                             //更新iScroll
                             setTimeout(function () {
                                 //myScroll.refresh();
@@ -81,12 +84,11 @@
 
             function bindDrawUp(url) {
                 var _this=this;
-                //console.log($('body').scrollTop(),list.outerHeight()-$(window).height());
+
                 list[0].addEventListener('touchmove',function(e){
                     var et=e||event;
                     var scrollTop=body.scrollTop();
-                    //console.log(scrollTop,$('body').outerHeight()-$(window).height());
-                    if(scrollTop>body.outerHeight()-pullUpEl.outerHeight()-$(window).height()&& myScroll.responsePage !== myScroll.responseCount){
+                    if(scrollTop>=list.outerHeight()+$('#header').height()+$('#BottomNav').height()+pullUpEl.outerHeight()-$(window).height()&& myScroll.responsePage < myScroll.responseCount && !isLoading){
                         if(!/loading/.test(pullUpEl.attr('class'))&&!/noResult/.test(pullUpEl.attr('class'))){
                             label.text('页面加载中...');
                         }

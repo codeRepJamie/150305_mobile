@@ -150,15 +150,9 @@
                     $($(e)[0].trigger).removeActive();//TODO hideBottom
                 }
             });
-            //console.log(visibleFilter);
             filter.css({'visibility': 'hidden'});
             _default.shadow.remove();
-            //console.log($.iScroll);
             $('body').unIScroll();
-            /*if($.iScroll){
-
-                $('body').unIScroll();
-            }*/
             _default.callback && _default.callback.call(this);
         },
         //简单警告框插件
