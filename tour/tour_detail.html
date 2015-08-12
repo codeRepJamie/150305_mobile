@@ -7,13 +7,15 @@
     <title>无标题文档</title>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/tour.css">
+    <link rel="stylesheet" href="../css/swiper3.1.0.min.css">
     <script type="text/javascript" src="../scripts/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="../scripts/custom.modernizr.js"></script>
     <script type="text/javascript" src="../scripts/iscroll-probe.js"></script>
     <script type="text/javascript" src="../scripts/jquery.scrollTo.js"></script>
     <script type="text/javascript" src="../scripts/jquery.lazyload.min.js"></script>
     <script type="text/javascript" src="../scripts/jquery.event.special.fastclick.js"></script>
-    <script type="text/javascript" src="../scripts/jquery.swipeshow.min.js"></script>
+    <script type="text/javascript" src="../scripts/swiper3.1.0.jquery.min.js"></script>
+    <!--<script type="text/javascript" src="../scripts/jquery.swipeshow.min.js"></script>-->
     <script type="text/javascript" src="../scripts/jquery.plugins.js"></script>
     <script type="text/javascript" src="../scripts/CommonJs.js"></script>
     <!--<script type="text/javascript" src="../scripts/TourJs.js"></script>-->
@@ -31,22 +33,20 @@
     <div class="tourDetail">
         <div class="db pdName">
             <div id="ctm_tour_detail_pics" class="img_wrap js_detail_pic_slide">
-                <div class="cui-sliderContainer slides">
-                    <div class="img_node slider-imageContainerNode slide">
-                        <img data-original="http://file.gzl.com.cn/tour/2014102909202217853.jpg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjExR/NCNwAAAA1JREFUGFdj+P//PwMACPwC/ohfBuAAAAAASUVORK5CYII="
-                         alt=""/>
-                    </div>
-                    <div class="img_node slider-imageContainerNode slide">
-                        <img data-original="http://file.gzl.com.cn/tour/2014102909201417853.jpg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjExR/NCNwAAAA1JREFUGFdj+P//PwMACPwC/ohfBuAAAAAASUVORK5CYII="
-                             alt=""/>
-                    </div>
-                    <div class="img_node slider-imageContainerNode slide">
-                        <img data-original="http://file.gzl.com.cn/tour/2014102909203917853.jpg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjExR/NCNwAAAA1JREFUGFdj+P//PwMACPwC/ohfBuAAAAAASUVORK5CYII="
-                             alt=""/>
-                    </div>
-                    <div class="img_node slider-imageContainerNode slide">
-                        <img data-original="http://file.gzl.com.cn/tour/2014102909203117853.jpg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjExR/NCNwAAAA1JREFUGFdj+P//PwMACPwC/ohfBuAAAAAASUVORK5CYII="
-                             alt=""/>
+                <div class="cui-sliderContainer swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide img_node">
+                            <img data-src="http://file.gzl.com.cn/tour/2014102909202217853.jpg" class="swiper-lazy">
+                        </div>
+                        <div class="swiper-slide img_node">
+                            <img data-src="http://file.gzl.com.cn/tour/2014102909201417853.jpg" class="swiper-lazy">
+                        </div>
+                        <div class="swiper-slide img_node">
+                            <img data-src="http://file.gzl.com.cn/tour/2014102909203917853.jpg" class="swiper-lazy">
+                        </div>
+                        <div class="swiper-slide img_node">
+                            <img data-src="http://file.gzl.com.cn/tour/2014102909203117853.jpg" class="swiper-lazy">
+                        </div>
                     </div>
                 </div>
                 <span id="banner-tips-js" data-rel="detail_photo" class="banner_tips"></span>
@@ -491,16 +491,29 @@
                 container.css(imgSize)
             };
             justifyImg();
-            container.swipeshow({
+
+            /*container.swipeshow({
                 interval: 6000,
                 onactivate: function(current,i,prev,j){
                     $(current).find(img).attr('src',$(current).find(img).attr('data-original'));
                 }
-            });
+            });*/
+
+            var mySwiper = new Swiper ('.swiper-container', {
+                direction: 'horizontal',
+                loop: true,
+                height:imgSize.height,
+                // Disable preloading of all images
+                preloadImages: false,
+                // Enable lazy loading
+                lazyLoading: true,
+                autoplay: 5000
+            })
+
 
             var swipeBox=$('#js_listWrap').find('.swipebox');
             $('#banner-tips-js').detailPop({
-                title: '共'+swipeBox.lenght+'张',
+                title: '共'+swipeBox.length+'张',
                 firstOpenCallback:function(wrap,head,trigger){
                     var picHref=[];
 

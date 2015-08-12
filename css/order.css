@@ -224,6 +224,7 @@ article .NotLogin .LoginButton:active {
 .PayTxtField .total_price b {
     font-size: 20px;
     vertical-align: bottom;
+    color: #FFF;
 }
 
 .PayTxtField .pay_button {
@@ -330,9 +331,9 @@ article .NotLogin .LoginButton:active {
 .InputResult.cui-switch-input .cui-switch-cont .g-price{
     font-size: 20px;
 }
-/*.booking_modify .db .contractCont{
-    padding: 15px 0;
-}*/
+.booking_modify .mod_bd .contractCont{
+    padding:0 15px;
+}
 .p_bottom_tips {
     font-size: 12px;
     color: rgb(153, 153, 153);

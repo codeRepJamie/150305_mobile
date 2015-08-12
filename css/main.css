@@ -111,7 +111,7 @@ body {
 .mt20 {
     margin-top: 20px;
 }
-*:not(input) {
+*:not(input,textarea) {
     -webkit-user-select: none;
     -webkit-touch-callout: none;
     -moz-user-select: none;
@@ -2429,6 +2429,9 @@ article .HotelList01 li .GetLocation:before,
     bottom: 9px;
     font-size: 12px;
     text-align: center;
+}
+.hotel-day{
+    right: 10px;
 }
 .hotel-numitmes li {
     -webkit-box-flex: 1;

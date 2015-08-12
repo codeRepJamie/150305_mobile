@@ -280,7 +280,7 @@ article .TourList li .TourContent .price strong {
     float: left;
     width: 40px;
     height: 40px;
-    background: url(../images/pull-icon@2x.png) 0 0 no-repeat;
+   /* background: url(../images/pull-icon@2x.png) 0 0 no-repeat;*/
     -webkit-background-size: 40px 80px;
     background-size: 40px 80px;
 }
@@ -364,10 +364,11 @@ article .TourList li .TourContent .price strong {
 }
 
 .tourDetail .img_node {
-    position: absolute;
+    background: rgb(238, 243, 245)；
+    /*position: absolute;
     background: rgb(238, 243, 245);
     text-align: center;
-    top:0;
+    top:0;*/
 }
 .tourDetail .img_node:before {
     content: "";
@@ -448,6 +449,7 @@ article .TourList li .TourContent .price strong {
     width: 100%;
     box-sizing: border-box;
     padding: 0 20px;
+    z-index: 9;
 }
 
 .detail_supplier_info p:first-child {
@@ -1943,4 +1945,7 @@ element.style {
     text-align: center;
     line-height: 1.2;
     padding: 3px 2px 0;
+}
+.swiper-container {
+    height: 100%;
 }
