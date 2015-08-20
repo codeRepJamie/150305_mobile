@@ -22,384 +22,459 @@
         <h1>选择日期和人数</h1>
         <i class="ReturnIco"></i>
     </header>-->
-    <div id="header" class="HeaderView">
-        <h1>选择日期和人数</h1>
-        <i class="ReturnIco"></i>
-    </div>
-    <article id="mainContent" class="mainContent">
-        <div class="calendarCont" data-view-name="booking_step1">
-            <div class="db calendar_db">
-                <div class="calendarContent" id="calendar">
-                    <div class="calendarloading" id="calendarloading">
-                        <div class="loadingtips layout">
-                            <div id="preloader" class="preloader"></div>
-                            <div class="tx">日历加载中...</div>
-                        </div>
+<div id="header" class="HeaderView">
+    <h1>选择日期和人数</h1>
+    <i class="ReturnIco"></i>
+</div>
+<article id="mainContent" class="mainContent">
+    <div class="calendarCont" data-view-name="booking_step1">
+        <div class="db calendar_db">
+            <div class="calendarContent" id="calendar">
+                <div class="calendarloading" id="calendarloading">
+                    <div class="loadingtips layout">
+                        <div id="preloader" class="preloader"></div>
+                        <div class="tx">日历加载中...</div>
                     </div>
                 </div>
-                <div class="calendar_ft js_notice" id="js_notice"><p class="status"><span
-                        class="date_selected">请选择日期！</span><!--<span
+            </div>
+            <div class="calendar_ft js_notice" id="js_notice"><p class="status"><span
+                    class="date_selected">请选择日期！</span><!--<span
                         class="date_status"></span>--></p>
 
-                    <p class="tips">代表该日期参与网站活动</p>
-                </div>
-
-            </div>
-            <input id="selectDateNum" type="hidden" value="0"/>
-
-            <div id="js_activity" class="db mt10 activity_mod detail_mod_box hidden">
-                <div class="status mod_hd">此出发日期参与<p class="rebate_box"> <span class="rebate">全民放暑假</span> </p></div>
-                <div ></div>
+                <p class="tips">代表该日期参与网站活动</p>
             </div>
 
-            <div class="db mt10 traveller_select_mod detail_mod_box"><h2 class="mod_hd">选择出行人数</h2>
+        </div>
+        <input id="selectDateNum" type="hidden" value="0"/>
 
-                <div class="actions basefix mod_bd">
-                    <div class="adult_box">
+        <div id="js_activity" class="db mt10 activity_mod detail_mod_box hidden">
+            <div class="status mod_hd">此出发日期参与<p class="rebate_box"><span class="rebate">全民放暑假</span></p></div>
+            <div></div>
+        </div>
+
+        <div class="v_mod contacter_mod js_contact detail_mod_box" ><h2 class="mod_hd">请选择一个团队</h2>
+            <div class="v_list nofastclick mod_bd">
+
+                    <ul class="v_contact_content">
+                        <li><label class="v_contact_hd">团队编号</label>
+
+                            <div class="v_contact_input clear-input-box"><span class="v_input_text">GZLGZLHNTSK1508210402null111111111111111111111111</span>
+                            </div>
+                        </li>
+                        <li><label class="v_contact_hd">团队名称</label>
+
+                            <div class="v_contact_input clear-input-box"><span class="v_input_text">土楼·人气</span>
+                            </div>
+                        </li>
+
+                        <li class="basefix">
+                            <div class="adult_box">
+                                <p class="p_v_webtxt">成人价¥199/人</p>
+                            </div>
+                            <div class="children_box">
+                                <p class="p_v_webtxt">小孩价¥199/人</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cui-switch-input"><label class="v_contact_hd">选择该团号</label>
+
+                                <div class="js-contact-switcher cui-switch-cont">
+                                    <div class="cui-switch current">
+                                        <div class="cui-switch-bg "></div>
+                                        <div class="cui-switch-scroll"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                <ul class="v_contact_content">
+                    <li><label class="v_contact_hd">团队编号</label>
+
+                        <div class="v_contact_input clear-input-box"><span class="v_input_text">GZLGZLHNTSK1508210402null111111111111111111111111</span>
+                        </div>
+                    </li>
+                    <li><label class="v_contact_hd">团队名称</label>
+
+                        <div class="v_contact_input clear-input-box"><span class="v_input_text">土楼·人气</span>
+                        </div>
+                    </li>
+
+                    <li class="basefix">
+                        <div class="adult_box">
+                            <p class="p_v_webtxt">成人价¥199/人</p>
+                        </div>
+                        <div class="children_box">
+                            <p class="p_v_webtxt">小孩价¥199/人</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cui-switch-input"><label class="v_contact_hd">选择该团号</label>
+
+                            <div class="js-contact-switcher cui-switch-cont">
+                                <div class="cui-switch">
+                                    <div class="cui-switch-bg "></div>
+                                    <div class="cui-switch-scroll"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="db mt10 traveller_select_mod detail_mod_box"><h2 class="mod_hd">选择出行人数</h2>
+
+            <div class="actions basefix mod_bd">
+                <div class="adult_box">
                         <span data-min="1" data-bind="adult_num" id="adult-num-count" class="NumberInput">
             <i class="add"></i>
             <input type="tel" class="inputText" value="" disabled="disabled">
             <i class="minus invalid"></i>
           </span>
 
-                        <input id="adult_num" type="hidden" value="1"/>
-                        成人
-                        <p class="p_v_webtxt">成人价¥199/人</p>
-                    </div>
-                    <div class="children_box">
+                    <input id="adult_num" type="hidden" value="1"/>
+                    成人
+                    <p class="p_v_webtxt">成人价¥199/人</p>
+                </div>
+                <div class="children_box">
                         <span data-min="0" data-bind="children_num" id="children-num-count" class="NumberInput">
             <i class="add"></i>
             <input type="tel" class="inputText" value="0" disabled="disabled">
             <i class="minus invalid"></i>
           </span>
-                        <input id="children_num" type="hidden" value="0"/>
-                        小孩
-                        <p class="p_v_webtxt">小孩价¥199/人</p>
+                    <input id="children_num" type="hidden" value="0"/>
+                    小孩
+                    <p class="p_v_webtxt">小孩价¥199/人</p>
+                </div>
+                <div class="tips passenger_tips"><p>最少1人起订</p>
+
+                    <p>儿童价标准：2-12岁</p></div>
+            </div>
+
+        </div>
+
+        <div class="db mt10 traveller_select_mod detail_mod_box"><h2 class="mod_hd">优惠活动:</h2>
+
+            <div class="actions basefix mod_bd">
+                <ul class="normal-tips">
+                    <li>单笔订单金额满100元，优惠 1%</li>
+                    <li>单笔订单金额满500元，优惠 2%</li>
+                    <li>单笔订单金额满10000元，优惠1.2%</li>
+                    <li>单笔订单金额满20000元，优惠 0.75%</li>
+                    <li>单笔订单金额满30000元，优惠 0.5%</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer class="mod_foot_acitons">
+        <div class="js_submit_box foot_order_info "><span class="item item_col1"><i
+                class="loading_ico js-loading-step1"></i> <span
+                class="js-price-step1"><span class="ft_sum_name">总额：</span><span
+                class="price"><dfn>¥</dfn><span>398</span></span><a id="js-cost-detail" data-title="费用明细"
+                                                                    data-role="price_step_1" class="price_detail">明细</a></span> <span
+                class="js-not-enough" style="display: none;"><span class="ft_sum_name">总额：待确认</span></span></span> <span
+                id="js_submit_1"
+                class="item item_col3 js_btn_next js_submit_1 js_submit_5"><a onclick="abc.html" id="js-next-step2"
+                                                                              data-href="tour_OrderForm.html"
+                                                                              href="javascript:void(0);"
+                                                                              class="btn_link3">下一步<span>填写旅客信息</span></a></span>
+        </div>
+    </footer>
+</article>
+
+<!--<div id="setp2" data-view-name="booking_step2" style="display: none">
+    <div class="body confim_mod">
+        <div class="mod_order_info_fixed">
+            <div class="mod_order_info border_gray_btm fixed_top" style="">
+                <div class="item item_adult"><span class="numb">2</span>成人</div>
+                <div class="item item_children"><span class="numb">1</span>小孩</div>
+                <div class="item item_date"><span class="time">2015-03-21</span>出发日期</div>
+                <div class="item item_pay border_gray_left">
+                    <div class="js_detail_show"><span class="sum_price"><dfn>¥</dfn><span
+                            class="js_total_price">1478</span></span><a href="javascript:void(0)"
+                                                                        class="sum_money_info weblink">总额明细</a>
                     </div>
-                    <div class="tips passenger_tips"><p>最少1人起订</p>
-
-                        <p>儿童价标准：2-12岁</p></div>
-                </div>
-
+                    <i class="loading_ico js-loading-step2" style="display:none"></i></div>
             </div>
-
-            <div class="db mt10 traveller_select_mod detail_mod_box"><h2 class="mod_hd">优惠活动:</h2>
-
-                <div class="actions basefix mod_bd">
-                    <ul class="normal-tips">
-                        <li>单笔订单金额满100元，优惠 1%</li>
-                        <li>单笔订单金额满500元，优惠 2%</li>
-                        <li>单笔订单金额满10000元，优惠1.2%</li>
-                        <li>单笔订单金额满20000元，优惠 0.75%</li>
-                        <li>单笔订单金额满30000元，优惠 0.5%</li>
-                    </ul>
-                </div>
-
-            </div>
-
         </div>
 
-        <footer class="mod_foot_acitons">
-            <div class="js_submit_box foot_order_info "><span class="item item_col1"><i
-                    class="loading_ico js-loading-step1"></i> <span
-                    class="js-price-step1"><span class="ft_sum_name">总额：</span><span
-                    class="price"><dfn>¥</dfn><span>398</span></span><a id="js-cost-detail" data-title="费用明细" data-role="price_step_1" class="price_detail">明细</a></span> <span
-                    class="js-not-enough" style="display: none;"><span class="ft_sum_name">总额：待确认</span></span></span> <span
-                    id="js_submit_1"
-                    class="item item_col3 js_btn_next js_submit_1 js_submit_5"><a id="js-next-step2" data-href="tour_OrderForm.html" href="javascript:void(0);"
-                                                                                  class="btn_link3">下一步<span>填写旅客信息</span></a></span>
-            </div>
-        </footer>
-    </article>
 
-    <!--<div id="setp2" data-view-name="booking_step2" style="display: none">
-        <div class="body confim_mod">
-            <div class="mod_order_info_fixed">
-                <div class="mod_order_info border_gray_btm fixed_top" style="">
-                    <div class="item item_adult"><span class="numb">2</span>成人</div>
-                    <div class="item item_children"><span class="numb">1</span>小孩</div>
-                    <div class="item item_date"><span class="time">2015-03-21</span>出发日期</div>
-                    <div class="item item_pay border_gray_left">
-                        <div class="js_detail_show"><span class="sum_price"><dfn>¥</dfn><span
-                                class="js_total_price">1478</span></span><a href="javascript:void(0)"
-                                                                            class="sum_money_info weblink">总额明细</a>
-                        </div>
-                        <i class="loading_ico js-loading-step2" style="display:none"></i></div>
-                </div>
-            </div>
+        <div class="v_mod extra_service_mod"><h2 class="v_mod_hd">签证</h2>
 
+            <div class="v_mod_bd extra_select">
+                <ul class="v_product">
+                    <li class="js_default_resource" data-resourceid="1707541" data-key="用车"><p
+                            class="v_font_s clamp2">美国签证(团签)</p>
 
-            <div class="v_mod extra_service_mod"><h2 class="v_mod_hd">签证</h2>
+                        <p><span class="v_price"><dfn>¥</dfn><strong>0</strong></span>/人</p>
 
-                <div class="v_mod_bd extra_select">
-                    <ul class="v_product">
-                        <li class="js_default_resource" data-resourceid="1707541" data-key="用车"><p
-                                class="v_font_s clamp2">美国签证(团签)</p>
-
-                            <p><span class="v_price"><dfn>¥</dfn><strong>0</strong></span>/人</p>
-
-                            <div class="hanle_area ">
-                                <span data-min="0" data-bind="abc_num" id="children-num-count" class="NumberInput">
-            <i class="add"></i>
-            <input type="tel" class="inputText" value="0" disabled="disabled">
-            <i class="minus invalid"></i>
-          </span>
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-            <div class="v_mod extra_service_mod"><h2 class="v_mod_hd">其他</h2>
-
-                <div class="v_mod_bd extra_select">
-                    <ul class="v_product">
-                        <li class="js_default_resource" data-resourceid="1707541" data-key="用车"><p
-                                class="v_font_s clamp2">免费接车服务</p>
-
-                            <p><span class="v_price"><dfn>¥</dfn><strong>120</strong></span>/人</p>
-
+                        <div class="hanle_area ">
                             <span data-min="0" data-bind="abc_num" id="children-num-count" class="NumberInput">
-            <i class="add"></i>
-            <input type="tel" class="inputText" value="0" disabled="disabled">
-            <i class="minus invalid"></i>
-          </span>
-                        </li>
-                        <li class="js_default_resource" data-resourceid="1707541" data-key="用车"><p
-                                class="v_font_s clamp2">补房差</p>
+        <i class="add"></i>
+        <input type="tel" class="inputText" value="0" disabled="disabled">
+        <i class="minus invalid"></i>
+      </span>
+                        </div>
+                    </li>
 
-                            <p><span class="v_price"><dfn>¥</dfn><strong>110</strong></span>/人</p>
-
-                            <div class="hanle_area ">
-                                <span data-min="0" data-bind="abc_num" id="children-num-count" class="NumberInput">
-            <i class="add"></i>
-            <input type="tel" class="inputText" value="0" disabled="disabled">
-            <i class="minus invalid"></i>
-          </span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="v_mod extra_service_mod"><h2 class="v_mod_hd">附加费用</h2>
-
-                <div class="v_mod_bd extra_select">
-                    <ul class="v_product">
-                        <li class="js_default_resource " data-resourceid="1690347" data-key="附加费用"><p
-                                class="v_font_s clamp2">婴儿车位费（二日游）</p>
-
-                            <p><span class="v_price"><dfn>¥</dfn><strong>90</strong></span>/人</p>
-
-                            <div class="v_hidden_box"><span class="v_icon_hidden js_v_hidden_title"
-                                                            data-title="婴儿车位费（二日游）">说明</span>
-
-                                <div style="display:none" class="js_v_hidden_info">
-                                    <div class="popup poupup_confim">
-                                        <div>
-                                            <div class="poupup_confim_cont"> &nbsp;如有婴儿出行，敬请如实提交份数，如无提交，出发当天不接受临时增加用车人数，如因此而影响出行，携程不承担任何责任。</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hanle_area ">
-                                <span data-min="0" data-bind="abc_num" id="children-num-count" class="NumberInput">
-            <i class="add"></i>
-            <input type="tel" class="inputText" value="0" disabled="disabled">
-            <i class="minus invalid"></i>
-          </span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="v_mod extra_service_mod js_insurance_resource"><h2 class="v_mod_hd">保险</h2>
-
-                <div class="v_mod_bd">
-                    <ul class="v_product v_journey js_insurance_select">
-                        <li class="v_checkbox_select v_selected" data-choose="false" data-resourceid="2477801"><i
-                                class="animate_select2 "><i></i></i>
-
-                            <p class="v_font_s clamp2">旅行证件丢失（联调）</p>
-
-                            <p class="numb">X2</p>
-
-                            <p><span class="v_price"><dfn>¥</dfn><strong>10</strong></span>/份</p>
-
-                            <div class="v_hidden_box"><span class="v_icon_hidden js_v_hidden_title"
-                                                            data-title="平安携程境内周边游保险 经典型">说明</span>
-
-                                <div style="display:none" class="js_v_hidden_info">
-                                    <div class="popup poupup_confim">
-                                        <div>
-                                            <div class="poupup_confim_cont"><strong>主要保险项目和保险限额</strong>：<br>1、旅行变更
-                                                &nbsp; 500RMB &nbsp; <br>2、意外身故、残疾 &nbsp; 200000RMB &nbsp; <br>3、高风险运动意外伤害
-                                                &nbsp; 扩展 &nbsp; <br>4、公共交通工具意外伤害 &nbsp; 200000RMB &nbsp; <br>5、旅游大巴意外伤害
-                                                &nbsp; 50000RMB &nbsp; <br>6、突发急性疾病身故（猝死） &nbsp; 30000RMB &nbsp;
-                                                <br>7、意外及急性病医疗（取消免赔额） &nbsp; 30000RMB &nbsp; <br>8、意外住院津贴,最长90天
-                                                &nbsp; 50RMB/天 &nbsp; <br>9、救护车费用报销（出险地至医院的救护车车费保险金） &nbsp; 200RMB
-                                                &nbsp; <br>10、个人钱财损失 &nbsp; 800RMB &nbsp; <br>11、旅行证件遗失 &nbsp;
-                                                400RMB &nbsp;
-                                                <br><br><strong>境内出险，请立即拨打平安报案电话95511转5转8。<br>详细信息请见</strong>“<a
-                                                        href="http://vacations.ctrip.com/notes/2223.html"
-                                                        target="_blank"
-                                                        textvalue="平安携程境内周边游保险">平安携程境内周边游保险</a>”<strong>说明，请仔细阅读“<a
-                                                        href="http://pages.ctrip.com/tour/pdf1/120214a.pdf"
-                                                        target="_self">保险条款</a>”和其中的免除责任。<br><br></strong>
-
-                                                <h3 class="v_item_hd_title">重要条款</h3>
-
-                                                <p>90周岁以上不承保。</p>
-
-                                                <p>为确保投保无误，请提供准确个人信息和实际往返的日期。</p>
-
-                                                <p>18周岁以下的被保险人，意外死亡的赔偿限额不得超过中国保监会所规定的最高限额10万元人民币</p>
-
-                                                <p>
-                                                    71至80周岁的被保险人，“意外身故、残疾保障”和“双倍给付意外伤害”的保险金额为保单所载金额的一半，81至90周岁的被保险人，其“意外身故、残疾保障”和“双倍给付意外伤害”的保险金额为保单所载金额的四分之一。每人每次限购1份。</p>
-
-                                                <p>投保人为被保险人投保须征得被保险人同意，被保险人为未成年人的，须征得其监护人同意。</p>
-
-                                                <p>保险生效日期是根据您选择的行程日期确定的，如您的行程有任何变化，请及时与我们的订单中心进行联系和修改。</p></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="v_checkbox_select hidden" data-choose="false" data-resourceid="2477636"><i
-                                class="animate_select2 "><i></i></i>
-
-                            <p class="v_font_s clamp2">旅行证件丢失（联调）</p>
-
-                            <p class="numb">X2</p>
-
-                            <p><span class="v_price"><dfn>¥</dfn><strong>7</strong></span>/份</p>
-
-                            <div class="v_hidden_box"><span class="v_icon_hidden js_v_hidden_title"
-                                                            data-title="平安携程境内周边游保险 普通型">说明</span>
-
-                                <div style="display:none" class="js_v_hidden_info">
-                                    <div class="popup poupup_confim">
-                                        <div>
-                                            <div class="poupup_confim_cont"><strong>主要保险项目和保险限额</strong>：<br>1、意外身故、残疾
-                                                &nbsp; 100000RMB &nbsp; <br>2、公共交通工具意外伤害 &nbsp; 100000RMB &nbsp;
-                                                <br>3、旅游大巴意外伤害 &nbsp; 30000RMB &nbsp; <br>4、突发急性疾病身故（猝死） &nbsp;
-                                                20000RMB &nbsp; <br>5、意外及急性病医疗（取消免赔额） &nbsp; 20000RMB &nbsp; &nbsp;
-                                                <br><br><strong>境内出险，请立即拨打平安报案电话95511转5转8。<br>详细信息请见</strong>“<a
-                                                        href="http://vacations.ctrip.com/notes/2223.html"
-                                                        target="_blank"
-                                                        textvalue="平安携程境内周边游保险">平安携程境内周边游保险</a>”<strong>说明，请仔细阅读“<a
-                                                        href="http://pages.ctrip.com/tour/pdf1/120214a.pdf"
-                                                        target="_self">保险条款</a>”和其中的免除责任。<br><br></strong>
-
-                                                <h3 class="v_item_hd_title">重要条款</h3>
-
-                                                <p>90周岁以上不承保。</p>
-
-                                                <p>为确保投保无误，请提供准确个人信息和实际往返的日期。</p>
-
-                                                <p>18周岁以下的被保险人，意外死亡的赔偿限额不得超过中国保监会所规定的最高限额10万元人民币</p>
-
-                                                <p>
-                                                    71至80周岁的被保险人，“意外身故、残疾保障”和“双倍给付意外伤害”的保险金额为保单所载金额的一半，81至90周岁的被保险人，其“意外身故、残疾保障”和“双倍给付意外伤害”的保险金额为保单所载金额的四分之一。每人每次限购1份。</p>
-
-                                                <p>投保人为被保险人投保须征得被保险人同意，被保险人为未成年人的，须征得其监护人同意。</p>
-
-                                                <p>保险生效日期是根据您选择的行程日期确定的，如您的行程有任何变化，请及时与我们的订单中心进行联系和修改。</p></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="v_checkbox_select hidden" data-choose="false" data-resourceid="2477941"><i
-                                class="animate_select2 "><i></i></i>
-
-                            <p class="v_font_s clamp2">平安携程境内周边游保险 尊贵型</p>
-
-                            <p class="numb">X2</p>
-
-                            <p><span class="v_price"><dfn>¥</dfn><strong>13</strong></span>/份</p>
-
-                            <div class="v_hidden_box"><span class="v_icon_hidden js_v_hidden_title"
-                                                            data-title="平安携程境内周边游保险 尊贵型">说明</span>
-
-
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="mod_expend">更多保险</div>
-            </div>
-            <div class="v_mod extra_service_mod js_insurance_resource"><h2 class="v_mod_hd">费用说明</h2>
-
-                <div class="v_mod_bd">
-                    <ul class="v_product v_journey js_insurance_select">
-                        <li data-choose="false" data-resourceid="2477801">
-                            <div class="v_hidden_box"><span class="v_icon_hidden js_v_hidden_title"
-                                                            data-title="点击展开更多">点击展开更多</span>
-
-                                <div style="display:none" class="js_v_hidden_info">
-                                    <div class="popup poupup_confim">
-                                        <div>
-                                            <div class="poupup_confim_cont"><strong>主要保险项目和保险限额</strong>：<br>1、旅行变更
-                                                &nbsp; 500RMB &nbsp; <br>2、意外身故、残疾 &nbsp; 200000RMB &nbsp; <br>3、高风险运动意外伤害
-                                                &nbsp; 扩展 &nbsp; <br>4、公共交通工具意外伤害 &nbsp; 200000RMB &nbsp; <br>5、旅游大巴意外伤害
-                                                &nbsp; 50000RMB &nbsp; <br>6、突发急性疾病身故（猝死） &nbsp; 30000RMB &nbsp;
-                                                <br>7、意外及急性病医疗（取消免赔额） &nbsp; 30000RMB &nbsp; <br>8、意外住院津贴,最长90天
-                                                &nbsp; 50RMB/天 &nbsp; <br>9、救护车费用报销（出险地至医院的救护车车费保险金） &nbsp; 200RMB
-                                                &nbsp; <br>10、个人钱财损失 &nbsp; 800RMB &nbsp; <br>11、旅行证件遗失 &nbsp;
-                                                400RMB &nbsp;
-                                                <br><br><strong>境内出险，请立即拨打平安报案电话95511转5转8。<br>详细信息请见</strong>“<a
-                                                        href="http://vacations.ctrip.com/notes/2223.html"
-                                                        target="_blank"
-                                                        textvalue="平安携程境内周边游保险">平安携程境内周边游保险</a>”<strong>说明，请仔细阅读“<a
-                                                        href="http://pages.ctrip.com/tour/pdf1/120214a.pdf"
-                                                        target="_self">保险条款</a>”和其中的免除责任。<br><br></strong>
-
-                                                <h3 class="v_item_hd_title">重要条款</h3>
-
-                                                <p>90周岁以上不承保。</p>
-
-                                                <p>为确保投保无误，请提供准确个人信息和实际往返的日期。</p>
-
-                                                <p>18周岁以下的被保险人，意外死亡的赔偿限额不得超过中国保监会所规定的最高限额10万元人民币</p>
-
-                                                <p>
-                                                    71至80周岁的被保险人，“意外身故、残疾保障”和“双倍给付意外伤害”的保险金额为保单所载金额的一半，81至90周岁的被保险人，其“意外身故、残疾保障”和“双倍给付意外伤害”的保险金额为保单所载金额的四分之一。每人每次限购1份。</p>
-
-                                                <p>投保人为被保险人投保须征得被保险人同意，被保险人为未成年人的，须征得其监护人同意。</p>
-
-                                                <p>保险生效日期是根据您选择的行程日期确定的，如您的行程有任何变化，请及时与我们的订单中心进行联系和修改。</p></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="v_checkbox_select hidden" data-choose="false" data-resourceid="2477941"><i
-                                class="animate_select2 "><i></i></i>
-
-                            <p class="v_font_s clamp2">平安携程境内周边游保险 尊贵型</p>
-
-                            <p class="numb">X2</p>
-
-                            <p><span class="v_price"><dfn>¥</dfn><strong>13</strong></span>/份</p>
-
-                            <div class="v_hidden_box"><span class="v_icon_hidden js_v_hidden_title"
-                                                            data-title="平安携程境内周边游保险 尊贵型">说明</span>
-
-
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
+                </ul>
             </div>
         </div>
-        <footer class="mod_foot_acitons"><a href="javascript:;"
-                                            class="btn_link js_btn_next js_order_next">下一步，<span>填写订单</span></a>
-        </footer>
+        <div class="v_mod extra_service_mod"><h2 class="v_mod_hd">其他</h2>
 
-    </div>-->
+            <div class="v_mod_bd extra_select">
+                <ul class="v_product">
+                    <li class="js_default_resource" data-resourceid="1707541" data-key="用车"><p
+                            class="v_font_s clamp2">免费接车服务</p>
+
+                        <p><span class="v_price"><dfn>¥</dfn><strong>120</strong></span>/人</p>
+
+                        <span data-min="0" data-bind="abc_num" id="children-num-count" class="NumberInput">
+        <i class="add"></i>
+        <input type="tel" class="inputText" value="0" disabled="disabled">
+        <i class="minus invalid"></i>
+      </span>
+                    </li>
+                    <li class="js_default_resource" data-resourceid="1707541" data-key="用车"><p
+                            class="v_font_s clamp2">补房差</p>
+
+                        <p><span class="v_price"><dfn>¥</dfn><strong>110</strong></span>/人</p>
+
+                        <div class="hanle_area ">
+                            <span data-min="0" data-bind="abc_num" id="children-num-count" class="NumberInput">
+        <i class="add"></i>
+        <input type="tel" class="inputText" value="0" disabled="disabled">
+        <i class="minus invalid"></i>
+      </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="v_mod extra_service_mod"><h2 class="v_mod_hd">附加费用</h2>
+
+            <div class="v_mod_bd extra_select">
+                <ul class="v_product">
+                    <li class="js_default_resource " data-resourceid="1690347" data-key="附加费用"><p
+                            class="v_font_s clamp2">婴儿车位费（二日游）</p>
+
+                        <p><span class="v_price"><dfn>¥</dfn><strong>90</strong></span>/人</p>
+
+                        <div class="v_hidden_box"><span class="v_icon_hidden js_v_hidden_title"
+                                                        data-title="婴儿车位费（二日游）">说明</span>
+
+                            <div style="display:none" class="js_v_hidden_info">
+                                <div class="popup poupup_confim">
+                                    <div>
+                                        <div class="poupup_confim_cont"> &nbsp;如有婴儿出行，敬请如实提交份数，如无提交，出发当天不接受临时增加用车人数，如因此而影响出行，携程不承担任何责任。</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hanle_area ">
+                            <span data-min="0" data-bind="abc_num" id="children-num-count" class="NumberInput">
+        <i class="add"></i>
+        <input type="tel" class="inputText" value="0" disabled="disabled">
+        <i class="minus invalid"></i>
+      </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="v_mod extra_service_mod js_insurance_resource"><h2 class="v_mod_hd">保险</h2>
+
+            <div class="v_mod_bd">
+                <ul class="v_product v_journey js_insurance_select">
+                    <li class="v_checkbox_select v_selected" data-choose="false" data-resourceid="2477801"><i
+                            class="animate_select2 "><i></i></i>
+
+                        <p class="v_font_s clamp2">旅行证件丢失（联调）</p>
+
+                        <p class="numb">X2</p>
+
+                        <p><span class="v_price"><dfn>¥</dfn><strong>10</strong></span>/份</p>
+
+                        <div class="v_hidden_box"><span class="v_icon_hidden js_v_hidden_title"
+                                                        data-title="平安携程境内周边游保险 经典型">说明</span>
+
+                            <div style="display:none" class="js_v_hidden_info">
+                                <div class="popup poupup_confim">
+                                    <div>
+                                        <div class="poupup_confim_cont"><strong>主要保险项目和保险限额</strong>：<br>1、旅行变更
+                                            &nbsp; 500RMB &nbsp; <br>2、意外身故、残疾 &nbsp; 200000RMB &nbsp; <br>3、高风险运动意外伤害
+                                            &nbsp; 扩展 &nbsp; <br>4、公共交通工具意外伤害 &nbsp; 200000RMB &nbsp; <br>5、旅游大巴意外伤害
+                                            &nbsp; 50000RMB &nbsp; <br>6、突发急性疾病身故（猝死） &nbsp; 30000RMB &nbsp;
+                                            <br>7、意外及急性病医疗（取消免赔额） &nbsp; 30000RMB &nbsp; <br>8、意外住院津贴,最长90天
+                                            &nbsp; 50RMB/天 &nbsp; <br>9、救护车费用报销（出险地至医院的救护车车费保险金） &nbsp; 200RMB
+                                            &nbsp; <br>10、个人钱财损失 &nbsp; 800RMB &nbsp; <br>11、旅行证件遗失 &nbsp;
+                                            400RMB &nbsp;
+                                            <br><br><strong>境内出险，请立即拨打平安报案电话95511转5转8。<br>详细信息请见</strong>“<a
+                                                    href="http://vacations.ctrip.com/notes/2223.html"
+                                                    target="_blank"
+                                                    textvalue="平安携程境内周边游保险">平安携程境内周边游保险</a>”<strong>说明，请仔细阅读“<a
+                                                    href="http://pages.ctrip.com/tour/pdf1/120214a.pdf"
+                                                    target="_self">保险条款</a>”和其中的免除责任。<br><br></strong>
+
+                                            <h3 class="v_item_hd_title">重要条款</h3>
+
+                                            <p>90周岁以上不承保。</p>
+
+                                            <p>为确保投保无误，请提供准确个人信息和实际往返的日期。</p>
+
+                                            <p>18周岁以下的被保险人，意外死亡的赔偿限额不得超过中国保监会所规定的最高限额10万元人民币</p>
+
+                                            <p>
+                                                71至80周岁的被保险人，“意外身故、残疾保障”和“双倍给付意外伤害”的保险金额为保单所载金额的一半，81至90周岁的被保险人，其“意外身故、残疾保障”和“双倍给付意外伤害”的保险金额为保单所载金额的四分之一。每人每次限购1份。</p>
+
+                                            <p>投保人为被保险人投保须征得被保险人同意，被保险人为未成年人的，须征得其监护人同意。</p>
+
+                                            <p>保险生效日期是根据您选择的行程日期确定的，如您的行程有任何变化，请及时与我们的订单中心进行联系和修改。</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="v_checkbox_select hidden" data-choose="false" data-resourceid="2477636"><i
+                            class="animate_select2 "><i></i></i>
+
+                        <p class="v_font_s clamp2">旅行证件丢失（联调）</p>
+
+                        <p class="numb">X2</p>
+
+                        <p><span class="v_price"><dfn>¥</dfn><strong>7</strong></span>/份</p>
+
+                        <div class="v_hidden_box"><span class="v_icon_hidden js_v_hidden_title"
+                                                        data-title="平安携程境内周边游保险 普通型">说明</span>
+
+                            <div style="display:none" class="js_v_hidden_info">
+                                <div class="popup poupup_confim">
+                                    <div>
+                                        <div class="poupup_confim_cont"><strong>主要保险项目和保险限额</strong>：<br>1、意外身故、残疾
+                                            &nbsp; 100000RMB &nbsp; <br>2、公共交通工具意外伤害 &nbsp; 100000RMB &nbsp;
+                                            <br>3、旅游大巴意外伤害 &nbsp; 30000RMB &nbsp; <br>4、突发急性疾病身故（猝死） &nbsp;
+                                            20000RMB &nbsp; <br>5、意外及急性病医疗（取消免赔额） &nbsp; 20000RMB &nbsp; &nbsp;
+                                            <br><br><strong>境内出险，请立即拨打平安报案电话95511转5转8。<br>详细信息请见</strong>“<a
+                                                    href="http://vacations.ctrip.com/notes/2223.html"
+                                                    target="_blank"
+                                                    textvalue="平安携程境内周边游保险">平安携程境内周边游保险</a>”<strong>说明，请仔细阅读“<a
+                                                    href="http://pages.ctrip.com/tour/pdf1/120214a.pdf"
+                                                    target="_self">保险条款</a>”和其中的免除责任。<br><br></strong>
+
+                                            <h3 class="v_item_hd_title">重要条款</h3>
+
+                                            <p>90周岁以上不承保。</p>
+
+                                            <p>为确保投保无误，请提供准确个人信息和实际往返的日期。</p>
+
+                                            <p>18周岁以下的被保险人，意外死亡的赔偿限额不得超过中国保监会所规定的最高限额10万元人民币</p>
+
+                                            <p>
+                                                71至80周岁的被保险人，“意外身故、残疾保障”和“双倍给付意外伤害”的保险金额为保单所载金额的一半，81至90周岁的被保险人，其“意外身故、残疾保障”和“双倍给付意外伤害”的保险金额为保单所载金额的四分之一。每人每次限购1份。</p>
+
+                                            <p>投保人为被保险人投保须征得被保险人同意，被保险人为未成年人的，须征得其监护人同意。</p>
+
+                                            <p>保险生效日期是根据您选择的行程日期确定的，如您的行程有任何变化，请及时与我们的订单中心进行联系和修改。</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="v_checkbox_select hidden" data-choose="false" data-resourceid="2477941"><i
+                            class="animate_select2 "><i></i></i>
+
+                        <p class="v_font_s clamp2">平安携程境内周边游保险 尊贵型</p>
+
+                        <p class="numb">X2</p>
+
+                        <p><span class="v_price"><dfn>¥</dfn><strong>13</strong></span>/份</p>
+
+                        <div class="v_hidden_box"><span class="v_icon_hidden js_v_hidden_title"
+                                                        data-title="平安携程境内周边游保险 尊贵型">说明</span>
+
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="mod_expend">更多保险</div>
+        </div>
+        <div class="v_mod extra_service_mod js_insurance_resource"><h2 class="v_mod_hd">费用说明</h2>
+
+            <div class="v_mod_bd">
+                <ul class="v_product v_journey js_insurance_select">
+                    <li data-choose="false" data-resourceid="2477801">
+                        <div class="v_hidden_box"><span class="v_icon_hidden js_v_hidden_title"
+                                                        data-title="点击展开更多">点击展开更多</span>
+
+                            <div style="display:none" class="js_v_hidden_info">
+                                <div class="popup poupup_confim">
+                                    <div>
+                                        <div class="poupup_confim_cont"><strong>主要保险项目和保险限额</strong>：<br>1、旅行变更
+                                            &nbsp; 500RMB &nbsp; <br>2、意外身故、残疾 &nbsp; 200000RMB &nbsp; <br>3、高风险运动意外伤害
+                                            &nbsp; 扩展 &nbsp; <br>4、公共交通工具意外伤害 &nbsp; 200000RMB &nbsp; <br>5、旅游大巴意外伤害
+                                            &nbsp; 50000RMB &nbsp; <br>6、突发急性疾病身故（猝死） &nbsp; 30000RMB &nbsp;
+                                            <br>7、意外及急性病医疗（取消免赔额） &nbsp; 30000RMB &nbsp; <br>8、意外住院津贴,最长90天
+                                            &nbsp; 50RMB/天 &nbsp; <br>9、救护车费用报销（出险地至医院的救护车车费保险金） &nbsp; 200RMB
+                                            &nbsp; <br>10、个人钱财损失 &nbsp; 800RMB &nbsp; <br>11、旅行证件遗失 &nbsp;
+                                            400RMB &nbsp;
+                                            <br><br><strong>境内出险，请立即拨打平安报案电话95511转5转8。<br>详细信息请见</strong>“<a
+                                                    href="http://vacations.ctrip.com/notes/2223.html"
+                                                    target="_blank"
+                                                    textvalue="平安携程境内周边游保险">平安携程境内周边游保险</a>”<strong>说明，请仔细阅读“<a
+                                                    href="http://pages.ctrip.com/tour/pdf1/120214a.pdf"
+                                                    target="_self">保险条款</a>”和其中的免除责任。<br><br></strong>
+
+                                            <h3 class="v_item_hd_title">重要条款</h3>
+
+                                            <p>90周岁以上不承保。</p>
+
+                                            <p>为确保投保无误，请提供准确个人信息和实际往返的日期。</p>
+
+                                            <p>18周岁以下的被保险人，意外死亡的赔偿限额不得超过中国保监会所规定的最高限额10万元人民币</p>
+
+                                            <p>
+                                                71至80周岁的被保险人，“意外身故、残疾保障”和“双倍给付意外伤害”的保险金额为保单所载金额的一半，81至90周岁的被保险人，其“意外身故、残疾保障”和“双倍给付意外伤害”的保险金额为保单所载金额的四分之一。每人每次限购1份。</p>
+
+                                            <p>投保人为被保险人投保须征得被保险人同意，被保险人为未成年人的，须征得其监护人同意。</p>
+
+                                            <p>保险生效日期是根据您选择的行程日期确定的，如您的行程有任何变化，请及时与我们的订单中心进行联系和修改。</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="v_checkbox_select hidden" data-choose="false" data-resourceid="2477941"><i
+                            class="animate_select2 "><i></i></i>
+
+                        <p class="v_font_s clamp2">平安携程境内周边游保险 尊贵型</p>
+
+                        <p class="numb">X2</p>
+
+                        <p><span class="v_price"><dfn>¥</dfn><strong>13</strong></span>/份</p>
+
+                        <div class="v_hidden_box"><span class="v_icon_hidden js_v_hidden_title"
+                                                        data-title="平安携程境内周边游保险 尊贵型">说明</span>
+
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <footer class="mod_foot_acitons"><a href="javascript:;"
+                                        class="btn_link js_btn_next js_order_next">下一步，<span>填写订单</span></a>
+    </footer>
+
+</div>-->
 
 <!--<div class="popup popup_costs js-pop-price-detail" data-role="price_step_1">
     <div>
@@ -416,7 +491,7 @@
 
 </div>-->
 
-<div id="cost-detail" class="hotel-cost-detail-cotent">
+<!--<div id="cost-detail" class="hotel-cost-detail-cotent">
     <div class="js-hotel-opacity-layout hotel-cost-detail hotel-opacity2">
         <div class="hotel-cost-layer">
             <div class="vh-middle">
@@ -468,13 +543,66 @@
             </div>
         </div>
     </div>
+</div>-->
+
+<div id="cost-detail" class="hotel-cost-detail-cotent">
+    <div class="js-hotel-opacity-layout hotel-cost-detail hotel-opacity2">
+        <div class="hotel-cost-layer">
+            <div class="vh-middle">
+                <h2>费用明细</h2>
+                <dl class="cost-list">
+                    <dt>
+                        <span class="fr g-price"><small>¥</small><span id="basicTotalPrice">1000</span></span>
+                        <span class="hotel-font-color">基本团费</span>
+                    </dt>
+                    <dd>
+                        <span class="hotel-start-adult">成人</span>
+                        <span></span>
+                        <span><small>¥</small><span id="detailAdultPrice">12030</span> × <span id="detailAdultNum">10</span></span>
+                    </dd>
+                    <dd>
+                        <span class="hotel-start-children">小孩</span>
+                        <span></span>
+                        <span><small>¥</small><span id="detailChildPrice">900</span> × <span id="detailChildNum">1</span></span>
+                    </dd>
+                </dl>
+                <dl class="cost-list">
+                    <dt>
+                        <span class="fr g-price"><small>¥</small><span id="usageTotalPrice">200</span></span>
+                        <span class="hotel-font-color">优惠</span>
+                    </dt>
+                    <dd>
+                        <span class="hotel-start-adult">优惠标题</span>
+                        <span></span>
+                        <span><small>¥</small><span id="usagePrice">100</span> × <span id="usageNum">1</span></span>
+                    </dd>
+                </dl>
+                <dl class="cost-list">
+                    <dt>
+                        <span class="fr g-price"><small>¥</small><span id="visaTotalPrice">100000</span></span>
+                        <span class="hotel-font-color">签证费</span>
+                    </dt>
+                    <dd>
+                        <span class="hotel-start-adult">台湾签注费</span>
+                        <span></span>
+                        <span><small>¥</small><span id="visaPrice">1902</span> × 1</span>
+                    </dd>
+                </dl>
+                <div class="cost-txt">
+                    <p> 总额：
+                        <strong class="g-price">¥<span id="detailTotal">12980</span></strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
 <script>
     $(function () {
 
-        (function(){
+        (function () {
             //数字框点击
             $('.NumberInput').inputNumber({
                 plusCallback: function (val, max, min) {
@@ -486,17 +614,16 @@
             });
 
 
-
         })();
 
-        (function(){
+        (function () {
             var coastDetail = $('#js-cost-detail');
             coastDetail.costDetailInitial({
                 content: $('#cost-detail')
             });
         })();
 
-        (function(){
+        (function () {
             var date = new Date();
             var mapping = [];
             var events = [];
@@ -525,14 +652,14 @@
                     if (events.length > 0) {
                         var mydate = events[0].start.split("-");
                         if (mydate.length == 3) {
-                            Calendar.RenderCalendar("calendar", parseInt(mydate[1]), parseInt(mydate[0]),info);
+                            Calendar.RenderCalendar("calendar", parseInt(mydate[1]), parseInt(mydate[0]), info);
                         } else {
-                            Calendar.RenderCalendar("calendar", date.getMonth() + 1, date.getFullYear(),info);
+                            Calendar.RenderCalendar("calendar", date.getMonth() + 1, date.getFullYear(), info);
                         }
 
                     }
                     else {
-                        Calendar.RenderCalendar("calendar", date.getMonth() + 1, date.getFullYear(),info);
+                        Calendar.RenderCalendar("calendar", date.getMonth() + 1, date.getFullYear(), info);
                     }
 
                     //渲染日历时执行
@@ -573,43 +700,43 @@
                 }
             });
 
-            (function(){
+            (function () {
                 $('#js-next-step2').tapToHref();
             })();
 
             /*var oCui,oCuiBd;
-            var popupWidth=320;
-            var contentMaxHeight=$(window).height()*0.8;
-            var oCuiHTML=[];
-            var title=$('#price_detail').attr('data-title');
-            $('#price_detail').bind('fastclick', function () {
-                var role=$(this).attr('data-role');
-                var popup=$('.popup[data-role='+role+']');
-                var cuiPopup=$('.cui-layer[data-role='+role+']');
+             var popupWidth=320;
+             var contentMaxHeight=$(window).height()*0.8;
+             var oCuiHTML=[];
+             var title=$('#price_detail').attr('data-title');
+             $('#price_detail').bind('fastclick', function () {
+             var role=$(this).attr('data-role');
+             var popup=$('.popup[data-role='+role+']');
+             var cuiPopup=$('.cui-layer[data-role='+role+']');
 
-                if(!cuiPopup.length){
-                    oCui=document.createElement('div');
-                    oCui.className='cui-layer';
-                    oCui.setAttribute('data-role',role);
-                    oCuiBd=document.createElement('div');
-                    $(oCuiBd).css({
-                        overflow: 'hidden',
-                        position: 'relative',
-                        backgroundColor: '#fafafa',
-                        width: '100%'
-                    });
-                    oCuiBd.innerHTML=popup.html();
+             if(!cuiPopup.length){
+             oCui=document.createElement('div');
+             oCui.className='cui-layer';
+             oCui.setAttribute('data-role',role);
+             oCuiBd=document.createElement('div');
+             $(oCuiBd).css({
+             overflow: 'hidden',
+             position: 'relative',
+             backgroundColor: '#fafafa',
+             width: '100%'
+             });
+             oCuiBd.innerHTML=popup.html();
 
-                    oCuiHTML.push('<div class="cui-layer-padding">','<div class="cui-layer-content">','<div class="cui-pop-box cui-pop-box-tour" style="'+popupWidth+'px">');
-                    oCuiHTML.push('<div class="cui-hd">'+title+'<div class="lab-close-area"><span class="cui-top-close">×</span></div></div>');
-                    //console.log(oCuiBd.innerHTML);
-                    oCuiHTML.push(oCuiBd.innerHTML);
-                    oCuiHTML.push('</div></div></div>');
-                    oCui.innerHTML=oCuiHTML.join('');
-                    $('body')[0].appendChild(oCui);
-                    $(oCui).find('.cui-pop-box').append(oCuiBd);
-                }
-            });*/
+             oCuiHTML.push('<div class="cui-layer-padding">','<div class="cui-layer-content">','<div class="cui-pop-box cui-pop-box-tour" style="'+popupWidth+'px">');
+             oCuiHTML.push('<div class="cui-hd">'+title+'<div class="lab-close-area"><span class="cui-top-close">×</span></div></div>');
+             //console.log(oCuiBd.innerHTML);
+             oCuiHTML.push(oCuiBd.innerHTML);
+             oCuiHTML.push('</div></div></div>');
+             oCui.innerHTML=oCuiHTML.join('');
+             $('body')[0].appendChild(oCui);
+             $(oCui).find('.cui-pop-box').append(oCuiBd);
+             }
+             });*/
         })();
 
 

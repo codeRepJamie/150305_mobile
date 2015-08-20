@@ -57,6 +57,9 @@ $(function(){
         trigger:$('#BottomNav li:eq(2)'),
         onListsTap:function(elem,key,val){
             //console.log(elem,key,val);
+        },
+        initialCallback:function(handle){
+            handle.selectTap(2);
         }
     });
     $('#BottomNav>li').displayWrap({

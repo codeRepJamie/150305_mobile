@@ -11,6 +11,8 @@
             var body=$('body');
             var isLoading=false;
             var blankPic='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjExR/NCNwAAAA1JREFUGFdj+P//PwMACPwC/ohfBuAAAAAASUVORK5CYII=';
+			var headerHeight=$('#header').height();
+			var bottomHeight=$('#BottomNav').height();
             //数据初始化弹出提示清空页面
             list.html('');
             $('#loading').css({'display': 'block', 'opacity': 1});
@@ -88,7 +90,7 @@
                 list[0].addEventListener('touchmove',function(e){
                     var et=e||event;
                     var scrollTop=body.scrollTop();
-                    if(scrollTop>=list.outerHeight()+$('#header').height()+$('#BottomNav').height()+pullUpEl.outerHeight()-$(window).height()&& myScroll.responsePage < myScroll.responseCount && !isLoading){
+                    if(scrollTop>=list.outerHeight()+headerHeight+bottomHeight+pullUpEl.outerHeight()-$(window).height()&& myScroll.responsePage < myScroll.responseCount && !isLoading){
                         if(!/loading/.test(pullUpEl.attr('class'))&&!/noResult/.test(pullUpEl.attr('class'))){
                             label.text('页面加载中...');
                         }

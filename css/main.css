@@ -1697,7 +1697,7 @@ article .HotelList01 li .GetLocation:before,
     margin-right: 2px;
 }
 
-.hotel-cost-detail .cost-list dd span {
+.hotel-cost-detail .cost-list dd>span {
     display: table-cell;
 }
 
@@ -2604,4 +2604,16 @@ article .HotelList01 li .GetLocation:before,
 /*警告文本*/
 .alertText{
     color: #FF0000;
+}
+/*错误图片*/
+.error{
+    background: url(../images/hotel/hotel-loading-default.png) no-repeat center center !important;
+    background-color: rgb(236, 236, 236) !important;
+}
+.error::before{
+    display: none !important;
+}
+/*swiper*/
+.swiper-container .swiper-pagination-bullet-active{
+    background-color: #690;
 }

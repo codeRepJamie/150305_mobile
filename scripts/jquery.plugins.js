@@ -1272,7 +1272,7 @@
                     _default.onListsTap && _default.onListsTap.call(_this, $(this)[0], $(this).index(), $(this).attr('data-key'));
                 })
             });
-            handle.selectTap(0);
+            //handle.selectTap(0);
             _default.initialCallback && _default.initialCallback.call($(this),handle)
         });
         function selectItem(e,index){
