@@ -277,6 +277,13 @@ article .HotelList01 li .GetLocation:before,
     -webkit-flex: 1;
 }
 
+.text-wrap{
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+
 .clear-input {
     display: none;
     position: absolute;
@@ -911,6 +918,7 @@ article .HotelList01 li .GetLocation:before,
     border-top: 2px #ddd solid;
     border-right: 2px #ddd solid;
     -webkit-transform: rotate(45deg);
+    z-index: 1;
 }
 
 .InputArrow:active {

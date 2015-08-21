@@ -335,47 +335,72 @@
             </li>
         </ul>
         <ul id="invoiceDetail" class="invoiceDetail invoice-comlist js_switcher_h mt10">
-            <li>送达方式</li>
-            <li class="sub-comlist">自取<div class="deliverSwitcher cui-view hotel-listright js_switcher js_specialType_bed" data-groupby="deliverBy">
+            <li>
+                <label>发票抬头</label><div class="BookingInput InputBox InputResult">
+                <input class="invoiceText" type="text" placeholder="填写报销机构或个人名称">
+                <a class="clearInput"><span></span></a>
+            </div></li>
+            <li>配送方式</li>
+            <li class="sub-comlist">快递到付<div class="deliverSwitcher cui-view hotel-listright js_switcher js_specialType_bed" data-groupby="deliverBy" data-value="EXPRESS">
                 <div class="cui-switch">
                     <div class="cui-switch-bg "></div>
                     <div class="cui-switch-scroll"></div>
                 </div>
             </div></li>
-            <li class="sub-comlist">快递到付<div class="deliverSwitcher cui-view hotel-listright js_switcher js_specialType_bed" data-groupby="deliverBy" data-default-state="selected">
+            <li class="sub-comlist">门店自取<div class="deliverSwitcher cui-view hotel-listright js_switcher js_specialType_bed" data-groupby="deliverBy" data-value="STORE">
                 <div class="cui-switch">
                     <div class="cui-switch-bg "></div>
                     <div class="cui-switch-scroll"></div>
                 </div>
             </div></li>
             <li class="sub-comlist">导游送达
-                <small>（部分团队不送达，请与客服确认）</small><div class="deliverSwitcher cui-view hotel-listright js_switcher js_specialType_bed" data-groupby="deliverBy">
+                <!--<small>（部分团队不送达，请与客服确认）</small>--><div class="deliverSwitcher cui-view hotel-listright js_switcher js_specialType_bed" data-groupby="deliverBy" data-value="TOUR_GUIDE">
                     <div class="cui-switch">
                         <div class="cui-switch-bg "></div>
                         <div class="cui-switch-scroll"></div>
                     </div>
                 </div></li>
-            <li>
-                <label>发票抬头</label><div class="BookingInput InputBox InputResult">
-                <input class="invoiceText" type="text" placeholder="填写报销机构或个人名称">
-                <a class="clearInput"><span></span></a>
-            </div></li>
-            <li id="invoiceType" data-rel="filter" class="InputArrow">
+
+            <!--<li id="invoiceType" data-rel="filter" class="InputArrow">
                 <label>发票内容</label><p class="booking-g-txt ellips"></p>
                 <input id="js-invoice-content-hidden" type="hidden" value=""/>
-            </li>
+            </li>-->
             <li>
-                <label>配送地址</label><div class="BookingInput InputBox InputResult">
-                <input class="invoiceText" type="text" placeholder="填写配送地址">
+                <label>收件人</label><div class="BookingInput InputBox InputResult">
+                <input id="shrName" class="invoiceText" type="text" placeholder="请输入收货人姓名">
                 <a class="clearInput"><span></span></a>
             </div></li>
             <li>
-                <label>邮政编码</label><div class="BookingInput InputBox InputResult">
-                <input class="invoiceText" type="tel" placeholder="填写邮政编码">
+                <label>联系手机</label><div class="BookingInput InputBox InputResult">
+                <input id="shrMobile" class="invoiceText" type="tel" placeholder="请输入联系人手机">
+                <a class="clearInput"><span></span></a>
+            </div></li>
+            <li class="js-address-select">所属区域</li>
+            <li class="sub-comlist js-address-select js-address-selects">
+                <div id="provinceId" data-rel="address-province" class="js-address-province BookingInput InputBox InputResult inputText InputArrow"><!-- TODO trigger addresss -->
+                    <label class="province">请选择(省/自治区)</label>
+                    <input class="js-data-province" value="1" type="hidden">
+                </div>
+            </li>
+            <li class="sub-comlist js-address-select js-address-selects">
+                <div id="cityId" data-rel="address-city" class="js-address-province BookingInput InputBox InputResult inputText InputArrow">
+                    <label class="province">请选择(市/自治州)</label>
+                    <input class="js-data-city" value="1" type="hidden">
+                </div>
+            </li>
+            <li class="sub-comlist js-address-select js-address-selects">
+                <div id="addressSelect" data-rel="address-district" class="js-address-province BookingInput InputBox InputResult inputText InputArrow">
+                    <label class="province">请选择(区/县)</label>
+                    <input class="js-data-district" value="1" type="hidden">
+                </div>
+            </li>
+            <li>
+                <label>详细地址</label><div class="BookingInput InputBox InputResult">
+                <input id="shrAddress" class="invoiceText" type="text" placeholder="输入收货人地址">
                 <a class="clearInput"><span></span></a>
             </div></li>
         </ul>
-        <div class="HotelOrderTips mt10">
+        <!--<div class="HotelOrderTips mt10">
         <h2>相关说明：</h2>
         <ul class="normal-tips">
 
@@ -383,7 +408,7 @@
             <li>我司一般采用顺丰快递邮寄。</li>
             <li>不适用导游配送的团队，我司客服在与您联系的时候将对此进行说明，届时请您与客服确认采用其它配送方式。</li>
         </ul>
-        </div>
+        </div>-->
     </article>
 </div>
 
@@ -442,7 +467,7 @@
     </div>
 </div>
 
-<div id="BoxContent" data-rel="filter" class="js_filter_invoice filter_pop_wrap">
+<!--<div id="BoxContent" data-rel="filter" class="js_filter_invoice filter_pop_wrap">
     <ul class="header">
         <li class="btn_cancel"><a href="javascript:;">取消</a></li>
         <li class="btn_reset"><a id="btn_reset" class="disable" href="javascript:;">清空筛选</a></li>
@@ -453,7 +478,7 @@
             <div class="scroll">
                 <dl id="js-option-block" class="layout selectCont triSelect">
                     <dt>发票内容</dt>
-                    <!--<dd data-key="not-set" data-index="0" class="CurrentSelect notSet">不限</dd>-->
+                    &lt;!&ndash;<dd data-key="not-set" data-index="0" class="CurrentSelect notSet">不限</dd>&ndash;&gt;
                     <dd data-key="参观交流费" data-index="1">参观交流费</dd>
                     <dd data-key="代办签证费" data-index="2">代办签证费</dd>
                     <dd data-key="代订房" data-index="3">代订房</dd>
@@ -478,6 +503,42 @@
                     <input id="invoiceTypeHidden" type="hidden" value="not-set"/>
                 </dl>
             </div>
+        </div>
+    </div>
+</div>-->
+
+<div id="js-address-province-content" data-rel="address-province" class="filter_pop_wrap"><!-- TODO province Body -->
+    <div class="wrapper">
+        <div class="destination simpleListRoll">
+            <ul class="scroll">
+                <li data-key="not-set">请选择 <i class="animate_select"></i></li>
+                <li data-key="北京">上海</li>
+                <li data-key="北京">广东</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="js-address-city-content" data-rel="address-city" class="filter_pop_wrap">
+    <div class="wrapper">
+        <div class="destination simpleListRoll">
+            <ul class="scroll">
+                <li data-key="not-set">请选择 <i class="animate_select"></i></li>
+                <li data-key="北京">上海</li>
+                <li data-key="北京">广东</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="js-address-district-content" data-rel="address-district" class="filter_pop_wrap">
+    <div class="wrapper">
+        <div class="destination simpleListRoll">
+            <ul class="scroll">
+                <li data-key="not-set">请选择 <i class="animate_select"></i></li>
+                <li data-key="北京">上海</li>
+                <li data-key="北京">广东</li>
+            </ul>
         </div>
     </div>
 </div>
@@ -629,35 +690,6 @@
             $('#payButton').tapToHref();
         })();
 
-        //日期控件
-        /*(function () {
-            var datePicker = $('#datePicker');
-            var costDetail = $('#cost-detail');
-            $('#datePickerCont').datePickerInital({
-                trigger: datePicker,
-                startDate: new Date(),
-                maxDate: 7,
-                initialCallback: function (trigger, time) {
-                    trigger.find('.js-dayIn-txt').html('<small>入住</small>' + time.printDate(time.startDate, true));
-                    trigger.find('.js-dayOut-txt').html('<small>离店</small>' + time.printDate(time.departDate, true));
-                    costDetail.find('.hotel-start-day').text(time.printFormat(time.startDate));
-                },
-                confirmCallback: function (elem, trigger, time) {
-
-                    trigger.find('.js-dayIn-txt').html('<small>入住</small>' + time.printDate(time.startDate, true));
-                    trigger.find('.js-dayOut-txt').html('<small>离店</small>' + time.printDate(time.departDate, true));
-                    costDetail.find('.hotel-start-day').text(time.printFormat(time.startDate));
-                }
-
-            });
-
-            datePicker.displayWrap({
-                callback: function (state, wrap) {
-                    wrap && $(wrap).refresh();
-                }
-            });
-        })();*/
-
         //登记住客人数控件
         (function () {
             var personInItem = $('#js-person-in-items');
@@ -737,7 +769,7 @@
             var invoiceSwitcher=$('#invoiceSwitcher');
 
             orderInovic.detailPop({
-                title: '填写配送信息',
+                title: '填写发票与配送信息',
                 buttonText: '提交',
                 isButton: true,
                 buttonCallback:function(_wrap,head,btn){
@@ -767,19 +799,77 @@
                         handler.change(deliverBy,false);
                         invoiceList.css('display','none');
                     }else{
-                        handler.change(deliverBy.eq(1),true);
+                        handler.change(deliverBy.eq(0),true);
                         invoiceList.css('display','block');
                     }
                 }
             });
+
+            var addressSelect=invoiceList.find('.js-address-select');
+            var shrName=$("#shrName");
+            var shrMobile=$("#shrMobile");
+            var shrAddress=$("#shrAddress");
+
             $('.deliverSwitcher').switcher({
                 changeCallback:function(state,handler){
+                   if(state){
+                       changeDeliveryMethod($(this));
+                   }
+                }
+            });
+            /*切换配送方式*/
+            function changeDeliveryMethod(obj) {
+                var type = $(obj).attr('data-value');
 
+                switch(type) {
+                    case 'EXPRESS':
+                        shrName.parents('li:eq(0)').show();
+                        shrMobile.parents('li:eq(0)').show();
+                        addressSelect.show();
+                        shrAddress.parents('li:eq(0)').show();
+                        break;
+                    case 'STORE':
+                        shrName.val('').parents('li:eq(0)').hide();
+                        shrMobile.val('').parents('li:eq(0)').hide();
+                        addressSelect.val('').hide();
+                        shrAddress.val('').parents('li:eq(0)').hide();
+                        break;
+                    case 'TOUR_GUIDE':
+                        shrName.parents('li:eq(0)').show();
+                        shrMobile.parents('li:eq(0)').show();
+                        addressSelect.val('').hide();
+                        shrAddress.val('').parents('li:eq(0)').hide();
+                        break;
+                    default:
+                        shrName.parents('li:eq(0)').show();
+                        shrMobile.parents('li:eq(0)').show();
+                        addressSelect.show();
+                        shrAddress.parents('li:eq(0)').show();
+                }
+            }
+
+            var provinceCont = $('#js-address-province-content');
+            var cityCont = $('#js-address-city-content');
+            var districtCont = $('#js-address-district-content');
+
+
+            //所属区域：省点击
+            provinceCont.simpleListInital({
+                trigger:$('.js-address-select'),
+                onListsTap:function(elem,key,val){
+                    //console.log(elem,key,val);
+                }
+            });
+
+
+            invoiceList.find('.js-address-selects').displayWrap({
+                callback: function (state, wrap) {
+                    wrap && $(wrap).refresh();
                 }
             });
         })();
 
-        //发票内容筛选
+        /*//发票内容筛选
         (function(){
             var js_invoiceType=$('#invoiceType');
 
@@ -809,7 +899,22 @@
                 }
             });
 
-        })();
+        })();*/
+
+        //所属区域内容筛选
+         /*(function(){
+             var provinceCont=$('#js-province-select-content');
+             var cityCont=$('#js-city-select-content');
+             var districtCont=$('#js-district-select-content');
+
+
+             js_invoiceType.displayWrap({
+                 callback: function (state, wrap) {
+                 wrap && $(wrap).refresh();
+                }
+         });
+
+         })();*/
 
         //常用联系人开关
         (function(){
