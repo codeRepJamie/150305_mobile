@@ -654,6 +654,7 @@
         var handler = {};
         _default.resetBtn = $(_default.resetBtn);
         handler.values = this[0].boxContObject = [];
+        handler.selectedElem = undefined;
         this[0].selectNum = selectNum;
         for (var i = 0; i < selectNum; i++) {
             this[0].boxContObject.push({key: 0, value: 'no-set'});
@@ -677,6 +678,7 @@
         function selectSingleItem(target) {
             var val = target.addClass('CurrentSelect').attr('data-key');
             var index = target.index() - 1;
+            handler.selectedElem=target[0];
             target.siblings('dd').removeClass('CurrentSelect');
             target.siblings('input[type=hidden]').val(val);
             if (_this.find('.notSet.CurrentSelect').length !== selectNum) {
@@ -1166,6 +1168,7 @@
                 var trigger = $(this);
                 wrap[0].trigger=trigger[0];
                 var wrapPos = parseInt(wrap.css('bottom'));
+                //var detail_pop_wrap=$('.detail_pop_wrap');
 
                 if (!$(this)[0].activeSate) {
                     $(this).addClass('active');
@@ -1951,28 +1954,34 @@
         });
     };
 
-    $.fn.gallery = function (opts) {
+    $.fn.listPannel = function (opts) {
         var _default = {
-            cellName:0,
-            animateTime:600,
-            autoChange:true,
-            'changCallback': null,
-            'swiepCallback': null,
-            'initialCallback': null
+            leftColumnClass:'.dest_left',
+            rightColumnClass:'.right_column',
+            initialCallback:null,
+            selectItemsCallback:null
         };
-        _default = $.extend(_default, opts);
-        try{
-            /*$(this).each(function (i, e) {
-                var _this = $(e);
-                _this.swipeshow({
-                    autostart: _default.autoChange,
-                    interval: _default.animateTime
-                }).next();
 
-            })*/
-        }catch (e){
-            throw new Error('gallery插件需要jquery.swipeshow.min.js插件支持!')
-        }
+        _default = $.extend(_default, opts);
+        $(this).each(function (i, e) {
+            var _this = $(e);
+            var handler=$(e)[0].handler={};
+            handler.selectItems=function(index){
+                arguments.callee.count = arguments.callee.count || 0 ;
+                $(e).find(_default.leftColumnClass+' li:eq('+index+')').addClass('current').siblings('li').removeClass('current');
+                $(e).find(_default.rightColumnClass+':eq('+index+')').addClass('current').siblings('.right_column').removeClass('current');
+                if(arguments.callee.count !== 0){
+                    _default.selectItemsCallback && _default.selectItemsCallback.call(_this,handler);
+                }
+                arguments.callee.count++;
+            };
+            handler.selectItems(0);
+            $(e).find('.dest_left li').bind('fastclick',function(){
+                handler.selectIndex=$(this).index();
+                handler.selectItems(handler.selectIndex);
+            });
+            _default.initialCallback && _default.initialCallback.call(_this,handler);
+        });
     }
 
 })(jQuery);

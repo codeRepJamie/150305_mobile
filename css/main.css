@@ -105,12 +105,15 @@ body {
 .fr {
     float: right;
 }
+
 .w100 {
     width: 100%;
 }
+
 .mt20 {
     margin-top: 20px;
 }
+
 *:not(input,textarea) {
     -webkit-user-select: none;
     -webkit-touch-callout: none;
@@ -119,7 +122,8 @@ body {
     -o-user-select: none;
     user-select: none;
 }
-.blur{
+
+.blur {
     -webkit-filter: blur(5px); /* Chrome, Opera */
     -moz-filter: blur(5px);
     -ms-filter: blur(5px);
@@ -183,7 +187,7 @@ body {
 .HeaderView .ButtonIco:before,
 .TourFooter ul li:before,
 article .HotelList01 li .GetLocation:before,
-.HotelDetail .RoomFilter .RoomHead .HeadButton:before,.detail_feature_down:after,.detail_feature_up:after{
+.HotelDetail .RoomFilter .RoomHead .HeadButton:before, .detail_feature_down:after, .detail_feature_up:after {
     background: url(../images/common_ico.png) no-repeat;
 }
 
@@ -194,7 +198,8 @@ article .HotelList01 li .GetLocation:before,
     border-image: url(data:image/gif;base64,R0lGODlhBQAFAIABAN3d3f///yH5BAEAAAEALAAAAAAFAAUAAAIHhB9pGatnCgA7) 2 stretch;
     -webkit-border-image: url(data:image/gif;base64,R0lGODlhBQAFAIABAN3d3f///yH5BAEAAAEALAAAAAAFAAUAAAIHhB9pGatnCgA7) 2 stretch;
 }
-.detail_feature_down:before,.detail_feature_up:before{
+
+.detail_feature_down:before, .detail_feature_up:before {
     content: "";
     position: absolute;
     left: 0;
@@ -277,12 +282,11 @@ article .HotelList01 li .GetLocation:before,
     -webkit-flex: 1;
 }
 
-.text-wrap{
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
+.text-wrap {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-
 
 .clear-input {
     display: none;
@@ -368,7 +372,22 @@ article .HotelList01 li .GetLocation:before,
     overflow-x: hidden;
     overflow-y: auto;
 }
-
+/*按钮*/
+.btn_link,.btn_link2,.btn_link3,.btn_link5 {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    border-radius: 2px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    background-color: rgb(160, 160, 160);
+}
+.mod_foot_active {
+    background-color: rgb(255, 155, 0);
+}
 /*定义文字*/
 .booking-g-txt {
     padding: 8px 15px 8px 0;
@@ -674,6 +693,7 @@ article .HotelList01 li .GetLocation:before,
     -ms-transform: rotate(-135deg);
     transform: rotate(-135deg);
 }
+
 .simpleListRoll {
     background-color: rgb(100, 100, 100);
 }
@@ -682,6 +702,7 @@ article .HotelList01 li .GetLocation:before,
     right: 20px;
     top: 14px;
 }
+
 /*头部绿色栏*/
 .HeaderView {
     position: fixed;
@@ -738,7 +759,7 @@ article .HotelList01 li .GetLocation:before,
 }
 
 /*返回上一级*/
-.HeaderView .ReturnIco:before{
+.HeaderView .ReturnIco:before {
     width: 12px;
     height: 12px;
     content: "";
@@ -1481,26 +1502,28 @@ article .HotelList01 li .GetLocation:before,
 }
 
 /*文本输入控件*/
-.clearInput {
+/*.clearInput {
     display: none;
-}
+}*/
 
-.inputText .clearInput {
+/*.inputText .clearInput {
     display: none;
-}
+}*/
 
-.inputText.nonEmpty .clearInput {
+/*.inputText.nonEmpty .clearInput {
     display: block;
-}
+}*/
 
 /*文本输入控件带动画*/
 /*.inputText:before {
     right: 45px;
 }*/
-.InputResult {
-    -webkit-transition: margin-right 450ms ease-in-out;
+.inputText{
+    overflow: hidden;
 }
-
+.InputResult input{
+    min-height: 24px;
+}
 .InputResult .clearInput {
     position: absolute;
     right: -40px;
@@ -1508,6 +1531,8 @@ article .HotelList01 li .GetLocation:before,
     width: 40px;
     height: 100%;
     color: #690;
+    transition: all 800ms;
+    -webkit-transition: all 800ms;
 }
 
 .InputResult .clearInput:before {
@@ -1523,22 +1548,34 @@ article .HotelList01 li .GetLocation:before,
     right: 10px;
     top: 50%;
     margin-top: -10px;
-    -webkit-animation: showClearInput 1s;
+    /*-webkit-animation: showClearInput 1s;*/
 }
 
-.InputResult.nonEmpty {
-    margin-right: 40px;
+.InputResult.nonEmpty .clearInput{
+    /*margin-right: 40px;*/
+    right: 0;
 }
 
+.InputResult.cui-switch-input {
+    display: table;
+    width: 100%;
+}
+
+.InputResult.cui-switch-input .cui-switch-cont {
+    display: table-cell;
+    text-align: right;
+}
 /*描述详情窗口控件*/
 .detail_pop_wrap {
     display: none;
     padding-top: 48px;
 }
-.detail_pop_wrap article{
+
+.detail_pop_wrap article {
     /*padding-top: 10px;*/
 }
-.detail_pop_wrap .tipsList{
+
+.detail_pop_wrap .tipsList {
     background: #FFF;
     border-radius: 5px;
     padding: 10px;
@@ -1550,6 +1587,7 @@ article .HotelList01 li .GetLocation:before,
     color: #666;
     font-size: 12px;
 }
+
 .headerDetail {
     display: none;
 }
@@ -1705,12 +1743,12 @@ article .HotelList01 li .GetLocation:before,
     margin-right: 2px;
 }
 
-.hotel-cost-detail .cost-list dd>span {
+.hotel-cost-detail .cost-list dd > span {
     display: table-cell;
 }
 
 .hotel-cost-detail .cost-list dd span:nth-of-type(1) {
-   /* width: 90px;*/
+    /* width: 90px;*/
 }
 
 .hotel-cost-detail .cost-list dd span:nth-of-type(2) {
@@ -1731,8 +1769,8 @@ article .HotelList01 li .GetLocation:before,
 }
 
 .hotel-opacity {
-   /* -webkit-animation: opacity 850ms ease-in-out;
-    opacity: 1;*/
+    /* -webkit-animation: opacity 850ms ease-in-out;
+     opacity: 1;*/
 }
 
 .hotel-opacity2 {
@@ -2039,12 +2077,11 @@ article .HotelList01 li .GetLocation:before,
     opacity: 0;
 }
 
-
-
 .cui-i {
     background: url(../images/common_ico.png);
     background-size: 250px 250px;
 }
+
 .cui-w-loading {
     position: absolute;
     width: 50px;
@@ -2055,6 +2092,7 @@ article .HotelList01 li .GetLocation:before,
     background-position: -19px -43px;
     background-size: 100px auto;
 }
+
 .cui-m-logo {
     background: url(../images/loading-default.png);
     background-size: 24px 28px;
@@ -2149,6 +2187,7 @@ article .HotelList01 li .GetLocation:before,
         transform: rotate(360deg)
     }
 }
+
 /**
  *
  * 下拉样式 Pull down styles
@@ -2177,6 +2216,7 @@ article .HotelList01 li .GetLocation:before,
 .pullUp.loading .cont.noResult {
     display: inline;
 }
+
 .pullUp .pullUpIcon {
     display: block;
     float: left;
@@ -2187,9 +2227,11 @@ article .HotelList01 li .GetLocation:before,
     background-size: 40px 80px;
     background-position: 0 100%;;
 }
-.pullUp.loading .cont.noResult .pullUpIcon{
+
+.pullUp.loading .cont.noResult .pullUpIcon {
     display: none;
 }
+
 @-webkit-keyframes loading {
     from {
         -webkit-transform: rotate(0deg) translateZ(0);
@@ -2206,6 +2248,7 @@ article .HotelList01 li .GetLocation:before,
     padding: 65px 0 10px;
     color: rgb(102, 102, 102);
 }
+
 .search-noresults-tips:before {
     position: absolute;
     left: 50%;
@@ -2217,6 +2260,7 @@ article .HotelList01 li .GetLocation:before,
     content: "";
     border-radius: 50%;
 }
+
 .search-noresults-tips:after {
     position: absolute;
     left: 50%;
@@ -2230,6 +2274,7 @@ article .HotelList01 li .GetLocation:before,
     -moz-transform: rotate(50deg);
     -ms-transform: rotate(50deg);
 }
+
 .search-ordtail-btn {
     text-align: center;
     padding: 10px;
@@ -2237,14 +2282,17 @@ article .HotelList01 li .GetLocation:before,
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+
 .cui-cond-bar li, .search-ordtail-btn button {
     width: 100%;
-    width: auto\9;
-    min-width: 80px\9;
+    width: auto \9;
+    min-width: 80px \9;
 }
+
 .search-noresults-tips .search-ordtail-btn {
     margin-top: 20px;
 }
+
 .search-ordtail-btn button {
     font-size: 13px;
     border: rgb(221, 221, 221) 1px solid;
@@ -2257,15 +2305,17 @@ article .HotelList01 li .GetLocation:before,
     -moz-box-flex: 1;
     -webkit-flex: 1;
     -ms-flex: 1;
-    display: table-cell\0/;
+    display: table-cell \0/;
 }
+
 /*活动图标*/
-.rebate_box{
+.rebate_box {
     display: inline-block;
     height: 26px;
     white-space: nowrap;
     margin-left: 5px;
 }
+
 .rebate_box .rebate {
     line-height: 15px;
     border-radius: 2px;
@@ -2278,8 +2328,9 @@ article .HotelList01 li .GetLocation:before,
     margin-right: 3px;
     position: relative;
 }
+
 /*向下图标*/
-.detail_feature_down:after,.detail_feature_up:after{
+.detail_feature_down:after, .detail_feature_up:after {
     background-position: -88px -44px;
     background-size: 103px auto;
     vertical-align: -3px;
@@ -2289,9 +2340,11 @@ article .HotelList01 li .GetLocation:before,
     height: 15px;
     margin-left: 5px;
 }
-.detail_toggle .detail_feature_up:after{
+
+.detail_toggle .detail_feature_up:after {
     transform: rotate(-180deg);
 }
+
 /*详情页缩略页面*/
 .detail_toggle .detail_feature_down, .detail_toggle .detail_feature_up {
     text-align: center;
@@ -2301,13 +2354,15 @@ article .HotelList01 li .GetLocation:before,
     margin-top: 8px;
 }
 
-.detail_toggle .mod_bd,.detail_toggle_close .mod_bd{
+.detail_toggle .mod_bd, .detail_toggle_close .mod_bd {
     overflow: hidden;
     max-height: 70px;
 }
-.detail_toggle_open .mod_bd{
+
+.detail_toggle_open .mod_bd {
     max-height: none;
 }
+
 /*详情页分隔符*/
 .route_arrange_hd {
     margin: 10px;
@@ -2315,12 +2370,14 @@ article .HotelList01 li .GetLocation:before,
     color: rgb(102, 102, 102);
     position: relative;
 }
+
 .route_arrange_hd span {
     position: relative;
     z-index: 1;
     padding: 0 14px;
     background: #EEEEEE;
 }
+
 .route_arrange_hd:before {
     content: "";
     height: 1px;
@@ -2333,11 +2390,13 @@ article .HotelList01 li .GetLocation:before,
     -ms-transform: scaleY(0.5);
     transform: scaleY(0.5);
 }
+
 /*图片列表*/
 .gallery-imglist {
     overflow: hidden;
     padding: 4px 4px 50px;
 }
+
 .gallery-imglist li {
     position: relative;
     float: left;
@@ -2357,14 +2416,17 @@ article .HotelList01 li .GetLocation:before,
     display: block;
     width: 100%;
 }
+
 @media (max-width: 640px) {
     .gallery-imglist li {
         width: 50%;
     }
-    .gallery-imglist li:nth-child(2n-1){
+
+    .gallery-imglist li:nth-child(2n-1) {
         clear: both;
     }
 }
+
 @media (min-width: 640px) {
     .gallery-imglist li {
         width: 33.3%;
@@ -2380,14 +2442,17 @@ article .HotelList01 li .GetLocation:before,
     display: -ms-flexbox;
     display: flex;
 }
+
 .hotel-lc-items {
     padding: 10px 0 0 15px;
     background-color: rgb(255, 255, 255);
 }
+
 .hotel-lc-items .hotel-lc-mod {
     margin-right: 105px;
     position: relative;
 }
+
 .hotel-lc-items .lc-itme {
     line-height: 23px;
     padding: 10px 10px 10px 0;
@@ -2409,11 +2474,13 @@ article .HotelList01 li .GetLocation:before,
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
 .hotel-arr:before, .hotel-arrlist li:before {
     -webkit-transition: -webkit-transform 200ms linear;
     -moz-transition: -moz-transform 200ms linear;
     transition: transform 200ms linear;
 }
+
 .hotel-lc-items .hotel-arr:before {
     right: 2px;
 }
@@ -2422,12 +2489,15 @@ article .HotelList01 li .GetLocation:before,
     font-size: 17px;
     color: rgb(0, 0, 0);
 }
+
 .hotel-lc-items .lc-itme time {
     color: rgb(102, 102, 102);
 }
+
 .hotel-lc-items .lc-itme strong {
     color: rgb(0, 0, 0);
 }
+
 .hotel-lc-mod .hotel-numitmes {
     width: 85px;
     height: 30px;
@@ -2438,9 +2508,11 @@ article .HotelList01 li .GetLocation:before,
     font-size: 12px;
     text-align: center;
 }
-.hotel-day{
+
+.hotel-day {
     right: 10px;
 }
+
 .hotel-numitmes li {
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
@@ -2452,40 +2524,49 @@ article .HotelList01 li .GetLocation:before,
     position: relative;
     cursor: pointer;
 }
+
 .hotel-numitmes li:first-child {
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
 }
+
 .hotel-numitmes li:last-child {
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
 }
+
 .hotel-numitmes li.disabled {
     border-color: rgb(204, 204, 204);
     color: rgb(204, 204, 204);
     position: static;
     cursor: default;
 }
+
 .hotel-lc-items .lc-itme {
     line-height: 23px;
     padding: 10px 10px 10px 0;
     position: relative;
 }
+
 .hotel-lc-items .lc-itme .lc-nightnum {
     position: absolute;
     right: 116px;
 }
+
 .hotel-g-cbd .cgray, .fn12 {
     font-size: 12px;
 }
+
 .hotel-lc-items .lc-itme .lc-num {
     float: right;
     margin-top: -5px;
 }
+
 .hotel-search-page .cui-number-ma {
     min-width: 50px;
     width: 67px;
 }
+
 .cui-number-ma {
     height: 29px;
     line-height: 29px;
@@ -2495,9 +2576,11 @@ article .HotelList01 li .GetLocation:before,
     background: rgb(255, 255, 255);
     display: inline-block;
 }
+
 .cui-number-ma {
     border-color: rgba(0, 0, 0, 0);
 }
+
 .cui-number-ma {
     min-width: 100px;
     height: 29px;
@@ -2508,10 +2591,12 @@ article .HotelList01 li .GetLocation:before,
     background: rgb(255, 255, 255);
     display: inline-block;
 }
+
 .cui-number-ma i.num-minus {
     left: -10px;
     font: 2.7em/25px Arial;
 }
+
 .cui-number-ma i:after {
     color: #690;
     border: 1px solid #690;
@@ -2522,7 +2607,6 @@ article .HotelList01 li .GetLocation:before,
     background: #FFF;
 }
 
-
 .cui-number-ma i.num-minus:after {
     content: "-";
     left: 10px;
@@ -2537,17 +2621,20 @@ article .HotelList01 li .GetLocation:before,
     border-bottom-left-radius: 3px;
     border-right: none;
 }
+
 .cui-number-ma i.num-invalid:after {
     border: 1px solid rgb(221, 221, 221);
     color: rgb(221, 221, 221);
     background: rgb(255, 255, 255);
 
 }
+
 .cui-number-ma i.num-minus:after {
     content: "-";
     left: 10px;
     top: 7px;
 }
+
 .cui-number-ma .num-value-txt {
     color: #690;
     height: 31px;
@@ -2555,31 +2642,36 @@ article .HotelList01 li .GetLocation:before,
     position: relative;
     z-index: 2;
 }
+
 .hotel-search-page .num-value-txt {
     width: 0;
     border: none;
     border-left: 1px solid #690;
 }
 
-.js_outday_contr .cui-number-ma{
+.js_outday_contr .cui-number-ma {
     border: none;
 }
-.js_outday_contr .cui-number-ma i:after{
+
+.js_outday_contr .cui-number-ma i:after {
     background: none;
 }
-.cui-number-ma i.num-add:after{
+
+.cui-number-ma i.num-add:after {
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
 }
-.hotel-lc-mod, .hotel-lc-items{
+
+.hotel-lc-mod, .hotel-lc-items {
     /*border-bottom: 1px solid rgb(221, 221, 221);*/
 }
+
 .hotel-lc-date-btn {
     padding: 20px 15px;
 }
 
 /*详细控件*/
-.hotel-b-border,.cui-tab-mod,.person-in-items li{
+.hotel-b-border, .cui-tab-mod, .person-in-items li {
     border-width: 0 0 1px;
     border-style: solid;
     border-color: rgb(221, 221, 221);
@@ -2591,37 +2683,185 @@ article .HotelList01 li .GetLocation:before,
     padding: 10px;
     background: rgb(255, 255, 255);
 }
+
 .hotel-info-mod .info-bd dt {
     font-size: 15px;
 }
+
 .hotel-info-mod .info-bd dd {
     margin-right: 10px;
     font-size: 12px;
 }
+
 .hotel-marginlr {
     margin: 0 6px 0 10px;
 }
+
 .hotel-infobox {
     background: rgb(255, 255, 255);
 }
 
-
-.hotelMapCont{
-    width: 100%;height: 100%;overflow: hidden;margin:0;
+.hotelMapCont {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
 }
+
+/*表单*/
+
+.booking_modify .db {
+    border-width: 0 0 1px 0;
+}
+.booking_modify .db:last-child {
+    border: 0;
+}
+.booking_modify .db {
+    width: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    padding: 0 10px;
+    min-height: 40px;
+    box-sizing: border-box;
+    position: relative;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+}
+
+.booking_modify .db .BookingLabel {
+    display: inline-block;
+    min-width: 80px;
+    font-size: 15px;
+    line-height: 44px;
+    text-align: left;
+}
+
+.order_mod_box .mod_hd {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 40px;
+    position: relative;
+    overflow: hidden;
+    padding-right: 30px;
+}
+
+.order_mod_box .mod_hd .small {
+    font-size: 12px;
+    color: #8A8A8A;
+    margin-left: 10px;
+}
+
+.person-in-items {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+}
+
+.person-in-items li:last-of-type, .person-in-items li.mod_hd {
+    border-bottom: 0;
+}
+
+
+
+
+
 /*警告文本*/
-.alertText{
+.alertText {
     color: #FF0000;
 }
+
 /*错误图片*/
-.error{
+.error {
     background: url(../images/hotel/hotel-loading-default.png) no-repeat center center !important;
     background-color: rgb(236, 236, 236) !important;
 }
-.error::before{
+
+.error::before {
     display: none !important;
 }
+
 /*swiper*/
-.swiper-container .swiper-pagination-bullet-active{
+.swiper-container .swiper-pagination-bullet-active {
     background-color: #690;
+}
+
+/*搜索*/
+.destionation_search {
+    background: #fff;
+    border-bottom: 1px solid #cfcfcf;
+}
+
+.destionation_history {
+    line-height: normal !important;
+    padding: 13px 10px 3px;
+    height: 32px;
+    overflow: hidden;
+}
+
+.destionation_history::before {
+    content: "搜索历史";
+    color: #999;
+}
+
+.destionation_history a {
+    margin-right: 5px;
+    padding: 0 10px;
+    display: inline-block;
+    height: 32px;
+}
+
+.dest_quick {
+    width: 100%;
+}
+
+.dest_quick .left_column {
+    float: left;
+    height: 100%;
+    background-color: #f5f5f5;
+    box-sizing: border-box;
+    width: 88px;
+    border-right: 1px solid #ddd;
+}
+
+.dest_left {
+    overflow: hidden;
+    margin-right: -1px;
+    max-height: 501px;
+}
+
+.dest_quick .left_column ul {
+    height: 100%;
+    margin-right: -1px;
+}
+
+.dest_quick .left_column li {
+    padding-left: 15px;
+    border-bottom: 1px solid #ddd;
+    height: 45px;
+    line-height: 45px;
+}
+
+.dest_quick .left_column li.current {
+    background-color: #fff;
+}
+
+.dest_quick .right_column {
+    height: 100%;
+    background-color: #fff;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    padding: 0 10px 10px;
+    display: none;
+}
+.dest_quick .right_column.current{
+    display: block;
+}
+
+/*搜索表单*/
+.right_column .booking_modify .db{
+    min-height: 46px;
 }
