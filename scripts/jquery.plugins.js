@@ -1168,7 +1168,6 @@
                 var trigger = $(this);
                 wrap[0].trigger=trigger[0];
                 var wrapPos = parseInt(wrap.css('bottom'));
-                //var detail_pop_wrap=$('.detail_pop_wrap');
 
                 if (!$(this)[0].activeSate) {
                     $(this).addClass('active');
@@ -1956,8 +1955,10 @@
 
     $.fn.listPannel = function (opts) {
         var _default = {
-            leftColumnClass:'.dest_left',
-            rightColumnClass:'.right_column',
+            triggerClassName:'dest_left',
+            applyPannelClass:'right_column',
+            currentTriggerClassName:'current',
+            currentPannelClassName:'current',
             initialCallback:null,
             selectItemsCallback:null
         };
@@ -1968,15 +1969,15 @@
             var handler=$(e)[0].handler={};
             handler.selectItems=function(index){
                 arguments.callee.count = arguments.callee.count || 0 ;
-                $(e).find(_default.leftColumnClass+' li:eq('+index+')').addClass('current').siblings('li').removeClass('current');
-                $(e).find(_default.rightColumnClass+':eq('+index+')').addClass('current').siblings('.right_column').removeClass('current');
+                $(e).find('.'+_default.triggerClassName+' li:eq('+index+')').addClass(_default.currentTriggerClassName).siblings('li').removeClass(_default.currentTriggerClassName);
+                $(e).find('.'+_default.applyPannelClass+':eq('+index+')').addClass(_default.currentPannelClassName).siblings('.'+_default.applyPannelClass).removeClass(_default.currentPannelClassName);
                 if(arguments.callee.count !== 0){
                     _default.selectItemsCallback && _default.selectItemsCallback.call(_this,handler);
                 }
                 arguments.callee.count++;
             };
             handler.selectItems(0);
-            $(e).find('.dest_left li').bind('fastclick',function(){
+            $(e).find('.'+_default.triggerClassName+' li').bind('fastclick',function(){
                 handler.selectIndex=$(this).index();
                 handler.selectItems(handler.selectIndex);
             });

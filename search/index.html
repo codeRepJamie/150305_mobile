@@ -11,7 +11,7 @@
     <script type="text/javascript" src="../scripts/jquery.event.special.fastclick.js"></script>
     <script type="text/javascript" src="../scripts/jquery.plugins.js"></script>
     <script type="text/javascript" src="../scripts/CommonJs.js"></script>
-    <!-- 注意请按照每个页面引用的js文件会有所不同 -->
+    <!-- 注意请按照每个页面引用的js/css文件会有所不同 -->
 </head>
 <body>
 <div data-role="page" class="page">
@@ -35,10 +35,10 @@
                     <ul>
                         <li class="current">跟团旅游</li>
                         <li>酒店预订</li>
-                       <!-- <li>机票预订</li>
-                        <li>景点门票</li>
-                        <li>签证办理</li>-->
-                       <!-- <li>邮轮度假</li>-->
+                        <!-- <li>机票预订</li>
+                         <li>景点门票</li>
+                         <li>签证办理</li>-->
+                        <!-- <li>邮轮度假</li>-->
                     </ul>
                 </div>
             </div>
@@ -80,14 +80,16 @@
 
                     <li class="db InputArrow">
                         <label class="BookingLabel help">价格范围</label>
+
                         <p>1000-2000</p>
                     </li>
                 </ul>
-                <a class="btn_link js_to_payment mod_foot_active">搜索线路</a>
+                <!-- 注意请不要直接使用onclick或href属性绑定事件，弹出会发生“点透bug”，请使用fastclick绑定dom事件 -->
+                <span class="btn_link js_to_payment mod_foot_active">搜索线路</span>
             </div>
             <div class="right_column current">
                 <ul class="booking_modify">
-                    <li class="db InputArrow">
+                    <li id="js-detail-address" data-rel="detail_address" class="db InputArrow">
                         <label class="BookingLabel help">目的地</label>
                         <ul class="person-in-items">
                             <li class="mod_hd">
@@ -112,23 +114,27 @@
 
                     <li id="js_hotel_filter" class="db InputArrow" data-rel="filter">
                         <label class="BookingLabel help">星级价格</label>
+
                         <p id="js_hotel_filter_text">不限</p>
                         <input id="js_hotel_filter_hidden" type="hidden"/>
                     </li>
 
                     <li class="db">
                         <label class="BookingLabel help">关键词2</label>
+
                         <div class="BookingInput InputBox InputResult inputText">
                             <input class="person-name" type="text" placeholder="酒店名称">
                             <a class="clearInput"><span></span></a>
                         </div>
                     </li>
                 </ul>
-                <a href="###" onclick="location.href='http:\/\/www.gzl.com.cn\/'" class="btn_link js_to_payment mod_foot_active">搜索酒店</a>
+                <!-- 注意请不要直接使用onclick或href属性绑定事件，弹出会发生“点透bug”，请使用fastclick绑定dom事件 -->
+                <span class="btn_link js_to_payment mod_foot_active">搜索酒店</span>
             </div>
         </div>
     </div>
 </div>
+
 
 <div id="datePickerCont" data-rel="datePicker" class="datePicker_hotel filter_pop_wrap">
     <div class="wrapper">
@@ -199,19 +205,172 @@
     </div>
 </div>
 
+<div data-rel="detail_address" class="address_detail_identity detail_pop_wrap"><!-- TODO address List -->
+    <article class="cui-city-box hotel-city-box">
+        <div class="fixed-wrap">
+            <div class="fixedCont">
+                <section id="js_searchBox" class="cui-cities-hd cui-input-focus">
+                    <div class="cui-input-bd">
+                        <input class="cui-input-box" placeholder="全球城市/区域/位置/酒店名">
+                    </div>
+                </section>
+                <div id="js_tab" class="tab-city">
+                    <div class="view" id="ui-view-18">
+                        <ul class="cui-tab-mod">
+                            <li data-key="1" data-index="0" class="cui-tab-current">国内城市</li>
+                            <li data-key="2" data-index="1" class="">海外城市</li>
+                            <i class="cui-tab-scrollbar cui-tabnum2"></i></ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <ul class="cui-city-itmes">
+            <li class="js_current_city">
+                <span class="cui-city-t">当前</span>
+                <ul class="hotel-city-tags">
+                    <li class="current">我的位置</li>
+                    <li class="hidden"></li>
+                </ul>
+            </li>
+            <li class="js_simple_city js_hot_city">
+                <span class="cui-city-t">热门城市</span>
+                <ul class="hotel-city-tags">
+                    <li>北京</li>
+                    <li>上海</li>
+                    <li>广州</li>
+                    <li>深圳</li>
+                    <li>成都</li>
+                    <li>杭州</li>
+                    <li class="hidden"></li>
+                </ul>
+            </li>
+            <li class="js_simple_city js_char_city cui-arrow-close" data-key="a">
+                <span class="cui-city-t js_cat_btn">A</span>
+                <ul class="cui-city-n">
+                    <li>阿巴嘎旗(锡林郭勒盟)</li>
+                    <li>阿坝县(阿坝)</li>
+                </ul>
+            </li>
+            <li class="js_simple_city js_char_city cui-arrow-close" data-key="b">
+                <span class="cui-city-t js_cat_btn">B</span>
+                <ul class="cui-city-n">
+                    <li>阿巴嘎旗(锡林郭勒盟)</li>
+                    <li>阿坝县(阿坝)</li>
+                </ul>
+            </li>
+        </ul>
+            <ul class="js_sidenav_wrap hotel-tags-cut">
+                <li data-key="cur" data-value="当前">
+                </li>
+                <li data-key="hot" data-value="热门"></li>
+
+                <li data-key="a" data-value="A">
+                    <span class="tags" data-value="A"></span>
+                </li>
+
+                <li data-key="b" data-value="B">
+                    <span class="tags" data-value="B"></span>
+                </li>
+
+                <li data-key="c" data-value="C">
+                    <span class="tags" data-value="C"></span>
+                </li>
+
+                <li data-key="d" data-value="D">
+                    <span class="tags" data-value="D"></span>
+                </li>
+
+                <li data-key="e" data-value="E">
+                    <span class="tags" data-value="E"></span>
+                </li>
+
+                <li data-key="f" data-value="F">
+                    <span class="tags" data-value="F"></span>
+                </li>
+
+                <li data-key="g" data-value="G">
+                    <span class="tags" data-value="G"></span>
+                </li>
+
+                <li data-key="h" data-value="H">
+                    <span class="tags" data-value="H"></span>
+                </li>
+
+                <li data-key="j" data-value="J">
+                    <span class="tags" data-value="J"></span>
+                </li>
+
+                <li data-key="k" data-value="K">
+                    <span class="tags" data-value="K"></span>
+                </li>
+
+                <li data-key="l" data-value="L">
+                    <span class="tags" data-value="L"></span>
+                </li>
+
+                <li data-key="m" data-value="M">
+                    <span class="tags" data-value="M"></span>
+                </li>
+
+                <li data-key="n" data-value="N">
+                    <span class="tags" data-value="N"></span>
+                </li>
+
+                <li data-key="p" data-value="P">
+                    <span class="tags" data-value="P"></span>
+                </li>
+
+                <li data-key="q" data-value="Q">
+                    <span class="tags" data-value="Q"></span>
+                </li>
+
+                <li data-key="r" data-value="R">
+                    <span class="tags" data-value="R"></span>
+                </li>
+
+                <li data-key="s" data-value="S">
+                    <span class="tags" data-value="S"></span>
+                </li>
+
+                <li data-key="t" data-value="T">
+                    <span class="tags" data-value="T"></span>
+                </li>
+
+                <li data-key="w" data-value="W">
+                    <span class="tags" data-value="W"></span>
+                </li>
+
+                <li data-key="x" data-value="X">
+                    <span class="tags" data-value="X"></span>
+                </li>
+
+                <li data-key="y" data-value="Y">
+                    <span class="tags" data-value="Y"></span>
+                </li>
+
+                <li data-key="z" data-value="Z">
+                    <span class="tags" data-value="Z"></span>
+                </li>
+
+            </ul>
+
+    </article>
+</div>
+
 <script>
 
-    $(function(){
+    $(function () {
         //输入框清空按钮
         (function () {
             $('.InputResult').inputText();
         })();
 
-        //类别选项
-        (function(){
+        //搜索类别选项
+        (function () {
             $('#js-list-pannel-content').listPannel({
-                selectItemsCallback:function(handler){
-                   //handler.selectItems(1);
+                selectItemsCallback: function (handler) {
+                    //handler.selectItems(1);
                 }
             });
 
@@ -272,6 +431,26 @@
                 }
             });
         })();
+
+        //酒店选择出发地
+        (function () {
+            var tab = $('#js_tab');
+            var tabList = tab.find('.cui-tab-mod li');
+            $('#js-detail-address').detailPop({
+                title: '选择目的地',
+                isButton: false,
+                openCallback: function () {
+                    tab.listPannel({
+                        triggerClassName: 'cui-tab-mod',
+                        currentTriggerClassName: 'cui-tab-current',
+                        initialCallback: function () {
+                            $(this).find('.cui-tab-scrollbar').width(tabList.eq(0).outerWidth());
+                        }
+                    })
+                }
+            });
+            //console.log(tabList.eq(0).outerWidth());
+        })()
 
     });
 </script>
