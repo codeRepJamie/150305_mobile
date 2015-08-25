@@ -522,3 +522,6 @@ article .NotLogin .LoginButton:active {
 .payment_content_box{
    /* border-top: 1px #DDD solid;;*/
 }
+.ordder_detail_identity .InputResult{
+    width: 80%;
+}

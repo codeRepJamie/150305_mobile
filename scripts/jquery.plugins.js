@@ -552,7 +552,6 @@
     $.fn.unIScroll = function () {
         this[0].iScroll && this[0].iScroll.destroy();
         if (this[0]._unableIScroll) {
-            console.log(this[0]._unableIScroll);
             this[0].removeEventListener('touchmove', this[0]._unableIScroll, false);
             this[0]._unableIScroll = null;
         }
@@ -1423,7 +1422,8 @@
             'openCallback': null,
             'beforeOpenCallback': null,
             'closeCallback': null,
-            'buttonCallback': null
+            'buttonCallback': null,
+            'hiddenWrapCallback':null
         };
         _default = $.extend(_default, opts);
         //var _this = $(this);
@@ -1435,11 +1435,13 @@
         //var relHead=$('.headerDetail');
 
         handler.hiddenWrap = function (_wrap) {
+            $.hideBottomLayout();
             _wrap.css('display', 'none');
             _article.css('display', 'block');
             relHead.css('display', 'none');
             _titleCont.css('display', 'block');
             $('body').scrollTop(bodyScroll);
+            _default.hiddenWrapCallback && _default.hiddenWrapCallback.call($(this), _wrap, relHead, $(this), handler)
         };
         this.each(function (i,e) {
             //rel = $(e).attr('data-rel');
@@ -1464,7 +1466,7 @@
                 _default.isButton && (_button = $(_relHead).find('.RIghtText'));
 
                 _wrap[0].default = _default;
-
+                openWindowFn(_this, _rel, _wrap, handler);
                 if(arguments.callee.times!==undefined){
                     arguments.callee.times++;
                 }else{
@@ -1472,11 +1474,10 @@
                     //$('.inputText').inputText();
                     _default.firstOpenCallback && _default.firstOpenCallback.call($(e), _wrap, _relHead, $(this), handler);
                 }
-                openWindowFn(_this, _rel, _wrap);
+
                 _relHead.find('.ReturnIco').bind('fastclick', function () {
                     if($.detailPopInfo.isOpen){
                         var result;
-                        $.hideBottomLayout();
                         _default.closeCallback && (result = _default.closeCallback.call($(this), $.detailPopInfo.wrap, $.detailPopInfo.head,$.detailPopInfo.trigger, handler));
                         if (!result && result !== undefined) {
                             return false;
@@ -1502,11 +1503,11 @@
             _default.initialCallback && _default.initialCallback.call($(this), wrap, relHead, $(this), handler);
         });
 
-        function openWindowFn(e, rel, _wrap) {
+        function openWindowFn(e, rel, _wrap ,handler) {
             //_wrap[0].trigger=e;
             bodyScroll=$('body').scrollTop();
             //$.simpleAlert(bodyScroll.toString());
-            _default.beforeOpenCallback && _default.beforeOpenCallback.call(e, _wrap, _detailHead, e);
+            _default.beforeOpenCallback && _default.beforeOpenCallback.call(e, _wrap, _detailHead, e, handler);
             _article.css('display', 'none');
             var _detailHead = $('.headerDetail[data-rel=' + rel + ']');
             $.detailPopInfo.isOpen=true;
@@ -1518,7 +1519,7 @@
             _detailHead.css('display', 'block');
             _titleCont.css('display', 'none');
             _detailHead.find('.RIghtText').css('display', _default.isButton ? 'block' : 'none');
-            _default.openCallback && _default.openCallback.call(e, _wrap, _detailHead, e);
+            _default.openCallback && _default.openCallback.call(e, _wrap, _detailHead, e, handler);
         }
 
         return this;
@@ -1886,6 +1887,7 @@
             offsetTop:0,
             fixedMenu:'.detail_slide_tab',
             groupClass:'.js_tab_showbox',
+            fixedClassName:'fixed_top',
             'tabChangCallback': null,
             'initialCallback': null
         };
@@ -1898,7 +1900,8 @@
             var showBox=_this.find(_default.groupClass);
             var handler={
                 index:0,
-                positionArr:new Array(showBox.length)
+                positionArr:new Array(showBox.length),
+                reDefindPostion:reDefindPostion
             };
             reDefindPostion();
             $(document).bind('fastclick',function(){
@@ -1909,11 +1912,9 @@
 
                 $(window).bind('scroll',function(){
                     scrollTop=$(this).scrollTop();
-                    //scrollTopFix=scrollTop;
-                    //console.log(_default.offsetTop+headHeight);
                     reDefindPostion();
                     if(_this.offset().top<scrollTop){
-                        fixedMenu.addClass('fixed_top');
+                        fixedMenu.addClass(_default.fixedClassName);
                         for(var i=1;i<handler.positionArr.length;i++){
                             if(handler.positionArr[i-1]<=scrollTop && handler.positionArr[i]>scrollTop){
 
@@ -1933,10 +1934,10 @@
                         }
 
                         if(_thisMaxium<scrollTopFix){
-                            fixedMenu.removeClass('fixed_top');
+                            fixedMenu.removeClass(_default.fixedClassName);
                         }
                     }else{
-                        fixedMenu.removeClass('fixed_top');
+                        fixedMenu.removeClass(_default.fixedClassName);
                     }
                 });
             }

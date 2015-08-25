@@ -2043,6 +2043,12 @@ article .HotelList01 li .GetLocation:before,
     -o-transform: rotate(-45deg);
     transform: rotate(-45deg);
 }
+.cui-arrow-close .cui-city-n{
+    display: none;
+}
+.cui-arrow-open .cui-city-n{
+    display: block;
+}
 
 .list-city-tags li.current {
     color: #690;
@@ -2792,6 +2798,9 @@ article .HotelList01 li .GetLocation:before,
 }
 
 /*搜索*/
+.search_content .InputResult input{
+    max-width: 80%;
+}
 .destionation_search {
     background: #fff;
     border-bottom: 1px solid #cfcfcf;
@@ -2935,6 +2944,10 @@ article .HotelList01 li .GetLocation:before,
     top: 88px;
     left: 0;
     z-index: 10;
+    display: block;
+}
+.address-detail-searching .tab-city {
+    display: none;
 }
 .cui-tab-mod {
     display: -webkit-box;
@@ -2998,7 +3011,7 @@ article .HotelList01 li .GetLocation:before,
     background-color: #efefef;
     border-bottom: #bcbcbc 1px solid;
     line-height: 20px;
-    padding: 5px 10px;
+    padding: 5px 35px 5px 10px;
     display: block;
 }
 .hotel-city-tags {
@@ -3061,6 +3074,10 @@ article .HotelList01 li .GetLocation:before,
     color: #690;
     font-size: 10px;
     text-align: center;
+    display: block;
+}
+.address-detail-searching .hotel-tags-cut{
+    display: none;
 }
 .hotel-tags-cut li {
     position: relative;
@@ -3103,4 +3120,41 @@ article .HotelList01 li .GetLocation:before,
 
 .address_detail_identity .fixed-wrap{
     height: 88px;
+    position: relative;
+    z-index: 1;
 }
+.address-detail-searching .fixed-wrap{
+    height: 44px;
+}
+.address_detail_identity .cui-city-itmes{
+    display: none;
+}
+
+
+    /*搜索城市列表tips*/
+.cui-city-associate{
+    display: none;
+}
+.address-detail-searching .cui-city-associate{
+    display: block;
+}
+.cui-city-associate li {
+    background: #fff;
+    border-bottom: #bcbcbc 1px solid;
+    font-size: 15px;
+    line-height: 20px;
+    padding: 10px 30px 10px 10px;
+    word-break: break-all;
+    color: #000;
+}
+.hotel-asso-l, .hotel-asso-r {
+    display: inline-block;
+    vertical-align: middle;
+    width: 70%;
+}
+.hotel-asso-r {
+    width: 30%;
+    text-align: right;
+    color: #999;
+}
+

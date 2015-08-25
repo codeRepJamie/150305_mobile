@@ -1,3 +1,4 @@
+<!-- 请更新所有js/css文件!!! -->
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -28,7 +29,7 @@
             <a href="javascript:;">香港</a>
         </p>
     -->
-    <div id="mainContent" class="mainContent">
+    <div id="mainContent" class="mainContent search_content">
         <div id="js-list-pannel-content" class="dest_quick">
             <div class="left_column">
                 <div class="dest_left">
@@ -48,9 +49,9 @@
                         <label class="BookingLabel help">出发城市</label>
                         <ul class="person-in-items">
                             <li class="mod_hd">
-                                <div data-rel="detail_insurance"
+                                <div data-rel="detail-hotel-address"
                                      class="js-detail-insurance BookingInput InputBox InputResult inputText">
-                                    <label class="BookingLabel help">广州</label>
+                                    <label id="" class="BookingLabel help">广州</label>
                                     <input class="js-insurance-info" value="1" type="hidden">
                                 </div>
                             </li>
@@ -93,13 +94,14 @@
                         <label class="BookingLabel help">目的地</label>
                         <ul class="person-in-items">
                             <li class="mod_hd">
-                                <div data-rel="detail_insurance"
-                                     class="js-detail-insurance BookingInput InputBox InputResult inputText">
-                                    <label class="BookingLabel help">广州</label>
+                                <div class="BookingInput InputBox InputResult inputText">
+                                    <label id="js-detail-tag" class="BookingLabel help">广州</label>
                                     <input class="js-insurance-info" value="1" type="hidden">
                                 </div>
                             </li>
                         </ul>
+                        <input id="js-hotel-cityName-hidden" type="hidden"/>
+                        <input id="js-hotel-cityId-hidden" type="hidden"/>
                     </li>
                     <li id="datepicker" data-rel="datePicker" class=" db tabRow InputArrow">
                         <p class="datepicker">
@@ -113,14 +115,14 @@
                     </li>
 
                     <li id="js_hotel_filter" class="db InputArrow" data-rel="filter">
-                        <label class="BookingLabel help">星级价格</label>
+                        <label class="BookingLabel help">星级</label>
 
                         <p id="js_hotel_filter_text">不限</p>
                         <input id="js_hotel_filter_hidden" type="hidden"/>
                     </li>
 
                     <li class="db">
-                        <label class="BookingLabel help">关键词2</label>
+                        <label class="BookingLabel help">关键词</label>
 
                         <div class="BookingInput InputBox InputResult inputText">
                             <input class="person-name" type="text" placeholder="酒店名称">
@@ -211,14 +213,14 @@
             <div class="fixedCont">
                 <section id="js_searchBox" class="cui-cities-hd cui-input-focus">
                     <div class="cui-input-bd">
-                        <input class="cui-input-box" placeholder="全球城市/区域/位置/酒店名">
+                        <input id="js-cui-adress-input" class="cui-input-box" placeholder="目的地城市/支持汉字拼音 例：广州或GZ">
                     </div>
                 </section>
                 <div id="js_tab" class="tab-city">
                     <div class="view" id="ui-view-18">
                         <ul class="cui-tab-mod">
                             <li data-key="1" data-index="0" class="cui-tab-current">国内城市</li>
-                            <li data-key="2" data-index="1" class="">海外城市</li>
+                           <!-- <li data-key="2" data-index="1" class="">海外城市</li>-->
                             <i class="cui-tab-scrollbar cui-tabnum2"></i></ul>
                     </div>
 
@@ -226,134 +228,204 @@
             </div>
         </div>
         <ul class="cui-city-itmes">
-            <li class="js_current_city">
+            <li class="js_simple_city js_current_city" data-key="当前">
                 <span class="cui-city-t">当前</span>
                 <ul class="hotel-city-tags">
-                    <li class="current">我的位置</li>
+                    <li class="current js-city-tag">我的位置</li>
                     <li class="hidden"></li>
                 </ul>
             </li>
-            <li class="js_simple_city js_hot_city">
+            <li class="js_simple_city js_hot_city" data-key="热门">
                 <span class="cui-city-t">热门城市</span>
                 <ul class="hotel-city-tags">
-                    <li>北京</li>
-                    <li>上海</li>
-                    <li>广州</li>
-                    <li>深圳</li>
-                    <li>成都</li>
-                    <li>杭州</li>
-                    <li class="hidden"></li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01" class="js-city-tag">北京</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E02" class="js-city-tag">上海</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E03" class="js-city-tag">广州</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E04" class="js-city-tag">深圳</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E05" class="js-city-tag">成都</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E06" class="js-city-tag">杭州</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E07" class="hidden"></li>
                 </ul>
             </li>
-            <li class="js_simple_city js_char_city cui-arrow-close" data-key="a">
+            <li class="js_simple_city js_folder_city js_char_city cui-arrow-close" data-key="A">
                 <span class="cui-city-t js_cat_btn">A</span>
                 <ul class="cui-city-n">
-                    <li>阿巴嘎旗(锡林郭勒盟)</li>
-                    <li>阿坝县(阿坝)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿巴嘎旗(锡林郭勒盟)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E02">阿坝县(阿坝)</li>
                 </ul>
             </li>
-            <li class="js_simple_city js_char_city cui-arrow-close" data-key="b">
+            <li class="js_simple_city js_folder_city js_char_city cui-arrow-close" data-key="B">
                 <span class="cui-city-t js_cat_btn">B</span>
                 <ul class="cui-city-n">
-                    <li>阿巴嘎旗(锡林郭勒盟)</li>
-                    <li>阿坝县(阿坝)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E03">阿巴嘎旗(锡林郭勒盟)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E04">阿坝县(阿坝)</li>
+                </ul>
+            </li>
+            <li class="js_simple_city js_folder_city js_char_city cui-arrow-close" data-key="C">
+                <span class="cui-city-t js_cat_btn">C</span>
+                <ul class="cui-city-n">
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿巴嘎旗(锡林郭勒盟)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                </ul>
+            </li>
+            <li class="js_simple_city js_folder_city js_char_city cui-arrow-close" data-key="D">
+                <span class="cui-city-t js_cat_btn">D</span>
+                <ul class="cui-city-n">
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿巴嘎旗(锡林郭勒盟)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                </ul>
+            </li>
+            <li class="js_simple_city js_folder_city js_char_city cui-arrow-close" data-key="E">
+                <span class="cui-city-t js_cat_btn">E</span>
+                <ul class="cui-city-n">
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿巴嘎旗(锡林郭勒盟)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                </ul>
+            </li>
+            <li class="js_simple_city js_folder_city js_char_city cui-arrow-close" data-key="F">
+                <span class="cui-city-t js_cat_btn">F</span>
+                <ul class="cui-city-n">
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿巴嘎旗(锡林郭勒盟)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                </ul>
+            </li>
+            <li class="js_simple_city js_folder_city js_char_city cui-arrow-close" data-key="G">
+                <span class="cui-city-t js_cat_btn">G</span>
+                <ul class="cui-city-n">
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿巴嘎旗(锡林郭勒盟)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                </ul>
+            </li>
+            <li class="js_simple_city js_folder_city js_char_city cui-arrow-close" data-key="H">
+                <span class="cui-city-t js_cat_btn">H</span>
+                <ul class="cui-city-n">
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿巴嘎旗(锡林郭勒盟)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                </ul>
+            </li>
+            <li class="js_simple_city js_folder_city js_char_city cui-arrow-close" data-key="I">
+                <span class="cui-city-t js_cat_btn">I</span>
+                <ul class="cui-city-n">
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿巴嘎旗(锡林郭勒盟)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                </ul>
+            </li>
+            <li class="js_simple_city js_folder_city js_char_city cui-arrow-close" data-key="J">
+                <span class="cui-city-t js_cat_btn">J</span>
+                <ul class="cui-city-n">
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿巴嘎旗(锡林郭勒盟)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                </ul>
+            </li>
+            <li class="js_simple_cit js_folder_city js_char_city cui-arrow-close" data-key="K">
+                <span class="cui-city-t js_cat_btn">K</span>
+                <ul class="cui-city-n">
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿巴嘎旗(锡林郭勒盟)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                </ul>
+            </li>
+            <li class="js_simple_city js_folder_city js_char_city cui-arrow-close" data-key="L">
+                <span class="cui-city-t js_cat_btn">L</span>
+                <ul class="cui-city-n">
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿巴嘎旗(锡林郭勒盟)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                </ul>
+            </li>
+            <li class="js_simple_city js_folder_city js_char_city cui-arrow-close" data-key="M">
+                <span class="cui-city-t js_cat_btn">M</span>
+                <ul class="cui-city-n">
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿巴嘎旗(锡林郭勒盟)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                </ul>
+            </li>
+            <li class="js_simple_city js_folder_city js_char_city cui-arrow-close" data-key="N">
+                <span class="cui-city-t js_cat_btn">N</span>
+                <ul class="cui-city-n">
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿巴嘎旗(锡林郭勒盟)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                </ul>
+            </li>
+            <li class="js_simple_city js_folder_city js_char_city cui-arrow-close" data-key="O">
+                <span class="cui-city-t js_cat_btn">O</span>
+                <ul class="cui-city-n">
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿巴嘎旗(锡林郭勒盟)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                </ul>
+            </li>
+            <li class="js_simple_city js_folder_city js_char_city cui-arrow-close" data-key="P">
+                <span class="cui-city-t js_cat_btn">P</span>
+                <ul class="cui-city-n">
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿巴嘎旗(锡林郭勒盟)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
+                </ul>
+            </li>
+            <li class="js_simple_city js_folder_city js_char_city cui-arrow-close" data-key="Q">
+                <span class="cui-city-t js_cat_btn">Q</span>
+                <ul class="cui-city-n">
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿巴嘎旗(锡林郭勒盟)</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿坝县(阿坝)</li>
                 </ul>
             </li>
         </ul>
-            <ul class="js_sidenav_wrap hotel-tags-cut">
-                <li data-key="cur" data-value="当前">
-                </li>
-                <li data-key="hot" data-value="热门"></li>
 
-                <li data-key="a" data-value="A">
-                    <span class="tags" data-value="A"></span>
-                </li>
+        <ul class="cui-city-itmes">
+            <li class="js_simple_city js_current_city" data-key="当前">
+                <span class="cui-city-t">当前</span>
+                <ul class="hotel-city-tags">
+                    <li class="current js-city-tag">我的位置</li>
+                    <li class="hidden"></li>
+                </ul>
+            </li>
+            <li class="js_simple_city js_hot_city" data-key="热门">
+                <span class="cui-city-t">热门城市</span>
+                <ul class="hotel-city-tags">
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01" class="js-city-tag">新加坡</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E02" class="js-city-tag">首尔</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E03" class="js-city-tag">曼谷</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E0E" class="js-city-tag">普吉岛</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E0A" class="js-city-tag">东京</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01" class="js-city-tag">台北</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01" class="hidden"></li>
+                </ul>
+            </li>
+            <li class="js_simple_city js_folder_city js_char_city cui-arrow-close" data-key="A">
+                <span class="cui-city-t js_cat_btn">A</span>
+                <ul class="cui-city-n">
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿波罗湾</li>
+                    <li data-destId="09EF55DC37095209E0531E29030A820E01">阿帕丁</li>
+                </ul>
+            </li>
+        </ul>
 
-                <li data-key="b" data-value="B">
-                    <span class="tags" data-value="B"></span>
-                </li>
+        <ul id="js_sidenav_wrap" class="js_sidenav_wrap hotel-tags-cut"></ul>
 
-                <li data-key="c" data-value="C">
-                    <span class="tags" data-value="C"></span>
-                </li>
-
-                <li data-key="d" data-value="D">
-                    <span class="tags" data-value="D"></span>
-                </li>
-
-                <li data-key="e" data-value="E">
-                    <span class="tags" data-value="E"></span>
-                </li>
-
-                <li data-key="f" data-value="F">
-                    <span class="tags" data-value="F"></span>
-                </li>
-
-                <li data-key="g" data-value="G">
-                    <span class="tags" data-value="G"></span>
-                </li>
-
-                <li data-key="h" data-value="H">
-                    <span class="tags" data-value="H"></span>
-                </li>
-
-                <li data-key="j" data-value="J">
-                    <span class="tags" data-value="J"></span>
-                </li>
-
-                <li data-key="k" data-value="K">
-                    <span class="tags" data-value="K"></span>
-                </li>
-
-                <li data-key="l" data-value="L">
-                    <span class="tags" data-value="L"></span>
-                </li>
-
-                <li data-key="m" data-value="M">
-                    <span class="tags" data-value="M"></span>
-                </li>
-
-                <li data-key="n" data-value="N">
-                    <span class="tags" data-value="N"></span>
-                </li>
-
-                <li data-key="p" data-value="P">
-                    <span class="tags" data-value="P"></span>
-                </li>
-
-                <li data-key="q" data-value="Q">
-                    <span class="tags" data-value="Q"></span>
-                </li>
-
-                <li data-key="r" data-value="R">
-                    <span class="tags" data-value="R"></span>
-                </li>
-
-                <li data-key="s" data-value="S">
-                    <span class="tags" data-value="S"></span>
-                </li>
-
-                <li data-key="t" data-value="T">
-                    <span class="tags" data-value="T"></span>
-                </li>
-
-                <li data-key="w" data-value="W">
-                    <span class="tags" data-value="W"></span>
-                </li>
-
-                <li data-key="x" data-value="X">
-                    <span class="tags" data-value="X"></span>
-                </li>
-
-                <li data-key="y" data-value="Y">
-                    <span class="tags" data-value="Y"></span>
-                </li>
-
-                <li data-key="z" data-value="Z">
-                    <span class="tags" data-value="Z"></span>
-                </li>
-
-            </ul>
+        <ul id="js_layerSearchBox_listBox" class="cui-city-associate">
+            <li class="empty">对不起，没有找到数据"<span>XXX</span>"</li>
+            <li class="selectTap" data-destId="09EF55DC37095209E0531E29030A820E01A"><p class="hotel-asso-l">临汾</p><span class="hotel-asso-r">lf</span></li>
+            <li class="selectTap" data-destId="09EF55DC37095209E0531E29030A820E0B"><p class="hotel-asso-l">吕梁</p><span class="hotel-asso-r">ll</span></li>
+            <li class="selectTap" data-destId="09EF55DC37095209E0531E29030A820E01C"><p class="hotel-asso-l">辽源</p><span class="hotel-asso-r">ly</span></li>
+            <li class="selectTap" data-destId="09EF55DC37095209E0531E29030A820E01E"><p class="hotel-asso-l">丽水</p><span class="hotel-asso-r">ls</span></li>
+            <li class="selectTap" data-destId="09EF55DC37095209E0531E29030A820E01F"><p class="hotel-asso-l">龙岩</p><span class="hotel-asso-r">ly</span></li>
+            <li class="selectTap" data-destId="09EF55DC37095209E0531E29030A820E01"><p class="hotel-asso-l">柳城</p><span class="hotel-asso-r">lc</span></li>
+            <li class="selectTap" data-destId="09EF55DC37095209E0531E29030A820E01"><p class="hotel-asso-l">和布克赛尔蒙古自治县</p><span class="hotel-asso-r">hbksemgzzx</span></li>
+        </ul>
 
     </article>
 </div>
@@ -432,24 +504,167 @@
             });
         })();
 
-        //酒店选择出发地
+        //选择酒店出发地
         (function () {
             var tab = $('#js_tab');
             var tabList = tab.find('.cui-tab-mod li');
-            $('#js-detail-address').detailPop({
+            var listCont;
+            var searchBox = $('#js_searchBox');
+            var navCont = $('#js_sidenav_wrap');
+            var trigger=$('#js-detail-address');
+            var tag=$('#js-detail-tag');
+            var hiddenName = $('#js-hotel-cityName-hidden');
+            var hiddenId = $('#js-hotel-cityId-hidden');
+
+            //选择酒店位置
+            trigger.detailPop({
                 title: '选择目的地',
                 isButton: false,
-                openCallback: function () {
+                //初次打开
+                firstOpenCallback: function (wrap, head, trigger, handler) {
+                    /*wrap 弹出层(jquery)
+                     *head 顶部标题(jquery)
+                     *trigger 弹出层触发按钮元素(jquery)
+                     *handlder.hiddenWrap(wrap) 隐藏弹出层
+                     */
+                    var detail_pop_wrap=wrap;
+                    var detail_pop_handler=handler;
+                    var detail_pop_trigger=trigger;
+                    var detail_pop_search=$('#js-cui-adress-input');
+                    var detail_pop_search_list=$('#js_layerSearchBox_listBox');
+
+                    //设置国内城市与海外城市切换
                     tab.listPannel({
                         triggerClassName: 'cui-tab-mod',
                         currentTriggerClassName: 'cui-tab-current',
-                        initialCallback: function () {
+                        //初始城市列表
+                        initialCallback: function (handler) {
+
+                            /*获取城市列表json成功并打印...*/
+
+                            //首次打开弹出层显示国内城市
+                            listCont = wrap.find('.cui-city-itmes').eq(0);
+                            listCont.show().siblings('.cui-city-itmes').hide();
                             $(this).find('.cui-tab-scrollbar').width(tabList.eq(0).outerWidth());
+                            initialAlphabet(listCont);
+                            initialAnchorMap(listCont);
+
+                            //设置字母开关
+                            var items = wrap.find('.cui-city-itmes');
+                            items.each(function (e) {
+                                $(this).find('.js_folder_city').each(function () {
+                                    $(this).bind('fastclick', function (e) {
+                                        $(this).toggleClass('cui-arrow-open').toggleClass('cui-arrow-close');
+                                    });
+                                    //****目标城市点击事件*******
+                                    $(this).find('.cui-city-n li').bind('fastclick', function (e) {
+                                        e.stopPropagation();
+
+                                        //$(this) -->该按钮元素
+                                        tag.text($(this).text());
+                                        hiddenName.val($(this).text());
+                                        hiddenId.val($(this).attr('data-destId'));
+                                        //关闭整个弹出层
+                                        detail_pop_handler.hiddenWrap(detail_pop_wrap);
+                                    });
+                                });
+                            });
+
+                            //设置热门与当前城市按钮
+                            detail_pop_wrap.find('.js-city-tag').bind('fastclick',function(e){
+
+                                //$(this) -->该按钮元素
+                                detail_pop_wrap.find('.js-city-tag').removeClass('current');
+                                $(this).addClass('current');
+                                tag.text($(this).text());
+                                hiddenName.val($(this).text());
+                                hiddenId.val($(this).attr('data-destId'));
+                                //关闭整个弹出层
+                                detail_pop_handler.hiddenWrap(detail_pop_wrap);
+                            });
+
+
+                        },
+                        //切换城市列表
+                        selectItemsCallback: function (handler) {
+                            //更新列表
+                            listCont = wrap.find('.cui-city-itmes').eq(handler.selectIndex);
+                            listCont.show().siblings('.cui-city-itmes').hide();
+                            initialAlphabet(listCont);
+                            initialAnchorMap(listCont);
                         }
+                    });
+
+                    //搜索框输入
+                    detail_pop_search.bind('keyup',function(){
+                        console.log($(this).val());
+                        if($(this).val().length){
+                            //隐藏字母面板
+                            wrap.addClass('address-detail-searching').find('.cui-city-itmes').hide();
+                        }else{
+                            //显示字母面板
+                            wrap.removeClass('address-detail-searching').find('.cui-city-itmes').eq(0).show();
+                        }
+                    });
+
+
+                    //搜索下拉框点击
+                    detail_pop_search_list.find('.selectTap').bind('fastclick',function(){
+                        //$(this) -->该按钮元素
+                        var text=$(this).find('.hotel-asso-l').text();
+                        tag.text(text);
+                        hiddenName.val(text);
+                        hiddenId.val($(this).attr('data-destId'));
+                        //关闭整个弹出层
+                        detail_pop_handler.hiddenWrap(detail_pop_wrap);
                     })
+
+                },
+                //打开弹出层
+                openCallback:function(wrap,head,trigger,handler){
+
+                },
+                //关闭弹出层重置
+                hiddenWrapCallback:function(wrap,head,trigger,handler){
+                    $('#js-cui-adress-input').val('');
+                    //显示字母面板
+                    wrap.removeClass('address-detail-searching').find('.cui-city-itmes').eq(0).show();
                 }
             });
-            //console.log(tabList.eq(0).outerWidth());
+            //查找字母位置
+            function initialAnchorMap(target) {
+                target.anchorMap({
+                    offsetTop: searchBox.outerHeight() + tab.outerHeight(),
+                    fixedMenu: '',
+                    groupClass: '.js_simple_city',
+                    initialCallback: function (handler) {
+                        var cityList = target.find('.js_simple_city');
+                        navCont.find('li').bind('fastclick', function () {
+                            var index = $(this).index();
+                            //console.log(cityList.eq(index).attr('class'));
+                            if (/js_folder_city/.test(cityList.eq(index).attr('class'))) {
+                                //打开字母表
+                                cityList.eq(index).addClass('cui-arrow-open').removeClass('cui-arrow-close').siblings('.js_folder_city').addClass('cui-arrow-close').removeClass('cui-arrow-open');
+                            }
+                            //重新定义字母位置
+                            handler.reDefindPostion();
+                            //跳转到字母位置
+                            $('body').scrollTop(handler.positionArr[index]);
+                        });
+                    }
+                })
+            }
+
+            //生成右侧字母导航
+            function initialAlphabet(target) {
+                var html = [];
+                target.find('.js_simple_city').each(function () {
+                    html.push('<li data-value="' + $(this).attr('data-key') + '"></li>');
+                });
+                navCont.html(html.join(''));
+            }
+
+
         })()
 
     });
