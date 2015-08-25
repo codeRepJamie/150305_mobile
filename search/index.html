@@ -43,19 +43,19 @@
                     </ul>
                 </div>
             </div>
-            <div class="right_column">
+            <div class="right_column current">
                 <ul class="booking_modify">
-                    <li class="db InputArrow">
+                    <li id="js-tour-address" data-rel="detail_address" class="js-address-trigger db InputArrow">
                         <label class="BookingLabel help">出发城市</label>
                         <ul class="person-in-items">
                             <li class="mod_hd">
-                                <div data-rel="detail-hotel-address"
-                                     class="js-detail-insurance BookingInput InputBox InputResult inputText">
-                                    <label id="" class="BookingLabel help">广州</label>
-                                    <input class="js-insurance-info" value="1" type="hidden">
+                                <div class="BookingInput InputBox InputResult inputText">
+                                    <label class="js-address-tag BookingLabel help">广州</label>
                                 </div>
                             </li>
                         </ul>
+                        <input class="js-cityName-hidden" type="hidden"/>
+                        <input class="js-cityId-hidden" type="hidden"/>
                     </li>
                     <li class="db">
                         <label class="BookingLabel help">关键字</label>
@@ -88,20 +88,19 @@
                 <!-- 注意请不要直接使用onclick或href属性绑定事件，弹出会发生“点透bug”，请使用fastclick绑定dom事件 -->
                 <span class="btn_link js_to_payment mod_foot_active">搜索线路</span>
             </div>
-            <div class="right_column current">
+            <div class="right_column">
                 <ul class="booking_modify">
-                    <li id="js-detail-address" data-rel="detail_address" class="db InputArrow">
+                    <li id="js-hotel-address" data-rel="detail_address" class="js-address-trigger db InputArrow">
                         <label class="BookingLabel help">目的地</label>
                         <ul class="person-in-items">
                             <li class="mod_hd">
                                 <div class="BookingInput InputBox InputResult inputText">
-                                    <label id="js-detail-tag" class="BookingLabel help">广州</label>
-                                    <input class="js-insurance-info" value="1" type="hidden">
+                                    <label class="js-address-tag BookingLabel help">广州</label>
                                 </div>
                             </li>
                         </ul>
-                        <input id="js-hotel-cityName-hidden" type="hidden"/>
-                        <input id="js-hotel-cityId-hidden" type="hidden"/>
+                        <input class="js-cityName-hidden" type="hidden"/>
+                        <input class="js-cityId-hidden" type="hidden"/>
                     </li>
                     <li id="datepicker" data-rel="datePicker" class=" db tabRow InputArrow">
                         <p class="datepicker">
@@ -231,7 +230,7 @@
             <li class="js_simple_city js_current_city" data-key="当前">
                 <span class="cui-city-t">当前</span>
                 <ul class="hotel-city-tags">
-                    <li class="current js-city-tag">我的位置</li>
+                    <li class="js-city-tag">我的位置</li>
                     <li class="hidden"></li>
                 </ul>
             </li>
@@ -504,17 +503,17 @@
             });
         })();
 
-        //选择酒店出发地
+        //选择出发地
         (function () {
             var tab = $('#js_tab');
             var tabList = tab.find('.cui-tab-mod li');
             var listCont;
             var searchBox = $('#js_searchBox');
             var navCont = $('#js_sidenav_wrap');
-            var trigger=$('#js-detail-address');
-            var tag=$('#js-detail-tag');
-            var hiddenName = $('#js-hotel-cityName-hidden');
-            var hiddenId = $('#js-hotel-cityId-hidden');
+            var detail_pop_trigger;
+            //设置 旅游团、酒店为触发器
+            //var trigger=$('#js-hotel-address,#js-tour-address');
+            var trigger=$('.js-address-trigger');
 
             //选择酒店位置
             trigger.detailPop({
@@ -527,9 +526,10 @@
                      *trigger 弹出层触发按钮元素(jquery)
                      *handlder.hiddenWrap(wrap) 隐藏弹出层
                      */
+                    console.log('a');
                     var detail_pop_wrap=wrap;
                     var detail_pop_handler=handler;
-                    var detail_pop_trigger=trigger;
+                    detail_pop_trigger=trigger;
                     var detail_pop_search=$('#js-cui-adress-input');
                     var detail_pop_search_list=$('#js_layerSearchBox_listBox');
 
@@ -554,6 +554,7 @@
                             items.each(function (e) {
                                 $(this).find('.js_folder_city').each(function () {
                                     $(this).bind('fastclick', function (e) {
+
                                         $(this).toggleClass('cui-arrow-open').toggleClass('cui-arrow-close');
                                     });
                                     //****目标城市点击事件*******
@@ -561,9 +562,7 @@
                                         e.stopPropagation();
 
                                         //$(this) -->该按钮元素
-                                        tag.text($(this).text());
-                                        hiddenName.val($(this).text());
-                                        hiddenId.val($(this).attr('data-destId'));
+                                        ReturnToTrigger(detail_pop_trigger,$(this).attr('data-destId'),$(this).text());
                                         //关闭整个弹出层
                                         detail_pop_handler.hiddenWrap(detail_pop_wrap);
                                     });
@@ -574,11 +573,7 @@
                             detail_pop_wrap.find('.js-city-tag').bind('fastclick',function(e){
 
                                 //$(this) -->该按钮元素
-                                detail_pop_wrap.find('.js-city-tag').removeClass('current');
-                                $(this).addClass('current');
-                                tag.text($(this).text());
-                                hiddenName.val($(this).text());
-                                hiddenId.val($(this).attr('data-destId'));
+                                ReturnToTrigger(detail_pop_trigger,$(this).attr('data-destId'),$(this).text());
                                 //关闭整个弹出层
                                 detail_pop_handler.hiddenWrap(detail_pop_wrap);
                             });
@@ -612,9 +607,8 @@
                     detail_pop_search_list.find('.selectTap').bind('fastclick',function(){
                         //$(this) -->该按钮元素
                         var text=$(this).find('.hotel-asso-l').text();
-                        tag.text(text);
-                        hiddenName.val(text);
-                        hiddenId.val($(this).attr('data-destId'));
+
+                        ReturnToTrigger(detail_pop_trigger,$(this).attr('data-destId'),text);
                         //关闭整个弹出层
                         detail_pop_handler.hiddenWrap(detail_pop_wrap);
                     })
@@ -622,7 +616,7 @@
                 },
                 //打开弹出层
                 openCallback:function(wrap,head,trigger,handler){
-
+                    detail_pop_trigger=trigger;
                 },
                 //关闭弹出层重置
                 hiddenWrapCallback:function(wrap,head,trigger,handler){
@@ -631,6 +625,7 @@
                     wrap.removeClass('address-detail-searching').find('.cui-city-itmes').eq(0).show();
                 }
             });
+
             //查找字母位置
             function initialAnchorMap(target) {
                 target.anchorMap({
@@ -664,6 +659,12 @@
                 navCont.html(html.join(''));
             }
 
+            //返回地址信息
+            function ReturnToTrigger(trigger,id,text){
+                trigger.find('.js-address-tag').text(text);
+                trigger.find('.js-cityName-hidden').val(text);
+                trigger.find('.js-cityId-hidden').val(id);
+            }
 
         })()
 
