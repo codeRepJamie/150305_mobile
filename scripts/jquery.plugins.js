@@ -971,7 +971,6 @@
 
         function checkstartDateBtn() {
             _starDateRange > 0 ? _startPre.removeClass('disabled') : _startPre.addClass('disabled');
-            //console.log(checkdayRange());
             time.maxDate && (checkdayRange() ? _startNext.removeClass('disabled') : _startNext.addClass('disabled'));
         }
 
@@ -1467,11 +1466,9 @@
 
                 _wrap[0].default = _default;
                 openWindowFn(_this, _rel, _wrap, handler);
-                if(arguments.callee.times!==undefined){
-                    arguments.callee.times++;
-                }else{
-                    arguments.callee.times=1;
-                    //$('.inputText').inputText();
+                if($.detailPopInfo.wrap[0].isFirst===undefined){
+                    $.detailPopInfo.wrap[0].isFirst=false;
+                    $.detailPopInfo.wrap.times=1;
                     _default.firstOpenCallback && _default.firstOpenCallback.call($(e), _wrap, _relHead, $(this), handler);
                 }
 
@@ -1487,7 +1484,6 @@
                     }
                 });
                 _default.isButton && _button.bind('fastclick', function () {
-                    //console.log($.detailPopInfo);
                     if($.detailPopInfo.isOpen) {
                         var result;
                         $.hideBottomLayout();
@@ -1515,6 +1511,7 @@
             $.detailPopInfo.wrap=_wrap;
             $.detailPopInfo.dataRel=rel;
             $.detailPopInfo.head=_detailHead;
+
             _wrap.css('display', 'block');
             _detailHead.css('display', 'block');
             _titleCont.css('display', 'none');
