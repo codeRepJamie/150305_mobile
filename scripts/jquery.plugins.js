@@ -856,29 +856,14 @@
 
         //智能日期输出
         time.printDate = function (date, isFormat) {
-            isFormat = isFormat || false;
-            if (!isFormat) {
-                var isMouthYear = date.getMonth() === _curDate.getMonth() && date.getFullYear() === _curDate.getFullYear();
-                if (date.getDate() === _curDate.getDate() && isMouthYear) {
-                    return '今天';
-                }
-                else if (date.getDate() - 1 === _curDate.getDate() && isMouthYear) {
-                    return '明天';
-                }
-                else if (date.getDate() - 2 === _curDate.getDate() && isMouthYear) {
-                    return '后天';
-                }
-            }
-            return (date.getMonth() + 1) + '月' + date.getDate() + '日';
+            return $.time.printDate(date, isFormat);
         };
         //周输出
         time.printDay = function (date) {
-            return '周' + '日一二三四五六'.substr(date.getDay(), 1);
+            return $.time.printDay(date);
         };
         time.printFormat = function (dates) {
-            var month = dates.getMonth() + 1;
-            var date = dates.getDate();
-            return dates.getFullYear() + '-' + (month > 10 ? month : '0' + month) + '-' + ((date + 1) > 10 ? date : '0' + date);
+            return $.time.formatTimeZero(dates);
         };
 
         //更新日期
@@ -979,7 +964,7 @@
         }
 
         function setTimeResultHiddenInput(e,date) {
-            e.val(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate());
+            e.val($.time.formatTime(date));
         }
 
         //移除激活状态
@@ -989,11 +974,55 @@
 
         //设置日期整数
         function setZeroTime(date) {
-            date instanceof Date && date.setHours(0, 0, 0, 0);
+            date=$.time.setZeroTime(date);
         }
 
         return this;
     };
+    /*时间对象方法*/
+    $.time={};
+    $.time.formatTime=function(date){
+        return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+    };
+    $.time.formatTimeZero=function(dates){
+        var month = dates.getMonth() + 1;
+        var date = dates.getDate();
+        return dates.getFullYear() + '-' + (month > 10 ? month : '0' + month) + '-' + ((date + 1) > 10 ? date : '0' + date);
+    };
+    $.time.setZeroTime=function(date){
+        date instanceof Date && date.setHours(0, 0, 0, 0);
+        return date
+    };
+    $.time.printDate=function(date,isFormat){
+        var _curDate=new Date();
+        isFormat = isFormat || false;
+        if (!isFormat) {
+            var isMouthYear = date.getMonth() === _curDate.getMonth() && date.getFullYear() === _curDate.getFullYear();
+            if (date.getDate() === _curDate.getDate() && isMouthYear) {
+                return '今天';
+            }
+            else if (date.getDate() - 1 === _curDate.getDate() && isMouthYear) {
+                return '明天';
+            }
+            else if (date.getDate() - 2 === _curDate.getDate() && isMouthYear) {
+                return '后天';
+            }
+        }
+        return (date.getMonth() + 1) + '月' + date.getDate() + '日';
+    };
+    $.time.printDay=function(date){
+        return '周' + '日一二三四五六'.substr(date.getDay(), 1);
+    };
+    $.time.getCalendarTime=function(dataTime){
+        var getDate={};
+        var dateArr=dataTime.split('-');
+        var dateTime=new Date();
+        getDate.year=dateArr[0];
+        getDate.month=parseInt(dateArr[1])-1;
+        getDate.date=dateArr[2];
+        dateTime.setFullYear(getDate.year,getDate.month,getDate.date);
+        return $.time.setZeroTime(dateTime);
+    }
 
     /*数量选选项框事件插件
      *参数
@@ -1981,6 +2010,149 @@
             });
             _default.initialCallback && _default.initialCallback.call(_this,handler);
         });
-    }
+    };
+
+    $.fn.calendarDatepickerInital = function (opts) {
+        var _default = {
+            trigger: $(),
+            startBtn:'.js-search-date-star',
+            endBtn:'.js-search-date-end',
+            dataRel:'calendar_select',
+            calendar:'#calendar',
+            startDatePopTitle:'最早日期',
+            endDatePopTitle:'最迟日期',
+            startDate: $.time.setZeroTime(new Date()),
+            setStartDateCallback:null,
+            setEndDateCallback:null,
+            setDateCallback:null,
+            initialCallback: null
+        };
+
+        _default = $.extend(_default, opts);
+        var _this=this;
+        //_default.startDate=$.time.setZeroTime(_default.startDate);
+        //_default.startDate.setT();
+        //var date = new Date();
+        $(_default.trigger).each(function (i, e) {
+
+            var _handler=_this.handler={};
+            _handler.this=_this;
+            _handler.trigger=_default.trigger.eq(i);
+            _handler.startBtn=_handler.trigger.find(_default.startBtn);
+            _handler.endBtn=_handler.trigger.find(_default.endBtn);
+            _handler.calendar=$(_this).find(_default.calendar);
+            _handler.startDate=_handler.endDate= new Date();
+            _handler.startDate=$.time.setZeroTime(_handler.startDate);
+            _handler.endDate=$.time.setZeroTime(_handler.endDate);
+            _handler.isStartDateSet=false;
+            _handler.isEndDateSet=false;
+            _handler.startBtn.attr('data-rel',_default.dataRel);
+            _handler.endBtn.attr('data-rel',_default.dataRel);
+            //智能日期输出
+            _handler.printDate= function (date, isFormat) {
+                return $.time.printDate(date, isFormat);
+            };
+            //周输出
+            _handler.printDay = function (date) {
+                return $.time.printDay(date);
+            };
+            //含有0的日期输出
+            _handler.printFormat = function (dates) {
+                return $.time.formatTimeZero(dates);
+            };
+            //清空日期
+            _handler.clearDate = function (date) {
+                if(date===_handler.startDate){
+                    _handler.startDate= new Date();
+                    _handler.startDate=$.time.setZeroTime(_handler.startDate);
+                    _handler.isStartDateSet=false;
+                }else{
+                    _handler.endDate= new Date();
+                    _handler.endDate=$.time.setZeroTime(_handler.endDate);
+                    _handler.isEndDateSet=false;
+                }
+            };
+
+            $(_handler.startBtn).detailPop({
+                firstOpenCallback:function(wrap, head, trigger, detail_handler){
+                    initialCalendar.call(this,_this,_handler,wrap,detail_handler);
+                },
+                openCallback: function (wrap, head, trigger, handler) {
+                    head.find('h1').text(_default.startDatePopTitle);
+                    window.Calendar && randerCalendar.call(this,_handler.startDate,_handler,wrap,handler);
+                }
+            });
+            $(_handler.endBtn).detailPop({
+                firstOpenCallback:function(wrap, head, trigger, detail_handler){
+                    initialCalendar.call(this,_this,_handler,wrap,detail_handler);
+                },
+                openCallback: function (wrap, head, trigger, handler) {
+                    head.find('h1').text(_default.endDatePopTitle);
+                    window.Calendar && randerCalendar.call(this,_handler.endDate,_handler,wrap,handler);
+                }
+            });
+            _default.initialCallback && _default.initialCallback.call(_this,_handler);
+        });
+        function initialCalendar(e,handler,wrap,detail_handler){
+            var trigger=this;
+            $(e).prepend('<script src="../scripts/calendar.js"><\/script>');
+            randerCalendar.call(trigger,_default.startDate,handler,wrap,detail_handler);
+        }
+        function randerCalendar(date,handler,wrap,detail_handler){
+            var trigger=this;
+            Calendar.settings.firstDayOfWeek = 7;
+            Calendar.settings.dateSelectCallback = function () {
+
+                $(handler.calendar).find('td[class!=prevMonthDay][class!=nextMonthDay]').each(function(i,e){
+                    var dateString=$(e).attr('data-time');
+                    var dateTime=$.time.getCalendarTime(dateString);
+                    //console.log(handler.isStartDateSet,handler.isEndDateSet);
+                    if(dateTime.getTime()===handler.startDate.getTime()&&handler.isStartDateSet){
+                        $(e).addClass('selected');
+                        $(e).html(handler.startDate.getDate()+'<span class="date-tag">最早</span>');
+                    }else if(dateTime.getTime()===handler.endDate.getTime()&&handler.isEndDateSet){
+                        $(e).addClass('selected');
+                        $(e).html(handler.endDate.getDate()+'<span class="date-tag">最迟</span>');
+                    }
+                    if(dateTime>=_default.startDate){
+                        $(e).addClass('pq');
+                        $(e).bind('fastclick',function() {
+                            var _dateString=$(this).attr('data-time');
+                            var _dateTime=$.time.getCalendarTime(_dateString);
+
+                            if(_dateTime>handler.endDate&&handler.isEndDateSet){
+                                handler.startDate=handler.endDate;
+                                handler.endDate=_dateTime;
+                                handler.isStartDateSet=true;
+                                handler.isEndDateSet=true;
+                            }else if(_dateTime<handler.startDate&&handler.isStartDateSet){
+                                handler.endDate=handler.startDate;
+                                handler.startDate=_dateTime;
+                                handler.isStartDateSet=true;
+                                handler.isEndDateSet=true;
+                            }
+                            else if(/js-search-date-star/.test($(trigger).attr('class'))){
+                                handler.isStartDateSet=true;
+                                handler.startDate=_dateTime;
+                            }else{
+                                handler.isEndDateSet=true;
+                                handler.endDate=_dateTime;
+                            }
+                            if(/js-search-date-star/.test($(trigger).attr('class'))){
+                                _default.setStartDateCallback && _default.setStartDateCallback.call(handler.this,handler);
+                            }else{
+                                _default.setEndDateCallback && _default.setEndDateCallback.call(handler.this,handler);
+                            }
+                            detail_handler.hiddenWrap(wrap);
+                            _default.setDateCallback && _default.setDateCallback.call(handler.this,handler);
+                        });
+                    }
+                });
+            };
+            Calendar.Init(null, null);
+            Calendar.RenderCalendar("calendar", date.getMonth() + 1, date.getFullYear());
+
+        }
+    };
 
 })(jQuery);

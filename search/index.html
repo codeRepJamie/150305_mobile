@@ -69,20 +69,55 @@
                         </ul>
                     </li>
 
-                    <li class="tabRow db InputArrow">
-                        <p data-rel="datePicker" class="datepicke">
-                            <em class="f1">8月24日</em>
-                            <em class="f2">(周一)</em>
-                            <b class="js_days">游3日</b>
-                        </p>
-                        <!--<input id="hiddenStartDayVal" type="hidden" value=""/>
-                        <input id="hiddenInDayVal" type="hidden" value=""/>-->
+                    <li class="js-tour-datepicker advanced_date tabRow db">
+                        <div class="depart">出发日期</div>
+                        <div class="js-search-date-star item advanced_search_date_early">
+                            <div class="js-date-placeholder">最早</div>
+                            <div data-rel="date-start" class="specific">
+                                    <div class="detail1"></div>
+                                    <div class="detail2"></div>
+                                    <span class="closer"><i></i></span>
+                            </div>
+                        </div>
+                        <div class="js-search-date-end item advanced_search_date_last">
+                            <div class="js-date-placeholder">最晚</div>
+                            <div data-rel="date-end" class="specific">
+                                    <div class="detail1"></div>
+                                    <div class="detail2"></div>
+                                    <span class="closer"><i></i></span>
+                            </div>
+                        </div>
+                        <input class="js-tour-star-day" type="hidden" value=""/>
+                        <input class="js-tour-end-day" type="hidden" value=""/>
                     </li>
 
-                    <li class="db InputArrow">
+                    <!--<li class="js-tour-datepicker advanced_date tabRow db">
+                        <div class="depart">出发日期</div>
+                        <div class="js-search-date-star item advanced_search_date_early">
+                            <div class="js-date-placeholder">最早</div>
+                            <div data-rel="date-start" class="specific">
+                                <div class="detail1"></div>
+                                <div class="detail2">星期三</div>
+                                <span class="closer"><i></i></span>
+                            </div>
+                        </div>
+                        <div class="js-search-date-end item advanced_search_date_last">
+                            <div class="js-date-placeholder">最晚</div>
+                            <div data-rel="date-end" class="specific">
+                                <div class="detail1"></div>
+                                <div class="detail2"></div>
+                                <span class="closer"><i></i></span>
+                            </div>
+                        </div>
+                        <input class="js-tour-star-day" type="hidden" value=""/>
+                        <input class="js-tour-end-day" type="hidden" value=""/>
+                    </li>-->
+
+                    <li id="js-tour-price-range" data-rel="date-range" class="db InputArrow">
                         <label class="BookingLabel help">价格范围</label>
 
-                        <p>1000-2000</p>
+                        <p id="js-tour-price-range-tag">点击设定</p>
+                        <input type="hidden" id="js-tour-price-range-hidden"/>
                     </li>
                 </ul>
                 <!-- 注意请不要直接使用onclick或href属性绑定事件，弹出会发生“点透bug”，请使用fastclick绑定dom事件 -->
@@ -137,6 +172,46 @@
 </div>
 
 
+<div id="js-date-range-cont" data-rel="date-range" class="tour_date_range_filter filter_pop_wrap">
+    <ul class="header"><!-- TODO dateRange -->
+        <li class="btn_cancel"><a href="javascript:;">取消</a></li>
+        <li class="btn_reset"><a class="disable" href="javascript:;">清空筛选</a></li>
+        <li class="btn_confirm"><a class="" href="javascript:;">确定</a></li>
+    </ul>
+    <div class="wrapper">
+        <div class="BoxContent pop_star has-mask-image">
+            <div class="scroll">
+                <dl class="layout selectCont triSelect">
+                    <dt>价格范围(单选)</dt>
+                    <dd data-key="not-set" data-index="0" class="CurrentSelect notSet">不限</dd>
+                    <dd data-key="0,499" data-index="1">500元以下</dd>
+                    <dd data-key="500,1000" data-index="2">500-1000元</dd>
+                    <dd data-key="1001,3000" data-index="3">1001-3000元</dd>
+                    <dd data-key="3001,5000" data-index="4">3001-5000元</dd>
+                    <dd data-key="5000,10000" data-index="0">5001-10000元</dd>
+                    <dd data-key="10000" data-index="50">10000元以上</dd>
+                    <input id="price" type="hidden" value="not-set"/>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="js-calendar-detail-content" data-rel="calendar_select" class="calendar_detail_content detail_pop_wrap">
+    <!-- TODO calendarBody -->
+
+    <article class="cui-calendar-box calendar-box">
+        <div class="calendarContent" id="calendar">
+            <div class="calendarloading" id="calendarloading">
+                <div class="loadingtips layout">
+                    <div id="preloader" class="preloader"></div>
+                    <div class="tx">日历加载中...</div>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
+
 <div id="datePickerCont" data-rel="datePicker" class="datePicker_hotel filter_pop_wrap">
     <div class="wrapper">
         <div class="hotel-lc-items hotel-b-border"><!--入住日期-->
@@ -182,6 +257,7 @@
     </div>
 </div>
 
+
 <div id="BoxContent" data-rel="filter" class="hotel_filter_hotel filter_pop_wrap">
     <ul class="header">
         <li class="btn_cancel"><a href="javascript:;">取消</a></li>
@@ -206,6 +282,7 @@
     </div>
 </div>
 
+
 <div data-rel="detail_address" class="address_detail_identity detail_pop_wrap"><!-- TODO address List -->
     <article class="cui-city-box hotel-city-box">
         <div class="fixed-wrap">
@@ -219,7 +296,7 @@
                     <div class="view" id="ui-view-18">
                         <ul class="cui-tab-mod">
                             <li data-key="1" data-index="0" class="cui-tab-current">国内城市</li>
-                           <!-- <li data-key="2" data-index="1" class="">海外城市</li>-->
+                            <!-- <li data-key="2" data-index="1" class="">海外城市</li>-->
                             <i class="cui-tab-scrollbar cui-tabnum2"></i></ul>
                     </div>
 
@@ -417,13 +494,20 @@
 
         <ul id="js_layerSearchBox_listBox" class="cui-city-associate">
             <li class="empty">对不起，没有找到数据"<span>XXX</span>"</li>
-            <li class="selectTap" data-destId="09EF55DC37095209E0531E29030A820E01A"><p class="hotel-asso-l">临汾</p><span class="hotel-asso-r">lf</span></li>
-            <li class="selectTap" data-destId="09EF55DC37095209E0531E29030A820E0B"><p class="hotel-asso-l">吕梁</p><span class="hotel-asso-r">ll</span></li>
-            <li class="selectTap" data-destId="09EF55DC37095209E0531E29030A820E01C"><p class="hotel-asso-l">辽源</p><span class="hotel-asso-r">ly</span></li>
-            <li class="selectTap" data-destId="09EF55DC37095209E0531E29030A820E01E"><p class="hotel-asso-l">丽水</p><span class="hotel-asso-r">ls</span></li>
-            <li class="selectTap" data-destId="09EF55DC37095209E0531E29030A820E01F"><p class="hotel-asso-l">龙岩</p><span class="hotel-asso-r">ly</span></li>
-            <li class="selectTap" data-destId="09EF55DC37095209E0531E29030A820E01"><p class="hotel-asso-l">柳城</p><span class="hotel-asso-r">lc</span></li>
-            <li class="selectTap" data-destId="09EF55DC37095209E0531E29030A820E01"><p class="hotel-asso-l">和布克赛尔蒙古自治县</p><span class="hotel-asso-r">hbksemgzzx</span></li>
+            <li class="selectTap" data-destId="09EF55DC37095209E0531E29030A820E01A"><p class="hotel-asso-l">临汾</p><span
+                    class="hotel-asso-r">lf</span></li>
+            <li class="selectTap" data-destId="09EF55DC37095209E0531E29030A820E0B"><p class="hotel-asso-l">吕梁</p><span
+                    class="hotel-asso-r">ll</span></li>
+            <li class="selectTap" data-destId="09EF55DC37095209E0531E29030A820E01C"><p class="hotel-asso-l">辽源</p><span
+                    class="hotel-asso-r">ly</span></li>
+            <li class="selectTap" data-destId="09EF55DC37095209E0531E29030A820E01E"><p class="hotel-asso-l">丽水</p><span
+                    class="hotel-asso-r">ls</span></li>
+            <li class="selectTap" data-destId="09EF55DC37095209E0531E29030A820E01F"><p class="hotel-asso-l">龙岩</p><span
+                    class="hotel-asso-r">ly</span></li>
+            <li class="selectTap" data-destId="09EF55DC37095209E0531E29030A820E01"><p class="hotel-asso-l">柳城</p><span
+                    class="hotel-asso-r">lc</span></li>
+            <li class="selectTap" data-destId="09EF55DC37095209E0531E29030A820E01"><p class="hotel-asso-l">
+                和布克赛尔蒙古自治县</p><span class="hotel-asso-r">hbksemgzzx</span></li>
         </ul>
 
     </article>
@@ -445,6 +529,78 @@
                 }
             });
 
+        })();
+
+        //旅行团价格范围 TODO dateRange_js
+        (function () {
+            var tourPriceRange = $('#js-tour-price-range');
+            var tourPriceRangeHidden = $('#js-tour-price-range-hidden');
+            var tourPriceRangeTag = $('#js-tour-price-range-tag');
+            $('#js-date-range-cont').boxContentInital({
+                trigger: tourPriceRange,
+                resetBtn: $('#js-date-range-cont .btn_reset a'),
+                //更新页面
+                confirmCallback: function (comfirmBtn, dataObj, handler) {
+                    var value = dataObj[0].value.replace(/,/, '-').replace('not-set', '');
+                    tourPriceRangeTag.text(dataObj[0].valueText);
+                    tourPriceRangeHidden.val(value);
+                },
+                onItemsTap: function (elem, key, val) {
+
+                }
+            });
+            tourPriceRange.displayWrap({
+                callback: function (state, wrap) {
+                    wrap && $(wrap).refresh();
+                }
+            });
+        })();
+
+        //旅行团日历
+        (function () {
+            var datePicker = $('.js-tour-datepicker');
+            var datePickerCont = $('#js-calendar-detail-content');
+            datePickerCont.calendarDatepickerInital({
+                trigger:datePicker,
+                //初始化
+                initialCallback:function(handler){
+                    clearBtn(handler.startBtn,handler.startDate,handler);
+                    clearBtn(handler.endBtn,handler.endDate,handler);
+                    handler.startBtn.find('.closer').bind('fastclick',function(e){
+                        e.stopPropagation();
+                        clearBtn(handler.startBtn,handler.startDate,handler);
+                        handler.trigger.find('.js-tour-star-day').val('');
+                    });
+                    handler.endBtn.find('.closer').bind('fastclick',function(e){
+                        e.stopPropagation();
+                        clearBtn(handler.endBtn,handler.endDate,handler);
+                        handler.trigger.find('.js-tour-end-day').val('');
+                    });
+                },
+                //选择日期回调函数
+                setDateCallback:function(handler){
+                    if(handler.isStartDateSet){
+                        showBtn(handler.startBtn,handler.startDate,handler);
+                        handler.trigger.find('.js-tour-star-day').val(handler.printFormat(handler.startDate));
+                    }
+                    if(handler.isEndDateSet) {
+                        showBtn(handler.endBtn, handler.endDate, handler);
+                        handler.trigger.find('.js-tour-end-day').val(handler.printFormat(handler.endDate));
+                    }
+                }
+            });
+            //清除日期
+            function clearBtn(target,date,handler){
+                target.addClass('InputArrow').find('.js-date-placeholder').show().siblings().hide();
+                handler.clearDate(date);
+            }
+            //显示日期
+            function showBtn(target,date,handler){
+                var tag=target.removeClass('InputArrow').find('.specific');
+                tag.find('.detail1').text(handler.printDate(date,true));
+                tag.find('.detail2').text(handler.printDay(date));
+                tag.show().siblings().hide();
+            }
         })();
 
         //酒店日期选择
@@ -477,6 +633,7 @@
             });
 
         })();
+
         //酒店星级&价格
         (function () {
             var js_hotel_filter = $('#js_hotel_filter');
@@ -513,7 +670,7 @@
             var detail_pop_trigger;
             //设置 旅游团、酒店为触发器
             //var trigger=$('#js-hotel-address,#js-tour-address');
-            var trigger=$('.js-address-trigger');
+            var trigger = $('.js-address-trigger');
 
             //选择酒店位置
             trigger.detailPop({
@@ -526,12 +683,11 @@
                      *trigger 弹出层触发按钮元素(jquery)
                      *handlder.hiddenWrap(wrap) 隐藏弹出层
                      */
-                    console.log('a');
-                    var detail_pop_wrap=wrap;
-                    var detail_pop_handler=handler;
-                    detail_pop_trigger=trigger;
-                    var detail_pop_search=$('#js-cui-adress-input');
-                    var detail_pop_search_list=$('#js_layerSearchBox_listBox');
+                    var detail_pop_wrap = wrap;
+                    var detail_pop_handler = handler;
+                    detail_pop_trigger = trigger;
+                    var detail_pop_search = $('#js-cui-adress-input');
+                    var detail_pop_search_list = $('#js_layerSearchBox_listBox');
 
                     //设置国内城市与海外城市切换
                     tab.listPannel({
@@ -562,7 +718,7 @@
                                         e.stopPropagation();
 
                                         //$(this) -->该按钮元素
-                                        ReturnToTrigger(detail_pop_trigger,$(this).attr('data-destId'),$(this).text());
+                                        ReturnToTrigger(detail_pop_trigger, $(this).attr('data-destId'), $(this).text());
                                         //关闭整个弹出层
                                         detail_pop_handler.hiddenWrap(detail_pop_wrap);
                                     });
@@ -570,10 +726,10 @@
                             });
 
                             //设置热门与当前城市按钮
-                            detail_pop_wrap.find('.js-city-tag').bind('fastclick',function(e){
+                            detail_pop_wrap.find('.js-city-tag').bind('fastclick', function (e) {
 
                                 //$(this) -->该按钮元素
-                                ReturnToTrigger(detail_pop_trigger,$(this).attr('data-destId'),$(this).text());
+                                ReturnToTrigger(detail_pop_trigger, $(this).attr('data-destId'), $(this).text());
                                 //关闭整个弹出层
                                 detail_pop_handler.hiddenWrap(detail_pop_wrap);
                             });
@@ -591,12 +747,11 @@
                     });
 
                     //搜索框输入
-                    detail_pop_search.bind('keyup',function(){
-                        console.log($(this).val());
-                        if($(this).val().length){
+                    detail_pop_search.bind('keyup', function () {
+                        if ($(this).val().length) {
                             //隐藏字母面板
                             wrap.addClass('address-detail-searching').find('.cui-city-itmes').hide();
-                        }else{
+                        } else {
                             //显示字母面板
                             wrap.removeClass('address-detail-searching').find('.cui-city-itmes').eq(0).show();
                         }
@@ -604,22 +759,22 @@
 
 
                     //搜索下拉框点击
-                    detail_pop_search_list.find('.selectTap').bind('fastclick',function(){
+                    detail_pop_search_list.find('.selectTap').bind('fastclick', function () {
                         //$(this) -->该按钮元素
-                        var text=$(this).find('.hotel-asso-l').text();
+                        var text = $(this).find('.hotel-asso-l').text();
 
-                        ReturnToTrigger(detail_pop_trigger,$(this).attr('data-destId'),text);
+                        ReturnToTrigger(detail_pop_trigger, $(this).attr('data-destId'), text);
                         //关闭整个弹出层
                         detail_pop_handler.hiddenWrap(detail_pop_wrap);
                     })
 
                 },
                 //打开弹出层
-                openCallback:function(wrap,head,trigger,handler){
-                    detail_pop_trigger=trigger;
+                openCallback: function (wrap, head, trigger, handler) {
+                    detail_pop_trigger = trigger;
                 },
                 //关闭弹出层重置
-                hiddenWrapCallback:function(wrap,head,trigger,handler){
+                hiddenWrapCallback: function (wrap, head, trigger, handler) {
                     $('#js-cui-adress-input').val('');
                     //显示字母面板
                     wrap.removeClass('address-detail-searching').find('.cui-city-itmes').eq(0).show();
@@ -636,7 +791,6 @@
                         var cityList = target.find('.js_simple_city');
                         navCont.find('li').bind('fastclick', function () {
                             var index = $(this).index();
-                            //console.log(cityList.eq(index).attr('class'));
                             if (/js_folder_city/.test(cityList.eq(index).attr('class'))) {
                                 //打开字母表
                                 cityList.eq(index).addClass('cui-arrow-open').removeClass('cui-arrow-close').siblings('.js_folder_city').addClass('cui-arrow-close').removeClass('cui-arrow-open');
@@ -660,7 +814,7 @@
             }
 
             //返回地址信息
-            function ReturnToTrigger(trigger,id,text){
+            function ReturnToTrigger(trigger, id, text) {
                 trigger.find('.js-address-tag').text(text);
                 trigger.find('.js-cityName-hidden').val(text);
                 trigger.find('.js-cityId-hidden').val(id);
