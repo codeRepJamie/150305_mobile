@@ -2021,6 +2021,9 @@
             calendar:'#calendar',
             startDatePopTitle:'最早日期',
             endDatePopTitle:'最迟日期',
+            startCalendarText:'最早',
+            endCalendarText:'最迟',
+            sameCalendarText:'最早,最迟',
             startDate: $.time.setZeroTime(new Date()),
             setStartDateCallback:null,
             setEndDateCallback:null,
@@ -2041,7 +2044,7 @@
             _handler.startBtn=_handler.trigger.find(_default.startBtn);
             _handler.endBtn=_handler.trigger.find(_default.endBtn);
             _handler.calendar=$(_this).find(_default.calendar);
-            _handler.startDate=_handler.endDate= new Date();
+            _handler.startDate=_handler.endDate= _default.startDate;
             _handler.startDate=$.time.setZeroTime(_handler.startDate);
             _handler.endDate=$.time.setZeroTime(_handler.endDate);
             _handler.isStartDateSet=false;
@@ -2063,11 +2066,11 @@
             //清空日期
             _handler.clearDate = function (date) {
                 if(date===_handler.startDate){
-                    _handler.startDate= new Date();
+                    _handler.startDate=  _default.startDate;
                     _handler.startDate=$.time.setZeroTime(_handler.startDate);
                     _handler.isStartDateSet=false;
                 }else{
-                    _handler.endDate= new Date();
+                    _handler.endDate=  _default.startDate;
                     _handler.endDate=$.time.setZeroTime(_handler.endDate);
                     _handler.isEndDateSet=false;
                 }
@@ -2106,13 +2109,16 @@
                 $(handler.calendar).find('td[class!=prevMonthDay][class!=nextMonthDay]').each(function(i,e){
                     var dateString=$(e).attr('data-time');
                     var dateTime=$.time.getCalendarTime(dateString);
-                    //console.log(handler.isStartDateSet,handler.isEndDateSet);
-                    if(dateTime.getTime()===handler.startDate.getTime()&&handler.isStartDateSet){
+                    if(dateTime.getTime()===handler.endDate.getTime()&&handler.startDate.getTime()===handler.endDate.getTime()&&handler.isStartDateSet&&handler.isEndDateSet){
                         $(e).addClass('selected');
-                        $(e).html(handler.startDate.getDate()+'<span class="date-tag">最早</span>');
+                        $(e).html(handler.startDate.getDate()+'<span class="date-tag">'+_default.sameCalendarText+'</span>');
+                    }
+                    else if(dateTime.getTime()===handler.startDate.getTime()&&handler.isStartDateSet){
+                        $(e).addClass('selected');
+                        $(e).html(handler.startDate.getDate()+'<span class="date-tag">'+_default.startCalendarText+'</span>');
                     }else if(dateTime.getTime()===handler.endDate.getTime()&&handler.isEndDateSet){
                         $(e).addClass('selected');
-                        $(e).html(handler.endDate.getDate()+'<span class="date-tag">最迟</span>');
+                        $(e).html(handler.endDate.getDate()+'<span class="date-tag">'+_default.endCalendarText+'</span>');
                     }
                     if(dateTime>=_default.startDate){
                         $(e).addClass('pq');
@@ -2139,8 +2145,14 @@
                                 handler.endDate=_dateTime;
                             }
                             if(/js-search-date-star/.test($(trigger).attr('class'))){
+                                if(!handler.isEndDateSet){
+                                    handler.endDate=handler.startDate;
+                                }
                                 _default.setStartDateCallback && _default.setStartDateCallback.call(handler.this,handler);
                             }else{
+                                if(!handler.isStartDateSet){
+                                    handler.startDate=handler.endDate;
+                                }
                                 _default.setEndDateCallback && _default.setEndDateCallback.call(handler.this,handler);
                             }
                             detail_handler.hiddenWrap(wrap);

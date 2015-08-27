@@ -560,8 +560,10 @@
         (function () {
             var datePicker = $('.js-tour-datepicker');
             var datePickerCont = $('#js-calendar-detail-content');
+
             datePickerCont.calendarDatepickerInital({
                 trigger:datePicker,
+                startDate:new Date(),
                 //初始化
                 initialCallback:function(handler){
                     clearBtn(handler.startBtn,handler.startDate,handler);

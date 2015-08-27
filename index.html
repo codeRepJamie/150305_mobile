@@ -25,7 +25,7 @@
             </div>
             <div class="cityWrap cf">
                 <span><i></i><em id="mycity" cid="1">广州</em></span>
-                <label id="lbldest" for=""><a href="javascript:void(0)" class="searchBtn"></a></label>
+                <label id="lbldest" for=""><a id="js-search-btn" data-href="search/index.html" href="javascript:void(0);" class="searchBtn"></a></label>
             </div>
             <a href="account/index.html" class="notice-account"><span>个人中心</span></a>
         </div>
@@ -195,6 +195,9 @@
 </div>
 <script>
     $(function () {
+        (function(){
+            $('#js-search-btn').switcherHref()
+        })();
         (function () {
             var imgSize = {
                 width: 0,
