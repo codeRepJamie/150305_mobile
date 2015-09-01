@@ -173,7 +173,7 @@ div.header.cf {
 }
 .navBox li {
     display: inline-block;
-    width: 20%;
+    width: 15%;
     margin-right: 2%;
     position: relative;
 }
@@ -181,9 +181,10 @@ div.header.cf {
     display: block;
 }
 .navBox li .box-img {
-   width: 66px;
-    height: 66px;
+   width: 47px;
+    height: 47px;
     margin: 15px auto 5px;
+    background-size: 95px 233px;
     animation: index_icon .4s ease-out backwards;
 }
 
@@ -210,9 +211,10 @@ div.header.cf {
     text-align: center;
     letter-spacing: 2px;
     margin-bottom: 19%;
+    font-size: 13px;
 }
 .navBox li:nth-of-type(1) .box-img{
-   background-position: 0 0;
+    background-position: 0 0;
     -webkit-animation-delay: 0.4s;
     animation-delay: 0.4s;
 }
@@ -220,15 +222,15 @@ div.header.cf {
     color: #3da2ff;
 }
 .navBox li:nth-of-type(2) .box-img{
-    background-position: -68px 0;
+    background-position: -48px 0;
     -webkit-animation-delay: 0.2s;
-    animation-delay: 0.2s;
+    animation-delay: 0.4s;
 }
 .navBox li:nth-of-type(2) h5{
     color: #31bd80;
 }
 .navBox li:nth-of-type(3) .box-img{
-    background-position: 0 -67px;
+    background-position: 0 -47px;
     -webkit-animation-delay: 0.2s;
     animation-delay: 0.2s;
 }
@@ -236,14 +238,21 @@ div.header.cf {
     color: #ffb410;
 }
 .navBox li:nth-of-type(4) .box-img{
-    background-position: -68px -67px;
+    background-position: -48px -47px;
     -webkit-animation-delay: 0.4s;
     animation-delay: 0.4s;
 }
 .navBox li:nth-of-type(4) h5{
     color: #f61d4b;
 }
-
+.navBox li:nth-of-type(5) .box-img{
+    background-position: -19px -124px;
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+.navBox li:nth-of-type(5) h5{
+    color: #9b00c8;
+}
 /*Ö÷Ìâ*/
 .topic-content{
     padding:8px;;
